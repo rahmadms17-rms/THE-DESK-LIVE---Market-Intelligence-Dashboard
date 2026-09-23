@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>THE DESK — Market Intelligence</title>
+
+    <link rel="icon" type="image/png" href="Assets/D.png">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="brand">
+
+    <img
+        src="Assets/D.png"
+        alt="THE DESK Logo"
+        class="brand-logo"
+    >
+
+    <div class="brand-info">
+
+        <div class="brand-name">
+            THE DESK
+        </div>
+
+        <div class="brand-tagline">
+            MARKET INTELLIGENCE & STRATEGIC INSIGHTS
+        </div>
+
+    </div>
+
+</div>
+
+
+    <div class="market-status">
+
+        <span class="status-dot"></span>
+
+        MARKET LIVE
+
+        <span class="time">
+            09:42 WIB
+        </span>
+
+    </div>
+
+</header>
+
+<section class="ticker live-ticker">
+
+    <div class="tradingview-tickers">
+
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script
+                type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+                async>
+            {
+                "symbols": [
+                    {
+                        "description": "Gold",
+                        "proName": "OANDA:XAUUSD"
+                    },
+                    {
+                        "description": "EUR/USD",
+                        "proName": "OANDA:EURUSD"
+                    },
+                    {
+                        "description": "USD/JPY",
+                        "proName": "OANDA:USDJPY"
+                    },
+                    {
+                        "description": "USOIL",
+                        "proName": "TVC:USOIL"
+                    },
+                    {
+                        "description": "Bitcoin",
+                        "proName": "COINBASE:BTCUSD"
+                    }
+                ],
+                "showSymbolLogo": false,
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+            </script>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script
+    type="module"
+    src="https://www.tradingview-widget.com/w/en/tv-ticker-tag.js">
+</script>
+
+
+
+
+<main class="dashboard">
+
+
+
+    <section class="chart-card">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+                <span class="label">
+                    LIVE MARKET
+                </span>
+
+                <h2>
+                    XAUUSD
+                </h2>
+
+            </div>
+
+
+            <div class="price">
+
+                <strong>
+                    4,3XX.XX
+                </strong>
+
+                <span class="up">
+                    +0.42%
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+            <div class="chart-placeholder tradingview-chart">
+
+    <div
+        class="tradingview-widget-container"
+        style="height:100%;width:100%"
+    >
+
+        <div
+            class="tradingview-widget-container__widget"
+            style="height:calc(100% - 32px);width:100%"
+        ></div>
+
+
+        <div class="tradingview-widget-copyright">
+
+            <a
+                href="https://www.tradingview.com/symbols/XAUUSD/?exchange=OANDA"
+                rel="noopener nofollow"
+                target="_blank"
+            >
+
+                XAUUSD chart by TradingView
+
+            </a>
+
+        </div>
+
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
+            async
+        >
+
+        {
+            "autosize": true,
+
+            "symbol": "OANDA:XAUUSD",
+
+            "interval": "60",
+
+            "timezone": "Asia/Jakarta",
+
+            "theme": "dark",
+
+            "backgroundColor": "rgba(15, 17, 21, 1)",
+
+            "gridColor": "rgba(255, 255, 255, 0.04)",
+
+            "style": "1",
+
+            "locale": "en",
+
+            "hide_volume": true,
+
+            "hide_top_toolbar": false,
+
+            "hide_legend": false,
+
+            "allow_symbol_change": false,
+
+            "save_image": false,
+
+            "withdateranges": true,
+
+            "hide_side_toolbar": false,
+
+            "calendar": false,
+
+            "support_host": "https://www.tradingview.com"
+        }
+
+        </script>
+
+    </div>
+
+</div>
+
+    </section>
+
+    <section class="global-markets-card">
+
+    <div class="card-header">
+        <div>
+            <span class="label">GLOBAL MARKETS</span>
+            <h2>Market Overview</h2>
+        </div>
+
+        <span class="live-badge">LIVE</span>
+    </div>
+
+    <div class="global-markets-content">
+
+        <div class="market-item">
+
+    <div class="market-name">
+        S&P 500
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "TVC:SPX",
+            "width": "220",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>US Equity Index</small>
+
+</div>
+
+        <div class="market-item">
+
+    <div class="market-name">
+        NASDAQ 100
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "CAPITALCOM:NAS100",  
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>US Technology Index</small>
+
+</div>
+
+        <div class="market-item">
+
+    <div class="market-name">
+        DOW JONES
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "CAPITALCOM:US30",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>US Industrial Index</small>
+
+</div>
+
+        <div class="market-item">
+
+    <div class="market-name">
+        BTC / USD
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "COINBASE:BTCUSD",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>Crypto Market</small>
+
+</div>
+
+        <div class="market-item">
+
+    <div class="market-name">
+        US OIL
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "TVC:USOIL",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>Crude Oil</small>
+
+</div>
+
+        <div class="market-item">
+
+    <div class="market-name">
+        EUR / USD
+    </div>
+
+    <div class="tradingview-widget-container global-market-widget">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "OANDA:EURUSD",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+
+    <small>Major FX Pair</small>
+
+</div>
+
+    </div>
+
+</section>
+
+    <section class="pulse-card">
+
+    <div class="card-header">
+
+        <div>
+            <span class="label">MARKET PULSE</span>
+            <h2>Real-Time Market Sentiment &amp; Key Assets</h2>
+        </div>
+
+        <div class="pulse-status">
+
+    <span class="session-badge" id="market-session">
+        ASIA SESSION
+    </span>
+
+    <span class="live-badge">
+        LIVE
+    </span>
+
+</div>
+
+    </div>
+
+
+    <!-- TOP MARKET CARDS -->
+
+    <div class="pulse-assets">
+
+        <!-- GOLD -->
+
+        <div class="pulse-asset">
+
+    <div class="pulse-asset-top">
+
+        <span class="pulse-icon gold-icon">Au</span>
+
+        <div>
+            <span class="pulse-name">GOLD / XAUUSD</span>
+            <strong id="pulse-gold-price">--</strong>
+        </div>
+
+    </div>
+
+    <div class="pulse-change green">
+        LIVE MARKET
+    </div>
+
+</div>
+
+
+        <!-- DXY -->
+
+        <div class="pulse-asset">
+
+            <div class="pulse-asset-top">
+
+            <div>
+        
+                    <div class="dxy-widget">
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "CAPITALCOM:DXY",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+        </script>
+    </div>
+</div>
+                </div>
+
+            </div>
+
+            <div class="pulse-mini-chart red-chart">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="pulse-change red">
+                U.S. Dollar Index
+            </div>
+
+        </div>
+
+
+        <!-- US 10Y -->
+
+        <div class="pulse-asset">
+
+            <div class="pulse-asset-top">
+
+                <div>
+                    <div class="vix-widget">
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+            async
+        >
+        {
+            "symbol": "CAPITALCOM:VIX",
+            "width": "100%",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en"
+        }
+              </script>
+
+              </div>
+
+         </div>
+                </div>
+
+            </div>
+
+            <div class="pulse-mini-chart red-chart">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="pulse-change red">
+             Market Volatility
+        </div>
+
+        </div>
+
+
+        <!-- S&P 500 -->
+
+        <div class="pulse-asset">
+
+            <div class="pulse-asset-top">
+
+                <div>
+
+                    <div class="pulse-widget-small">
+
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+
+                            <script
+                                type="text/javascript"
+                                src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"
+                                async
+                            >
+                            {
+                                "symbol": "CAPITALCOM:SPX500",
+                                "width": "100%",
+                                "colorTheme": "dark",
+                                "isTransparent": true,
+                                "locale": "en"
+                            }
+                            </script>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MARKET CONDITION -->
+
+<div class="market-condition">
+
+    <div class="condition-header">
+
+        <div>
+            <span class="label">MARKET CONDITION</span>
+            <small>Real-Time Gold Price Behavior</small>
+        </div>
+
+        <span class="live-badge">LIVE</span>
+
+    </div>
+
+    <div class="condition-grid">
+
+        <div class="condition-item">
+
+            <span>BIAS</span>
+
+            <strong id="market-bias">
+                MONITORING
+            </strong>
+
+            <small id="market-bias-description">
+                Waiting for price movement.
+            </small>
+
+        </div>
+
+        <div class="condition-item">
+
+            <span>MOMENTUM</span>
+
+            <strong id="market-momentum">
+                WAITING
+            </strong>
+
+            <small id="market-momentum-description">
+                Building market data.
+            </small>
+
+        </div>
+
+        <div class="condition-item">
+
+            <span>PRICE ACTION</span>
+
+            <strong id="market-price-action">
+                SIDEWAYS
+            </strong>
+
+            <small id="market-price-description">
+                Monitoring short-term movement.
+            </small>
+
+        </div>
+
+        <div class="condition-item">
+
+            <span>MARKET STATE</span>
+
+            <strong id="market-state">
+                MONITORING
+            </strong>
+
+            <small id="market-state-description">
+                Waiting for sufficient price data.
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- LOWER MARKET INTELLIGENCE -->
+
+    <div class="pulse-intelligence">
+
+
+        <!-- MARKET SENTIMENT -->
+
+        <div class="pulse-panel">
+
+            <div class="pulse-panel-header">
+
+                <div>
+                    <span class="pulse-label">MARKET SENTIMENT</span>
+                    <h3>Fear &amp; Greed Index</h3>
+                </div>
+
+            </div>
+
+            <div class="sentiment-meter">
+
+                <div class="sentiment-gauge">
+
+                    <div class="sentiment-arc"></div>
+
+                    <div class="sentiment-needle"></div>
+
+                    <div class="sentiment-value">
+                        <strong>62</strong>
+                        <span>Greed</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="sentiment-scale">
+
+                <span>Extreme Fear</span>
+                <span>Fear</span>
+                <span>Neutral</span>
+                <span>Greed</span>
+                <span>Extreme Greed</span>
+
+            </div>
+
+            <small class="pulse-source">
+                Market Sentiment Monitor
+            </small>
+
+        </div>
+
+
+        <!-- SECTOR PERFORMANCE -->
+
+        <div class="pulse-panel">
+
+            <div class="pulse-panel-header">
+
+                <div>
+                    <span class="pulse-label">SECTOR PERFORMANCE</span>
+                    <h3>S&amp;P 500</h3>
+                </div>
+
+            </div>
+
+
+            <div class="sector-list">
+
+                <div class="sector-row">
+                    <span>Technology</span>
+                    <div class="sector-bar">
+                        <i style="width:82%"></i>
+                    </div>
+                    <strong class="green">+0.72%</strong>
+                </div>
+
+                <div class="sector-row">
+                    <span>Communication</span>
+                    <div class="sector-bar">
+                        <i style="width:65%"></i>
+                    </div>
+                    <strong class="green">+0.58%</strong>
+                </div>
+
+                <div class="sector-row">
+                    <span>Consumer Cyclical</span>
+                    <div class="sector-bar">
+                        <i style="width:48%"></i>
+                    </div>
+                    <strong class="green">+0.36%</strong>
+                </div>
+
+                <div class="sector-row">
+                    <span>Financials</span>
+                    <div class="sector-bar">
+                        <i style="width:38%"></i>
+                    </div>
+                    <strong class="green">+0.28%</strong>
+                </div>
+
+                <div class="sector-row">
+                    <span>Industrials</span>
+                    <div class="sector-bar">
+                        <i style="width:25%"></i>
+                    </div>
+                    <strong class="green">+0.12%</strong>
+                </div>
+
+                <div class="sector-row negative">
+                    <span>Energy</span>
+                    <div class="sector-bar">
+                        <i style="width:38%"></i>
+                    </div>
+                    <strong class="red">-0.32%</strong>
+                </div>
+
+                <div class="sector-row negative">
+                    <span>Utilities</span>
+                    <div class="sector-bar">
+                        <i style="width:48%"></i>
+                    </div>
+                    <strong class="red">-0.41%</strong>
+                </div>
+
+                <div class="sector-row negative">
+                    <span>Real Estate</span>
+                    <div class="sector-bar">
+                        <i style="width:58%"></i>
+                    </div>
+                    <strong class="red">-0.48%</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAJOR MARKETS -->
+
+        <div class="pulse-panel">
+
+            <div class="pulse-panel-header">
+
+                <div>
+                    <span class="pulse-label">MAJOR MARKETS</span>
+                    <h3>Global Assets</h3>
+                </div>
+
+            </div>
+
+
+            <div class="major-market-list">
+
+                <div>
+                    <span>🇺🇸 Nasdaq</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🇺🇸 Dow Jones</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🇩🇪 DAX</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🇬🇧 FTSE 100</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🇯🇵 Nikkei 225</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🇨🇳 Shanghai</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>₿ Bitcoin</span>
+                    <strong>LIVE</strong>
+                </div>
+
+                <div>
+                    <span>🛢 Crude Oil</span>
+                    <strong>LIVE</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="insight-card">
+
+    <div class="card-header">
+
+    <div>
+        <span class="label">THE DESK INSIGHT</span>
+        <h2>Market Context</h2>
+    </div>
+
+    <span class="live-badge">LIVE</span>
+
+</div>
+
+
+<div class="insight-content">
+
+    <div class="insight-main">
+
+    <span class="insight-tag">
+        XAUUSD — LIVE MARKET CONTEXT
+    </span>
+
+    <h3 id="desk-insight-title">
+        Monitoring Gold price action...
+    </h3>
+
+    <p id="desk-insight-description">
+        THE DESK is monitoring the latest XAUUSD price movement
+        and market conditions.
+    </p>
+
+</div>
+
+
+    <div class="insight-grid">
+
+        <div class="insight-box">
+
+    <span>KEY DRIVER</span>
+
+    <strong>
+        USD &amp; Yields
+    </strong>
+
+    <small>
+        Dollar strength and Treasury yields remain important
+        variables for Gold.
+    </small>
+
+</div>
+
+
+        <div class="insight-box">
+
+    <span>MARKET FOCUS</span>
+
+    <strong id="desk-market-condition">
+        Monitoring
+    </strong>
+
+    <small id="desk-market-description">
+        Waiting for the latest price movement.
+    </small>
+
+</div>
+
+
+        <div class="insight-box">
+
+    <span>PRICE ACTION</span>
+
+    <strong id="desk-price-action">
+        Monitoring
+    </strong>
+
+    <small id="desk-price-description">
+        Reading the latest Gold price movement.
+    </small>
+
+</div>
+
+
+        <div class="insight-box">
+
+    <span>DESK VIEW</span>
+
+    <strong id="desk-view">
+        Monitor
+    </strong>
+
+    <small id="desk-view-description">
+        Observe price behavior before making a directional assessment.
+    </small>
+
+</div>
+
+    </div>
+
+</div>
+
+</section>
+
+    <section class="events-card">
+
+
+        <div class="card-header">
+    <div>
+        <span class="label">TODAY'S EVENTS</span>
+        <h2>Economic Calendar</h2>
+    </div>
+
+    <span class="live-badge">LIVE</span>
+</div>
+
+<div class="economic-calendar">
+
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+
+        <div class="tradingview-widget-copyright">
+            <a
+                href="https://www.tradingview.com/markets/currencies/economic-calendar/"
+                rel="noopener nofollow"
+                target="_blank"
+            >
+                Economic Calendar
+            </a>
+            by TradingView
+        </div>
+
+        <script
+            type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-events.js"
+            async
+        >
+        {
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "width": "100%",
+            "height": "600",
+            "locale": "en",
+            "importanceFilter": "0,1",
+            "currencyFilter": "USD,EUR,GBP,JPY,CNY"
+        }
+        </script>
+
+    </div>
+
+</div>
+
+
+    </section>
+
+    <section class="world-market-card">
+
+    <div class="card-header">
+
+        <div>
+            <span class="label">THE DESK — WORLD MARKET</span>
+            <h2>Global Market Summary</h2>
+        </div>
+
+        <span class="live-badge">LIVE</span>
+
+    </div>
+
+    <div class="world-market-content">
+
+        <script
+    type="module"
+    src="https://widgets.tradingview-widget.com/w/en/tv-world-market-summary.js"
+></script>
+
+<tv-world-market-summary></tv-world-market-summary>
+
+    </div>
+
+</section>
+
+</section>
+
+<section class="news-card">
+
+    <div class="card-header">
+
+        <div>
+            <span class="label">THE DESK — MARKET NEWS</span>
+            <h2>Gold &amp; Global Markets</h2>
+        </div>
+
+        <span class="live-badge">LIVE</span>
+
+    </div>
+
+    <div class="news-content">
+
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script
+                type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+                async
+            >
+            {
+                "feedMode": "symbol",
+                "symbol": "OANDA:XAUUSD",
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "displayMode": "regular",
+                "width": "100%",
+                "height": "600",
+                "locale": "en"
+            }
+            </script>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<section class="desk-cta">
+
+    <span class="label">THE DESK — MARKET INTELLIGENCE</span>
+
+    <h2>Understand the Market<br>Before You Trade It.</h2>
+
+    <p>
+        Real-time market data, market insights,
+        and educational resources from THE DESK.
+    </p>
+
+    <a
+    href="mailto:emailkamu@gmail.com?subject=THE%20DESK%20LIVE%20Inquiry&body=Halo%20THE%20DESK,%0A%0ASaya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut."
+    class="desk-cta-button"
+>
+    CONTACT THE DESK
+</a>
+
+</section>
+
+<section class="desk-about">
+
+    <div class="desk-about-header">
+        <span class="label">ABOUT THE DESK</span>
+
+        <h2>Market Intelligence.<br>Clarity Before Action.</h2>
+
+        <p>
+            THE DESK is a market intelligence platform focused on
+            real-time market data, global market movements,
+            market context, and educational insights.
+        </p>
+    </div>
+
+    <div class="desk-about-grid">
+
+        <div class="desk-about-item">
+            <span class="desk-about-number">01</span>
+
+            <h3>REAL-TIME DATA</h3>
+
+            <p>
+                Monitor key assets and major markets
+                through live market data.
+            </p>
+        </div>
+
+        <div class="desk-about-item">
+            <span class="desk-about-number">02</span>
+
+            <h3>MARKET INTELLIGENCE</h3>
+
+            <p>
+                Understand market context, sentiment,
+                volatility, and key drivers.
+            </p>
+        </div>
+
+        <div class="desk-about-item">
+            <span class="desk-about-number">03</span>
+
+            <h3>EDUCATION</h3>
+
+            <p>
+                Build a clearer framework for understanding
+                the market before making decisions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY THE DESK -->
+
+<section class="desk-why">
+
+    <div class="desk-why-header">
+
+        <span class="label">WHY THE DESK</span>
+
+        <h2>
+            More Than Market Data.
+        </h2>
+
+        <p>
+            THE DESK combines real-time market information,
+            market context, and practical education to help
+            traders understand what is happening before they act.
+        </p>
+
+    </div>
+
+
+    <div class="desk-why-grid">
+
+        <div class="desk-why-card">
+
+            <span class="desk-why-number">01</span>
+
+            <h3>MARKET CONTEXT</h3>
+
+            <p>
+                Understand the forces moving Gold,
+                currencies, indices, and global markets.
+            </p>
+
+        </div>
+
+
+        <div class="desk-why-card">
+
+            <span class="desk-why-number">02</span>
+
+            <h3>REAL-TIME INTELLIGENCE</h3>
+
+            <p>
+                Monitor market conditions, key assets,
+                economic events, and important market movements.
+            </p>
+
+        </div>
+
+
+        <div class="desk-why-card">
+
+            <span class="desk-why-number">03</span>
+
+            <h3>TRADING FRAMEWORK</h3>
+
+            <p>
+                Build a clearer framework for reading the market
+                before making trading decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="desk-work">
+
+    <div class="desk-work-header">
+        <span class="label">WORK WITH THE DESK</span>
+
+        <h2>Choose Your Path.</h2>
+
+        <p>
+            Whether you are looking for market insights
+            or interested in building a strategic partnership.
+        </p>
+    </div>
+
+    <div class="desk-work-grid">
+
+        <div class="desk-work-card">
+
+            <span class="desk-work-number">01</span>
+
+            <h3>FOR TRADERS</h3>
+
+            <p>
+                Access real-time market intelligence, educational insights,
+                and a structured environment to understand the market
+                before you trade.
+
+            </p>
+
+            <a
+    href="mailto:EMAILKAMU@gmail.com?subject=THE%20DESK%20-%20Trader%20Inquiry&body=Hello%20THE%20DESK,%0A%0AMy%20name:%20%0AMy%20trading%20experience:%20%0AMain%20instrument:%20%0AWhat%20I%20am%20looking%20for:%20%0A%0AThank%20you."
+    class="desk-work-link"
+>
+    CONTACT THE DESK →
+</a>
+
+        </div>
+
+
+        <div class="desk-work-card">
+
+            <span class="desk-work-number">02</span>
+
+            <h3>FOR PARTNERS</h3>
+
+            <p>
+                Explore IB opportunities, strategic partnerships, and
+                long-term collaboration with THE DESK.
+            </p>
+
+            <a
+                href="mailto:rahmadms79@gmail.com?subject=THE%20DESK%20Partnership%20Inquiry"
+                class="desk-work-link"
+            >
+                PARTNER WITH US →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <strong>
+        THE DESK
+    </strong>
+
+    <span>
+        Market Intelligence
+    </span>
+
+    <span>
+        © 2026
+    </span>
+
+    
+</footer>
+
+
+
+<script
+    type="module"
+    src="https://widgets.tradingview-widget.com/w/loader.js"
+></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
+
