@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="THE DESK - Market Intelligence & Strategic Insights">
+
+    <meta name="theme-color" content="#080a0d">
+
+    <title>THE DESK — Market Intelligence</title>
+
+    <link rel="icon" type="image/png" href="Assets/D.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="site-header">
+
+        <div class="header-brand">
+
+            <a href="#" class="brand">
+
+                <img src="Assets/D.jpg" alt="THE DESK" class="brand-logo">
+
+                <div class="brand-copy">
+
+                    <div class="brand-name">
+                        THE DESK
+                    </div>
+
+                    <div class="brand-tagline" data-i18n="tagline">
+                        MARKET INTELLIGENCE & STRATEGIC INSIGHTS
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="header-market-status">
+
+            <span class="live-dot"></span>
+
+            <span data-i18n="marketLive">
+                MARKET LIVE
+            </span>
+
+            <span class="header-time" id="desk-clock">
+                --:--:-- WIB
+            </span>
+
+        </div>
+
+
+        <div class="header-language">
+
+            <button class="language-button active" id="lang-id" onclick="setLanguage('id')">
+                ID
+            </button>
+
+            <span>/</span>
+
+            <button class="language-button" id="lang-en" onclick="setLanguage('en')">
+                EN
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         MARKET TICKER
+    ================================= -->
+
+    <section class="market-ticker">
+
+        <div class="tradingview-widget-container">
+
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {
+                                "description": "Gold",
+                                "proName": "OANDA:XAUUSD"
+                            },
+                            {
+                                "description": "EUR/USD",
+                                "proName": "OANDA:EURUSD"
+                            },
+                            {
+                                "description": "USD/JPY",
+                                "proName": "OANDA:USDJPY"
+                            },
+                            {
+                                "description": "US Oil",
+                                "proName": "TVC:USOIL"
+                            },
+                            {
+                                "description": "Bitcoin",
+                                "proName": "BITSTAMP:BTCUSD"
+                            },
+                            {
+                                "description": "S&P 500",
+                                "proName": "FOREXCOM:SPXUSD"
+                            }
+                        ],
+                            "showSymbolLogo": true,
+                                "colorTheme": "dark",
+                                    "isTransparent": true,
+                                        "displayMode": "adaptive",
+                                            "locale": "en"
+                    }
+                </script>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         DAILY BRIEF
+    ================================= -->
+
+    <section class="daily-brief">
+
+        <div class="daily-brief-header">
+
+            <div>
+
+                <span class="section-label">
+                    THE DESK DAILY BRIEF
+                </span>
+
+                <h1 data-i18n="briefTitle">
+                    Market Snapshot
+                </h1>
+
+                <p data-i18n="briefSubtitle">
+                    A concise view of what is driving the market today.
+                </p>
+
+            </div>
+
+
+            <div class="daily-brief-date">
+
+                <span data-i18n="marketDate">
+                    MARKET DATE
+                </span>
+
+                <strong id="desk-date">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="daily-brief-grid">
+
+            <div class="daily-brief-item">
+
+                <span class="daily-label" data-i18n="marketFocus">
+                    MARKET IN FOCUS
+                </span>
+
+                <strong>
+                    XAUUSD
+                </strong>
+
+                <p data-i18n="goldFocus">
+                    Gold remains one of the key markets to monitor.
+                </p>
+
+            </div>
+
+
+            <div class="daily-brief-item">
+
+                <span class="daily-label" data-i18n="marketRegime">
+                    MARKET REGIME
+                </span>
+
+                <strong id="brief-regime">
+                    MONITORING
+                </strong>
+
+                <p id="brief-regime-text">
+                    Waiting for clearer confirmation from price action.
+                </p>
+
+            </div>
+
+
+            <div class="daily-brief-item">
+
+                <span class="daily-label" data-i18n="whatWatch">
+                    WHAT TO WATCH
+                </span>
+
+                <p id="what-to-watch">
+                    Gold Price Action<br>
+                    U.S. Dollar<br>
+                    Treasury Yields
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         MAIN DASHBOARD
+    ================================= -->
+
+    <main class="dashboard">
+
+
+        <!-- ================================
+             XAUUSD
+        ================================= -->
+
+        <section class="desk-card gold-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        XAUUSD
+                    </span>
+
+                    <h2 data-i18n="goldMarket">
+                        Gold Market
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="gold-summary">
+
+                <div>
+
+                    <span class="small-label">
+                        GOLD PRICE
+                    </span>
+
+                    <div class="gold-price" id="gold-price">
+                        --
+                    </div>
+
+                </div>
+
+
+                <div class="gold-meta">
+
+                    <span>
+                        OANDA:XAUUSD
+                    </span>
+
+                    <span id="gold-updated">
+                        Updating...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="gold-chart">
+
+                <div class="tradingview-widget-container">
+
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                                "autosize": true,
+                                    "symbol": "OANDA:XAUUSD",
+                                        "interval": "60",
+                                            "timezone": "Asia/Jakarta",
+                                                "theme": "dark",
+                                                    "backgroundColor": "rgba(8,10,13,1)",
+                                                        "gridColor": "rgba(255,255,255,0.035)",
+                                                            "style": "1",
+                                                                "locale": "en",
+                                                                    "hide_volume": true,
+                                                                        "allow_symbol_change": false,
+                                                                            "calendar": false
+                            }
+                        </script>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             GLOBAL MARKETS
+        ================================= -->
+
+        <section class="desk-card global-markets-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        THE DESK
+                    </span>
+
+                    <h2 data-i18n="globalMarkets">
+                        Global Markets
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="global-markets-grid">
+
+                <div class="global-market-item">
+
+                    <span>
+                        S&amp;P 500
+                    </span>
+
+                    <strong id="sp500-price">
+                        --
+                    </strong>
+
+                    <small>
+                        US Equity Index
+                    </small>
+
+                </div>
+
+
+                <div class="global-market-item">
+
+                    <span>
+                        NASDAQ 100
+                    </span>
+
+                    <strong id="nasdaq-price">
+                        --
+                    </strong>
+
+                    <small>
+                        US Technology Index
+                    </small>
+
+                </div>
+
+
+                <div class="global-market-item">
+
+                    <span>
+                        DOW JONES
+                    </span>
+
+                    <strong id="dow-price">
+                        --
+                    </strong>
+
+                    <small>
+                        US Industrial Index
+                    </small>
+
+                </div>
+
+
+                <div class="global-market-item">
+
+                    <span>
+                        BTC / USD
+                    </span>
+
+                    <strong id="btc-price">
+                        --
+                    </strong>
+
+                    <small>
+                        Crypto Market
+                    </small>
+
+                </div>
+
+
+                <div class="global-market-item">
+
+                    <span>
+                        US OIL
+                    </span>
+
+                    <strong id="oil-price">
+                        --
+                    </strong>
+
+                    <small>
+                        Crude Oil
+                    </small>
+
+                </div>
+
+
+                <div class="global-market-item">
+
+                    <span>
+                        EUR / USD
+                    </span>
+
+                    <strong id="eurusd-price">
+                        --
+                    </strong>
+
+                    <small>
+                        Major FX Pair
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-status">
+
+                <span>
+                    DATA
+                </span>
+
+                <strong id="global-data-status">
+                    CONNECTING
+                </strong>
+
+                <span id="global-data-time">
+                    --
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             THE DESK INSIGHT
+        ================================= -->
+
+        <section class="desk-card insight-card full-width">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        THE DESK INSIGHT
+                    </span>
+
+                    <h2 data-i18n="marketContext">
+                        Market Context
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="insight-main">
+
+                <span class="insight-tag">
+                    XAUUSD — LIVE MARKET CONTEXT
+                </span>
+
+                <h3 id="desk-insight-title">
+                    Monitoring Gold price action...
+                </h3>
+
+                <p id="desk-insight-description">
+                    THE DESK is monitoring the latest XAUUSD price movement
+                    and broader market conditions.
+                </p>
+
+            </div>
+
+
+            <div class="insight-grid">
+
+                <div class="insight-box">
+
+                    <span>
+                        KEY DRIVER
+                    </span>
+
+                    <strong>
+                        USD &amp; Yields
+                    </strong>
+
+                    <small>
+                        Dollar strength and Treasury yields remain
+                        important variables for Gold.
+                    </small>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <span>
+                        MARKET FOCUS
+                    </span>
+
+                    <strong id="desk-market-condition">
+                        Monitoring
+                    </strong>
+
+                    <small id="desk-market-description">
+                        Waiting for the latest price movement.
+                    </small>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <span>
+                        PRICE ACTION
+                    </span>
+
+                    <strong id="desk-price-action">
+                        Monitoring
+                    </strong>
+
+                    <small id="desk-price-description">
+                        Reading the latest Gold price movement.
+                    </small>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <span>
+                        DESK VIEW
+                    </span>
+
+                    <strong id="desk-view">
+                        Observe
+                    </strong>
+
+                    <small id="desk-view-description">
+                        Observe price behavior before making
+                        a directional assessment.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             ECONOMIC CALENDAR
+        ================================= -->
+
+        <section class="desk-card full-width">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        TODAY'S EVENTS
+                    </span>
+
+                    <h2 data-i18n="economicCalendar">
+                        Economic Calendar
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="large-widget economic-calendar-widget">
+
+                <div class="tradingview-widget-container">
+
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                            {
+                                "colorTheme": "dark",
+                                    "isTransparent": true,
+                                        "width": "100%",
+                                            "height": 600,
+                                                "locale": "en",
+                                                    "importanceFilter": "0,1",
+                                                        "currencyFilter": "USD,EUR,GBP,JPY,CNY"
+                            }
+                        </script>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MARKET NEWS
+        ================================= -->
+
+        <section class="desk-card full-width">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        THE DESK
+                    </span>
+
+                    <h2 data-i18n="marketNews">
+                        Market News
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="large-widget market-news-widget">
+
+                <div class="tradingview-widget-container">
+
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                            {
+                                "feedMode": "symbol",
+                                    "symbol": "OANDA:XAUUSD",
+                                        "colorTheme": "dark",
+                                            "isTransparent": true,
+                                                "displayMode": "regular",
+                                                    "width": "100%",
+                                                        "height": 600,
+                                                            "locale": "en"
+                            }
+                        </script>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MARKET CONDITION
+        ================================= -->
+
+        <section class="desk-card condition-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        THE DESK
+                    </span>
+
+                    <h2 data-i18n="marketCondition">
+                        Market Condition
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="condition-main">
+
+                <div class="condition-status" id="condition-status">
+                    MONITORING
+                </div>
+
+                <p id="condition-description">
+                    Waiting for stronger confirmation from price action.
+                </p>
+
+            </div>
+
+
+            <div class="condition-grid">
+
+                <div>
+
+                    <span>
+                        BIAS
+                    </span>
+
+                    <strong id="condition-bias">
+                        NEUTRAL
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        MOMENTUM
+                    </span>
+
+                    <strong id="condition-momentum">
+                        MODERATE
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        RISK
+                    </span>
+
+                    <strong id="condition-risk">
+                        CONTROLLED
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             MARKET SENTIMENT
+        ================================= -->
+
+        <section class="desk-card sentiment-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        THE DESK
+                    </span>
+
+                    <h2 data-i18n="marketSentiment">
+                        Market Sentiment
+                    </h2>
+
+                </div>
+
+                <span class="live-badge">
+                    LIVE
+                </span>
+
+            </div>
+
+
+            <div class="sentiment-top">
+
+                <div>
+
+                    <span class="small-label">
+                        CURRENT SENTIMENT
+                    </span>
+
+                    <strong id="sentiment-score">
+                        70
+                    </strong>
+
+                </div>
+
+
+                <div class="sentiment-regime">
+
+                    <span>
+                        REGIME
+                    </span>
+
+                    <strong id="sentiment-regime">
+                        GREED
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="sentiment-track">
+
+                <div class="sentiment-marker" id="sentiment-marker" style="left: 70%;"></div>
+
+            </div>
+
+
+            <div class="sentiment-labels">
+
+                <span>EXTREME FEAR</span>
+                <span>FEAR</span>
+                <span>NEUTRAL</span>
+                <span>GREED</span>
+                <span>EXTREME GREED</span>
+
+            </div>
+
+
+            <div class="assessment">
+
+                <span class="small-label">
+                    THE DESK ASSESSMENT
+                </span>
+
+                <p id="sentiment-description">
+                    Market sentiment is currently leaning toward
+                    risk-on conditions.
+                </p>
+
+            </div>
+
+
+            <div class="sentiment-meta">
+
+                <div>
+
+                    <span>
+                        RISK APPETITE
+                    </span>
+
+                    <strong id="risk-appetite">
+                        HIGH
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        MARKET TONE
+                    </span>
+
+                    <strong id="market-tone">
+                        RISK ON
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <strong>
+                        LIVE
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         CTA
+    ================================= -->
+
+    <section class="desk-cta">
+
+        <span class="section-label">
+            THE DESK — MARKET INTELLIGENCE
+        </span>
+
+        <h2 data-i18n="ctaTitle">
+            Understand the Market.<br>
+            Before You Trade It.
+        </h2>
+
+        <p data-i18n="ctaText">
+            Real-time market data, market context and
+            educational insights in one place.
+        </p>
+
+        <a href="#" class="cta-button" onclick="openDeskAccount(); return false;" data-i18n="ctaButton">
+            OPEN ACCOUNT
+        </a>
+
+    </section>
+
+
+    <!-- ================================
+         ABOUT
+    ================================= -->
+
+    <section class="desk-about">
+
+        <div class="about-copy">
+
+            <span class="section-label">
+                ABOUT THE DESK
+            </span>
+
+            <h2>
+                Market Intelligence.<br>
+                Clarity Before Action.
+            </h2>
+
+            <p data-i18n="aboutText">
+                THE DESK menggabungkan data market,
+                konteks pergerakan global dan insight
+                edukasi dalam satu pengalaman yang terstruktur.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div>
+
+                <span>01</span>
+
+                <h3>
+                    REAL-TIME DATA
+                </h3>
+
+                <p>
+                    Monitor key assets and major markets
+                    through live market data.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span>02</span>
+
+                <h3>
+                    MARKET CONTEXT
+                </h3>
+
+                <p>
+                    Understand what may be driving
+                    price action across markets.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span>03</span>
+
+                <h3>
+                    EDUCATION
+                </h3>
+
+                <p>
+                    Build market understanding before
+                    taking action.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         WORK WITH THE DESK
+    ================================= -->
+
+    <section class="desk-work">
+
+        <div class="work-copy">
+
+            <span class="section-label">
+                WORK WITH THE DESK
+            </span>
+
+            <h2>
+                Choose Your Path.
+            </h2>
+
+            <p>
+                For traders, market learners and people
+                who want to understand the market better.
+            </p>
+
+        </div>
+
+
+        <div class="work-grid">
+
+            <div class="work-card">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    FOR TRADERS
+                </h3>
+
+                <p>
+                    Access market intelligence,
+                    structured context and educational
+                    resources before you trade.
+                </p>
+
+                <a href="mailto:rahmadms79@gmail.com?subject=THE%20DESK%20-%20Trader%20Inquiry" class="text-link">
+                    CONTACT THE DESK →
+                </a>
+
+            </div>
+
+
+            <div class="work-card">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    OPEN AN AIMS ACCOUNT
+                </h3>
+
+                <p>
+                    Continue from market intelligence
+                    to the AIMS trading ecosystem.
+                </p>
+
+                <a href="#" onclick="openDeskAccount(); return false;" class="text-link">
+                    OPEN ACCOUNT →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <strong>
+            THE DESK
+        </strong>
+
+        <span>
+            Market Intelligence
+        </span>
+
+        <span>
+            © 2026
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
