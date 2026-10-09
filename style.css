@@ -1485,3 +1485,117 @@ footer strong {
     width: 100%;
     height: 100%;
 }
+
+
+/* THE DESK WORLD MARKET */
+
+.world-market-section {
+    width: min(1800px, 96%);
+    margin: 24px auto;
+    background: #111418;
+    border: 1px solid #252a30;
+    border-radius: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.world-market-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    border-bottom: 1px solid #252a30;
+}
+
+.world-market-header .section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #c7a45b;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.world-market-header h2 {
+    margin: 0;
+    color: #f2f0e8;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.world-market-header p {
+    margin: 7px 0 0;
+    color: #8f9298;
+    font-size: 11px;
+}
+
+.world-market-live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border: 1px solid rgba(53, 168, 117, 0.3);
+    color: #35a875;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.world-market-live span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #35a875;
+}
+
+
+.world-market-widget {
+    width: 100%;
+    height: 420px;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.world-market-widget tv-world-market-summary {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .world-market-widget {
+        height: 350px;
+        padding: 8px;
+    }
+
+    .world-market-widget tv-world-market-summary {
+        height: 100%;
+        min-height: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .world-market-section {
+        width: 94%;
+    }
+
+    .world-market-header {
+        padding: 18px;
+    }
+
+    .world-market-header h2 {
+        font-size: 17px;
+    }
+
+    .world-market-widget {
+        padding: 8px;
+        min-height: 420px;
+    }
+
+    .world-market-widget tv-world-market-summary {
+        min-height: 400px;
+    }
+}

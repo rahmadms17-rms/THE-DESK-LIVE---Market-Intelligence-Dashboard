@@ -553,6 +553,9 @@ function updateMarketCondition(price) {
 
     const data = window.DESK_MARKET_DATA;
 
+    const status = document.getElementById("condition-status");
+    const description = document.getElementById("condition-description");
+
     const bias = document.getElementById("condition-bias");
     const momentum = document.getElementById("condition-momentum");
     const risk = document.getElementById("condition-risk");
@@ -561,9 +564,26 @@ function updateMarketCondition(price) {
     const briefRegimeText = document.getElementById("brief-regime-text");
 
     if (!data) {
-        if (bias) bias.textContent = "NEUTRAL";
-        if (momentum) momentum.textContent = "MODERATE";
-        if (risk) risk.textContent = "CONTROLLED";
+        if (status) {
+            status.textContent = "MONITORING";
+        }
+
+        if (description) {
+            description.textContent =
+                "Waiting for stronger confirmation from price action.";
+        }
+
+        if (bias) {
+            bias.textContent = "NEUTRAL";
+        }
+
+        if (momentum) {
+            momentum.textContent = "MODERATE";
+        }
+
+        if (risk) {
+            risk.textContent = "CONTROLLED";
+        }
 
         if (briefRegime) {
             briefRegime.textContent = "MONITORING";
@@ -612,6 +632,7 @@ function updateMarketCondition(price) {
     let marketBias = "NEUTRAL";
     let marketMomentum = "MODERATE";
     let marketRisk = "CONTROLLED";
+
     let regimeDescription =
         "Market signals remain mixed across major risk-sensitive assets.";
 
@@ -620,15 +641,26 @@ function updateMarketCondition(price) {
         marketBias = "DEFENSIVE";
         marketMomentum = "WEAK";
         marketRisk = "ELEVATED";
+
         regimeDescription =
             "Risk appetite is weakening as major risk-sensitive markets trade lower.";
+
     } else if (positive >= 4) {
         regime = "RISK ON";
         marketBias = "RISK ON";
         marketMomentum = "FIRM";
         marketRisk = "CONTROLLED";
+
         regimeDescription =
             "Risk appetite is improving as major risk-sensitive markets trade higher.";
+    }
+
+    if (status) {
+        status.textContent = regime;
+    }
+
+    if (description) {
+        description.textContent = regimeDescription;
     }
 
     if (bias) {
