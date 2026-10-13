@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="Pelajari NFP, tingkat pengangguran, pertumbuhan upah, dan dampak data tenaga kerja AS terhadap pasar keuangan bersama THE DESK Academy.">
+
+  <title>Module 04 - NFP & Labor Market | THE DESK</title>
+
+  <style>
+    :root {
+      --bg: #090b0e;
+      --panel: #11151a;
+      --border: #292f37;
+      --gold: #c9a45c;
+      --gold-light: #e4c27d;
+      --text: #eef1f5;
+      --muted: #a3adba;
+      --muted-dark: #7f8996;
+      --green: #42c994;
+      --red: #f07878;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100% - 40px, 912px);
+      margin: 0 auto;
+      padding: 44px 0 70px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 44px;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .back-link:hover {
+      color: var(--gold-light);
+    }
+
+    .eyebrow,
+    .section-number {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      margin-top: 16px;
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .meta-item {
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .article-section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      margin-top: 8px;
+      font-size: 23px;
+      line-height: 1.4;
+    }
+
+    h3 {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .article-section p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .article-section strong {
+      color: var(--text);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .concept-card {
+      padding: 17px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
+
+    .concept-label {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .concept-card h3 {
+      margin-top: 8px;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    .concept-card p {
+      margin-top: 0;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .insight {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: var(--panel);
+      border: 1px solid #423723;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+    }
+
+    .insight-label {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .insight p {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .example-box {
+      margin-top: 18px;
+      padding: 20px;
+      background: #0e1115;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
+
+    .example-box h3 {
+      margin-top: 0;
+      color: var(--gold);
+    }
+
+    .example-box p {
+      margin-top: 10px;
+    }
+
+    .data-table {
+      width: 100%;
+      margin-top: 18px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 12px 10px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background: var(--panel);
+      color: var(--gold);
+    }
+
+    .data-table td {
+      color: var(--muted);
+    }
+
+    .quiz-section {
+      padding-top: 38px;
+    }
+
+    .quiz-intro {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quiz-progress {
+      height: 4px;
+      margin-top: 22px;
+      overflow: hidden;
+      background: #242a32;
+      border-radius: 10px;
+    }
+
+    .quiz-progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      transition: width .2s ease;
+    }
+
+    .question-card {
+      margin-top: 18px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .question-number {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .question-card h3 {
+      margin-top: 9px;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px 13px;
+      background: #0c0f13;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color .15s ease;
+    }
+
+    .option:hover {
+      border-color: #655333;
+    }
+
+    .option input {
+      margin-top: 5px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .option span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .option:has(input:checked) {
+      border-color: var(--gold);
+    }
+
+    .option:has(input:checked) span {
+      color: var(--text);
+    }
+
+    .option.correct {
+      border-color: var(--green);
+    }
+
+    .option.incorrect {
+      border-color: var(--red);
+    }
+
+    .explanation {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      background: #0c0f13;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.85;
+    }
+
+    .explanation.show {
+      display: block;
+    }
+
+    .explanation strong {
+      color: var(--gold);
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--gold);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #090b0e;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result-status {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .result-score {
+      margin-top: 8px;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .result-message {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .next-panel {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      background: #111711;
+      border: 1px solid #294c3d;
+      border-radius: 6px;
+    }
+
+    .next-panel.show {
+      display: block;
+    }
+
+    .next-panel h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .next-panel p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .premium-panel {
+      margin-top: 38px;
+      padding: 24px;
+      background: #11120f;
+      border: 1px solid #383126;
+      border-radius: 6px;
+    }
+
+    .premium-label {
+      color: #b79a5e;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .premium-panel h2 {
+      font-size: 20px;
+    }
+
+    .premium-panel p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .bottom-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 48px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-dark);
+      font-size: 11px;
+    }
+
+    footer strong {
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: min(100% - 32px, 912px);
+        padding-top: 28px;
+      }
+
+      .back-link {
+        margin-bottom: 35px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 17px;
+      }
+
+      .bottom-navigation {
+        flex-direction: column;
+      }
+
+      .bottom-navigation .btn {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <a class="back-link" href="macro.html">
+      ← Back to Macro &amp; News Impact
+    </a>
+
+    <header class="hero">
+      <div class="eyebrow">THE DESK ACADEMY · MODULE 04</div>
+
+      <h1>NFP &amp;<br>Labor Market.</h1>
+
+      <p class="hero-description">
+        Pahami data tenaga kerja Amerika Serikat, mulai dari
+        Nonfarm Payrolls, tingkat pengangguran, hingga pertumbuhan
+        upah dan implikasinya terhadap ekspektasi kebijakan moneter.
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-item">FREE · BASIC</span>
+        <span class="meta-item">BEGINNER</span>
+        <span class="meta-item">8 MIN READ</span>
+      </div>
+    </header>
+
+    <!-- SECTION 01 -->
+    <section class="article-section">
+      <div class="section-number">01 · Labor Market</div>
+      <h2>Mengapa Pasar Tenaga Kerja Penting?</h2>
+
+      <p>
+        Pasar tenaga kerja memberikan gambaran tentang kondisi
+        pekerjaan, pendapatan rumah tangga, dan aktivitas ekonomi.
+        Pertumbuhan pekerjaan yang kuat dapat mendukung konsumsi,
+        sedangkan pelemahan tenaga kerja dapat menjadi sinyal
+        perlambatan ekonomi.
+      </p>
+
+      <p>
+        Di Amerika Serikat, data tenaga kerja diperhatikan karena
+        kondisi ketenagakerjaan merupakan salah satu pertimbangan
+        penting dalam kebijakan Federal Reserve. Namun, data tenaga
+        kerja perlu dibaca bersama inflasi, pertumbuhan ekonomi,
+        dan perkembangan keuangan lainnya.
+      </p>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <p>
+          Data tenaga kerja membantu menilai kesehatan ekonomi,
+          tetapi satu angka saja tidak cukup untuk menentukan
+          arah kebijakan The Fed maupun pergerakan pasar.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 02 -->
+    <section class="article-section">
+      <div class="section-number">02 · Nonfarm Payrolls</div>
+      <h2>Memahami NFP</h2>
+
+      <p>
+        Nonfarm Payrolls atau NFP adalah data perubahan jumlah
+        pekerja pada sektor nonpertanian di Amerika Serikat.
+        Data ini diterbitkan oleh U.S. Bureau of Labor Statistics
+        sebagai bagian dari laporan Employment Situation.
+      </p>
+
+      <p>
+        NFP berasal dari survei perusahaan atau establishment
+        survey. Angkanya bukan jumlah seluruh orang yang bekerja
+        di Amerika Serikat, dan tidak mencakup seluruh kategori
+        pekerjaan. Karena merupakan estimasi statistik, data
+        awal juga dapat direvisi pada rilis berikutnya.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-label">Above Forecast</div>
+          <h3>Lebih Kuat dari Perkiraan</h3>
+          <p>
+            Pertambahan pekerjaan melampaui ekspektasi. Hal ini
+            dapat mendukung penilaian bahwa pasar tenaga kerja
+            masih relatif kuat.
+          </p>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-label">Below Forecast</div>
+          <h3>Lebih Lemah dari Perkiraan</h3>
+          <p>
+            Pertambahan pekerjaan di bawah ekspektasi. Hasil ini
+            dapat meningkatkan perhatian terhadap kemungkinan
+            perlambatan pasar tenaga kerja.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Perbandingan dengan forecast penting karena pasar telah
+        membentuk ekspektasi sebelum pengumuman. NFP yang positif
+        secara nominal belum tentu dianggap kuat jika hasilnya
+        jauh di bawah perkiraan pasar.
+      </p>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <p>
+          Jangan hanya bertanya apakah NFP bertambah atau berkurang.
+          Periksa juga apakah hasilnya melampaui ekspektasi,
+          bagaimana data sebelumnya direvisi, dan apa yang
+          ditunjukkan oleh komponen laporan lainnya.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 03 -->
+    <section class="article-section">
+      <div class="section-number">03 · Unemployment Rate</div>
+      <h2>Memahami Unemployment Rate</h2>
+
+      <p>
+        Unemployment Rate adalah persentase angkatan kerja yang
+        tidak memiliki pekerjaan, tersedia untuk bekerja, dan
+        sedang mencari pekerjaan sesuai definisi statistik yang
+        digunakan. Di AS, angka ini berasal dari household survey.
+      </p>
+
+      <p>
+        Karena NFP dan Unemployment Rate berasal dari dua survei
+        berbeda, keduanya dapat bergerak ke arah yang berbeda
+        dalam satu laporan. Perbedaan tersebut tidak otomatis
+        menunjukkan bahwa salah satu data salah.
+      </p>
+
+      <div class="example-box">
+        <h3>Contoh Interpretasi</h3>
+
+        <p>
+          NFP dapat menunjukkan pertambahan pekerjaan yang kuat,
+          sementara Unemployment Rate meningkat. Untuk memahami
+          perbedaan ini, analis dapat memeriksa partisipasi
+          angkatan kerja, jumlah orang yang masuk atau keluar
+          dari angkatan kerja, serta rincian survei lainnya.
+        </p>
+
+        <p>
+          Karena itu, interpretasi yang baik mempertimbangkan
+          keseluruhan laporan dan tidak langsung menyimpulkan
+          kondisi ekonomi dari satu indikator.
+        </p>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <p>
+          NFP dan Unemployment Rate mengukur aspek berbeda dari
+          pasar tenaga kerja. Keduanya perlu dibaca bersama,
+          bukan diperlakukan sebagai angka yang harus selalu
+          bergerak searah.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 04 -->
+    <section class="article-section">
+      <div class="section-number">04 · Average Hourly Earnings</div>
+      <h2>Mengapa Pertumbuhan Upah Diperhatikan?</h2>
+
+      <p>
+        Average Hourly Earnings mengukur perubahan rata-rata
+        pendapatan per jam bagi pekerja dalam cakupan survei
+        payroll tertentu. Data ini membantu analis menilai
+        perkembangan pendapatan tenaga kerja dan kemungkinan
+        tekanan biaya tenaga kerja.
+      </p>
+
+      <p>
+        Pertumbuhan upah yang kuat dapat mendukung konsumsi,
+        tetapi juga dapat menambah tekanan biaya bagi perusahaan.
+        Dampaknya terhadap inflasi bergantung pada banyak faktor,
+        termasuk produktivitas, biaya tenaga kerja per unit,
+        margin perusahaan, dan kondisi permintaan.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-label">Wage Growth</div>
+          <h3>Pertumbuhan Upah</h3>
+          <p>
+            Membantu menilai perubahan pendapatan pekerja
+            dan potensi pengaruhnya terhadap konsumsi.
+          </p>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-label">Inflation Context</div>
+          <h3>Konteks Inflasi</h3>
+          <p>
+            Perkembangan upah perlu dibandingkan dengan
+            produktivitas dan tren harga sebelum menarik
+            kesimpulan mengenai tekanan inflasi.
+          </p>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <p>
+          Upah yang meningkat tidak otomatis menyebabkan inflasi
+          yang lebih tinggi. Analisis perlu mempertimbangkan
+          produktivitas, permintaan, dan komponen ekonomi lainnya.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 05 -->
+    <section class="article-section">
+      <div class="section-number">05 · Reading the Employment Report</div>
+      <h2>Membaca NFP secara Terstruktur</h2>
+
+      <p>
+        Laporan tenaga kerja biasanya memuat beberapa informasi
+        yang saling melengkapi. Gunakan urutan berikut sebelum
+        menilai implikasinya terhadap pasar.
+      </p>
+
+      <div class="example-box">
+        <h3>1. Bandingkan Actual dengan Forecast</h3>
+        <p>
+          Periksa apakah hasil NFP melampaui, sesuai, atau berada
+          di bawah ekspektasi pasar.
+        </p>
+
+        <h3>2. Periksa Revisi Data Sebelumnya</h3>
+        <p>
+          Data payroll periode sebelumnya dapat direvisi.
+          Revisi besar dapat mengubah interpretasi terhadap
+          tren tenaga kerja.
+        </p>
+
+        <h3>3. Evaluasi Unemployment Rate</h3>
+        <p>
+          Amati apakah tingkat pengangguran mendukung atau
+          bertentangan dengan kesimpulan dari NFP.
+        </p>
+
+        <h3>4. Periksa Pertumbuhan Upah</h3>
+        <p>
+          Nilai apakah data upah memberikan informasi tambahan
+          tentang pendapatan dan kemungkinan tekanan biaya.
+        </p>
+
+        <h3>5. Evaluasi Ekspektasi Kebijakan</h3>
+        <p>
+          Pertimbangkan bagaimana keseluruhan laporan dapat
+          memengaruhi ekspektasi suku bunga, kemudian amati
+          respons USD, Treasury Yields, dan emas.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 06 -->
+    <section class="article-section">
+      <div class="section-number">06 · Market Impact</div>
+      <h2>Bagaimana NFP Memengaruhi USD dan Emas?</h2>
+
+      <p>
+        NFP merupakan salah satu rilis ekonomi yang dapat memicu
+        volatilitas karena laporan ini memberi informasi tentang
+        kondisi tenaga kerja AS dan kemungkinan implikasinya
+        terhadap kebijakan moneter.
+      </p>
+
+      <div class="example-box">
+        <h3>Skenario A · Laporan Lebih Kuat dari Ekspektasi</h3>
+        <p>
+          Jika NFP kuat dan komponen lain juga menunjukkan
+          pasar tenaga kerja yang solid, ekspektasi suku bunga
+          dapat bergeser ke arah kebijakan yang lebih ketat.
+          Dalam kondisi tertentu, hal ini dapat mendukung USD
+          dan Treasury Yields.
+        </p>
+
+        <h3>Skenario B · Laporan Lebih Lemah dari Ekspektasi</h3>
+        <p>
+          Jika laporan menunjukkan pelemahan yang cukup luas,
+          pasar dapat meningkatkan perkiraan pelonggaran kebijakan.
+          Dalam kondisi tertentu, USD dan yields dapat menghadapi
+          tekanan, sedangkan emas dapat memperoleh dukungan.
+        </p>
+
+        <h3>Skenario C · Komponen Data Beragam</h3>
+        <p>
+          NFP bisa kuat sementara upah melemah, atau sebaliknya.
+          Respons pasar bergantung pada komponen yang paling
+          relevan bagi ekspektasi kebijakan saat itu.
+        </p>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <p>
+          Hubungan antara NFP, USD, yields, dan emas tidak selalu
+          searah atau pasti. Posisi pasar, ekspektasi awal,
+          revisi data, dan kondisi makro lain dapat mengubah
+          reaksi harga.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 07 -->
+    <section class="article-section">
+      <div class="section-number">07 · Risk Management</div>
+      <h2>Risiko Trading Saat Rilis NFP</h2>
+
+      <p>
+        Rilis NFP dapat diikuti perubahan harga yang cepat.
+        Dalam kondisi likuiditas tertentu, spread dapat melebar,
+        slippage dapat meningkat, dan pending order dapat
+        dieksekusi pada harga berbeda dari yang diharapkan.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-label">Volatility</div>
+          <h3>Pergerakan Cepat</h3>
+          <p>
+            Harga dapat bergerak tajam dan berbalik arah
+            dalam waktu singkat setelah pengumuman.
+          </p>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-label">Execution</div>
+          <h3>Spread &amp; Slippage</h3>
+          <p>
+            Biaya eksekusi dan perbedaan harga dapat meningkat
+            ketika kondisi pasar berubah cepat.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Trader sebaiknya memahami aturan eksekusi broker,
+        menentukan risiko sebelum entry, dan menghindari
+        peningkatan lot secara impulsif hanya karena volatilitas
+        sedang tinggi. Tidak entry juga merupakan pilihan yang
+        valid jika risiko tidak sesuai rencana.
+      </p>
+
+      <div class="insight">
+        <div class="insight-label">Module Summary</div>
+        <p>
+          NFP, Unemployment Rate, dan Average Hourly Earnings
+          memberikan perspektif berbeda tentang pasar tenaga kerja.
+          Nilai laporan terletak pada keseluruhan informasi,
+          perbandingannya dengan ekspektasi, dan dampaknya terhadap
+          perkiraan kebijakan moneter. Selalu prioritaskan risiko.
+        </p>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz-section" id="quiz">
+      <div class="section-number">Knowledge Check</div>
+      <h2>Uji Pemahaman Kamu</h2>
+
+      <p class="quiz-intro">
+        Jawab 5 pertanyaan. Kamu perlu memperoleh minimal
+        80% atau 4 jawaban benar untuk membuka Module 05.
+      </p>
+
+      <div class="quiz-progress" aria-label="Progres kuis">
+        <div class="quiz-progress-bar" id="progressBar"></div>
+      </div>
+
+      <form id="quizForm">
+
+        <div class="question-card" data-question="0">
+          <div class="question-number">Question 01 of 05</div>
+          <h3>Apa yang diukur oleh NFP?</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q0" value="0">
+              <span>Perubahan jumlah pekerja sektor nonpertanian dalam cakupan survei payroll AS.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q0" value="1">
+              <span>Perubahan tingkat harga konsumen.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q0" value="2">
+              <span>Keputusan suku bunga The Fed.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q0" value="3">
+              <span>Perubahan imbal hasil Treasury saja.</span>
+            </label>
+          </div>
+
+          <div class="explanation">
+            <strong>Pembahasan:</strong>
+            NFP mengukur perubahan payroll pada sektor nonpertanian
+            dalam cakupan survei perusahaan AS. Angka tersebut
+            merupakan estimasi dan dapat direvisi.
+          </div>
+        </div>
+
+        <div class="question-card" data-question="1">
+          <div class="question-number">Question 02 of 05</div>
+          <h3>Mengapa NFP perlu dibandingkan dengan Forecast?</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q1" value="0">
+              <span>Karena Forecast selalu merupakan hasil yang benar.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="1">
+              <span>Untuk memastikan USD akan bergerak naik atau turun.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="2">
+              <span>Untuk menilai apakah hasil aktual melampaui atau berada di bawah ekspektasi pasar.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="3">
+              <span>Untuk menghilangkan risiko slippage.</span>
+            </label>
+          </div>
+
+          <div class="explanation">
+            <strong>Pembahasan:</strong>
+            Perbandingan Actual dan Forecast membantu mengukur
+            kejutan data. Namun, perbedaan tersebut tidak
+            memastikan arah harga.
+          </div>
+        </div>
+
+        <div class="question-card" data-question="2">
+          <div class="question-number">Question 03 of 05</div>
+          <h3>Bagaimana Unemployment Rate dan NFP sebaiknya dibaca?</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q2" value="0">
+              <span>Keduanya harus selalu bergerak ke arah yang sama.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="1">
+              <span>Unemployment Rate tidak memiliki relevansi terhadap ekonomi.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="2">
+              <span>Cukup membaca NFP dan mengabaikan indikator lainnya.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="3">
+              <span>Sebagai ukuran berbeda yang perlu dievaluasi bersama dan dalam konteksnya.</span>
+            </label>
+          </div>
+
+          <div class="explanation">
+            <strong>Pembahasan:</strong>
+            NFP dan Unemployment Rate berasal dari survei berbeda
+            dan mengukur aspek berbeda. Keduanya dapat memberikan
+            sinyal yang tidak searah.
+          </div>
+        </div>
+
+        <div class="question-card" data-question="3">
+          <div class="question-number">Question 04 of 05</div>
+          <h3>Mengapa Average Hourly Earnings diperhatikan pasar?</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q3" value="0">
+              <span>Karena data tersebut menentukan harga emas secara langsung.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="1">
+              <span>Karena data upah membantu menilai perkembangan pendapatan dan kemungkinan tekanan biaya tenaga kerja.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="2">
+              <span>Karena data tersebut selalu menentukan keputusan The Fed.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="3">
+              <span>Karena data tersebut mengukur jumlah saham perusahaan.</span>
+            </label>
+          </div>
+
+          <div class="explanation">
+            <strong>Pembahasan:</strong>
+            Pertumbuhan upah membantu memberi konteks tentang
+            pendapatan dan potensi biaya tenaga kerja, tetapi
+            pengaruhnya terhadap inflasi bergantung pada faktor lain.
+          </div>
+        </div>
+
+        <div class="question-card" data-question="4">
+          <div class="question-number">Question 05 of 05</div>
+          <h3>Apa pendekatan yang lebih tepat saat trading ketika NFP dirilis?</h3>
+
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q4" value="0">
+              <span>Menaikkan lot agar bisa memanfaatkan volatilitas.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="1">
+              <span>Entry langsung hanya berdasarkan satu angka utama.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="2">
+              <span>Mengabaikan kemungkinan spread melebar.</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="3">
+              <span>Membaca keseluruhan laporan, mengamati respons pasar, dan menetapkan risiko secara disiplin.</span>
+            </label>
+          </div>
+
+          <div class="explanation">
+            <strong>Pembahasan:</strong>
+            Rilis NFP dapat meningkatkan volatilitas dan risiko
+            eksekusi. Analisis yang menyeluruh serta pengelolaan
+            risiko lebih penting daripada mengejar pergerakan cepat.
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn btn-primary" type="submit" id="submitQuiz">
+            SUBMIT ANSWERS →
+          </button>
+          <button class="btn" type="button" id="retryQuiz" hidden>
+            TRY AGAIN
+          </button>
+        </div>
+      </form>
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="result-status" id="resultStatus">QUIZ RESULT</div>
+        <div class="result-score" id="resultScore">0/100</div>
+        <p class="result-message" id="resultMessage"></p>
+      </div>
+
+      <div class="next-panel" id="nextPanel">
+        <h3>Module 04 Completed</h3>
+        <p>
+          Kamu sudah memenuhi nilai minimum. Lanjutkan ke Module 05
+          untuk mempelajari FOMC dan Federal Reserve.
+        </p>
+        <a class="btn btn-primary" href="macro-05.html">
+          NEXT MODULE 05 →
+        </a>
+      </div>
+    </section>
+
+    <!-- PREMIUM -->
+    <section class="premium-panel">
+      <div class="premium-label">Beyond the Basics</div>
+      <h2>Advanced Macro Research</h2>
+      <p>
+        Pelajari analisis laporan tenaga kerja secara lebih mendalam,
+        termasuk revisi payroll, partisipasi angkatan kerja,
+        dinamika upah, dan perubahan ekspektasi suku bunga melalui
+        studi kasus lintas aset di THE DESK Academy.
+      </p>
+    </section>
+
+    <nav class="bottom-navigation" aria-label="Navigasi modul">
+      <a class="btn" href="macro.html">← BACK TO MACRO MODULES</a>
+      <a class="btn" href="macro-03.html">← PREVIOUS MODULE</a>
+      <a class="btn" href="academy.html">BACK TO ACADEMY</a>
+    </nav>
+
+    <footer>
+      <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
+      <div>Understand the Market, Before You Trade It.</div>
+    </footer>
+
+  </main>
+
+  <script>
+    (() => {
+      const form = document.getElementById("quizForm");
+      const submitButton = document.getElementById("submitQuiz");
+      const retryButton = document.getElementById("retryQuiz");
+      const result = document.getElementById("result");
+      const resultStatus = document.getElementById("resultStatus");
+      const resultScore = document.getElementById("resultScore");
+      const resultMessage = document.getElementById("resultMessage");
+      const nextPanel = document.getElementById("nextPanel");
+      const progressBar = document.getElementById("progressBar");
+
+      const correctAnswers = [0, 2, 3, 1, 3];
+      const totalQuestions = correctAnswers.length;
+      const passingScore = 80;
+
+      let submitted = false;
+
+      function updateProgress() {
+        const answered = correctAnswers.reduce((count, _, index) => {
+          const selected = form.querySelector(
+            `input[name="q${index}"]:checked`
+          );
+
+          return count + (selected ? 1 : 0);
+        }, 0);
+
+        progressBar.style.width =
+          `${(answered / totalQuestions) * 100}%`;
+      }
+
+      form.addEventListener("change", (event) => {
+        if (event.target.matches('input[type="radio"]')) {
+          updateProgress();
+        }
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (submitted) return;
+
+        const unanswered = correctAnswers.filter((_, index) => {
+          return !form.querySelector(
+            `input[name="q${index}"]:checked`
+          );
+        }).length;
+
+        if (unanswered > 0) {
+          alert(
+            `Masih ada ${unanswered} pertanyaan yang belum dijawab. Lengkapi semua jawaban terlebih dahulu.`
+          );
+          return;
+        }
+
+        let score = 0;
+
+        correctAnswers.forEach((answer, index) => {
+          const selected = form.querySelector(
+            `input[name="q${index}"]:checked`
+          );
+
+          const card = form.querySelector(
+            `[data-question="${index}"]`
+          );
+
+          const options = card.querySelectorAll(".option");
+          const explanation = card.querySelector(".explanation");
+
+          options.forEach((option) => {
+            const input = option.querySelector("input");
+            input.disabled = true;
+
+            if (Number(input.value) === answer) {
+              option.classList.add("correct");
+            }
+
+            if (
+              input.checked &&
+              Number(input.value) !== answer
+            ) {
+              option.classList.add("incorrect");
+            }
+          });
+
+          if (Number(selected.value) === answer) {
+            score++;
+          }
+
+          explanation.classList.add("show");
+        });
+
+        const percentage = Math.round(
+          (score / totalQuestions) * 100
+        );
+
+        submitted = true;
+        result.classList.add("show");
+        resultScore.textContent = `${percentage}/100`;
+
+        if (percentage >= passingScore) {
+          resultStatus.textContent = "PASSED · MODULE COMPLETED";
+
+          resultMessage.textContent =
+            `Jawaban benar ${score} dari ${totalQuestions}. ` +
+            "Bagus! Kamu sudah memenuhi nilai minimum 80%.";
+
+          nextPanel.classList.add("show");
+        } else {
+          resultStatus.textContent = "NOT PASSED · KEEP LEARNING";
+
+          resultMessage.textContent =
+            `Jawaban benar ${score} dari ${totalQuestions}. ` +
+            "Nilai minimum adalah 80%. Pelajari pembahasan, lalu coba lagi.";
+
+          retryButton.hidden = false;
+        }
+
+        submitButton.disabled = true;
+
+        result.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+
+      retryButton.addEventListener("click", () => {
+        form.reset();
+
+        form.querySelectorAll("input").forEach((input) => {
+          input.disabled = false;
+        });
+
+        form.querySelectorAll(".option").forEach((option) => {
+          option.classList.remove("correct", "incorrect");
+        });
+
+        form.querySelectorAll(".explanation").forEach((box) => {
+          box.classList.remove("show");
+        });
+
+        result.classList.remove("show");
+        nextPanel.classList.remove("show");
+        retryButton.hidden = true;
+        submitButton.disabled = false;
+        submitted = false;
+
+        updateProgress();
+
+        document.getElementById("quiz").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>

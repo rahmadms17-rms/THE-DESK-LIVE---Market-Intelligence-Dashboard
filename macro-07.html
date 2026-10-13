@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 07 - Understanding News Impact | THE DESK Academy</title>
+    <style>
+        :root {
+            --bg: #090b0e;
+            --panel: #11151a;
+            --panel2: #151a20;
+            --gold: #c9a45c;
+            --text: #edf0f4;
+            --muted: #a3adba;
+            --border: #292f37;
+            --green: #42c994;
+            --red: #f07878;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            background: #0d1014;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            color: var(--gold);
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .brand small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .top-link {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .top-link:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            width: min(1000px, 90%);
+            margin: 0 auto;
+            padding: 42px 0 70px;
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.2;
+            margin: 12px 0 16px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            color: var(--gold);
+            font-size: 23px;
+            line-height: 1.4;
+            margin: 0 0 16px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        .lead {
+            max-width: 780px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0 34px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+
+        .tag.gold {
+            color: var(--gold);
+            border-color: #5d4b2e;
+        }
+
+        .article-section {
+            border: 1px solid var(--border);
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 27px;
+            margin: 20px 0;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .concept {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .concept p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        .insight {
+            border-left: 3px solid var(--gold);
+            background: #19170f;
+            padding: 17px 20px;
+            margin: 18px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .insight strong {
+            color: var(--gold);
+        }
+
+        .example-box {
+            background: #0d1115;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+
+        .example-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: 13px;
+        }
+
+        .impact-table th,
+        .impact-table td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .impact-table th {
+            color: var(--gold);
+            background: #17150f;
+        }
+
+        .checklist {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .checklist li {
+            margin: 8px 0;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .progress {
+            height: 5px;
+            background: #252b32;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--gold);
+            transition: width .2s ease;
+        }
+
+        .question {
+            border: 1px solid var(--border);
+            background: var(--panel2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 14px 0;
+        }
+
+        .question-title {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .option {
+            display: block;
+            padding: 11px 13px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin: 8px 0;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 14px;
+            transition: .15s ease;
+        }
+
+        .option:hover {
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .option input {
+            margin-right: 9px;
+            accent-color: var(--gold);
+        }
+
+        .option:has(input:checked) {
+            border-color: var(--gold);
+            color: var(--text);
+            background: #201b12;
+        }
+
+        .option.correct {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .option.wrong {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        button {
+            border: 0;
+            background: var(--gold);
+            color: #101010;
+            font-weight: 800;
+            padding: 13px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        button:hover {
+            filter: brightness(1.08);
+        }
+
+        button.secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        button:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            margin-top: 22px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            background: #0d1115;
+            border-radius: 8px;
+        }
+
+        #result h3 {
+            font-size: 20px;
+        }
+
+        .explanation {
+            display: none;
+            padding: 12px 14px;
+            margin-top: 10px;
+            background: #0c1014;
+            border-radius: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .next-panel {
+            display: none;
+            border: 1px solid #5d4b2e;
+            background: linear-gradient(135deg, #19170f, #11151a);
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .next-panel p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .premium {
+            border: 1px solid #5d4b2e;
+            background: #15130e;
+            padding: 22px;
+            border-radius: 8px;
+            margin-top: 28px;
+        }
+
+        .premium .label {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .premium p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 8px 0 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            padding: 24px 5%;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 92%;
+                padding-top: 28px;
+            }
+
+            .article-section {
+                padding: 20px;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-table {
+                font-size: 11px;
+            }
+
+            .impact-table th,
+            .impact-table td {
+                padding: 8px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="academy.html">
+            THE DESK
+            <small>MARKET INTELLIGENCE ACADEMY</small>
+        </a>
+        <a class="top-link" href="macro.html">← Kembali ke Macro Learning</a>
+    </header>
+
+    <main class="container">
+
+        <div class="breadcrumb">
+            <a href="academy.html">Academy</a> /
+            <a href="macro.html">Macro & News Impact</a> /
+            Module 07
+        </div>
+
+        <div class="eyebrow">MACRO & NEWS IMPACT · MODULE 07</div>
+        <h1>Understanding News Impact</h1>
+        <p class="lead">
+            Memahami bagaimana berita ekonomi memengaruhi ekspektasi, sentimen,
+            dan pergerakan pasar. Belajar membedakan headline yang ramai dengan
+            informasi yang benar-benar mengubah market view.
+        </p>
+
+        <div class="meta">
+            <span class="tag gold">INTERMEDIATE</span>
+            <span class="tag">Estimasi 12–15 menit</span>
+            <span class="tag">5 Quiz Questions</span>
+        </div>
+
+        <section class="article-section">
+            <h2>01. Apa Itu News Impact?</h2>
+            <p>
+                News impact adalah pengaruh informasi baru terhadap penilaian pelaku
+                pasar. Informasi tersebut dapat mengubah ekspektasi inflasi, suku bunga,
+                pertumbuhan ekonomi, risiko, atau prospek suatu aset.
+            </p>
+            <p>
+                Tidak semua berita memiliki dampak yang sama. Pengaruhnya bergantung
+                pada relevansi berita, besarnya kejutan terhadap ekspektasi, kondisi
+                pasar sebelum rilis, dan bagaimana investor menafsirkan informasi baru.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3>Economic Data</h3>
+                    <p>
+                        CPI, NFP, GDP, PMI, dan data ekonomi lain dapat mengubah
+                        pandangan pasar terhadap pertumbuhan, inflasi, dan kebijakan moneter.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Central Bank Communication</h3>
+                    <p>
+                        Keputusan suku bunga, statement, dan konferensi pers dapat
+                        mengubah ekspektasi arah kebijakan.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Geopolitical Events</h3>
+                    <p>
+                        Konflik dan ketidakpastian geopolitik dapat memengaruhi risiko,
+                        komoditas, mata uang, serta permintaan aset safe haven.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Market Positioning</h3>
+                    <p>
+                        Posisi yang sudah terbentuk sebelum berita dapat memperbesar
+                        atau mengubah reaksi harga setelah informasi dirilis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="insight">
+                <strong>Key Principle:</strong>
+                Dampak berita tidak hanya ditentukan oleh apakah angkanya baik atau
+                buruk. Yang penting adalah bagaimana informasi tersebut mengubah
+                ekspektasi pasar.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>02. Actual, Forecast, dan Previous</h2>
+            <p>
+                Tiga angka yang sering ditemukan pada kalender ekonomi adalah
+                Actual, Forecast, dan Previous. Memahami perbedaannya merupakan
+                langkah awal membaca kejutan data.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3>Actual</h3>
+                    <p>
+                        Hasil aktual yang diumumkan ketika data dirilis.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Forecast</h3>
+                    <p>
+                        Perkiraan konsensus analis atau pelaku pasar sebelum data diumumkan.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Previous</h3>
+                    <p>
+                        Angka periode sebelumnya. Data tersebut mungkin telah direvisi
+                        ketika rilis terbaru diterbitkan.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Surprise</h3>
+                    <p>
+                        Perbedaan antara hasil aktual dan ekspektasi. Surprise dapat
+                        memengaruhi harga jika mengubah pandangan pasar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Contoh: Data NFP</h3>
+                <p>Forecast: 150.000 pekerjaan.</p>
+                <p>Actual: 220.000 pekerjaan.</p>
+                <p class="muted">
+                    Hasil aktual lebih tinggi dari perkiraan. Namun, kesimpulan untuk
+                    USD atau Gold tetap perlu mempertimbangkan revisi data sebelumnya,
+                    tingkat pengangguran, pertumbuhan upah, dan ekspektasi suku bunga.
+                </p>
+            </div>
+
+            <div class="insight">
+                <strong>Jangan Berhenti pada Satu Angka:</strong>
+                Satu rilis ekonomi sering terdiri dari beberapa komponen. Komponen
+                yang berbeda dapat memberi sinyal yang tidak searah.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>03. High, Medium, dan Low Impact</h2>
+            <p>
+                Kalender ekonomi biasanya mengelompokkan berita berdasarkan
+                perkiraan tingkat dampaknya. Kategori tersebut berguna untuk
+                prioritas pemantauan, tetapi bukan jaminan besarnya pergerakan harga.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3 style="color:var(--red);">High Impact</h3>
+                    <p>
+                        Contohnya keputusan FOMC, CPI AS, dan laporan ketenagakerjaan AS.
+                        Berita ini berpotensi mengubah ekspektasi pasar secara signifikan.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3 style="color:var(--gold);">Medium Impact</h3>
+                    <p>
+                        Data atau pernyataan yang dapat memengaruhi sentimen dan
+                        interpretasi ekonomi, bergantung pada kondisi saat itu.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Low Impact</h3>
+                    <p>
+                        Berita yang umumnya memiliki pengaruh lebih terbatas terhadap
+                        pasar luas, meskipun dampaknya dapat berubah dalam kondisi tertentu.
+                    </p>
+                </div>
+                <div class="concept">
+                    <h3>Context Matters</h3>
+                    <p>
+                        Berita yang biasanya kurang diperhatikan bisa menjadi penting
+                        jika mengisi celah informasi atau mengubah narasi pasar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="insight">
+                <strong>Important:</strong>
+                Label impact pada kalender adalah panduan, bukan prediksi pasti.
+                Volatilitas aktual tetap bergantung pada kejutan data, ekspektasi,
+                likuiditas, dan kondisi pasar.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>04. Bagaimana Berita Memengaruhi XAUUSD?</h2>
+            <p>
+                Gold dipengaruhi banyak faktor, termasuk USD, real yield, ekspektasi
+                suku bunga, permintaan safe haven, pembelian bank sentral, dan kondisi
+                likuiditas. Berita ekonomi dapat memengaruhi beberapa faktor tersebut
+                sekaligus.
+            </p>
+
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th>Informasi</th>
+                        <th>Potensi Interpretasi</th>
+                        <th>Hal yang Perlu Diperiksa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Inflasi lebih tinggi dari perkiraan</td>
+                        <td>Dapat meningkatkan ekspektasi kebijakan yang lebih ketat.</td>
+                        <td>USD, real yield, dan respons The Fed.</td>
+                    </tr>
+                    <tr>
+                        <td>Data tenaga kerja lebih kuat dari perkiraan</td>
+                        <td>Dapat mengurangi ekspektasi pelonggaran jika pasar menilai ekonomi tetap kuat.</td>
+                        <td>Upah, pengangguran, revisi data, dan ekspektasi suku bunga.</td>
+                    </tr>
+                    <tr>
+                        <td>Pesan The Fed lebih dovish dari perkiraan</td>
+                        <td>Dapat menekan USD atau yield dan mendukung Gold.</td>
+                        <td>Isi statement, konferensi pers, dan reaksi pasar.</td>
+                    </tr>
+                    <tr>
+                        <td>Eskalasi geopolitik</td>
+                        <td>Dapat meningkatkan permintaan safe haven.</td>
+                        <td>Skala risiko, durasi, USD, energi, dan sentimen global.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight">
+                <strong>Market Insight:</strong>
+                Tabel ini menunjukkan kemungkinan hubungan, bukan kepastian arah.
+                Jangan mengubah satu headline menjadi keputusan trading tanpa
+                memeriksa konteks dan reaksi harga.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>05. Mengapa Harga Bisa Bergerak Berlawanan?</h2>
+            <p>
+                Harga dapat bergerak berlawanan dengan interpretasi sederhana atas
+                suatu berita. Kondisi ini tidak otomatis berarti pasar salah.
+                Bisa jadi pasar sedang merespons faktor lain yang lebih dominan.
+            </p>
+
+            <div class="example-box">
+                <h3>Case A: Data Bagus, USD Melemah</h3>
+                <p>
+                    Data ekonomi AS lebih kuat dari perkiraan, tetapi USD justru turun.
+                    Salah satu kemungkinan adalah pasar sebelumnya sudah memperhitungkan
+                    hasil yang lebih kuat, atau komponen lain dalam laporan mengecewakan.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h3>Case B: Inflasi Tinggi, Gold Menguat</h3>
+                <p>
+                    Inflasi yang tinggi dapat mendukung ekspektasi kebijakan lebih ketat.
+                    Namun, jika pasar sekaligus menghadapi ketidakpastian besar atau
+                    penurunan real yield, Gold masih dapat menguat.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h3>Case C: Harga Bergerak Dua Arah</h3>
+                <p>
+                    Pada saat rilis, algoritma dan pelaku pasar dapat bereaksi terhadap
+                    headline awal, kemudian menyesuaikan posisi setelah membaca rincian
+                    data. Likuiditas yang menipis juga dapat memperbesar pergerakan.
+                </p>
+            </div>
+
+            <div class="insight">
+                <strong>Core Lesson:</strong>
+                Headline menjelaskan apa yang diumumkan. Reaksi harga membantu
+                menunjukkan bagaimana pasar menilai informasi tersebut, tetapi
+                tetap perlu dikonfirmasi dengan konteks yang lebih luas.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>06. Framework Membaca News Impact</h2>
+            <p>
+                Gunakan urutan berikut sebelum menyusun market view ketika berita
+                ekonomi dirilis.
+            </p>
+
+            <div class="example-box">
+                <h3>Step 1 - Identify</h3>
+                <ul class="checklist">
+                    <li>Kenali jenis berita dan indikator yang diumumkan.</li>
+                    <li>Periksa waktu rilis dan instrumen yang paling sensitif.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>Step 2 - Compare</h3>
+                <ul class="checklist">
+                    <li>Bandingkan Actual dengan Forecast.</li>
+                    <li>Periksa Previous dan revisinya jika tersedia.</li>
+                    <li>Baca komponen lain yang relevan.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>Step 3 - Interpret</h3>
+                <ul class="checklist">
+                    <li>Nilai apakah data mengubah ekspektasi inflasi atau suku bunga.</li>
+                    <li>Periksa kemungkinan pengaruhnya terhadap USD dan yield.</li>
+                    <li>Pertimbangkan apakah faktor risiko lain sedang dominan.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>Step 4 - Confirm</h3>
+                <ul class="checklist">
+                    <li>Amati reaksi awal dan apakah harga mampu mempertahankan arah.</li>
+                    <li>Gunakan struktur harga untuk mengidentifikasi setup.</li>
+                    <li>Tetapkan batas risiko dan hindari entry jika kondisi tidak sesuai.</li>
+                </ul>
+            </div>
+
+            <div class="insight">
+                <strong>THE DESK Framework:</strong>
+                Identify → Compare → Interpret → Confirm.
+                Fokus pada perubahan ekspektasi, bukan sekadar warna kalender atau
+                angka yang terlihat paling besar.
+            </div>
+
+            <p class="muted">
+                Saat berita dirilis, spread dan slippage dapat meningkat. Stop loss
+                tidak menjamin eksekusi tepat pada harga yang ditentukan ketika pasar
+                bergerak sangat cepat.
+            </p>
+        </section>
+
+        <section class="article-section" id="quiz">
+            <div class="quiz-header">
+                <div>
+                    <div class="eyebrow">KNOWLEDGE CHECK</div>
+                    <h2 style="margin:6px 0 0;">Module 07 Quiz</h2>
+                </div>
+                <span class="tag gold">Passing Score: 80%</span>
+            </div>
+
+            <p class="muted">
+                Jawab lima pertanyaan berikut. Minimal empat jawaban benar diperlukan
+                untuk membuka modul berikutnya.
+            </p>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="quizForm">
+
+                <div class="question">
+                    <div class="question-title">1. Apa yang paling penting ketika membaca dampak berita ekonomi?</div>
+                    <label class="option"><input type="radio" name="q0" value="0"> Hanya melihat apakah angka aktual
+                        naik atau turun.</label>
+                    <label class="option"><input type="radio" name="q0" value="1"> Membandingkan informasi aktual dengan
+                        ekspektasi dan konteks pasar.</label>
+                    <label class="option"><input type="radio" name="q0" value="2"> Mengabaikan reaksi harga.</label>
+                    <label class="option"><input type="radio" name="q0" value="3"> Selalu entry sebelum berita
+                        diumumkan.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">2. Apa arti Forecast dalam kalender ekonomi?</div>
+                    <label class="option"><input type="radio" name="q1" value="0"> Hasil aktual yang sudah
+                        diumumkan.</label>
+                    <label class="option"><input type="radio" name="q1" value="1"> Hasil periode sebelumnya.</label>
+                    <label class="option"><input type="radio" name="q1" value="2"> Perkiraan konsensus sebelum data
+                        dirilis.</label>
+                    <label class="option"><input type="radio" name="q1" value="3"> Target harga yang dijamin
+                        tercapai.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">3. Apakah berita berlabel High Impact selalu menghasilkan pergerakan
+                        besar?</div>
+                    <label class="option"><input type="radio" name="q2" value="0"> Ya, selalu.</label>
+                    <label class="option"><input type="radio" name="q2" value="1"> Tidak. Dampaknya bergantung pada
+                        kejutan data, ekspektasi, likuiditas, dan kondisi pasar.</label>
+                    <label class="option"><input type="radio" name="q2" value="2"> Ya, tetapi hanya pada Gold.</label>
+                    <label class="option"><input type="radio" name="q2" value="3"> Tidak, karena berita tidak
+                        memengaruhi harga.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">4. Mengapa Gold bisa naik meskipun data ekonomi AS lebih kuat dari
+                        perkiraan?</div>
+                    <label class="option"><input type="radio" name="q3" value="0"> Karena Gold selalu bergerak
+                        berlawanan dengan data ekonomi.</label>
+                    <label class="option"><input type="radio" name="q3" value="1"> Karena data ekonomi tidak pernah
+                        memengaruhi Gold.</label>
+                    <label class="option"><input type="radio" name="q3" value="2"> Karena harga Gold tidak dipengaruhi
+                        USD atau yield.</label>
+                    <label class="option"><input type="radio" name="q3" value="3"> Karena faktor lain, seperti safe
+                        haven atau perubahan real yield, dapat mendominasi.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">5. Apa urutan framework membaca news impact dalam modul ini?</div>
+                    <label class="option"><input type="radio" name="q4" value="0"> Entry → Lot besar → Evaluasi.</label>
+                    <label class="option"><input type="radio" name="q4" value="1"> Forecast → Entry → Abaikan
+                        risiko.</label>
+                    <label class="option"><input type="radio" name="q4" value="2"> Identify → Compare → Interpret →
+                        Confirm.</label>
+                    <label class="option"><input type="radio" name="q4" value="3"> Buy → Sell → Average.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <button type="submit" id="submitBtn">SUBMIT ANSWERS</button>
+                <button type="button" class="secondary" id="retryBtn" style="display:none;">TRY AGAIN</button>
+            </form>
+
+            <div id="result" aria-live="polite">
+                <h3 id="resultTitle"></h3>
+                <p id="resultText"></p>
+            </div>
+
+            <div class="next-panel" id="nextPanel">
+                <div class="eyebrow">MODULE COMPLETED</div>
+                <h2 style="margin-top:8px;">Excellent Work.</h2>
+                <p>
+                    Kamu telah menyelesaikan Understanding News Impact.
+                    Berikutnya, pelajari cara mengelola risiko dan membaca peluang
+                    ketika berita berdampak tinggi dirilis.
+                </p>
+                <div class="button-row">
+                    <a href="macro-08.html"><button type="button">NEXT MODULE →</button></a>
+                    <a href="macro.html"><button type="button" class="secondary">MACRO CATALOG</button></a>
+                </div>
+            </div>
+        </section>
+
+        <div class="premium">
+            <div class="label">THE DESK · PREMIUM RESEARCH</div>
+            <h3 style="margin-top:8px;">Advanced Macro Research</h3>
+            <p>
+                Pendalaman analisis kejutan data, ekspektasi kebijakan, hubungan
+                antar-aset, dan interpretasi perubahan narasi pasar.
+            </p>
+        </div>
+
+        <div class="button-row">
+            <a href="macro-06.html"><button type="button" class="secondary">← PREVIOUS MODULE</button></a>
+            <a href="macro.html"><button type="button" class="secondary">BACK TO MACRO</button></a>
+            <a href="academy.html"><button type="button" class="secondary">ACADEMY HOME</button></a>
+        </div>
+
+    </main>
+
+    <footer>
+        THE DESK Academy · Understand the Market, Before You Trade It.
+        <br>
+        Educational content only. Not financial advice.
+    </footer>
+
+    <script>
+        const correctAnswers = [1, 2, 1, 3, 2];
+
+        const explanations = [
+            "Dampak berita bergantung pada perbedaan informasi aktual dengan ekspektasi serta konteks pasar.",
+            "Forecast adalah perkiraan konsensus sebelum rilis. Actual adalah hasil yang diumumkan, sedangkan Previous merujuk pada periode sebelumnya.",
+            "Label High Impact adalah panduan prioritas. Reaksi aktual dipengaruhi kejutan data, ekspektasi, likuiditas, dan kondisi pasar.",
+            "Safe haven, perubahan real yield, atau faktor lain dapat mendominasi pengaruh data ekonomi terhadap Gold.",
+            "Framework modul ini adalah Identify, Compare, Interpret, lalu Confirm sebelum mempertimbangkan keputusan trading."
+        ];
+
+        const form = document.getElementById("quizForm");
+        const questions = [...document.querySelectorAll(".question")];
+        const progressBar = document.getElementById("progressBar");
+        const result = document.getElementById("result");
+        const resultTitle = document.getElementById("resultTitle");
+        const resultText = document.getElementById("resultText");
+        const submitBtn = document.getElementById("submitBtn");
+        const retryBtn = document.getElementById("retryBtn");
+        const nextPanel = document.getElementById("nextPanel");
+
+        function updateProgress() {
+            let answered = 0;
+
+            questions.forEach((question, index) => {
+                if (form.querySelector(`input[name="q${index}"]:checked`)) {
+                    answered++;
+                }
+            });
+
+            progressBar.style.width = `${(answered / questions.length) * 100}%`;
+        }
+
+        form.addEventListener("change", updateProgress);
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let score = 0;
+            const unanswered = [];
+
+            questions.forEach((question, index) => {
+                const selected = form.querySelector(`input[name="q${index}"]:checked`);
+                const options = [...question.querySelectorAll(".option")];
+                const explanation = question.querySelector(".explanation");
+
+                options.forEach(option => {
+                    option.classList.remove("correct", "wrong");
+                });
+
+                if (!selected) {
+                    unanswered.push(index + 1);
+                    explanation.textContent = "";
+                    explanation.style.display = "none";
+                    return;
+                }
+
+                const selectedValue = Number(selected.value);
+
+                if (selectedValue === correctAnswers[index]) {
+                    score++;
+                }
+
+                options.forEach(option => {
+                    const input = option.querySelector("input");
+                    const value = Number(input.value);
+
+                    if (value === correctAnswers[index]) {
+                        option.classList.add("correct");
+                    }
+
+                    if (input.checked && value !== correctAnswers[index]) {
+                        option.classList.add("wrong");
+                    }
+                });
+
+                explanation.textContent = "Penjelasan: " + explanations[index];
+                explanation.style.display = "block";
+            });
+
+            if (unanswered.length > 0) {
+                result.style.display = "block";
+                resultTitle.textContent = "Quiz Belum Lengkap";
+                resultTitle.style.color = "var(--gold)";
+                resultText.textContent =
+                    "Jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: " +
+                    unanswered.join(", ") + ".";
+                nextPanel.style.display = "none";
+                return;
+            }
+
+            const percentage = Math.round((score / correctAnswers.length) * 100);
+
+            result.style.display = "block";
+            resultTitle.textContent =
+                `Your Score: ${score}/${correctAnswers.length} (${percentage}%)`;
+
+            if (percentage >= 80) {
+                resultTitle.style.color = "var(--green)";
+                resultText.textContent =
+                    "Lulus! Kamu memahami dasar news impact. Modul berikutnya telah terbuka.";
+                nextPanel.style.display = "block";
+                retryBtn.style.display = "none";
+            } else {
+                resultTitle.style.color = "var(--red)";
+                resultText.textContent =
+                    "Belum mencapai standar kelulusan 80%. Pelajari penjelasan jawaban, lalu coba kembali.";
+                nextPanel.style.display = "none";
+                retryBtn.style.display = "inline-block";
+            }
+
+            submitBtn.disabled = true;
+
+            questions.forEach(question => {
+                question.querySelectorAll("input").forEach(input => {
+                    input.disabled = true;
+                });
+            });
+
+            result.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+
+        retryBtn.addEventListener("click", function () {
+            form.reset();
+
+            questions.forEach(question => {
+                question.querySelectorAll("input").forEach(input => {
+                    input.disabled = false;
+                });
+
+                question.querySelectorAll(".option").forEach(option => {
+                    option.classList.remove("correct", "wrong");
+                });
+
+                const explanation = question.querySelector(".explanation");
+                explanation.textContent = "";
+                explanation.style.display = "none";
+            });
+
+            result.style.display = "none";
+            nextPanel.style.display = "none";
+            retryBtn.style.display = "none";
+            submitBtn.disabled = false;
+            progressBar.style.width = "0%";
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,219 +1,524 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari makroekonomi dan dampak berita terhadap pasar bersama THE DESK Academy.">
-  <title>Macro & News Impact | THE DESK Academy</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .lesson-page {
-      max-width: 960px;
-      margin: auto;
-      padding: 54px 24px 80px;
-    }
-    .lesson-back {
-      color: var(--gold, #c9a45c);
-      text-decoration: none;
-      font-size: 13px;
-    }
-    .lesson-hero {
-      padding: 44px 0 36px;
-      border-bottom: 1px solid var(--border, #262c33);
-    }
-    .lesson-eyebrow {
-      color: var(--gold, #c9a45c);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-    .lesson-hero h1 {
-      font-size: clamp(36px, 6vw, 58px);
-      line-height: 1.1;
-      margin: 20px 0;
-    }
-    .lesson-hero p, .lesson-section p {
-      color: var(--muted, #939ba6);
-      line-height: 1.85;
-    }
-    .lesson-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .lesson-tag {
-      border: 1px solid var(--border, #262c33);
-      padding: 7px 10px;
-      border-radius: 4px;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-    .lesson-section {
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border, #262c33);
-    }
-    .lesson-section h2 {
-      font-size: 24px;
-      margin-bottom: 14px;
-    }
-    .lesson-section h3 {
-      margin-top: 24px;
-      font-size: 17px;
-    }
-    .lesson-list {
-      padding-left: 22px;
-      line-height: 1.9;
-      color: var(--muted, #939ba6);
-    }
-    .lesson-note {
-      margin-top: 20px;
-      padding: 18px;
-      border-left: 3px solid var(--gold, #c9a45c);
-      background: var(--panel, #11151a);
-      line-height: 1.8;
-    }
-    .lesson-next {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 13px 18px;
-      background: var(--gold, #c9a45c);
-      color: #111;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    @media (max-width: 600px) {
-      .lesson-page { padding: 32px 18px 56px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b0e">
+
+    <title>Macro & News Impact | THE DESK Academy</title>
+
+    <meta name="description"
+        content="Pelajari CPI, NFP, FOMC, suku bunga, DXY, Treasury Yields, dan dampak berita ekonomi terhadap pasar global bersama THE DESK Academy.">
+
+    <style>
+        :root {
+            --bg: #090b0e;
+            --panel: #11151a;
+            --border: #292f37;
+            --gold: #c9a45c;
+            --gold-light: #e4c27d;
+            --text: #eef1f5;
+            --muted: #a3adba;
+            --muted-dark: #7f8996;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(100% - 40px, 1116px);
+            margin: 0 auto;
+            padding: 48px 0 72px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            color: var(--gold);
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold-light);
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            max-width: 790px;
+            margin-bottom: 38px;
+        }
+
+        .hero h1 {
+            margin-top: 15px;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            font-weight: 700;
+        }
+
+        .hero-description {
+            max-width: 720px;
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .meta-item {
+            padding: 7px 11px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin: 42px 0 20px;
+        }
+
+        .section-heading h2 {
+            margin-top: 6px;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .section-note {
+            color: var(--muted-dark);
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .module-card {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .module-card:hover {
+            border-color: var(--gold);
+            background: #141920;
+            transform: translateY(-2px);
+        }
+
+        .module-number {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .module-card h3 {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .module-description {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .module-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 24px;
+        }
+
+        .level-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 6px 9px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .module-arrow {
+            color: var(--gold);
+            font-size: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .module-card:hover .module-arrow {
+            transform: translateX(4px);
+        }
+
+        .premium-card {
+            background: #121211;
+            border-color: #373126;
+        }
+
+        .premium-card .module-number {
+            color: #a98a4b;
+        }
+
+        .premium-card .module-description {
+            color: var(--muted-dark);
+        }
+
+        .premium-card .level-tag {
+            color: #b8bec7;
+        }
+
+        .premium-card:hover {
+            border-color: #77613a;
+        }
+
+        .learning-note {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-top: 28px;
+            padding: 20px;
+            background: #0e1115;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .note-mark {
+            color: var(--gold);
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .learning-note h3 {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .learning-note p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 52px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+            color: var(--muted-dark);
+            font-size: 11px;
+        }
+
+        footer strong {
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 680px) {
+            .page {
+                width: min(100% - 32px, 520px);
+                padding-top: 28px;
+            }
+
+            .back-link {
+                margin-bottom: 36px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.4px;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .section-note {
+                text-align: left;
+            }
+
+            .module-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .module-card {
+                min-height: 195px;
+                padding: 21px;
+            }
+
+            .module-card h3 {
+                font-size: 17px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <main class="lesson-page">
-    <a class="lesson-back" href="academy.html">← Back to THE DESK Academy</a>
+    <main class="page">
 
-    <header class="lesson-hero">
-      <span class="lesson-eyebrow">ACADEMY BASIC · MODULE 03</span>
-      <h1>Macro &<br>News Impact.</h1>
-      <p>
-        Pahami bagaimana data ekonomi, kebijakan bank sentral,
-        dan ekspektasi pasar dapat memengaruhi pergerakan aset global.
-      </p>
-      <div class="lesson-meta">
-        <span class="lesson-tag">FREE · BASIC</span>
-        <span class="lesson-tag">BEGINNER</span>
-        <span class="lesson-tag">8 MIN READ</span>
-      </div>
-    </header>
+        <a class="back-link" href="academy.html">
+            ← Back to THE DESK Academy
+        </a>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">01 · MACROECONOMICS</span>
-      <h2>Apa Itu Makroekonomi?</h2>
-      <p>
-        Makroekonomi mempelajari kondisi ekonomi secara luas,
-        termasuk inflasi, pertumbuhan ekonomi, tenaga kerja,
-        dan kebijakan moneter.
-      </p>
-      <p>
-        Informasi tersebut membantu pelaku pasar menilai kondisi
-        ekonomi dan kemungkinan arah kebijakan bank sentral.
-        Namun, dampaknya terhadap harga bergantung pada konteks
-        dan ekspektasi yang sudah tercermin di pasar.
-      </p>
-    </section>
+        <header class="hero">
+            <div class="eyebrow">THE DESK ACADEMY · LEARNING PATH 03</div>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">02 · KEY ECONOMIC DATA</span>
-      <h2>Data Ekonomi yang Perlu Dikenal</h2>
+            <h1>Macro &amp;<br>News Impact.</h1>
 
-      <h3>CPI · Consumer Price Index</h3>
-      <p>
-        CPI mengukur perubahan harga sekumpulan barang dan jasa
-        yang dikonsumsi rumah tangga. Data ini menjadi salah satu
-        indikator inflasi yang diperhatikan bank sentral.
-      </p>
+            <p class="hero-description">
+                Pelajari bagaimana data ekonomi, kebijakan bank sentral,
+                ekspektasi suku bunga, dan berita berdampak tinggi dapat
+                memengaruhi pergerakan aset global.
+            </p>
 
-      <h3>NFP · Nonfarm Payrolls</h3>
-      <p>
-        NFP mengukur perubahan jumlah pekerja nonpertanian di
-        Amerika Serikat. Pasar juga memperhatikan tingkat
-        pengangguran, pertumbuhan upah, dan revisi data sebelumnya.
-      </p>
+            <div class="hero-meta">
+                <span class="meta-item">FREE · BASIC</span>
+                <span class="meta-item">BEGINNER</span>
+                <span class="meta-item">8 MODULES</span>
+            </div>
+        </header>
 
-      <h3>FOMC · Federal Open Market Committee</h3>
-      <p>
-        FOMC merupakan komite Federal Reserve yang menetapkan
-        arah kebijakan moneter AS. Keputusan suku bunga, pernyataan,
-        dan proyeksi ekonomi dapat memengaruhi ekspektasi pasar.
-      </p>
-    </section>
+        <section aria-labelledby="modules-title">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">YOUR LEARNING PATH</div>
+                    <h2 id="modules-title">Macro Learning Modules</h2>
+                </div>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">03 · MARKET RELATIONSHIPS</span>
-      <h2>Memahami Hubungan Antar Pasar</h2>
+                <p class="section-note">
+                    Selesaikan modul secara berurutan untuk membangun pemahaman yang kuat.
+                </p>
+            </div>
 
-      <h3>DXY · US Dollar Index</h3>
-      <p>
-        DXY mengukur nilai dolar AS terhadap sekeranjang mata uang.
-        Perubahan dolar dapat menjadi salah satu faktor yang
-        diperhatikan saat menganalisis Gold dan pasangan Forex.
-      </p>
+            <div class="module-grid">
 
-      <h3>Treasury Yields</h3>
-      <p>
-        Treasury Yields adalah imbal hasil obligasi pemerintah AS.
-        Perubahannya dapat mencerminkan perubahan ekspektasi suku
-        bunga, inflasi, dan kondisi ekonomi.
-      </p>
+                <!-- MODULE 01 -->
+                <a class="module-card" href="macro-01.html">
+                    <div class="module-number">Module 01</div>
+                    <h3>Introduction to Macroeconomics</h3>
+                    <p class="module-description">
+                        Memahami ekonomi makro, pertumbuhan ekonomi, inflasi,
+                        dan hubungannya dengan pasar keuangan.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
 
-      <h3>Gold · XAUUSD</h3>
-      <p>
-        Harga Gold dapat dipengaruhi oleh dolar AS, imbal hasil
-        obligasi, ekspektasi suku bunga, permintaan aset aman,
-        serta faktor penawaran dan permintaan lainnya.
-      </p>
-    </section>
+                <!-- MODULE 02 -->
+                <a class="module-card" href="macro-02.html">
+                    <div class="module-number">Module 02</div>
+                    <h3>Understanding Economic Indicators</h3>
+                    <p class="module-description">
+                        Mengenal CPI, NFP, GDP, tingkat pengangguran,
+                        serta data ekonomi penting lainnya.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">04 · READING THE NEWS</span>
-      <h2>Cara Membaca Rilis Berita</h2>
-      <ul class="lesson-list">
-        <li>Periksa angka aktual dan bandingkan dengan konsensus.</li>
-        <li>Perhatikan revisi data sebelumnya jika tersedia.</li>
-        <li>Pahami konteks ekonomi dan ekspektasi bank sentral.</li>
-        <li>Amati respons harga setelah rilis, bukan hanya angka berita.</li>
-        <li>Perhitungkan spread, volatilitas, dan risiko eksekusi.</li>
-      </ul>
+                <!-- MODULE 03 -->
+                <a class="module-card" href="macro-03.html">
+                    <div class="module-number">Module 03</div>
+                    <h3>CPI, Inflation &amp; Interest Rates</h3>
+                    <p class="module-description">
+                        Memahami inflasi, ekspektasi suku bunga,
+                        dan potensi dampaknya terhadap emas serta USD.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
 
-      <div class="lesson-note">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
-          Berita yang terlihat positif tidak selalu membuat harga
-          naik. Pasar bereaksi terhadap perbedaan antara hasil
-          aktual, ekspektasi, dan bagaimana informasi tersebut
-          mengubah pandangan pelaku pasar.
-        </p>
-      </div>
-    </section>
+                <!-- MODULE 04 -->
+                <a class="module-card" href="macro-04.html">
+                    <div class="module-number">Module 04</div>
+                    <h3>NFP &amp; Labor Market</h3>
+                    <p class="module-description">
+                        Mempelajari data tenaga kerja AS, pertumbuhan pekerjaan,
+                        upah, dan tingkat pengangguran.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">05 · KEY TAKEAWAYS</span>
-      <h2>Hal yang Perlu Diingat</h2>
-      <ul class="lesson-list">
-        <li>Data ekonomi memberikan konteks, bukan kepastian arah harga.</li>
-        <li>Ekspektasi pasar sama pentingnya dengan angka aktual.</li>
-        <li>Hubungan antar aset dapat berubah sesuai kondisi.</li>
-        <li>Volatilitas saat berita rilis dapat meningkatkan risiko trading.</li>
-        <li>Analisis harus disertai batas risiko yang jelas.</li>
-      </ul>
-    </section>
+                <!-- MODULE 05 -->
+                <a class="module-card" href="macro-05.html">
+                    <div class="module-number">Module 05</div>
+                    <h3>FOMC &amp; Federal Reserve</h3>
+                    <p class="module-description">
+                        Mengenali kebijakan The Fed, keputusan suku bunga,
+                        dan pernyataan yang memengaruhi ekspektasi pasar.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
 
-    <a class="lesson-next" href="academy.html">
-      Kembali ke Academy →
-    </a>
-  </main>
+                <!-- MODULE 06 -->
+                <a class="module-card" href="macro-06.html">
+                    <div class="module-number">Module 06</div>
+                    <h3>DXY &amp; Treasury Yields</h3>
+                    <p class="module-description">
+                        Memahami indeks dolar dan imbal hasil obligasi AS,
+                        serta keterkaitannya dengan emas dan aset global.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- MODULE 07 -->
+                <a class="module-card" href="macro-07.html">
+                    <div class="module-number">Module 07</div>
+                    <h3>Understanding News Impact</h3>
+                    <p class="module-description">
+                        Membaca actual, forecast, dan previous serta memahami
+                        mengapa respons pasar bisa berbeda dari ekspektasi.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- MODULE 08 -->
+                <a class="module-card" href="macro-08.html">
+                    <div class="module-number">Module 08</div>
+                    <h3>Trading Around High-Impact News</h3>
+                    <p class="module-description">
+                        Memahami volatilitas saat rilis berita, risiko slippage,
+                        spread melebar, dan pentingnya manajemen risiko.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">FREE · BASIC</span>
+                        <span class="module-arrow">→</span>
+                    </div>
+                </a>
+
+                <!-- PREMIUM -->
+                <div class="module-card premium-card">
+                    <div class="module-number">Beyond the Basics</div>
+                    <h3>Advanced Macro Research</h3>
+                    <p class="module-description">
+                        Studi kasus, analisis lintas aset, interpretasi kebijakan
+                        bank sentral, dan latihan membaca konteks pasar.
+                    </p>
+                    <div class="module-footer">
+                        <span class="level-tag">PREMIUM · COMING SOON</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <aside class="learning-note">
+            <div class="note-mark">✦</div>
+            <div>
+                <h3>Market Insight</h3>
+                <p>
+                    Data ekonomi tidak selalu menggerakkan pasar sesuai arah
+                    yang terlihat dari angka utamanya. Reaksi harga juga
+                    dipengaruhi ekspektasi, panduan bank sentral, posisi pasar,
+                    dan kondisi likuiditas.
+                </p>
+            </div>
+        </aside>
+
+        <footer>
+            <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
+            <div>Understand the Market, Before You Trade It.</div>
+        </footer>
+
+    </main>
 </body>
+
 </html>

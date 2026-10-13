@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b0e">
+    <meta name="description"
+        content="Pelajari indikator ekonomi utama, cara membaca data ekonomi, dan dampaknya terhadap pasar keuangan bersama THE DESK Academy.">
+
+    <title>Module 02 - Understanding Economic Indicators | THE DESK</title>
+
+    <style>
+        :root {
+            --bg: #090b0e;
+            --panel: #11151a;
+            --border: #292f37;
+            --gold: #c9a45c;
+            --gold-light: #e4c27d;
+            --text: #eef1f5;
+            --muted: #a3adba;
+            --muted-dark: #7f8996;
+            --green: #42c994;
+            --red: #f07878;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .page {
+            width: min(100% - 40px, 912px);
+            margin: 0 auto;
+            padding: 44px 0 70px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 44px;
+            color: var(--gold);
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            color: var(--gold-light);
+        }
+
+        .eyebrow,
+        .section-number {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            padding-bottom: 34px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            max-width: 780px;
+            margin-top: 16px;
+            font-size: clamp(38px, 6vw, 62px);
+            line-height: 1.08;
+            letter-spacing: -1.8px;
+        }
+
+        .hero-description {
+            max-width: 750px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .meta-item {
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .article-section {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            margin-top: 8px;
+            font-size: 23px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            margin-top: 22px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .article-section p {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.95;
+        }
+
+        .article-section strong {
+            color: var(--text);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .concept-card {
+            padding: 17px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .concept-label {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .concept-card h3 {
+            margin-top: 8px;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .concept-card p {
+            margin-top: 0;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .insight {
+            margin-top: 20px;
+            padding: 18px 20px;
+            background: var(--panel);
+            border: 1px solid #423723;
+            border-left: 3px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .insight-label {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .insight p {
+            margin-top: 8px;
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .example-box {
+            margin-top: 18px;
+            padding: 20px;
+            background: #0e1115;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .example-box h3 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+
+        .example-box p {
+            margin-top: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            margin-top: 18px;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 10px;
+            border: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .data-table th {
+            background: var(--panel);
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .data-table td {
+            color: var(--muted);
+        }
+
+        .quiz-section {
+            padding-top: 38px;
+        }
+
+        .quiz-intro {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .quiz-progress {
+            height: 4px;
+            margin-top: 22px;
+            overflow: hidden;
+            background: #242a32;
+            border-radius: 10px;
+        }
+
+        .quiz-progress-bar {
+            width: 0;
+            height: 100%;
+            background: var(--gold);
+            transition: width .2s ease;
+        }
+
+        .question-card {
+            margin-top: 18px;
+            padding: 22px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .question-number {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .question-card h3 {
+            margin-top: 9px;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .options {
+            display: grid;
+            gap: 9px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 12px 13px;
+            background: #0c0f13;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color .15s ease;
+        }
+
+        .option:hover {
+            border-color: #655333;
+        }
+
+        .option input {
+            margin-top: 5px;
+            accent-color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .option span {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .option:has(input:checked) {
+            border-color: var(--gold);
+        }
+
+        .option:has(input:checked) span {
+            color: var(--text);
+        }
+
+        .option.correct {
+            border-color: var(--green);
+        }
+
+        .option.incorrect {
+            border-color: var(--red);
+        }
+
+        .explanation {
+            display: none;
+            margin-top: 14px;
+            padding: 14px;
+            background: #0c0f13;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.85;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation strong {
+            color: var(--gold);
+        }
+
+        .quiz-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            cursor: pointer;
+            transition: background .2s ease, border-color .2s ease;
+        }
+
+        .btn:hover {
+            border-color: var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #090b0e;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        .btn:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            margin-top: 22px;
+            padding: 22px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-status {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .result-score {
+            margin-top: 8px;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .result-message {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .next-panel {
+            display: none;
+            margin-top: 22px;
+            padding: 22px;
+            background: #111711;
+            border: 1px solid #294c3d;
+            border-radius: 6px;
+        }
+
+        .next-panel.show {
+            display: block;
+        }
+
+        .next-panel h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
+
+        .next-panel p {
+            margin: 8px 0 16px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .premium-panel {
+            margin-top: 38px;
+            padding: 24px;
+            background: #11120f;
+            border: 1px solid #383126;
+            border-radius: 6px;
+        }
+
+        .premium-label {
+            color: #b79a5e;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .premium-panel h2 {
+            font-size: 20px;
+        }
+
+        .premium-panel p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .bottom-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 48px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+            color: var(--muted-dark);
+            font-size: 11px;
+        }
+
+        footer strong {
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                width: min(100% - 32px, 912px);
+                padding-top: 28px;
+            }
+
+            .back-link {
+                margin-bottom: 35px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question-card {
+                padding: 17px;
+            }
+
+            .bottom-navigation {
+                flex-direction: column;
+            }
+
+            .bottom-navigation .btn {
+                width: 100%;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+
+        <a class="back-link" href="macro.html">
+            ← Back to Macro &amp; News Impact
+        </a>
+
+        <header class="hero">
+            <div class="eyebrow">THE DESK ACADEMY · MODULE 02</div>
+
+            <h1>Understanding<br>Economic Indicators.</h1>
+
+            <p class="hero-description">
+                Kenali indikator ekonomi utama, pahami cara membaca hasil
+                rilis data, dan pelajari bagaimana informasi ekonomi dapat
+                mengubah ekspektasi pelaku pasar.
+            </p>
+
+            <div class="hero-meta">
+                <span class="meta-item">FREE · BASIC</span>
+                <span class="meta-item">BEGINNER</span>
+                <span class="meta-item">8 MIN READ</span>
+            </div>
+        </header>
+
+        <!-- SECTION 01 -->
+        <section class="article-section">
+            <div class="section-number">01 · Economic Indicators</div>
+            <h2>Apa Itu Indikator Ekonomi?</h2>
+
+            <p>
+                Indikator ekonomi adalah data statistik yang membantu
+                menggambarkan kondisi dan perkembangan perekonomian.
+                Data tersebut digunakan untuk menilai aktivitas ekonomi,
+                tekanan inflasi, kondisi tenaga kerja, dan arah kebijakan
+                moneter.
+            </p>
+
+            <p>
+                Bagi pelaku pasar, indikator ekonomi memberikan informasi
+                untuk membandingkan kondisi aktual dengan ekspektasi
+                sebelumnya. Perbedaan tersebut dapat memengaruhi penilaian
+                terhadap prospek ekonomi dan berbagai aset keuangan.
+            </p>
+
+            <div class="insight">
+                <div class="insight-label">Key Insight</div>
+                <p>
+                    Indikator ekonomi bukan sinyal trading otomatis.
+                    Nilainya terletak pada informasi yang diberikan,
+                    ekspektasi yang terbentuk, dan perubahan ekspektasi
+                    setelah data dirilis.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 02 -->
+        <section class="article-section">
+            <div class="section-number">02 · Key Indicators</div>
+            <h2>Indikator Ekonomi Utama</h2>
+
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-label">Inflation</div>
+                    <h3>CPI · Consumer Price Index</h3>
+                    <p>
+                        Mengukur perubahan harga sekeranjang barang dan jasa
+                        konsumen. CPI menjadi salah satu ukuran tekanan inflasi
+                        yang diperhatikan pasar.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Employment</div>
+                    <h3>NFP · Nonfarm Payrolls</h3>
+                    <p>
+                        Mengukur perubahan jumlah tenaga kerja nonpertanian
+                        di Amerika Serikat. Data ini membantu menilai kondisi
+                        pasar tenaga kerja.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Economic Growth</div>
+                    <h3>GDP · Gross Domestic Product</h3>
+                    <p>
+                        Mengukur nilai barang dan jasa akhir yang diproduksi
+                        dalam perekonomian selama periode tertentu.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Monetary Policy</div>
+                    <h3>Interest Rate Decision</h3>
+                    <p>
+                        Keputusan suku bunga bank sentral yang dapat memengaruhi
+                        biaya pendanaan dan ekspektasi pasar.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Employment</div>
+                    <h3>Unemployment Rate</h3>
+                    <p>
+                        Menggambarkan persentase angkatan kerja yang menganggur
+                        dan sedang mencari pekerjaan.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Business Activity</div>
+                    <h3>PMI · Purchasing Managers' Index</h3>
+                    <p>
+                        Survei yang membantu mengukur kondisi aktivitas bisnis.
+                        Angka di atas 50 umumnya menunjukkan ekspansi,
+                        sedangkan di bawah 50 menunjukkan kontraksi.
+                    </p>
+                </div>
+            </div>
+
+            <p>
+                Setiap indikator mengukur aspek ekonomi yang berbeda.
+                Karena itu, satu angka sebaiknya tidak digunakan sendirian
+                untuk menyimpulkan seluruh kondisi perekonomian.
+            </p>
+        </section>
+
+        <!-- SECTION 03 -->
+        <section class="article-section">
+            <div class="section-number">03 · Reading Economic Releases</div>
+            <h2>Memahami Actual, Forecast, dan Previous</h2>
+
+            <p>
+                Kalender ekonomi umumnya menampilkan tiga informasi penting.
+                Memahami perbedaannya merupakan langkah awal untuk membaca
+                rilis data secara terstruktur.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-label">Actual</div>
+                    <h3>Hasil Aktual</h3>
+                    <p>
+                        Angka yang benar-benar diumumkan oleh lembaga statistik
+                        atau otoritas terkait pada saat rilis.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Forecast</div>
+                    <h3>Perkiraan Pasar</h3>
+                    <p>
+                        Perkiraan atau konsensus yang tersedia sebelum data
+                        dirilis. Ini menjadi salah satu tolok ukur ekspektasi.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Previous</div>
+                    <h3>Data Sebelumnya</h3>
+                    <p>
+                        Angka periode sebelumnya. Nilai ini dapat direvisi
+                        ketika data terbaru diumumkan.
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-label">Context</div>
+                    <h3>Perbandingan yang Tepat</h3>
+                    <p>
+                        Periksa satuan, periode, revisi, dan apakah angka
+                        yang lebih tinggi atau rendah dianggap positif
+                        dalam konteks indikator tersebut.
+                    </p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Contoh Membaca Rilis NFP</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Contoh Angka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Previous</td>
+                            <td>150.000</td>
+                        </tr>
+                        <tr>
+                            <td>Forecast</td>
+                            <td>180.000</td>
+                        </tr>
+                        <tr>
+                            <td>Actual</td>
+                            <td>220.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Dalam contoh hipotetis ini, hasil aktual lebih tinggi
+                    daripada perkiraan pasar. Hal tersebut menunjukkan
+                    pertumbuhan pekerjaan yang lebih kuat dari perkiraan.
+                </p>
+
+                <p>
+                    Namun, respons USD dan emas tetap bergantung pada
+                    keseluruhan laporan, termasuk upah, tingkat pengangguran,
+                    revisi data sebelumnya, dan ekspektasi suku bunga.
+                    Angka di atas bukan data rilis aktual.
+                </p>
+            </div>
+
+            <div class="insight">
+                <div class="insight-label">Key Insight</div>
+                <p>
+                    Membandingkan Actual dengan Forecast membantu mengukur
+                    kejutan data. Membandingkan dengan Previous membantu
+                    melihat perubahan dari periode sebelumnya. Keduanya
+                    menjawab pertanyaan yang berbeda.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 04 -->
+        <section class="article-section">
+            <div class="section-number">04 · Market Expectations</div>
+            <h2>Mengapa Ekspektasi Pasar Penting?</h2>
+
+            <p>
+                Harga pasar bergerak berdasarkan berbagai informasi yang
+                tersedia dan bagaimana pelaku pasar menilai informasi
+                tersebut. Karena itu, data yang terlihat kuat belum tentu
+                mendorong harga naik, dan data yang terlihat lemah belum
+                tentu membuat harga turun.
+            </p>
+
+            <div class="example-box">
+                <h3>Situasi A · Hasil Sesuai Ekspektasi</h3>
+                <p>
+                    Jika hasil data sesuai perkiraan, sebagian informasi
+                    mungkin sudah tercermin dalam harga sebelum rilis.
+                    Respons harga dapat terbatas, meskipun hasilnya tetap
+                    penting bagi analisis jangka menengah.
+                </p>
+
+                <h3>Situasi B · Hasil Berbeda dari Ekspektasi</h3>
+                <p>
+                    Jika hasil menyimpang dari perkiraan, pelaku pasar dapat
+                    menyesuaikan penilaian terhadap pertumbuhan ekonomi
+                    atau kebijakan moneter. Penyesuaian tersebut berpotensi
+                    meningkatkan volatilitas.
+                </p>
+
+                <h3>Situasi C · Komponen Data Saling Bertentangan</h3>
+                <p>
+                    Data utama bisa terlihat kuat sementara komponen lainnya
+                    melemah. Pasar perlu menilai keseluruhan laporan, bukan
+                    hanya satu angka utama.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 05 -->
+        <section class="article-section">
+            <div class="section-number">05 · Practical Framework</div>
+            <h2>Kerangka Membaca Kalender Ekonomi</h2>
+
+            <p>
+                Gunakan langkah berikut untuk mempersiapkan diri sebelum
+                rilis data ekonomi.
+            </p>
+
+            <div class="example-box">
+                <h3>1. Identifikasi nama dan waktu rilis</h3>
+                <p>
+                    Ketahui indikator yang akan diumumkan, periode data,
+                    waktu rilis, dan mata uang atau aset yang berpotensi
+                    terdampak.
+                </p>
+
+                <h3>2. Catat forecast dan previous</h3>
+                <p>
+                    Pahami perkiraan pasar dan data sebelumnya. Perhatikan
+                    apakah previous dapat mengalami revisi.
+                </p>
+
+                <h3>3. Tentukan pertanyaan utama</h3>
+                <p>
+                    Misalnya, apakah data inflasi mengubah ekspektasi
+                    suku bunga? Apakah pertumbuhan tenaga kerja masih kuat?
+                </p>
+
+                <h3>4. Evaluasi respons pasar</h3>
+                <p>
+                    Amati perubahan USD, Treasury Yields, emas, dan struktur
+                    harga. Hindari menyimpulkan arah hanya dari satu angka.
+                </p>
+
+                <h3>5. Kelola risiko</h3>
+                <p>
+                    Perhatikan potensi spread melebar, slippage, dan
+                    volatilitas tinggi. Tidak mengambil posisi juga
+                    merupakan pilihan yang valid ketika kondisi tidak jelas.
+                </p>
+            </div>
+
+            <div class="insight">
+                <div class="insight-label">Module Summary</div>
+                <p>
+                    Indikator ekonomi membantu memahami kondisi ekonomi,
+                    sedangkan perbandingan Actual, Forecast, dan Previous
+                    membantu membaca kejutan data. Interpretasi yang baik
+                    tetap membutuhkan konteks, konfirmasi pasar, dan
+                    manajemen risiko.
+                </p>
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section class="quiz-section" id="quiz">
+            <div class="section-number">Knowledge Check</div>
+            <h2>Uji Pemahaman Kamu</h2>
+
+            <p class="quiz-intro">
+                Jawab 5 pertanyaan. Kamu perlu memperoleh minimal
+                80% atau 4 jawaban benar untuk membuka Module 03.
+            </p>
+
+            <div class="quiz-progress" aria-label="Progres kuis">
+                <div class="quiz-progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="quizForm">
+
+                <div class="question-card" data-question="0">
+                    <div class="question-number">Question 01 of 05</div>
+                    <h3>Apa fungsi utama indikator ekonomi?</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0" value="0">
+                            <span>Memastikan arah harga berikutnya secara akurat.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0" value="1">
+                            <span>Memberikan informasi tentang kondisi dan perkembangan ekonomi.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0" value="2">
+                            <span>Menggantikan seluruh analisis risiko.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0" value="3">
+                            <span>Menentukan lot trading yang harus digunakan.</span>
+                        </label>
+                    </div>
+
+                    <div class="explanation">
+                        <strong>Pembahasan:</strong>
+                        Indikator ekonomi membantu menilai kondisi ekonomi.
+                        Indikator tidak menjamin arah harga dan bukan pengganti
+                        manajemen risiko.
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="1">
+                    <div class="question-number">Question 02 of 05</div>
+                    <h3>Apa yang dimaksud dengan Forecast dalam kalender ekonomi?</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="0">
+                            <span>Hasil resmi yang baru diumumkan.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="1">
+                            <span>Data dari periode yang lebih lama.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="2">
+                            <span>Perkiraan pasar sebelum data dirilis.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="3">
+                            <span>Harga penutupan instrumen.</span>
+                        </label>
+                    </div>
+
+                    <div class="explanation">
+                        <strong>Pembahasan:</strong>
+                        Forecast merupakan perkiraan yang tersedia sebelum
+                        pengumuman. Actual adalah hasil yang dirilis, sedangkan
+                        Previous merujuk pada angka periode sebelumnya.
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="2">
+                    <div class="question-number">Question 03 of 05</div>
+                    <h3>Jika Actual NFP lebih tinggi daripada Forecast, apa kesimpulan awal yang tepat?</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="0">
+                            <span>Emas pasti turun.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="1">
+                            <span>USD pasti naik tanpa pengecualian.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="2">
+                            <span>Seluruh kondisi ekonomi pasti membaik.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="3">
+                            <span>Pertumbuhan pekerjaan melampaui perkiraan, tetapi konteks lain tetap perlu
+                                diperiksa.</span>
+                        </label>
+                    </div>
+
+                    <div class="explanation">
+                        <strong>Pembahasan:</strong>
+                        Actual yang lebih tinggi menunjukkan hasil melampaui
+                        perkiraan. Namun, komponen lain dan ekspektasi pasar
+                        tetap memengaruhi reaksi aset.
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="3">
+                    <div class="question-number">Question 04 of 05</div>
+                    <h3>Indikator mana yang umum digunakan untuk memantau inflasi konsumen?</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="0">
+                            <span>CPI.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="1">
+                            <span>NFP saja.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="2">
+                            <span>Jumlah pending order.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="3">
+                            <span>Harga pembukaan pasar.</span>
+                        </label>
+                    </div>
+
+                    <div class="explanation">
+                        <strong>Pembahasan:</strong>
+                        Consumer Price Index mengukur perubahan harga
+                        sekeranjang barang dan jasa konsumen dan merupakan
+                        salah satu ukuran inflasi yang banyak diperhatikan.
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="4">
+                    <div class="question-number">Question 05 of 05</div>
+                    <h3>Mengapa trader perlu memeriksa keseluruhan laporan ekonomi?</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="0">
+                            <span>Agar dapat mengabaikan respons harga.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="1">
+                            <span>Karena satu angka utama tidak selalu menggambarkan keseluruhan kondisi.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="2">
+                            <span>Agar bisa memastikan arah harga dengan pasti.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="3">
+                            <span>Karena Forecast selalu salah.</span>
+                        </label>
+                    </div>
+
+                    <div class="explanation">
+                        <strong>Pembahasan:</strong>
+                        Komponen laporan, revisi, ekspektasi, dan kondisi pasar
+                        dapat mengubah interpretasi terhadap satu angka utama.
+                    </div>
+                </div>
+
+                <div class="quiz-actions">
+                    <button class="btn btn-primary" type="submit" id="submitQuiz">
+                        SUBMIT ANSWERS →
+                    </button>
+
+                    <button class="btn" type="button" id="retryQuiz" hidden>
+                        TRY AGAIN
+                    </button>
+                </div>
+            </form>
+
+            <div class="result" id="result" aria-live="polite">
+                <div class="result-status" id="resultStatus">QUIZ RESULT</div>
+                <div class="result-score" id="resultScore">0/100</div>
+                <p class="result-message" id="resultMessage"></p>
+            </div>
+
+            <div class="next-panel" id="nextPanel">
+                <h3>Module 02 Completed</h3>
+                <p>
+                    Kamu sudah memenuhi nilai minimum. Lanjutkan ke Module 03
+                    untuk mempelajari CPI, inflasi, dan suku bunga.
+                </p>
+                <a class="btn btn-primary" href="macro-03.html">
+                    NEXT MODULE 03 →
+                </a>
+            </div>
+        </section>
+
+        <!-- PREMIUM -->
+        <section class="premium-panel">
+            <div class="premium-label">Beyond the Basics</div>
+            <h2>Advanced Macro Research</h2>
+            <p>
+                Pelajari analisis mendalam mengenai surprise data,
+                revisi indikator, perbedaan ekspektasi pasar, dan hubungan
+                antarindikator dalam pembentukan ekspektasi kebijakan moneter.
+                Materi lanjutan tersedia pada jalur Premium THE DESK Academy.
+            </p>
+        </section>
+
+        <nav class="bottom-navigation" aria-label="Navigasi modul">
+            <a class="btn" href="macro.html">← BACK TO MACRO MODULES</a>
+            <a class="btn" href="macro-01.html">← PREVIOUS MODULE</a>
+            <a class="btn" href="academy.html">BACK TO ACADEMY</a>
+        </nav>
+
+        <footer>
+            <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
+            <div>Understand the Market, Before You Trade It.</div>
+        </footer>
+
+    </main>
+
+    <script>
+        (() => {
+            const form = document.getElementById("quizForm");
+            const submitButton = document.getElementById("submitQuiz");
+            const retryButton = document.getElementById("retryQuiz");
+            const result = document.getElementById("result");
+            const resultStatus = document.getElementById("resultStatus");
+            const resultScore = document.getElementById("resultScore");
+            const resultMessage = document.getElementById("resultMessage");
+            const nextPanel = document.getElementById("nextPanel");
+            const progressBar = document.getElementById("progressBar");
+
+            const correctAnswers = [1, 2, 3, 0, 1];
+            const totalQuestions = correctAnswers.length;
+            const passingScore = 80;
+
+            let submitted = false;
+
+            function updateProgress() {
+                const answered = correctAnswers.reduce((count, _, index) => {
+                    const selected = form.querySelector(
+                        `input[name="q${index}"]:checked`
+                    );
+
+                    return count + (selected ? 1 : 0);
+                }, 0);
+
+                progressBar.style.width =
+                    `${(answered / totalQuestions) * 100}%`;
+            }
+
+            form.addEventListener("change", (event) => {
+                if (event.target.matches('input[type="radio"]')) {
+                    updateProgress();
+                }
+            });
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                if (submitted) return;
+
+                const unanswered = correctAnswers.filter((_, index) => {
+                    return !form.querySelector(
+                        `input[name="q${index}"]:checked`
+                    );
+                }).length;
+
+                if (unanswered > 0) {
+                    alert(
+                        `Masih ada ${unanswered} pertanyaan yang belum dijawab. Lengkapi semua jawaban terlebih dahulu.`
+                    );
+                    return;
+                }
+
+                let score = 0;
+
+                correctAnswers.forEach((answer, index) => {
+                    const selected = form.querySelector(
+                        `input[name="q${index}"]:checked`
+                    );
+
+                    const card = form.querySelector(
+                        `[data-question="${index}"]`
+                    );
+
+                    const options = card.querySelectorAll(".option");
+                    const explanation = card.querySelector(".explanation");
+
+                    options.forEach((option) => {
+                        const input = option.querySelector("input");
+                        input.disabled = true;
+
+                        if (Number(input.value) === answer) {
+                            option.classList.add("correct");
+                        }
+
+                        if (
+                            input.checked &&
+                            Number(input.value) !== answer
+                        ) {
+                            option.classList.add("incorrect");
+                        }
+                    });
+
+                    if (Number(selected.value) === answer) {
+                        score++;
+                    }
+
+                    explanation.classList.add("show");
+                });
+
+                const percentage = Math.round(
+                    (score / totalQuestions) * 100
+                );
+
+                submitted = true;
+                result.classList.add("show");
+                resultScore.textContent = `${percentage}/100`;
+
+                if (percentage >= passingScore) {
+                    resultStatus.textContent = "PASSED · MODULE COMPLETED";
+                    resultMessage.textContent =
+                        `Jawaban benar ${score} dari ${totalQuestions}. ` +
+                        "Bagus! Kamu sudah memenuhi nilai minimum 80%.";
+
+                    nextPanel.classList.add("show");
+                } else {
+                    resultStatus.textContent = "NOT PASSED · KEEP LEARNING";
+                    resultMessage.textContent =
+                        `Jawaban benar ${score} dari ${totalQuestions}. ` +
+                        "Nilai minimum adalah 80%. Pelajari pembahasan, lalu coba lagi.";
+
+                    retryButton.hidden = false;
+                }
+
+                submitButton.disabled = true;
+
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            });
+
+            retryButton.addEventListener("click", () => {
+                form.reset();
+
+                form.querySelectorAll("input").forEach((input) => {
+                    input.disabled = false;
+                });
+
+                form.querySelectorAll(".option").forEach((option) => {
+                    option.classList.remove("correct", "incorrect");
+                });
+
+                form.querySelectorAll(".explanation").forEach((box) => {
+                    box.classList.remove("show");
+                });
+
+                result.classList.remove("show");
+                nextPanel.classList.remove("show");
+                retryButton.hidden = true;
+                submitButton.disabled = false;
+                submitted = false;
+
+                updateProgress();
+
+                document.getElementById("quiz").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+
+            updateProgress();
+        })();
+    </script>
+</body>
+
+</html>

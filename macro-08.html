@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="THE DESK Academy Module 08: Trading Around High-Impact News.">
+    <title>Module 08 - Trading Around High-Impact News | THE DESK Academy</title>
+
+    <style>
+        :root {
+            --bg: #090b0e;
+            --panel: #11151a;
+            --panel2: #151a20;
+            --gold: #c9a45c;
+            --text: #edf0f4;
+            --muted: #a3adba;
+            --border: #292f37;
+            --green: #42c994;
+            --red: #f07878;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            background: #0d1014;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            color: var(--gold);
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .brand small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .top-link {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .top-link:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            width: min(1000px, 90%);
+            margin: 0 auto;
+            padding: 42px 0 70px;
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.2;
+            margin: 12px 0 16px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            color: var(--gold);
+            font-size: 23px;
+            line-height: 1.4;
+            margin: 0 0 16px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        .lead {
+            max-width: 780px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0 34px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+
+        .tag.gold {
+            color: var(--gold);
+            border-color: #5d4b2e;
+        }
+
+        .article-section {
+            border: 1px solid var(--border);
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 27px;
+            margin: 20px 0;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .concept {
+            background: var(--panel2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .concept p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        .insight {
+            border-left: 3px solid var(--gold);
+            background: #19170f;
+            padding: 17px 20px;
+            margin: 18px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .insight strong {
+            color: var(--gold);
+        }
+
+        .example-box {
+            background: #0d1115;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+
+        .example-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .checklist {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .checklist li {
+            margin: 8px 0;
+        }
+
+        .step-number {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .progress {
+            height: 5px;
+            background: #252b32;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--gold);
+            transition: width .2s ease;
+        }
+
+        .question {
+            border: 1px solid var(--border);
+            background: var(--panel2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 14px 0;
+        }
+
+        .question-title {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .option {
+            display: block;
+            padding: 11px 13px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin: 8px 0;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 14px;
+            transition: .15s ease;
+        }
+
+        .option:hover {
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .option input {
+            margin-right: 9px;
+            accent-color: var(--gold);
+        }
+
+        .option:has(input:checked) {
+            border-color: var(--gold);
+            color: var(--text);
+            background: #201b12;
+        }
+
+        .option.correct {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .option.wrong {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        button {
+            border: 0;
+            background: var(--gold);
+            color: #101010;
+            font-weight: 800;
+            padding: 13px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: .4px;
+            transition: .2s ease;
+        }
+
+        button:hover {
+            filter: brightness(1.08);
+        }
+
+        button.secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        button:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            margin-top: 22px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            background: #0d1115;
+            border-radius: 8px;
+        }
+
+        #result h3 {
+            font-size: 20px;
+        }
+
+        .explanation {
+            display: none;
+            padding: 12px 14px;
+            margin-top: 10px;
+            background: #0c1014;
+            border-radius: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        /* FINAL COMPLETION SECTION */
+
+        #completionSection {
+            display: none;
+            margin-top: 30px;
+            scroll-margin-top: 20px;
+        }
+
+        .completion-hero {
+            text-align: center;
+            border: 1px solid #5d4b2e;
+            background:
+                radial-gradient(ellipse at top, #282113 0%, #11151a 48%, #0b0e12 100%);
+            border-radius: 12px;
+            padding: 42px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .completion-hero::before {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 24px;
+        }
+
+        .completion-hero h2 {
+            font-size: clamp(27px, 4vw, 39px);
+            line-height: 1.2;
+            margin: 12px 0;
+            color: var(--text);
+        }
+
+        .completion-hero h2 span {
+            color: var(--gold);
+        }
+
+        .completion-hero p {
+            max-width: 650px;
+            margin: 0 auto 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .completion-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #456b58;
+            color: var(--green);
+            background: #102019;
+            border-radius: 30px;
+            padding: 7px 13px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .completion-status span {
+            width: 7px;
+            height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .premium-section {
+            border: 1px solid #5d4b2e;
+            background: linear-gradient(145deg, #17150f, #101318 60%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 18px;
+        }
+
+        .premium-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 26px;
+        }
+
+        .premium-heading h2 {
+            color: var(--text);
+            font-size: clamp(24px, 4vw, 34px);
+            margin: 10px 0;
+        }
+
+        .premium-heading h2 span {
+            color: var(--gold);
+        }
+
+        .premium-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .premium-item {
+            background: #11151a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .premium-item .item-number {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .premium-item h3 {
+            margin: 8px 0;
+        }
+
+        .premium-item p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .premium-cta {
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 26px;
+            padding-top: 26px;
+        }
+
+        .premium-cta h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .premium-cta p {
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 540px;
+            margin: 0 auto 20px;
+        }
+
+        .premium-button {
+            display: inline-block;
+            background: var(--gold);
+            color: #090b0e;
+            font-weight: 800;
+            padding: 15px 24px;
+            border-radius: 5px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+        }
+
+        .premium-button:hover {
+            filter: brightness(1.1);
+        }
+
+        .premium-note {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            margin-top: 13px;
+        }
+
+        .closing-links {
+            text-align: center;
+            padding: 24px 0 0;
+        }
+
+        .closing-links p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .closing-links a {
+            color: var(--gold);
+            font-size: 12px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            padding: 24px 5%;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 92%;
+                padding-top: 28px;
+            }
+
+            .article-section {
+                padding: 20px;
+            }
+
+            .concept-grid,
+            .premium-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .completion-hero {
+                padding: 32px 20px;
+            }
+
+            .premium-section {
+                padding: 22px 18px;
+            }
+
+            .premium-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="academy.html">
+            THE DESK
+            <small>MARKET INTELLIGENCE ACADEMY</small>
+        </a>
+        <a class="top-link" href="macro.html">← Kembali ke Macro Learning</a>
+    </header>
+
+    <main class="container">
+
+        <div class="breadcrumb">
+            <a href="academy.html">Academy</a> /
+            <a href="macro.html">Macro & News Impact</a> /
+            Module 08
+        </div>
+
+        <div class="eyebrow">MACRO & NEWS IMPACT · MODULE 08</div>
+
+        <h1>Trading Around High-Impact News</h1>
+
+        <p class="lead">
+            Pelajari cara mempersiapkan trading menjelang rilis berita,
+            memahami risiko volatilitas, mengevaluasi breakout, dan mengelola
+            posisi ketika pasar bergerak cepat.
+        </p>
+
+        <div class="meta">
+            <span class="tag gold">FINAL MODULE</span>
+            <span class="tag">Estimasi 15 menit</span>
+            <span class="tag">5 Quiz Questions</span>
+        </div>
+
+        <section class="article-section">
+            <h2>01. Mengapa High-Impact News Berbeda?</h2>
+
+            <p>
+                Rilis berita berdampak tinggi dapat mengubah ekspektasi pasar dalam
+                waktu singkat. Ketika informasi baru berbeda dari perkiraan,
+                pelaku pasar dapat menyesuaikan posisi secara cepat.
+            </p>
+
+            <p>
+                Kondisi tersebut bisa menciptakan peluang, tetapi juga meningkatkan
+                ketidakpastian. Harga dapat bergerak tajam, berbalik arah, atau
+                menembus level teknikal tanpa melanjutkan pergerakan.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3>Higher Volatility</h3>
+                    <p>
+                        Rentang pergerakan harga dapat meningkat dalam waktu singkat,
+                        sehingga jarak stop loss dan ukuran posisi perlu dievaluasi.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Spread Expansion</h3>
+                    <p>
+                        Spread dapat melebar ketika likuiditas menurun atau ketidakpastian
+                        meningkat, sehingga biaya transaksi menjadi lebih besar.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Slippage</h3>
+                    <p>
+                        Order dapat dieksekusi pada harga berbeda dari harga yang diminta,
+                        terutama ketika harga bergerak sangat cepat.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>False Breakout</h3>
+                    <p>
+                        Harga dapat menembus level penting lalu kembali masuk ke area
+                        sebelumnya ketika dorongan harga tidak berlanjut.
+                    </p>
+                </div>
+            </div>
+
+            <div class="insight">
+                <strong>Key Principle:</strong>
+                Volatilitas yang lebih tinggi tidak otomatis berarti peluang yang
+                lebih baik. Peluang baru layak dipertimbangkan ketika potensi hasil,
+                risiko, dan kondisi eksekusi masih masuk akal.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>02. Persiapan Sebelum Berita Dirilis</h2>
+
+            <p>
+                Persiapan yang baik dimulai sebelum headline muncul. Tujuannya
+                bukan memastikan arah harga, tetapi mengetahui kondisi pasar,
+                level penting, dan batas risiko yang dapat diterima.
+            </p>
+
+            <div class="example-box">
+                <div class="step-number">STEP 01</div>
+                <h3>Identify the Catalyst</h3>
+                <p>
+                    Kenali agenda yang akan dirilis, waktu pengumuman, dan alasan
+                    berita tersebut penting bagi pasar.
+                </p>
+                <p class="muted">
+                    Contoh: CPI AS dapat memengaruhi ekspektasi inflasi dan kebijakan
+                    Federal Reserve.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <div class="step-number">STEP 02</div>
+                <h3>Understand Expectations</h3>
+                <p>
+                    Periksa Forecast, Previous, konsensus, dan konteks data sebelumnya.
+                    Pahami informasi apa yang sudah diperhitungkan pasar.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <div class="step-number">STEP 03</div>
+                <h3>Mark Key Levels</h3>
+                <p>
+                    Tandai high, low, area konsolidasi, dan level struktur harga yang
+                    relevan. Level ini membantu mengevaluasi apakah breakout memiliki
+                    konfirmasi yang memadai.
+                </p>
+            </div>
+
+            <div class="example-box">
+                <div class="step-number">STEP 04</div>
+                <h3>Define Risk First</h3>
+                <p>
+                    Tentukan risiko maksimum, ukuran posisi, dan kondisi yang
+                    membatalkan setup sebelum membuka transaksi.
+                </p>
+            </div>
+
+            <div class="insight">
+                <strong>Preparation Rule:</strong>
+                Jika kamu belum memahami katalis, level harga, dan risiko sebelum
+                berita dirilis, tidak ada kewajiban untuk mengambil transaksi.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>03. Pending Order: Buy Stop & Sell Stop</h2>
+
+            <p>
+                Pending order memungkinkan trader menempatkan instruksi transaksi
+                pada level tertentu tanpa harus mengeksekusi market order secara
+                langsung. Dalam strategi breakout, Buy Stop dan Sell Stop sering
+                digunakan untuk mengantisipasi pergerakan melewati level harga.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3 style="color:var(--green);">Buy Stop</h3>
+                    <p>
+                        Order beli yang ditempatkan di atas harga pasar saat ini.
+                        Order dapat terpicu ketika harga mencapai level yang ditentukan,
+                        sesuai aturan eksekusi broker.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3 style="color:var(--red);">Sell Stop</h3>
+                    <p>
+                        Order jual yang ditempatkan di bawah harga pasar saat ini.
+                        Order dapat terpicu ketika harga mencapai level yang ditentukan,
+                        sesuai aturan eksekusi broker.
+                    </p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Contoh Setup Breakout</h3>
+                <p>
+                    XAUUSD sedang berkonsolidasi di antara area high dan low.
+                    Trader mengamati kemungkinan pergerakan keluar dari rentang tersebut.
+                </p>
+                <ul class="checklist">
+                    <li>Buy Stop dipertimbangkan di atas batas atas range.</li>
+                    <li>Sell Stop dipertimbangkan di bawah batas bawah range.</li>
+                    <li>Jarak buffer harus mempertimbangkan spread dan volatilitas.</li>
+                    <li>Ukuran posisi dihitung berdasarkan risiko dan jarak stop loss.</li>
+                </ul>
+            </div>
+
+            <div class="insight">
+                <strong>Important:</strong>
+                Buy Stop dan Sell Stop bukan jaminan entry pada harga yang diinginkan.
+                Saat berita dirilis, gap harga, spread yang melebar, dan slippage
+                dapat menyebabkan hasil eksekusi berbeda dari rencana.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>04. Risiko Memasang Dua Pending Order</h2>
+
+            <p>
+                Memasang Buy Stop dan Sell Stop secara bersamaan dapat menjadi salah
+                satu pendekatan breakout, tetapi memiliki risiko tersendiri.
+                Dalam pergerakan yang cepat dan tidak beraturan, kedua sisi berpotensi
+                terpicu pada waktu berbeda.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3>Whipsaw Risk</h3>
+                    <p>
+                        Harga menembus satu sisi, berbalik arah, lalu menembus sisi lainnya.
+                        Kondisi ini dapat memicu kerugian pada lebih dari satu transaksi.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Double Exposure</h3>
+                    <p>
+                        Tanpa aturan pembatalan yang jelas, trader berpotensi memiliki
+                        eksposur berlawanan atau risiko gabungan yang tidak direncanakan.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Execution Risk</h3>
+                    <p>
+                        Harga pemicu tidak menjamin harga eksekusi. Risiko dapat meningkat
+                        ketika spread melebar dan likuiditas menurun.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Order Management</h3>
+                    <p>
+                        Tentukan sebelumnya apakah order yang tidak terpicu akan dibatalkan,
+                        kapan order kedaluwarsa, dan bagaimana posisi aktif dikelola.
+                    </p>
+                </div>
+            </div>
+
+            <div class="insight">
+                <strong>Risk Rule:</strong>
+                Jika menggunakan dua pending order, perhitungkan total potensi
+                kerugian dari seluruh skenario yang mungkin terjadi, bukan hanya
+                risiko dari satu order.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>05. Breakout yang Valid vs False Breakout</h2>
+
+            <p>
+                Penembusan level harga tidak selalu menghasilkan tren baru.
+                Trader perlu membedakan harga yang sekadar melewati level dengan
+                pergerakan yang menunjukkan follow-through.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3 style="color:var(--green);">Potential Valid Breakout</h3>
+                    <p>
+                        Harga menembus level penting, mampu bertahan di luar range,
+                        dan menunjukkan kelanjutan pergerakan yang konsisten dengan setup.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3 style="color:var(--red);">Potential False Breakout</h3>
+                    <p>
+                        Harga menembus level lalu kembali ke dalam range, gagal melanjutkan
+                        arah, atau membentuk penolakan harga yang kuat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Checklist Konfirmasi</h3>
+                <ul class="checklist">
+                    <li>Apakah harga benar-benar melewati level yang telah ditentukan?</li>
+                    <li>Apakah candle ditutup di luar range jika strategi mensyaratkannya?</li>
+                    <li>Apakah terdapat follow-through setelah penembusan?</li>
+                    <li>Apakah spread dan slippage masih dapat diterima?</li>
+                    <li>Apakah setup masih memiliki rasio risiko dan potensi hasil yang layak?</li>
+                </ul>
+            </div>
+
+            <div class="insight">
+                <strong>Core Lesson:</strong>
+                Tidak semua breakout harus ditradingkan. Menolak setup yang tidak
+                memenuhi kriteria adalah bagian dari strategi, bukan kegagalan.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>06. Mengelola Risiko Saat News Trading</h2>
+
+            <p>
+                Risiko harus ditentukan berdasarkan kondisi akun dan karakteristik
+                instrumen, bukan berdasarkan seberapa besar peluang profit yang
+                dibayangkan trader.
+            </p>
+
+            <div class="concept-grid">
+                <div class="concept">
+                    <h3>Position Sizing</h3>
+                    <p>
+                        Ukuran posisi harus disesuaikan dengan modal, nilai pergerakan
+                        harga, jarak stop loss, dan batas risiko.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Stop Loss</h3>
+                    <p>
+                        Tentukan level invalidasi setup. Stop loss membatasi risiko
+                        yang direncanakan, tetapi tidak menjamin harga eksekusi.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>Risk Limit</h3>
+                    <p>
+                        Tetapkan batas kerugian per transaksi dan per sesi. Hindari
+                        menambah posisi hanya untuk memulihkan kerugian sebelumnya.
+                    </p>
+                </div>
+
+                <div class="concept">
+                    <h3>No-Trade Decision</h3>
+                    <p>
+                        Jika kondisi eksekusi terlalu buruk atau risiko tidak dapat
+                        dihitung dengan memadai, memilih tidak trading adalah keputusan valid.
+                    </p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>Contoh Perhitungan Risiko</h3>
+                <p>
+                    Misalnya, saldo akun adalah $1.000 dan batas risiko yang dipilih
+                    sebesar 0,5% dari saldo.
+                </p>
+                <p><strong>Risiko terencana = $1.000 × 0,5% = $5.</strong></p>
+                <p class="muted">
+                    Nilai tersebut adalah batas risiko yang direncanakan, bukan jaminan
+                    kerugian maksimum aktual. Ukuran posisi harus dihitung menggunakan
+                    jarak stop loss dan spesifikasi kontrak broker.
+                </p>
+            </div>
+
+            <div class="insight">
+                <strong>Discipline Over Excitement:</strong>
+                Tujuan utama bukan menangkap seluruh pergerakan berita. Tujuannya
+                adalah mengambil keputusan yang konsisten dengan strategi dan batas risiko.
+            </div>
+        </section>
+
+        <section class="article-section">
+            <h2>07. THE DESK News Trading Framework</h2>
+
+            <p>
+                Gunakan framework ini sebagai prosedur kerja sebelum, selama,
+                dan setelah rilis berita berdampak tinggi.
+            </p>
+
+            <div class="example-box">
+                <div class="step-number">PHASE 01 · BEFORE RELEASE</div>
+                <h3>Prepare</h3>
+                <ul class="checklist">
+                    <li>Identifikasi berita dan waktu rilis.</li>
+                    <li>Periksa ekspektasi dan data sebelumnya.</li>
+                    <li>Tandai level struktur harga.</li>
+                    <li>Tentukan batas risiko dan kondisi no-trade.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <div class="step-number">PHASE 02 · DURING RELEASE</div>
+                <h3>Observe</h3>
+                <ul class="checklist">
+                    <li>Amati respons awal harga dan kondisi spread.</li>
+                    <li>Hindari keputusan impulsif akibat candle yang bergerak cepat.</li>
+                    <li>Periksa apakah order dan eksposur tetap sesuai rencana.</li>
+                    <li>Jangan menganggap arah pertama sebagai arah final.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <div class="step-number">PHASE 03 · AFTER RELEASE</div>
+                <h3>Evaluate</h3>
+                <ul class="checklist">
+                    <li>Bandingkan reaksi pasar dengan ekspektasi awal.</li>
+                    <li>Evaluasi follow-through atau potensi false breakout.</li>
+                    <li>Kelola posisi sesuai rencana, bukan emosi.</li>
+                    <li>Catat hasil dan pelajaran untuk evaluasi berikutnya.</li>
+                </ul>
+            </div>
+
+            <div class="insight">
+                <strong>THE DESK Standard:</strong>
+                Prepare → Observe → Evaluate.
+                Rencana yang baik harus mencakup kemungkinan entry, pembatalan setup,
+                pengelolaan posisi, dan keputusan untuk tidak trading.
+            </div>
+        </section>
+
+        <!-- FINAL QUIZ -->
+
+        <section class="article-section" id="quiz">
+            <div class="quiz-header">
+                <div>
+                    <div class="eyebrow">FINAL KNOWLEDGE CHECK</div>
+                    <h2 style="margin:6px 0 0;">Module 08 Quiz</h2>
+                </div>
+                <span class="tag gold">Passing Score: 80%</span>
+            </div>
+
+            <p class="muted">
+                Jawab lima pertanyaan berikut untuk menyelesaikan Macro & News Impact.
+                Kamu membutuhkan minimal empat jawaban benar.
+            </p>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="quizForm">
+
+                <div class="question">
+                    <div class="question-title">
+                        1. Mengapa trading saat high-impact news memiliki risiko tambahan?
+                    </div>
+                    <label class="option"><input type="radio" name="q0" value="0"> Karena harga selalu bergerak satu
+                        arah.</label>
+                    <label class="option"><input type="radio" name="q0" value="1"> Karena spread, slippage, dan
+                        volatilitas dapat meningkat.</label>
+                    <label class="option"><input type="radio" name="q0" value="2"> Karena stop loss selalu dieksekusi
+                        tepat pada harganya.</label>
+                    <label class="option"><input type="radio" name="q0" value="3"> Karena semua berita menghasilkan
+                        profit.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        2. Apa fungsi Buy Stop dan Sell Stop dalam strategi breakout?
+                    </div>
+                    <label class="option"><input type="radio" name="q1" value="0"> Menjamin transaksi profit ketika
+                        berita dirilis.</label>
+                    <label class="option"><input type="radio" name="q1" value="1"> Menghilangkan seluruh risiko
+                        slippage.</label>
+                    <label class="option"><input type="radio" name="q1" value="2"> Menempatkan instruksi entry pada
+                        level harga tertentu untuk mengantisipasi penembusan.</label>
+                    <label class="option"><input type="radio" name="q1" value="3"> Memastikan harga tidak berbalik
+                        arah.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        3. Apa risiko memasang Buy Stop dan Sell Stop bersamaan?
+                    </div>
+                    <label class="option"><input type="radio" name="q2" value="0"> Kedua order tidak mungkin
+                        terpicu.</label>
+                    <label class="option"><input type="radio" name="q2" value="1"> Tidak ada risiko tambahan jika
+                        memakai pending order.</label>
+                    <label class="option"><input type="radio" name="q2" value="2"> Broker menjamin salah satu order
+                        pasti profit.</label>
+                    <label class="option"><input type="radio" name="q2" value="3"> Harga dapat bergerak dua arah dan
+                        memicu kerugian pada beberapa transaksi.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        4. Apa yang membantu membedakan breakout yang berpotensi valid dari false breakout?
+                    </div>
+                    <label class="option"><input type="radio" name="q3" value="0"> Menggunakan lot sebesar
+                        mungkin.</label>
+                    <label class="option"><input type="radio" name="q3" value="1"> Memeriksa penembusan level,
+                        follow-through, dan kondisi eksekusi.</label>
+                    <label class="option"><input type="radio" name="q3" value="2"> Mengabaikan penutupan candle dan
+                        struktur harga.</label>
+                    <label class="option"><input type="radio" name="q3" value="3"> Entry setiap kali harga bergerak
+                        cepat.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        5. Kapan keputusan untuk tidak trading dapat menjadi pilihan terbaik?
+                    </div>
+                    <label class="option"><input type="radio" name="q4" value="0"> Ketika kondisi eksekusi buruk atau
+                        risiko tidak sesuai rencana.</label>
+                    <label class="option"><input type="radio" name="q4" value="1"> Setiap kali pasar bergerak
+                        naik.</label>
+                    <label class="option"><input type="radio" name="q4" value="2"> Hanya setelah mengalami margin
+                        call.</label>
+                    <label class="option"><input type="radio" name="q4" value="3"> Tidak pernah, karena setiap berita
+                        harus ditradingkan.</label>
+                    <div class="explanation"></div>
+                </div>
+
+                <button type="submit" id="submitBtn">SUBMIT FINAL QUIZ</button>
+                <button type="button" class="secondary" id="retryBtn" style="display:none;">
+                    TRY AGAIN
+                </button>
+            </form>
+
+            <div id="result" aria-live="polite">
+                <h3 id="resultTitle"></h3>
+                <p id="resultText"></p>
+            </div>
+        </section>
+
+        <!-- FINAL COMPLETION: SHOWN AFTER PASSING -->
+
+        <section id="completionSection">
+
+            <div class="completion-hero">
+                <div class="completion-status">
+                    <span></span>
+                    LEARNING PATH COMPLETED
+                </div>
+
+                <div class="eyebrow">THE DESK ACADEMY · MACRO & NEWS IMPACT</div>
+
+                <h2>
+                    YOU KNOW THE BASICS.<br>
+                    <span>NOW MASTER THE MARKET.</span>
+                </h2>
+
+                <p>
+                    Selamat! Kamu telah menyelesaikan seluruh delapan modul
+                    Macro & News Impact. Kamu sudah mempelajari fondasi makroekonomi,
+                    indikator ekonomi, kebijakan bank sentral, hubungan antar-aset,
+                    hingga pengelolaan risiko saat berita dirilis.
+                </p>
+
+                <p>
+                    Namun, memahami konsep adalah langkah awal.
+                    Tantangan berikutnya adalah menghubungkan informasi tersebut
+                    menjadi analisis pasar yang lebih terstruktur.
+                </p>
+            </div>
+
+            <div class="premium-section">
+
+                <div class="premium-heading">
+                    <div class="eyebrow">THE NEXT LEVEL</div>
+                    <h2>From Market Knowledge<br>to <span>Market Intelligence.</span></h2>
+                    <p>
+                        THE DESK Premium dirancang untuk kamu yang ingin mendalami
+                        bagaimana data, kebijakan, dan pergerakan antar-aset membentuk
+                        narasi pasar.
+                    </p>
+                </div>
+
+                <div class="premium-grid">
+
+                    <div class="premium-item">
+                        <div class="item-number">01 / RESEARCH</div>
+                        <h3>Advanced Market Research</h3>
+                        <p>
+                            Memperdalam analisis katalis ekonomi, ekspektasi pasar,
+                            dan faktor yang dapat mengubah market view.
+                        </p>
+                    </div>
+
+                    <div class="premium-item">
+                        <div class="item-number">02 / INTELLIGENCE</div>
+                        <h3>Cross-Market Intelligence</h3>
+                        <p>
+                            Mempelajari hubungan USD, Treasury Yields, Gold,
+                            dan instrumen lain untuk mendapatkan konteks yang lebih luas.
+                        </p>
+                    </div>
+
+                    <div class="premium-item">
+                        <div class="item-number">03 / MARKET OUTLOOK</div>
+                        <h3>Structured Market Outlook</h3>
+                        <p>
+                            Menyusun pandangan pasar melalui katalis, level penting,
+                            kemungkinan skenario, dan risiko yang perlu diperhatikan.
+                        </p>
+                    </div>
+
+                    <div class="premium-item">
+                        <div class="item-number">04 / APPLICATION</div>
+                        <h3>From Data to Decision</h3>
+                        <p>
+                            Menghubungkan informasi fundamental dengan struktur harga
+                            tanpa mengabaikan ketidakpastian dan manajemen risiko.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="premium-cta">
+                    <div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div>
+
+                    <h3>Ready to Go Beyond the Basics?</h3>
+
+                    <p>
+                        Lanjutkan perjalananmu bersama THE DESK dan eksplorasi
+                        pendekatan market intelligence yang lebih mendalam.
+                    </p>
+
+                    <!--
+          CTA ini diarahkan ke premium.html.
+          Buat halaman premium.html sebelum website dipublikasikan
+          agar tombol tidak mengarah ke halaman yang belum tersedia.
+        -->
+
+                    <a class="premium-button" href="premium.html">
+                        EXPLORE THE DESK PREMIUM →
+                    </a>
+
+                    <span class="premium-note">
+                        Advanced research · Deeper market insights · Structured analysis
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="closing-links">
+                <p>Ingin meninjau kembali materi yang sudah dipelajari?</p>
+                <a href="macro.html">← KEMBALI KE MACRO LEARNING</a>
+                <span class="muted"> &nbsp; | &nbsp; </span>
+                <a href="academy.html">ACADEMY HOME →</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        THE DESK Academy · Understand the Market, Before You Trade It.
+        <br>
+        Educational content only. Not financial advice.
+    </footer>
+
+    <script>
+        const correctAnswers = [1, 2, 3, 1, 0];
+
+        const explanations = [
+            "Volatilitas, spread expansion, dan slippage dapat meningkatkan ketidakpastian serta biaya eksekusi saat rilis berita.",
+            "Pending order digunakan untuk menempatkan instruksi entry pada level tertentu. Order tidak menjamin harga eksekusi atau hasil profit.",
+            "Pergerakan dua arah dapat memicu kedua order pada waktu berbeda. Risiko gabungan harus diperhitungkan sebelum order ditempatkan.",
+            "Penembusan level, follow-through, struktur harga, dan kondisi eksekusi membantu mengevaluasi kualitas setup, tanpa menjamin keberhasilannya.",
+            "Tidak trading adalah pilihan yang valid ketika kondisi tidak memenuhi strategi atau risiko tidak dapat dikelola dengan baik."
+        ];
+
+        const form = document.getElementById("quizForm");
+        const questions = [...document.querySelectorAll("#quizForm .question")];
+        const progressBar = document.getElementById("progressBar");
+        const result = document.getElementById("result");
+        const resultTitle = document.getElementById("resultTitle");
+        const resultText = document.getElementById("resultText");
+        const submitBtn = document.getElementById("submitBtn");
+        const retryBtn = document.getElementById("retryBtn");
+        const completionSection = document.getElementById("completionSection");
+
+        function updateProgress() {
+            let answered = 0;
+
+            questions.forEach((question, index) => {
+                if (form.querySelector(`input[name="q${index}"]:checked`)) {
+                    answered++;
+                }
+            });
+
+            progressBar.style.width =
+                `${(answered / questions.length) * 100}%`;
+        }
+
+        form.addEventListener("change", updateProgress);
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let score = 0;
+            const unanswered = [];
+
+            questions.forEach((question, index) => {
+                const selected = form.querySelector(
+                    `input[name="q${index}"]:checked`
+                );
+
+                const options = [...question.querySelectorAll(".option")];
+                const explanation = question.querySelector(".explanation");
+
+                options.forEach(option => {
+                    option.classList.remove("correct", "wrong");
+                });
+
+                if (!selected) {
+                    unanswered.push(index + 1);
+                    explanation.textContent = "";
+                    explanation.style.display = "none";
+                    return;
+                }
+
+                const selectedValue = Number(selected.value);
+
+                if (selectedValue === correctAnswers[index]) {
+                    score++;
+                }
+
+                options.forEach(option => {
+                    const input = option.querySelector("input");
+                    const value = Number(input.value);
+
+                    if (value === correctAnswers[index]) {
+                        option.classList.add("correct");
+                    }
+
+                    if (input.checked && value !== correctAnswers[index]) {
+                        option.classList.add("wrong");
+                    }
+                });
+
+                explanation.textContent = "Penjelasan: " + explanations[index];
+                explanation.style.display = "block";
+            });
+
+            if (unanswered.length > 0) {
+                result.style.display = "block";
+                resultTitle.textContent = "Quiz Belum Lengkap";
+                resultTitle.style.color = "var(--gold)";
+
+                resultText.textContent =
+                    "Jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: " +
+                    unanswered.join(", ") + ".";
+
+                completionSection.style.display = "none";
+                result.scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+
+            const percentage = Math.round(
+                (score / correctAnswers.length) * 100
+            );
+
+            result.style.display = "block";
+            resultTitle.textContent =
+                `Your Score: ${score}/${correctAnswers.length} (${percentage}%)`;
+
+            submitBtn.disabled = true;
+
+            questions.forEach(question => {
+                question.querySelectorAll("input").forEach(input => {
+                    input.disabled = true;
+                });
+            });
+
+            if (percentage >= 80) {
+                resultTitle.style.color = "var(--green)";
+                resultText.textContent =
+                    "Excellent! Kamu lulus final quiz dan menyelesaikan rangkaian Macro & News Impact.";
+
+                retryBtn.style.display = "none";
+                completionSection.style.display = "block";
+
+                setTimeout(() => {
+                    completionSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }, 200);
+            } else {
+                resultTitle.style.color = "var(--red)";
+                resultText.textContent =
+                    "Kamu belum mencapai standar kelulusan 80%. Pelajari penjelasan jawaban dan coba kembali.";
+
+                retryBtn.style.display = "inline-block";
+                completionSection.style.display = "none";
+
+                result.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
+
+        retryBtn.addEventListener("click", function () {
+            form.reset();
+
+            questions.forEach(question => {
+                question.querySelectorAll("input").forEach(input => {
+                    input.disabled = false;
+                });
+
+                question.querySelectorAll(".option").forEach(option => {
+                    option.classList.remove("correct", "wrong");
+                });
+
+                const explanation = question.querySelector(".explanation");
+                explanation.textContent = "";
+                explanation.style.display = "none";
+            });
+
+            result.style.display = "none";
+            completionSection.style.display = "none";
+            retryBtn.style.display = "none";
+            submitBtn.disabled = false;
+            progressBar.style.width = "0%";
+
+            document.getElementById("quiz").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    </script>
+
+</body>
+
+</html>
