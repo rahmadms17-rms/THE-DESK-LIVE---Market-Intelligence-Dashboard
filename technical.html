@@ -5,213 +5,372 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari dasar technical analysis bersama THE DESK Academy.">
+  <meta name="description" content="Pelajari technical analysis melalui lima modul edukasi THE DESK Academy.">
   <title>Technical Analysis | THE DESK Academy</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    .lesson-page {
-      max-width: 960px;
-      margin: auto;
-      padding: 54px 24px 80px;
+    :root {
+      --ta-gold: #c9a45c;
+      --ta-bg: #090b0e;
+      --ta-border: #262c33;
+      --ta-muted: #939ba6;
+      --ta-panel: #11151a;
     }
-    .lesson-back {
-      color: var(--gold, #c9a45c);
-      text-decoration: none;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--ta-bg);
+    }
+
+    .learning-page {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      padding: 42px 32px 80px;
+    }
+
+    .learning-back {
+      display: inline-block;
+      margin-bottom: 48px;
+      color: var(--ta-gold);
       font-size: 13px;
+      text-decoration: none;
     }
-    .lesson-hero {
-      padding: 44px 0 36px;
-      border-bottom: 1px solid var(--border, #262c33);
-    }
-    .lesson-eyebrow {
-      color: var(--gold, #c9a45c);
+
+    .learning-eyebrow {
+      display: block;
+      color: var(--ta-gold);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    .lesson-hero h1 {
-      font-size: clamp(36px, 6vw, 58px);
-      line-height: 1.1;
+
+    .learning-hero {
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--ta-border);
+    }
+
+    .learning-hero h1 {
+      max-width: 650px;
       margin: 20px 0;
+      color: #f0f1f3;
+      font-size: clamp(42px, 6vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
     }
-    .lesson-hero p, .lesson-section p {
-      color: var(--muted, #939ba6);
-      line-height: 1.85;
+
+    .learning-description {
+      max-width: 720px;
+      margin: 20px 0 24px;
+      color: var(--ta-muted);
+      font-size: 14px;
+      line-height: 1.9;
     }
-    .lesson-meta {
+
+    .learning-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
     }
-    .lesson-tag {
-      border: 1px solid var(--border, #262c33);
-      padding: 7px 10px;
+
+    .learning-tag {
+      display: inline-block;
+      padding: 9px 11px;
+      border: 1px solid var(--ta-border);
       border-radius: 4px;
+      color: #e6e8eb;
       font-size: 10px;
-      letter-spacing: 1px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
     }
-    .lesson-section {
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border, #262c33);
+
+    .learning-path {
+      padding-top: 38px;
     }
-    .lesson-section h2 {
+
+    .learning-path h2 {
+      margin: 18px 0 12px;
+      color: #f0f1f3;
       font-size: 24px;
-      margin-bottom: 14px;
+      letter-spacing: -0.4px;
     }
-    .lesson-section h3 {
-      margin-top: 24px;
-      font-size: 17px;
-    }
-    .lesson-list {
-      padding-left: 22px;
-      line-height: 1.9;
-      color: var(--muted, #939ba6);
-    }
-    .lesson-note {
-      margin-top: 20px;
-      padding: 18px;
-      border-left: 3px solid var(--gold, #c9a45c);
-      background: var(--panel, #11151a);
+
+    .learning-path-description {
+      margin: 0 0 24px;
+      color: var(--ta-muted);
+      font-size: 14px;
       line-height: 1.8;
     }
-    .lesson-next {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 13px 18px;
-      background: var(--gold, #c9a45c);
-      color: #111;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
-    @media (max-width: 600px) {
-      .lesson-page { padding: 32px 18px 56px; }
+
+    .module-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 205px;
+      padding: 25px 24px 20px;
+      background: var(--ta-panel);
+      border: 1px solid var(--ta-border);
+      border-radius: 6px;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .module-card:hover {
+      border-color: var(--ta-gold);
+      transform: translateY(-2px);
+    }
+
+    .module-card:focus-visible {
+      outline: 2px solid var(--ta-gold);
+      outline-offset: 4px;
+    }
+
+    .module-number {
+      color: var(--ta-gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .module-card h3 {
+      margin: 22px 0 12px;
+      color: #f0f1f3;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .module-card p {
+      margin: 0 0 22px;
+      color: var(--ta-muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .module-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .module-level {
+      display: inline-block;
+      padding: 7px 9px;
+      border: 1px solid var(--ta-border);
+      border-radius: 3px;
+      color: #e6e8eb;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .module-arrow {
+      color: var(--ta-gold);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .learning-note {
+      margin-top: 32px;
+      padding: 20px;
+      border: 1px solid var(--ta-border);
+      border-left: 3px solid var(--ta-gold);
+      background: var(--ta-panel);
+    }
+
+    .learning-note strong {
+      color: var(--ta-gold);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+
+    .learning-note p {
+      margin: 10px 0 0;
+      color: var(--ta-muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .learning-bottom {
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--ta-border);
+      color: var(--ta-muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 700px) {
+      .learning-page {
+        padding: 30px 20px 56px;
+      }
+
+      .learning-back {
+        margin-bottom: 38px;
+      }
+
+      .learning-hero h1 {
+        font-size: clamp(40px, 11vw, 54px);
+      }
+
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .module-card {
+        min-height: 190px;
+      }
     }
   </style>
 </head>
-<body>
-  <main class="lesson-page">
-    <a class="lesson-back" href="academy.html">← Back to THE DESK Academy</a>
 
-    <header class="lesson-hero">
-      <span class="lesson-eyebrow">ACADEMY BASIC · MODULE 02</span>
+<body>
+  <main class="learning-page">
+
+    <a class="learning-back" href="academy.html">
+      ← Back to THE DESK Academy
+    </a>
+
+    <header class="learning-hero">
+      <span class="learning-eyebrow">
+        THE DESK ACADEMY · LEARNING PATH 02
+      </span>
+
       <h1>Technical<br>Analysis.</h1>
-      <p>
-        Pelajari cara membaca struktur harga, mengenali trend,
-        dan memahami breakout tanpa mengabaikan risiko.
+
+      <p class="learning-description">
+        Pelajari cara membaca pergerakan harga, mengenali struktur pasar,
+        memahami breakout, dan menyusun keputusan trading dengan pendekatan
+        yang terukur.
       </p>
-      <div class="lesson-meta">
-        <span class="lesson-tag">FREE · BASIC</span>
-        <span class="lesson-tag">BEGINNER</span>
-        <span class="lesson-tag">7 MIN READ</span>
+
+      <div class="learning-meta">
+        <span class="learning-tag">5 MODULES</span>
+        <span class="learning-tag">BASIC · FREE</span>
+        <span class="learning-tag">5 QUESTIONS / MODULE</span>
       </div>
     </header>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">01 · PRICE STRUCTURE</span>
-      <h2>Apa Itu Technical Analysis?</h2>
-      <p>
-        Technical analysis adalah pendekatan untuk mempelajari
-        pergerakan harga dan data pasar melalui chart. Tujuannya
-        adalah menyusun skenario berdasarkan struktur harga,
-        bukan memastikan apa yang akan terjadi.
-      </p>
-      <p>
-        Analisis teknikal dapat membantu mengidentifikasi area
-        penting, momentum, dan kondisi ketika sebuah setup
-        tidak lagi valid.
-      </p>
-    </section>
+    <section class="learning-path">
+      <span class="learning-eyebrow">YOUR LEARNING PATH</span>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">02 · MARKET TREND</span>
-      <h2>Mengenali Arah Trend</h2>
+      <h2>Start with Technical Analysis.</h2>
 
-      <h3>Uptrend</h3>
-      <p>
-        Uptrend umumnya ditandai oleh rangkaian higher high (HH)
-        dan higher low (HL). Harga membentuk puncak dan lembah
-        yang cenderung semakin tinggi.
+      <p class="learning-path-description">
+        Selesaikan modul secara berurutan untuk membangun pemahaman
+        teknikal yang lebih kuat.
       </p>
 
-      <h3>Downtrend</h3>
-      <p>
-        Downtrend umumnya ditandai oleh lower low (LL) dan
-        lower high (LH). Harga membentuk puncak dan lembah
-        yang cenderung semakin rendah.
-      </p>
+      <div class="module-grid">
 
-      <h3>Sideways</h3>
-      <p>
-        Pasar sideways bergerak dalam rentang tertentu tanpa
-        arah trend yang jelas. Batas atas dan bawah rentang
-        dapat menjadi area yang perlu diamati.
-      </p>
-    </section>
+        <a class="module-card" href="technical-01.html">
+          <span class="module-number">MODULE 01</span>
+          <h3>Introduction to Technical Analysis</h3>
+          <p>
+            Kenali candlestick, timeframe, dan cara membaca pergerakan
+            harga sebagai dasar analisis teknikal.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">FREE · BASIC</span>
+            <span class="module-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">03 · KEY LEVELS</span>
-      <h2>Support & Resistance</h2>
-      <p>
-        Support adalah area tempat tekanan beli sebelumnya
-        membantu menahan penurunan. Resistance adalah area
-        tempat tekanan jual sebelumnya membantu menahan kenaikan.
-      </p>
-      <p>
-        Keduanya merupakan zona pengamatan, bukan batas yang
-        pasti bertahan. Jika harga menembus suatu area, penting
-        untuk melihat bagaimana harga bereaksi setelahnya.
-      </p>
-    </section>
+        <a class="module-card" href="technical-02.html">
+          <span class="module-number">MODULE 02</span>
+          <h3>Market Structure</h3>
+          <p>
+            Pelajari uptrend, downtrend, sideways, Higher High,
+            Higher Low, Lower High, dan Lower Low.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">FREE · BASIC</span>
+            <span class="module-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">04 · BREAKOUT</span>
-      <h2>Memahami Breakout</h2>
-      <p>
-        Breakout terjadi ketika harga bergerak keluar dari
-        area support, resistance, atau rentang konsolidasi.
-        Namun, penembusan belum tentu diikuti pergerakan lanjutan.
-      </p>
+        <a class="module-card" href="technical-03.html">
+          <span class="module-number">MODULE 03</span>
+          <h3>Support &amp; Resistance</h3>
+          <p>
+            Pahami zona harga penting, reaksi harga, serta perbedaan
+            breakout dan rejection.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">FREE · BASIC</span>
+            <span class="module-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
 
-      <h3>Validasi yang perlu diamati</h3>
-      <ul class="lesson-list">
-        <li>Apakah candle sudah ditutup di luar area penting?</li>
-        <li>Apakah momentum mendukung pergerakan tersebut?</li>
-        <li>Apakah harga bertahan di luar area atau kembali masuk?</li>
-        <li>Di mana titik invalidasi dan batas risiko?</li>
-      </ul>
+        <a class="module-card" href="technical-04.html">
+          <span class="module-number">MODULE 04</span>
+          <h3>Breakout &amp; Retest</h3>
+          <p>
+            Pelajari konfirmasi breakout, retest, false breakout,
+            dan risiko mengejar harga.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">FREE · INTERMEDIATE</span>
+            <span class="module-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
 
-      <div class="lesson-note">
+        <a class="module-card" href="technical-05.html">
+          <span class="module-number">MODULE 05</span>
+          <h3>Entry, Stop Loss &amp; Take Profit</h3>
+          <p>
+            Susun rencana entry, titik invalidasi, target profit,
+            dan risk-to-reward ratio.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">FREE · INTERMEDIATE</span>
+            <span class="module-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <div class="module-card">
+          <span class="module-number">NEXT LEARNING PATH</span>
+          <h3>Advanced Market Research</h3>
+          <p>
+            Pendalaman strategi, konfirmasi setup, dan evaluasi
+            keputusan pasar akan dikembangkan pada materi lanjutan.
+          </p>
+          <div class="module-footer">
+            <span class="module-level">PREMIUM · COMING SOON</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="learning-note">
         <strong>THE DESK PRINCIPLE</strong>
         <p>
-          Breakout bukan alasan untuk langsung mengejar harga.
-          Perhatikan konfirmasi, potensi false breakout, dan
-          risiko sebelum mengambil keputusan.
+          Analisis teknikal membantu menyusun skenario, bukan memastikan
+          hasil. Pahami struktur harga, rencanakan risiko, dan hindari
+          keputusan yang hanya didasarkan pada satu sinyal.
         </p>
       </div>
     </section>
 
-    <section class="lesson-section">
-      <span class="lesson-eyebrow">05 · RISK MANAGEMENT</span>
-      <h2>Analisis Tidak Lepas dari Risiko</h2>
-      <ul class="lesson-list">
-        <li>Tentukan titik invalidasi sebelum entry.</li>
-        <li>Sesuaikan ukuran posisi dengan batas risiko.</li>
-        <li>Jangan menganggap setiap breakout akan berhasil.</li>
-        <li>Hindari entry jika potensi risiko tidak sebanding.</li>
-      </ul>
-      <p>
-        Tujuan analisis bukan mencari kepastian, melainkan
-        membangun keputusan yang terukur ketika hasilnya
-        tetap tidak pasti.
-      </p>
-    </section>
+    <footer class="learning-bottom">
+      THE DESK Academy · Technical Analysis<br>
+      Educational purposes only. Materi ini bukan rekomendasi transaksi
+      atau jaminan hasil trading.
+    </footer>
 
-    <a class="lesson-next" href="academy.html">
-      Kembali ke Academy →
-    </a>
   </main>
 </body>
 </html>
