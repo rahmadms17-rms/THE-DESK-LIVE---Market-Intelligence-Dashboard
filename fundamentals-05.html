@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080a0d">
+    <title>Risiko Trading & Fundamental | THE DESK Academy</title>
+
+    <style>
+        :root {
+            --gold: #c9a45c;
+            --bg: #080a0d;
+            --panel: #11151a;
+            --border: #292e36;
+            --text: #f0f2f4;
+            --muted: #9ba3ae;
+            --green: #42c994;
+            --red: #ff7272;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.75;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1050px;
+            margin: auto;
+            padding: 19px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .nav a {
+            color: var(--gold);
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(912px, 100%);
+            margin: auto;
+            padding: 36px 22px 65px;
+        }
+
+        .eyebrow,
+        .section-number {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 800px;
+            margin: 18px 0;
+            font-size: clamp(34px, 5vw, 48px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            margin: 17px 0;
+            font-size: 24px;
+            line-height: 1.4;
+        }
+
+        p {
+            color: #b5becb;
+            font-size: 14px;
+        }
+
+        .intro {
+            font-size: 14px;
+            line-height: 1.9;
+            max-width: 850px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 23px 0 34px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 6px 10px;
+            color: #d8dde4;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: .6px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 34px 0;
+        }
+
+        .lesson-section {
+            margin: 32px 0;
+        }
+
+        .section-number {
+            margin-bottom: 12px;
+        }
+
+        .lesson-section h2 {
+            margin: 0 0 17px;
+            font-size: 23px;
+        }
+
+        .lesson-section p {
+            line-height: 1.95;
+            margin: 8px 0;
+        }
+
+        .insight {
+            margin-top: 22px;
+            padding: 17px;
+            border-left: 3px solid var(--gold);
+            background: var(--panel);
+        }
+
+        .insight strong {
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .insight p {
+            margin: 4px 0 0;
+        }
+
+        ul {
+            padding-left: 22px;
+            color: #b5becb;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .quiz {
+            margin-top: 42px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .quiz-intro {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .question {
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-title {
+            color: var(--text);
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 13px;
+        }
+
+        .option {
+            display: block;
+            padding: 11px 13px;
+            margin: 8px 0;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            color: #c6cdd6;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            border-color: var(--gold);
+        }
+
+        .option input {
+            margin-right: 9px;
+            accent-color: var(--gold);
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 19px;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            background: var(--gold);
+            color: #111;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .secondary-btn {
+            margin: 20px 0 0 8px;
+            padding: 12px 18px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        #result {
+            display: none;
+            padding: 18px;
+            margin-top: 22px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+        }
+
+        .correct {
+            color: var(--green);
+        }
+
+        .incorrect {
+            color: var(--red);
+        }
+
+        #completion {
+            display: none;
+        }
+
+        .premium {
+            margin-top: 50px;
+            padding: 28px;
+            border: 1px solid #79623b;
+            border-radius: 10px;
+            background:
+                radial-gradient(ellipse at 100% 0%, #302419 0%, transparent 48%),
+                linear-gradient(145deg, #17150f, #0b0e12 75%);
+        }
+
+        .premium-label {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .premium h2 {
+            font-size: clamp(27px, 4vw, 34px);
+            line-height: 1.3;
+            margin: 16px 0 5px;
+        }
+
+        .premium-subtitle {
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: normal;
+            margin: 0 0 15px;
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .premium-item {
+            border: 1px solid #37332b;
+            border-radius: 6px;
+            padding: 15px;
+            background: #111317;
+        }
+
+        .premium-item strong {
+            color: #e8d7b5;
+            font-size: 13px;
+        }
+
+        .premium-item p {
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .premium-icon {
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .premium-note {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .bottom-links a {
+            color: var(--gold);
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .disclaimer {
+            margin-top: 28px;
+            color: #7f8995;
+            font-size: 11px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 23px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: .5px;
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                padding: 17px;
+            }
+
+            .container {
+                padding: 30px 17px 50px;
+            }
+
+            .premium {
+                padding: 20px;
+            }
+
+            .premium-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-btn {
+                margin-left: 0;
+            }
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <div class="logo">THE DESK <span>ACADEMY</span></div>
+            <a href="fundamentals.html">← Kembali ke Fundamentals</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="eyebrow">THE DESK ACADEMY · MODULE 05</div>
+
+        <h1>Risiko Trading & Fundamental</h1>
+
+        <p class="intro">
+            Memahami peluang hanyalah setengah dari proses trading.
+            Pelajari bagaimana mengelola risiko, melindungi modal, dan
+            mengambil keputusan trading secara lebih terstruktur.
+        </p>
+
+        <div class="tags">
+            <span class="tag">FREE · BASIC</span>
+            <span class="tag">BEGINNER</span>
+            <span class="tag">5 QUESTIONS</span>
+        </div>
+
+        <hr>
+
+        <!-- SECTION 01 -->
+
+        <section class="lesson-section">
+            <div class="section-number">01 · RISK MANAGEMENT</div>
+            <h2>Risiko Didahulukan daripada Profit</h2>
+
+            <p>
+                Setiap transaksi memiliki ketidakpastian. Bahkan setup yang
+                terlihat kuat bisa gagal akibat perubahan likuiditas, data ekonomi,
+                sentimen, atau peristiwa yang tidak terduga.
+            </p>
+
+            <p>
+                Sebelum membuka posisi, trader perlu menentukan berapa besar
+                potensi kerugian yang dapat ditanggung. Manajemen risiko tidak
+                menjamin keuntungan, tetapi dapat membantu membatasi kerugian
+                dan melindungi modal.
+            </p>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Pola pikir profesional dimulai dari menjaga modal, bukan mengejar profit.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 02 -->
+
+        <section class="lesson-section">
+            <div class="section-number">02 · POSITION SIZING</div>
+            <h2>Menentukan Ukuran Posisi</h2>
+
+            <p>
+                Position sizing menentukan seberapa besar posisi yang dibuka
+                berdasarkan modal, jarak stop-loss, dan risiko yang telah
+                direncanakan.
+            </p>
+
+            <p>Beberapa hal yang perlu diperhatikan:</p>
+
+            <ul>
+                <li>Posisi yang lebih besar dapat memperbesar keuntungan sekaligus kerugian.</li>
+                <li>Stop-loss yang lebih lebar mungkin membutuhkan lot lebih kecil agar nominal risiko tetap terkendali.
+                </li>
+                <li>Spesifikasi kontrak, leverage, dan volatilitas memengaruhi risiko aktual.</li>
+            </ul>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Lot terbesar yang diizinkan margin belum tentu merupakan lot yang tepat untuk akunmu.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 03 -->
+
+        <section class="lesson-section">
+            <div class="section-number">03 · STOP-LOSS & RISK-TO-REWARD</div>
+            <h2>Stop-Loss dan Risk-to-Reward</h2>
+
+            <p>
+                Stop-loss menentukan rencana keluar ketika harga bergerak
+                berlawanan dengan posisi. Namun, saat terjadi gap atau volatilitas
+                ekstrem, harga eksekusi dapat berbeda dari harga yang diminta.
+            </p>
+
+            <p>
+                Contohnya, jika seorang trader merencanakan risiko sebesar
+                $100 dengan potensi keuntungan $200, rasio risk-to-reward
+                yang direncanakan adalah 1:2.
+            </p>
+
+            <p>
+                Rasio yang baik tidak menjamin strategi akan profit.
+                Hasil juga dipengaruhi win rate, biaya trading, dan kualitas eksekusi.
+            </p>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Rasio keuntungan terhadap risiko adalah bagian dari perencanaan, bukan jaminan hasil transaksi.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 04 -->
+
+        <section class="lesson-section">
+            <div class="section-number">04 · LEVERAGE & MARGIN</div>
+            <h2>Memahami Leverage dan Margin</h2>
+
+            <p>
+                Leverage memungkinkan trader mengendalikan eksposur pasar yang
+                lebih besar daripada dana yang disetorkan. Kondisi ini juga
+                memperbesar dampak pergerakan harga terhadap ekuitas akun.
+            </p>
+
+            <ul>
+                <li><strong>Margin:</strong> dana yang dibutuhkan untuk membuka atau mempertahankan posisi.</li>
+                <li><strong>Leverage:</strong> perbandingan antara eksposur pasar dan modal sendiri.</li>
+                <li><strong>Stop-out:</strong> proses sesuai ketentuan broker yang dapat menutup posisi ketika ekuitas
+                    tidak mencukupi.</li>
+            </ul>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Leverage tidak membuat analisis lebih akurat. Leverage dapat mempercepat akumulasi kerugian.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 05 -->
+
+        <section class="lesson-section">
+            <div class="section-number">05 · NEWS & VOLATILITY</div>
+            <h2>Volatilitas dan Risiko Berita</h2>
+
+            <p>
+                Rilis data ekonomi, keputusan bank sentral, dan peristiwa
+                geopolitik dapat mengubah harga pasar dengan cepat. Reaksi
+                harga tidak selalu searah dengan perkiraan awal trader.
+            </p>
+
+            <ul>
+                <li>Spread dapat melebar ketika berita berdampak tinggi dirilis.</li>
+                <li>Slippage dapat menyebabkan eksekusi pada harga berbeda.</li>
+                <li>Volatilitas yang tidak terduga dapat membatalkan setup trading.</li>
+                <li>Stop-loss tidak selalu menjamin harga keluar yang persis sama.</li>
+            </ul>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Semakin tidak pasti kondisi pasar, semakin penting memahami risiko eksekusi.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 06 -->
+
+        <section class="lesson-section">
+            <div class="section-number">06 · TRADING PSYCHOLOGY</div>
+            <h2>Psikologi dan Disiplin Trading</h2>
+
+            <p>
+                Rasa takut, keserakahan, revenge trading, dan overtrading dapat
+                membuat trader meninggalkan rencana awal. Keputusan impulsif
+                sering kali menambah risiko setelah kerugian.
+            </p>
+
+            <ul>
+                <li>Tentukan entry, exit, dan risiko sebelum membuka posisi.</li>
+                <li>Jangan meningkatkan risiko hanya untuk memulihkan kerugian.</li>
+                <li>Evaluasi kualitas keputusan, bukan hanya hasil profit atau loss.</li>
+                <li>Kenali kapan tidak masuk pasar merupakan pilihan yang lebih baik.</li>
+            </ul>
+
+            <div class="insight">
+                <strong>Key Insight</strong>
+                <p>Kamu tidak harus mengikuti setiap pergerakan pasar. Selektif adalah bagian dari disiplin.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- QUIZ -->
+
+        <section class="quiz" id="quiz">
+
+            <div class="eyebrow">KNOWLEDGE CHECK</div>
+            <h2>Uji Pemahaman</h2>
+
+            <p class="quiz-intro">
+                Jawab kelima pertanyaan berikut. Kamu membutuhkan minimal
+                4 jawaban benar untuk lulus.
+            </p>
+
+            <form id="quizForm">
+
+                <div class="question">
+                    <div class="question-title">
+                        1. Apa yang harus ditentukan sebelum membuka transaksi?
+                    </div>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        Lot terbesar yang diizinkan broker
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        Potensi kerugian dan ukuran posisi yang sesuai
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        Hanya potensi keuntungan
+                    </label>
+
+                    <div class="explanation" id="e1"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        2. Apa arti rasio risk-to-reward 1:2?
+                    </div>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        Potensi keuntungan yang direncanakan dua kali risiko
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        Transaksi dijamin menghasilkan profit
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        Trader harus membuka dua posisi
+                    </label>
+
+                    <div class="explanation" id="e2"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        3. Apa risiko utama dari leverage tinggi?
+                    </div>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        Menghilangkan risiko pasar
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        Menjamin eksekusi lebih baik
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        Dapat memperbesar kerugian relatif terhadap modal
+                    </label>
+
+                    <div class="explanation" id="e3"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        4. Apa yang dapat terjadi saat rilis berita berdampak tinggi?
+                    </div>
+
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        Harga selalu bergerak sesuai prediksi
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        Spread dapat melebar dan slippage dapat terjadi
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        Stop-loss menjadi bebas risiko
+                    </label>
+
+                    <div class="explanation" id="e4"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-title">
+                        5. Apa respons yang disiplin setelah mengalami kerugian?
+                    </div>
+
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        Menaikkan lot agar segera balik modal
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        Menambah transaksi tanpa menunggu setup
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        Mengevaluasi transaksi dan mengikuti rencana risiko
+                    </label>
+
+                    <div class="explanation" id="e5"></div>
+                </div>
+
+                <button class="primary-btn" type="submit">
+                    KIRIM JAWABAN
+                </button>
+
+                <button class="secondary-btn" type="button" id="retryButton" onclick="resetQuiz()" hidden>
+                    ULANGI KUIS
+                </button>
+
+            </form>
+
+            <div id="result" aria-live="polite"></div>
+
+            <div id="completion">
+                <div class="insight">
+                    <strong>Fundamentals Track Selesai</strong>
+                    <p>
+                        Kamu telah menyelesaikan lima modul Market Fundamentals.
+                        Terus kembangkan pemahamanmu dan terapkan prinsip risiko
+                        secara konsisten.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- PREMIUM SECTION: ONLY ADDED AT THE BOTTOM -->
+
+        <section class="panel premium" id="premium">
+
+            <div class="premium-label">THE DESK · PREMIUM LEARNING</div>
+
+            <h2>Kamu Sudah Memahami Dasarnya.</h2>
+            <h3 class="premium-subtitle">
+                Sekarang, Pelajari Cara Membaca Pasar.
+            </h3>
+
+            <p>
+                Memahami dasar adalah langkah awal. Kembangkan kemampuanmu dengan
+                mempelajari struktur pasar, analisis teknikal, faktor makroekonomi,
+                dan riset pasar yang lebih mendalam.
+            </p>
+
+            <div class="premium-grid">
+
+                <div class="premium-item">
+                    <div class="premium-icon">◈</div>
+                    <strong>Struktur Pasar Lanjutan</strong>
+                    <p>
+                        Pahami struktur harga, perilaku pasar, dan konsep teknikal
+                        yang lebih mendalam.
+                    </p>
+                </div>
+
+                <div class="premium-item">
+                    <div class="premium-icon">◈</div>
+                    <strong>Analisis Teknikal</strong>
+                    <p>
+                        Bangun pendekatan yang lebih terstruktur untuk mengidentifikasi
+                        potensi setup trading.
+                    </p>
+                </div>
+
+                <div class="premium-item">
+                    <div class="premium-icon">◈</div>
+                    <strong>Intelijen Makro & Berita</strong>
+                    <p>
+                        Pahami bagaimana data ekonomi, bank sentral, dan peristiwa besar
+                        dapat memengaruhi pasar.
+                    </p>
+                </div>
+
+                <div class="premium-item">
+                    <div class="premium-icon">◈</div>
+                    <strong>Riset Pasar Profesional</strong>
+                    <p>
+                        Hubungkan informasi pasar untuk membangun proses analisis
+                        yang lebih jelas dan terstruktur.
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="premium-note">
+                Ingin belajar lebih mendalam? Hubungi tim THE DESK untuk mengetahui
+                informasi mengenai program pembelajaran Premium.
+            </p>
+        </section>
+
+        <div class="bottom-links">
+            <a href="fundamentals.html">← Kembali ke Fundamentals</a>
+            <a href="academy.html">Jelajahi Academy →</a>
+        </div>
+
+        <p class="disclaimer">
+            Konten ini hanya untuk edukasi. Trading produk berleverage memiliki
+            risiko tinggi dan belum tentu sesuai untuk setiap investor.
+        </p>
+
+    </main>
+
+    <footer>
+        THE DESK ACADEMY · UNDERSTAND THE MARKET, BEFORE YOU TRADE IT.
+    </footer>
+
+    <script>
+        const answers = {
+            q1: {
+                correct: "b",
+                explanation: "Ukuran posisi harus disesuaikan dengan potensi kerugian dan kemampuan menanggung risiko."
+            },
+            q2: {
+                correct: "a",
+                explanation: "Rasio 1:2 berarti potensi keuntungan yang direncanakan dua kali risiko. Ini bukan jaminan profit."
+            },
+            q3: {
+                correct: "c",
+                explanation: "Leverage meningkatkan eksposur relatif terhadap modal dan dapat memperbesar kerugian."
+            },
+            q4: {
+                correct: "b",
+                explanation: "Volatilitas tinggi dapat menyebabkan spread melebar, slippage, dan pergerakan harga yang sulit diprediksi."
+            },
+            q5: {
+                correct: "c",
+                explanation: "Evaluasi transaksi dan mengikuti rencana risiko membantu mencegah revenge trading."
+            }
+        };
+
+        document.getElementById("quizForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let score = 0;
+
+            Object.keys(answers).forEach(function (question) {
+                const selected = document.querySelector(
+                    'input[name="' + question + '"]:checked'
+                );
+
+                const explanation = document.getElementById(
+                    "e" + question.substring(1)
+                );
+
+                const isCorrect = selected &&
+                    selected.value === answers[question].correct;
+
+                if (isCorrect) score++;
+
+                explanation.innerHTML =
+                    '<span class="' + (isCorrect ? "correct" : "incorrect") + '">' +
+                    (isCorrect ? "Benar. " : "Belum tepat. ") +
+                    '</span>' + answers[question].explanation;
+            });
+
+            const result = document.getElementById("result");
+            result.style.display = "block";
+
+            const percentage = Math.round(score / 5 * 100);
+
+            if (score >= 4) {
+                result.innerHTML =
+                    '<h3 class="correct">Evaluasi Lulus</h3>' +
+                    '<p>Nilai kamu: <strong>' + score + '/5 (' +
+                    percentage + '%)</strong></p>' +
+                    '<p>Kamu telah menyelesaikan evaluasi Fundamentals.</p>';
+
+                document.getElementById("completion").style.display = "block";
+            } else {
+                result.innerHTML =
+                    '<h3>Terus Belajar</h3>' +
+                    '<p>Nilai kamu: <strong>' + score + '/5 (' +
+                    percentage + '%)</strong></p>' +
+                    '<p>Pelajari kembali penjelasannya dan coba lagi. Kamu membutuhkan minimal 4 jawaban benar untuk lulus.</p>';
+
+                document.getElementById("completion").style.display = "none";
+            }
+
+            document.getElementById("retryButton").hidden = false;
+            result.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+
+        function resetQuiz() {
+            document.getElementById("quizForm").reset();
+
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById("e" + i).innerHTML = "";
+            }
+
+            document.getElementById("result").style.display = "none";
+            document.getElementById("completion").style.display = "none";
+            document.getElementById("retryButton").hidden = true;
+        }
+    </script>
+
+</body>
+
+</html>

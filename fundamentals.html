@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="Pelajari dasar pasar keuangan secara terstruktur bersama THE DESK Academy.">
+  <title>Market Fundamentals | THE DESK Academy</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .fund-catalog {
+      max-width: 1100px;
+      margin: auto;
+      padding: 48px 24px 80px;
+    }
+    .fund-back {
+      color: var(--gold, #c9a45c);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .fund-hero {
+      padding: 42px 0 34px;
+      border-bottom: 1px solid var(--border, #262c33);
+    }
+    .fund-eyebrow {
+      color: var(--gold, #c9a45c);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .fund-hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.08;
+      margin: 18px 0;
+    }
+    .fund-hero p {
+      max-width: 680px;
+      color: var(--muted, #939ba6);
+      line-height: 1.8;
+    }
+    .fund-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .fund-tag {
+      border: 1px solid var(--border, #262c33);
+      padding: 8px 11px;
+      border-radius: 4px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+    .fund-heading {
+      margin-top: 34px;
+    }
+    .fund-heading h2 {
+      margin: 10px 0;
+      font-size: 25px;
+    }
+    .fund-heading p {
+      color: var(--muted, #939ba6);
+      font-size: 14px;
+    }
+    .fund-modules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .fund-module {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 220px;
+      padding: 24px;
+      border: 1px solid var(--border, #262c33);
+      background: var(--panel, #11151a);
+      border-radius: 7px;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    a.fund-module:hover {
+      border-color: var(--gold, #c9a45c);
+      transform: translateY(-2px);
+    }
+    .fund-module-number {
+      color: var(--gold, #c9a45c);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+    .fund-module h3 {
+      margin: 18px 0 10px;
+      font-size: 19px;
+    }
+    .fund-module p {
+      margin: 0 0 20px;
+      color: var(--muted, #939ba6);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .fund-module-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+    }
+    .fund-label {
+      border: 1px solid var(--border, #262c33);
+      padding: 6px 8px;
+      border-radius: 3px;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+    .fund-arrow {
+      color: var(--gold, #c9a45c);
+      font-size: 18px;
+    }
+    .fund-premium {
+      opacity: .8;
+      background: linear-gradient(135deg, var(--panel, #11151a), #17150f);
+    }
+    .fund-note {
+      margin-top: 28px;
+      padding: 20px;
+      border-left: 3px solid var(--gold, #c9a45c);
+      background: var(--panel, #11151a);
+    }
+    .fund-note p {
+      color: var(--muted, #939ba6);
+      line-height: 1.8;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+    @media (max-width: 680px) {
+      .fund-catalog { padding: 32px 18px 56px; }
+      .fund-modules { grid-template-columns: 1fr; }
+      .fund-module { min-height: 190px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="fund-catalog">
+    <a class="fund-back" href="academy.html">← Back to THE DESK Academy</a>
+
+    <header class="fund-hero">
+      <span class="fund-eyebrow">THE DESK ACADEMY · LEARNING PATH 01</span>
+      <h1>Market<br>Fundamentals.</h1>
+      <p>
+        Bangun pemahaman tentang pasar keuangan dari dasar.
+        Pelajari instrumen, pergerakan harga, pelaku pasar,
+        dan risiko melalui modul singkat serta kuis interaktif.
+      </p>
+      <div class="fund-stats">
+        <span class="fund-tag">5 MODULES</span>
+        <span class="fund-tag">BASIC · FREE</span>
+        <span class="fund-tag">5 QUESTIONS / MODULE</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="fund-heading">
+        <span class="fund-eyebrow">YOUR LEARNING PATH</span>
+        <h2>Start with the Fundamentals.</h2>
+        <p>Selesaikan modul secara berurutan untuk membangun pemahaman yang kuat.</p>
+      </div>
+
+      <div class="fund-modules">
+        <a class="fund-module" href="fundamentals-01.html">
+          <span class="fund-module-number">MODULE 01</span>
+          <h3>Introduction to Financial Markets</h3>
+          <p>Kenali pasar keuangan, pembentukan harga, dan tujuan mempelajari market.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">FREE · BASIC</span>
+            <span class="fund-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="fund-module" href="fundamentals-02.html">
+          <span class="fund-module-number">MODULE 02</span>
+          <h3>Understanding Market Instruments</h3>
+          <p>Pelajari Forex, Gold, indeks saham, dan cryptocurrency.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">FREE · BASIC</span>
+            <span class="fund-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="fund-module" href="fundamentals-03.html">
+          <span class="fund-module-number">MODULE 03</span>
+          <h3>How Prices Move</h3>
+          <p>Pahami supply and demand, likuiditas, volatilitas, dan sentimen.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">FREE · BASIC</span>
+            <span class="fund-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="fund-module" href="fundamentals-04.html">
+          <span class="fund-module-number">MODULE 04</span>
+          <h3>Market Participants</h3>
+          <p>Kenali peran bank sentral, institusi, perusahaan, dan trader ritel.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">FREE · BASIC</span>
+            <span class="fund-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="fund-module" href="fundamentals-05.html">
+          <span class="fund-module-number">MODULE 05</span>
+          <h3>Trading Risks & Fundamentals</h3>
+          <p>Pelajari leverage, margin, spread, dan pentingnya manajemen risiko.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">FREE · BASIC</span>
+            <span class="fund-arrow">→</span>
+          </div>
+        </a>
+
+        <article class="fund-module fund-premium">
+          <span class="fund-module-number">BEYOND THE BASICS</span>
+          <h3>Advanced Market Research</h3>
+          <p>Studi kasus, analisis mendalam, dan latihan membaca konteks pasar.</p>
+          <div class="fund-module-footer">
+            <span class="fund-label">PREMIUM · COMING SOON</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="fund-note">
+      <span class="fund-eyebrow">THE DESK PRINCIPLE</span>
+      <p>
+        Tujuan belajar bukan menebak setiap pergerakan harga,
+        melainkan memahami konteks, menguji asumsi, dan
+        mengelola risiko ketika hasilnya tidak pasti.
+      </p>
+    </aside>
+  </main>
+</body>
+</html>

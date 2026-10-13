@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="Pelajari karakteristik Forex, Gold, indeks saham, dan cryptocurrency bersama THE DESK Academy.">
+  <title>Module 02 | Understanding Market Instruments</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .module-page{max-width:960px;margin:auto;padding:44px 24px 80px}
+    .module-back{color:var(--gold,#c9a45c);text-decoration:none;font-size:13px}
+    .module-hero{padding:40px 0 34px;border-bottom:1px solid var(--border,#262c33)}
+    .module-eyebrow{color:var(--gold,#c9a45c);font-size:11px;font-weight:700;letter-spacing:2px}
+    .module-hero h1{font-size:clamp(36px,6vw,58px);line-height:1.1;margin:18px 0}
+    .module-hero p,.module-section p{color:var(--muted,#939ba6);line-height:1.85}
+    .module-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .module-tag{border:1px solid var(--border,#262c33);padding:7px 10px;border-radius:4px;font-size:10px;letter-spacing:1px}
+    .module-section{padding:28px 0;border-bottom:1px solid var(--border,#262c33)}
+    .module-section h2{font-size:24px;margin:12px 0}
+    .module-section h3{font-size:17px;margin-top:24px}
+    .module-list{padding-left:22px;color:var(--muted,#939ba6);line-height:1.9}
+    .module-note{margin-top:20px;padding:18px;background:var(--panel,#11151a);border-left:3px solid var(--gold,#c9a45c);line-height:1.8}
+    .quiz-question{margin:22px 0;padding:18px;border:1px solid var(--border,#262c33);border-radius:6px}
+    .quiz-question legend{padding:0 5px;font-weight:600;line-height:1.7}
+    .quiz-option{display:block;padding:9px 0;cursor:pointer;line-height:1.6}
+    .quiz-option input{margin-right:8px;accent-color:var(--gold,#c9a45c)}
+    .quiz-button,.module-next{display:inline-block;padding:13px 18px;background:var(--gold,#c9a45c);color:#111;border:0;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
+    .quiz-result{display:none;margin-top:24px;padding:20px;border:1px solid var(--border,#262c33);border-radius:6px;line-height:1.8}
+    .quiz-result h3{margin-top:0}
+    .quiz-feedback{padding:12px 0;border-top:1px solid var(--border,#262c33)}
+    .quiz-feedback p{margin:6px 0;color:var(--muted,#939ba6)}
+    .quiz-pass{color:var(--green,#42c994)}
+    .quiz-retry{color:var(--gold,#c9a45c)}
+    .module-next{margin-top:24px}
+    .module-next[hidden]{display:none}
+    @media(max-width:600px){.module-page{padding:30px 18px 56px}}
+  </style>
+</head>
+<body>
+  <main class="module-page">
+    <a class="module-back" href="fundamentals.html">← Back to Fundamentals</a>
+
+    <header class="module-hero">
+      <span class="module-eyebrow">THE DESK ACADEMY · MODULE 02</span>
+      <h1>Understanding<br>Market Instruments.</h1>
+      <p>
+        Setiap instrumen memiliki karakteristik dan faktor penggerak
+        yang berbeda. Kenali pasar yang kamu amati sebelum mengambil
+        keputusan trading.
+      </p>
+      <div class="module-tags">
+        <span class="module-tag">FREE · BASIC</span>
+        <span class="module-tag">BEGINNER</span>
+        <span class="module-tag">5 QUESTIONS</span>
+      </div>
+    </header>
+
+    <section class="module-section">
+      <span class="module-eyebrow">01 · FOREX</span>
+      <h2>Foreign Exchange Market</h2>
+      <p>
+        Forex adalah pasar pertukaran mata uang. Instrumen Forex
+        biasanya ditampilkan sebagai pasangan mata uang, misalnya
+        EUR/USD atau GBP/USD.
+      </p>
+      <p>
+        Pada EUR/USD, mata uang pertama disebut base currency,
+        sedangkan mata uang kedua disebut quote currency.
+        Harga menunjukkan berapa dolar AS yang setara dengan
+        satu euro.
+      </p>
+      <div class="module-note">
+        <strong>Contoh</strong>
+        <p>
+          Jika EUR/USD berada di 1,1000, artinya satu euro bernilai
+          sekitar 1,10 dolar AS. Nilai tukar dapat berubah mengikuti
+          kondisi ekonomi dan permintaan pasar.
+        </p>
+      </div>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow">02 · GOLD</span>
+      <h2>Gold · XAUUSD</h2>
+      <p>
+        XAUUSD umumnya menunjukkan harga emas terhadap dolar AS.
+        Gold sering diperhatikan dalam analisis makro karena
+        dapat dipengaruhi oleh nilai dolar, ekspektasi suku bunga,
+        imbal hasil obligasi, dan permintaan aset aman.
+      </p>
+      <p>
+        Hubungan tersebut tidak selalu bergerak dengan pola yang
+        sama. Respons Gold tetap bergantung pada konteks pasar,
+        kondisi likuiditas, dan faktor lain yang sedang dominan.
+      </p>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow">03 · STOCK INDICES</span>
+      <h2>Indeks Saham</h2>
+
+      <h3>S&P 500</h3>
+      <p>
+        S&P 500 mengikuti kinerja sekitar 500 perusahaan besar
+        yang terdaftar di bursa Amerika Serikat sesuai metodologi
+        indeksnya. Indeks ini sering digunakan sebagai gambaran
+        kondisi pasar saham AS.
+      </p>
+
+      <h3>Nasdaq 100</h3>
+      <p>
+        Nasdaq 100 melacak perusahaan besar nonkeuangan yang
+        terdaftar di Nasdaq. Indeks ini memiliki eksposur besar
+        terhadap perusahaan teknologi dan pertumbuhan, tetapi
+        tidak terbatas pada sektor tersebut.
+      </p>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow">04 · CRYPTOCURRENCY</span>
+      <h2>Aset Digital</h2>
+      <p>
+        Cryptocurrency adalah aset digital yang menggunakan
+        teknologi kriptografi dan jaringan tertentu. Bitcoin
+        merupakan salah satu contoh yang paling dikenal.
+      </p>
+      <p>
+        Pasarnya dapat dipengaruhi likuiditas, sentimen investor,
+        perkembangan regulasi, adopsi, serta kondisi pasar global.
+        Volatilitasnya dapat tinggi sehingga pengelolaan risiko
+        menjadi sangat penting.
+      </p>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow">05 · INSTRUMENT SELECTION</span>
+      <h2>Memilih Instrumen yang Dipahami</h2>
+      <ul class="module-list">
+        <li>Pahami jam perdagangan dan karakteristik instrumen.</li>
+        <li>Ketahui faktor ekonomi yang dapat memengaruhi harga.</li>
+        <li>Periksa spread, biaya transaksi, dan likuiditas.</li>
+        <li>Sesuaikan ukuran posisi dengan toleransi risiko.</li>
+        <li>Jangan menganggap satu instrumen selalu lebih mudah atau aman.</li>
+      </ul>
+      <div class="module-note">
+        <strong>THE DESK PRINCIPLE</strong>
+        <p>
+          Jangan memilih instrumen hanya karena pergerakannya
+          terlihat cepat. Pilih berdasarkan pemahaman, rencana,
+          dan risiko yang mampu kamu kelola.
+        </p>
+      </div>
+    </section>
+
+    <section class="module-section" id="module-quiz">
+      <span class="module-eyebrow">KNOWLEDGE CHECK · 5 QUESTIONS</span>
+      <h2>Test Your Understanding</h2>
+      <p>
+        Jawab lima pertanyaan. Nilai kelulusan adalah 80%,
+        atau minimal empat jawaban benar.
+      </p>
+
+      <form id="moduleQuiz">
+        <fieldset class="quiz-question">
+          <legend>1. Pada pasangan EUR/USD, apa arti mata uang pertama?</legend>
+          <label class="quiz-option"><input type="radio" name="q1" value="a" required> Quote currency</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="b"> Base currency</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="c"> Mata uang yang selalu lebih kuat</label>
+        </fieldset>
+
+        <fieldset class="quiz-question">
+          <legend>2. XAUUSD umumnya menunjukkan harga apa?</legend>
+          <label class="quiz-option"><input type="radio" name="q2" value="a" required> Emas terhadap dolar AS</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="b"> Euro terhadap dolar AS</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="c"> Bitcoin terhadap emas</label>
+        </fieldset>
+
+        <fieldset class="quiz-question">
+          <legend>3. Apa yang digambarkan oleh S&P 500?</legend>
+          <label class="quiz-option"><input type="radio" name="q3" value="a" required> Harga satu komoditas saja</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="b"> Nilai tukar dolar terhadap euro</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="c"> Kinerja kelompok perusahaan besar AS sesuai metodologi indeks</label>
+        </fieldset>
+
+        <fieldset class="quiz-question">
+          <legend>4. Faktor mana yang dapat memengaruhi pasar cryptocurrency?</legend>
+          <label class="quiz-option"><input type="radio" name="q4" value="a" required> Hanya jam perdagangan bursa saham</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="b"> Likuiditas, sentimen, regulasi, dan kondisi pasar</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="c"> Tidak ada faktor selain pola chart</label>
+        </fieldset>
+
+        <fieldset class="quiz-question">
+          <legend>5. Apa pertimbangan yang tepat saat memilih instrumen trading?</legend>
+          <label class="quiz-option"><input type="radio" name="q5" value="a" required> Memilih instrumen dengan pergerakan paling cepat</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="b"> Mengabaikan biaya selama peluang terlihat menarik</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="c"> Memahami karakteristik, biaya, likuiditas, dan risiko</label>
+        </fieldset>
+
+        <button class="quiz-button" type="submit">Periksa Jawaban →</button>
+      </form>
+
+      <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
+        <h3 id="quizScore"></h3>
+        <p id="quizSummary"></p>
+        <div id="quizFeedback"></div>
+        <a class="module-next" id="nextModule" href="fundamentals-03.html" hidden>
+          Lanjut ke Module 03 →
+        </a>
+        <button class="quiz-button" id="retryQuiz" type="button"
+          style="margin-top:16px;background:transparent;color:var(--gold,#c9a45c);border:1px solid var(--gold,#c9a45c);">
+          Coba Lagi
+        </button>
+      </div>
+    </section>
+
+    <a class="module-back" href="fundamentals.html">← Kembali ke daftar modul</a>
+  </main>
+
+  <script>
+    const quizForm = document.getElementById("moduleQuiz");
+    const quizResult = document.getElementById("quizResult");
+    const quizScore = document.getElementById("quizScore");
+    const quizSummary = document.getElementById("quizSummary");
+    const quizFeedback = document.getElementById("quizFeedback");
+    const nextModule = document.getElementById("nextModule");
+    const retryQuiz = document.getElementById("retryQuiz");
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "a",
+      q3: "c",
+      q4: "b",
+      q5: "c"
+    };
+
+    const explanations = {
+      q1: {
+        correct: "EUR adalah base currency pada pasangan EUR/USD.",
+        incorrect: "Mata uang pertama pada pasangan Forex disebut base currency. Mata uang kedua disebut quote currency."
+      },
+      q2: {
+        correct: "XAUUSD umumnya menunjukkan harga emas terhadap dolar AS.",
+        incorrect: "XAU adalah kode yang digunakan untuk emas, sedangkan USD adalah dolar AS."
+      },
+      q3: {
+        correct: "S&P 500 menggambarkan kinerja kelompok perusahaan besar AS sesuai metodologi indeksnya.",
+        incorrect: "S&P 500 merupakan indeks saham, bukan satu komoditas atau pasangan mata uang."
+      },
+      q4: {
+        correct: "Likuiditas, sentimen, regulasi, dan kondisi pasar dapat memengaruhi aset digital.",
+        incorrect: "Cryptocurrency dapat dipengaruhi banyak faktor, termasuk likuiditas, sentimen, dan regulasi."
+      },
+      q5: {
+        correct: "Memahami karakteristik dan biaya membantu menilai apakah instrumen sesuai dengan rencana dan risiko.",
+        incorrect: "Pemilihan instrumen sebaiknya mempertimbangkan karakteristik, biaya, likuiditas, dan kemampuan mengelola risiko."
+      }
+    };
+
+    quizForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(quizForm);
+      let score = 0;
+      let feedbackHTML = "";
+
+      for (let i = 1; i <= 5; i++) {
+        const key = "q" + i;
+        const isCorrect = formData.get(key) === correctAnswers[key];
+
+        if (isCorrect) score++;
+
+        feedbackHTML += `
+          <div class="quiz-feedback">
+            <strong>${i}. ${isCorrect ? "Benar" : "Belum tepat"}</strong>
+            <p>${isCorrect ? explanations[key].correct : explanations[key].incorrect}</p>
+          </div>
+        `;
+      }
+
+      const passed = score >= 4;
+      quizScore.textContent = "Skor kamu: " + score + "/5 (" + (score * 20) + "%)";
+      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
+      quizSummary.textContent = passed
+        ? "Selamat! Kamu lulus Module 02. Lanjutkan untuk mempelajari bagaimana harga bergerak."
+        : "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan, lalu coba lagi.";
+
+      quizFeedback.innerHTML = feedbackHTML;
+      nextModule.hidden = !passed;
+      quizResult.style.display = "block";
+      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+      quizResult.focus();
+    });
+
+    retryQuiz.addEventListener("click", function() {
+      quizForm.reset();
+      quizResult.style.display = "none";
+      nextModule.hidden = true;
+      document.getElementById("module-quiz").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  </script>
+</body>
+</html>
