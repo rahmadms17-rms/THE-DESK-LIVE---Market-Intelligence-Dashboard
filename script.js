@@ -15,7 +15,7 @@ const DESK_CONFIG = {
 
 const deskSales = {
     ST: {
-        name: "Siti Fatima",
+        name: "Fatim",
         referral:
             "https://cp2.aimsdagang.com/register?referral2=30069425"
     },
@@ -144,9 +144,9 @@ const DESK_TRANSLATIONS = {
         stepThreeDescription:
             "Volatilitas dapat meningkat saat berita dirilis. Pandangan pasar bukan kepastian.",
 
-        ctaTitle: "Pahami dahulu.<br>Putuskan dengan konteks.",
+        ctaTitle: "Pahami pasar.<br> Siapkan langkah Anda.",
         ctaDescription:
-            "Pelajari informasi pendaftaran akun melalui tautan referral yang tersedia.",
+            "Perluas wawasan pasar Anda, lalu temukan cara untuk menerapkannya melalui platform trading yang tersedia.",
         openAccount: "Buka Akun Trading",
 
         footerDisclaimer:
@@ -476,18 +476,21 @@ function getReferralSelection() {
 function applyReferral() {
     const selection = getReferralSelection();
 
+    // Keep registration links working with the selected referral.
     document.querySelectorAll("[data-referral-link]").forEach((link) => {
         link.href = selection.url;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
     });
 
+    // Show the sales name only when the URL explicitly contains ?ref=...
+    const params = new URLSearchParams(window.location.search);
+    const hasExplicitReferral = params.has("ref");
     const referralNote = document.getElementById("referral-note");
 
     if (referralNote) {
-        if (selection.name) {
-            referralNote.textContent =
-                `Referral: ${selection.name}`;
+        if (hasExplicitReferral && selection.name) {
+            referralNote.textContent = `Referral: ${selection.name}`;
             referralNote.hidden = false;
         } else {
             referralNote.textContent = "";
@@ -495,10 +498,10 @@ function applyReferral() {
         }
     }
 
+    // Save referral only when a sales referral is explicitly selected.
     try {
-        localStorage.setItem("desk_referral", selection.url);
-
-        if (selection.name) {
+        if (hasExplicitReferral && selection.name) {
+            localStorage.setItem("desk_referral", selection.url);
             localStorage.setItem("desk_ref_name", selection.name);
         }
     } catch (error) {

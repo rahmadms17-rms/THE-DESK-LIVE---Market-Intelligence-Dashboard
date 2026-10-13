@@ -1435,3 +1435,44 @@ iframe,
 video {
     max-width: 100%;
 }
+
+/* THE DESK - Hero CTA */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .button-gold {
+    min-height: 60px;
+    padding: 0 32px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    gap: 14px;
+}
+
+.hero-actions .text-link {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .hero-actions .button-gold,
+    .hero-actions .text-link {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
