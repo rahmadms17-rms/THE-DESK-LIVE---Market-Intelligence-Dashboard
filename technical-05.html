@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="THE DESK Academy Module 05: Entry, Stop Loss, Take Profit, dan manajemen risiko.">
+<title>Module 05 - Entry, Stop Loss & Take Profit | THE DESK Academy</title>
+
+<style>
+:root {
+    --bg: #090b0e;
+    --panel: #11151a;
+    --border: #292f37;
+    --gold: #c9a45c;
+    --gold-light: #f0d49b;
+    --text: #e8edf4;
+    --muted: #a3adba;
+    --green: #42c994;
+    --red: #f08080;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.container {
+    width: min(100% - 36px, 860px);
+    margin: 0 auto;
+    padding-top: 38px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+
+.back-link:hover {
+    color: var(--gold-light);
+}
+
+.eyebrow {
+    margin: 12px 0;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 8px 0 12px;
+    color: #f3f5f8;
+    font-size: clamp(29px, 5vw, 42px);
+    line-height: 1.25;
+}
+
+.subtitle {
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.lesson-section {
+    margin: 30px 0;
+}
+
+.lesson-section h2,
+.quiz h2 {
+    margin: 0 0 14px;
+    color: var(--gold-light);
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+p {
+    color: #c5ced9;
+}
+
+ul {
+    padding-left: 23px;
+    color: #c5ced9;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.insight {
+    margin: 20px 0;
+    padding: 16px 18px;
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    background: var(--panel);
+}
+
+.insight strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold);
+}
+
+.insight p {
+    margin: 0;
+}
+
+.example-table {
+    width: 100%;
+    margin: 18px 0;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.example-table th,
+.example-table td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.example-table th {
+    background: var(--panel);
+    color: var(--gold-light);
+}
+
+.quiz {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+.quiz-intro {
+    margin-bottom: 20px;
+    color: var(--muted);
+}
+
+.question {
+    margin: 16px 0;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #0b0e12;
+}
+
+.question-title {
+    margin-bottom: 12px;
+    color: #f1f4f8;
+    font-weight: 700;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 10px 0;
+    color: #cbd3dd;
+    cursor: pointer;
+}
+
+.option input {
+    flex-shrink: 0;
+    margin-top: 6px;
+    accent-color: var(--gold);
+}
+
+.explanation {
+    display: none;
+    margin: 12px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.correct-answer {
+    color: var(--green);
+}
+
+.wrong-answer {
+    color: var(--red);
+}
+
+.quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    background: var(--gold);
+    color: #080a0d;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+button.secondary {
+    background: transparent;
+    color: var(--gold);
+}
+
+#result {
+    display: none;
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--panel);
+}
+
+#result p {
+    margin-bottom: 0;
+}
+
+.completion-links {
+    display: none;
+    margin-top: 18px;
+}
+
+.completion-links a {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    padding: 9px 13px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    color: var(--gold);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.completion-links a:hover {
+    background: rgba(201, 164, 92, 0.1);
+}
+
+/* PREMIUM LEARNING */
+.premium-learning {
+    margin: 44px 0 30px;
+    padding: 28px;
+    border: 1px solid #725a32;
+    border-radius: 10px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(201, 164, 92, 0.14),
+            transparent 48%
+        ),
+        #0b0e11;
+}
+
+.premium-label {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.premium-learning h2 {
+    margin: 18px 0 8px;
+    color: #f1f4f8;
+    font-size: clamp(25px, 4vw, 34px);
+    line-height: 1.3;
+}
+
+.premium-learning h3 {
+    margin: 0 0 18px;
+    color: #e3ad45;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.premium-description {
+    margin-bottom: 22px;
+    color: #c4ccd6;
+    font-size: 13px;
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.premium-card {
+    padding: 15px;
+    border: 1px solid #34312a;
+    border-radius: 6px;
+    background: #11151a;
+}
+
+.premium-icon {
+    color: var(--gold);
+    font-size: 19px;
+}
+
+.premium-card h4 {
+    margin: 10px 0;
+    color: var(--gold-light);
+    font-size: 13px;
+}
+
+.premium-card p {
+    margin: 0;
+    color: #c4ccd6;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.premium-footer {
+    margin: 22px 0 0;
+    color: #c4ccd6;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+footer {
+    margin-top: 28px;
+    padding: 20px 0 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: min(100% - 28px, 860px);
+        padding-top: 24px;
+    }
+
+    .premium-learning {
+        margin: 34px 0 24px;
+        padding: 20px;
+    }
+
+    .premium-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .example-table {
+        font-size: 11px;
+    }
+
+    .example-table th,
+    .example-table td {
+        padding: 8px;
+    }
+
+    .question {
+        padding: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+    <a class="back-link" href="technical.html">
+        ← Kembali ke Technical Analysis
+    </a>
+
+    <header>
+        <div class="eyebrow">THE DESK ACADEMY · TECHNICAL ANALYSIS</div>
+        <h1>Entry, Stop Loss &amp; Take Profit</h1>
+        <p class="subtitle">
+            Module 05 · Membangun rencana transaksi dengan risiko yang terukur.
+        </p>
+    </header>
+
+    <section class="lesson-section">
+        <h2>1. Entry Bukan Sekadar Menekan Tombol</h2>
+        <p>
+            Entry adalah titik ketika rencana trading mulai dijalankan.
+            Entry yang baik tidak hanya mempertimbangkan arah harga, tetapi
+            juga struktur pasar, konfirmasi, lokasi entry, dan risiko jika
+            analisis ternyata salah.
+        </p>
+        <p>
+            Sebelum membuka posisi, trader perlu memahami alasan entry,
+            kondisi yang membatalkan analisis, dan target yang realistis.
+        </p>
+        <div class="insight">
+            <strong>Key Insight</strong>
+            <p>
+                Jangan masuk hanya karena harga bergerak cepat.
+                Pastikan alasan entry sudah jelas sebelum membuka posisi.
+            </p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. Menentukan Stop Loss</h2>
+        <p>
+            Stop loss (SL) adalah batas risiko yang ditetapkan untuk
+            membatasi kerugian ketika harga bergerak berlawanan dengan
+            rencana trading.
+        </p>
+        <ul>
+            <li>Pertimbangkan struktur harga dan area invalidasi analisis.</li>
+            <li>Sesuaikan jarak SL dengan kondisi volatilitas pasar.</li>
+            <li>Jangan memperlebar SL hanya untuk menghindari kerugian.</li>
+            <li>Hitung ukuran posisi berdasarkan jarak SL dan batas risiko.</li>
+        </ul>
+        <div class="insight">
+            <strong>Key Insight</strong>
+            <p>
+                Stop loss tidak menjamin harga akan keluar tepat pada level
+                yang ditentukan. Slippage dan gap dapat membuat hasil aktual
+                berbeda dari rencana.
+            </p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. Menentukan Take Profit</h2>
+        <p>
+            Take profit (TP) merupakan target untuk merealisasikan keuntungan.
+            Target dapat ditentukan berdasarkan struktur pasar, support dan
+            resistance, atau perbandingan potensi keuntungan terhadap risiko.
+        </p>
+        <ul>
+            <li>Tentukan target sebelum entry.</li>
+            <li>Gunakan level yang memiliki alasan analitis.</li>
+            <li>Pertimbangkan area harga yang berpotensi menjadi hambatan.</li>
+            <li>Hindari mengubah target hanya karena emosi.</li>
+        </ul>
+        <div class="insight">
+            <strong>Key Insight</strong>
+            <p>
+                Target yang baik adalah target yang memiliki dasar analisis,
+                bukan sekadar angka keuntungan yang diinginkan.
+            </p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. Memahami Risk-to-Reward Ratio</h2>
+        <p>
+            Risk-to-reward ratio (RR) membandingkan potensi kerugian dengan
+            potensi keuntungan pada suatu transaksi. Rasio ini membantu
+            mengevaluasi rencana, tetapi tidak menjamin transaksi akan berhasil.
+        </p>
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th>Risiko</th>
+                    <th>Potensi Target</th>
+                    <th>Rasio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20 poin</td>
+                    <td>20 poin</td>
+                    <td>1:1</td>
+                </tr>
+                <tr>
+                    <td>20 poin</td>
+                    <td>40 poin</td>
+                    <td>1:2</td>
+                </tr>
+                <tr>
+                    <td>20 poin</td>
+                    <td>60 poin</td>
+                    <td>1:3</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Contoh di atas hanya ilustrasi. Hasil aktual dipengaruhi tingkat
+            keberhasilan strategi, spread, komisi, slippage, dan kondisi pasar.
+        </p>
+        <div class="insight">
+            <strong>Key Insight</strong>
+            <p>
+                RR yang lebih besar tidak otomatis membuat strategi lebih baik.
+                Evaluasi rasio bersama kualitas setup dan hasil pengujian strategi.
+            </p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. Mengatur Ukuran Posisi</h2>
+        <p>
+            Ukuran posisi perlu disesuaikan dengan batas risiko dan jarak
+            stop loss. Jika batas risiko uang tetap, jarak SL yang lebih
+            lebar biasanya membutuhkan ukuran posisi yang lebih kecil.
+        </p>
+        <ul>
+            <li>Tentukan batas risiko sebelum entry.</li>
+            <li>Perhitungkan nilai per poin, spread, dan biaya transaksi.</li>
+            <li>Hindari memperbesar lot untuk mengejar kerugian sebelumnya.</li>
+            <li>Jangan gunakan seluruh margin hanya karena peluang terlihat menarik.</li>
+        </ul>
+        <div class="insight">
+            <strong>Key Insight</strong>
+            <p>
+                Tujuan manajemen risiko bukan menghilangkan semua kerugian,
+                melainkan menjaga agar satu transaksi tidak merusak keseluruhan
+                rencana trading.
+            </p>
+        </div>
+    </section>
+
+    <section class="quiz">
+        <div class="eyebrow">MODULE ASSESSMENT</div>
+        <h2>Uji Pemahamanmu</h2>
+        <p class="quiz-intro">
+            Jawab lima pertanyaan berikut. Nilai minimum kelulusan adalah 80%.
+        </p>
+
+        <form id="quizForm">
+
+            <div class="question" data-answer="b">
+                <div class="question-title">1. Apa fungsi utama stop loss?</div>
+                <label class="option">
+                    <input type="radio" name="q1" value="a">
+                    Menjamin transaksi selalu profit
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="b">
+                    Membatasi risiko ketika harga bergerak berlawanan
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="c">
+                    Memastikan harga berbalik arah
+                </label>
+                <p class="explanation">
+                    Jawaban: B. Stop loss membantu membatasi kerugian sesuai
+                    rencana risiko, tetapi tidak menjamin harga keluar tepat
+                    pada level tersebut.
+                </p>
+            </div>
+
+            <div class="question" data-answer="c">
+                <div class="question-title">2. Apa yang sebaiknya menjadi dasar penempatan SL?</div>
+                <label class="option">
+                    <input type="radio" name="q2" value="a">
+                    Angka acak tanpa analisis
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="b">
+                    Keinginan agar tidak pernah mengalami loss
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="c">
+                    Struktur harga dan area invalidasi analisis
+                </label>
+                <p class="explanation">
+                    Jawaban: C. Penempatan SL sebaiknya didasarkan pada
+                    struktur harga dan kondisi yang membatalkan analisis.
+                </p>
+            </div>
+
+            <div class="question" data-answer="a">
+                <div class="question-title">3. Apa arti risk-to-reward ratio 1:2?</div>
+                <label class="option">
+                    <input type="radio" name="q3" value="a">
+                    Potensi keuntungan dua kali nilai risiko
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="b">
+                    Risiko dua kali potensi keuntungan
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="c">
+                    Transaksi pasti menang dua kali
+                </label>
+                <p class="explanation">
+                    Jawaban: A. Rasio 1:2 berarti target potensial dua kali
+                    besar risiko yang direncanakan.
+                </p>
+            </div>
+
+            <div class="question" data-answer="b">
+                <div class="question-title">4. Kapan target take profit sebaiknya direncanakan?</div>
+                <label class="option">
+                    <input type="radio" name="q4" value="a">
+                    Setelah profit terasa cukup besar
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="b">
+                    Sebelum entry, berdasarkan rencana trading
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="c">
+                    Hanya ketika harga bergerak cepat
+                </label>
+                <p class="explanation">
+                    Jawaban: B. Perencanaan target sebelum entry membantu
+                    menjaga konsistensi pengambilan keputusan.
+                </p>
+            </div>
+
+            <div class="question" data-answer="c">
+                <div class="question-title">5. Bagaimana menentukan ukuran posisi yang lebih terukur?</div>
+                <label class="option">
+                    <input type="radio" name="q5" value="a">
+                    Selalu menggunakan lot maksimum
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="b">
+                    Menambah lot setelah mengalami kerugian
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="c">
+                    Menyesuaikan ukuran posisi dengan jarak SL dan batas risiko
+                </label>
+                <p class="explanation">
+                    Jawaban: C. Ukuran posisi perlu mempertimbangkan jarak SL,
+                    nilai per poin, dan batas risiko yang telah ditetapkan.
+                </p>
+            </div>
+
+            <div class="quiz-actions">
+                <button type="button" id="checkBtn">Periksa Jawaban</button>
+                <button type="button" class="secondary" id="retryBtn">Ulangi Kuis</button>
+            </div>
+        </form>
+
+        <div id="result" aria-live="polite"></div>
+
+        <div class="completion-links" id="completionLinks">
+            <a href="technical.html">Kembali ke Technical Analysis</a>
+            <a href="academy.html">Kembali ke Academy</a>
+        </div>
+    </section>
+
+    <section class="premium-learning">
+        <div class="premium-label">THE DESK - PREMIUM LEARNING</div>
+
+        <h2>Kamu Sudah Memahami Dasarnya.</h2>
+        <h3>Sekarang, Pelajari Cara Membaca Pasar.</h3>
+
+        <p class="premium-description">
+            Memahami dasar adalah langkah awal. Kembangkan kemampuanmu
+            dengan mempelajari struktur pasar, analisis teknikal, faktor
+            makroekonomi, dan riset pasar yang lebih mendalam.
+        </p>
+
+        <div class="premium-grid">
+            <div class="premium-card">
+                <span class="premium-icon">◇</span>
+                <h4>Struktur Pasar Lanjutan</h4>
+                <p>
+                    Pahami struktur harga, perilaku pasar, dan konsep
+                    teknikal yang lebih mendalam.
+                </p>
+            </div>
+
+            <div class="premium-card">
+                <span class="premium-icon">◇</span>
+                <h4>Analisis Teknikal</h4>
+                <p>
+                    Bangun pendekatan yang lebih terstruktur untuk
+                    mengidentifikasi potensi setup trading.
+                </p>
+            </div>
+
+            <div class="premium-card">
+                <span class="premium-icon">◇</span>
+                <h4>Intelijen Makro &amp; Berita</h4>
+                <p>
+                    Pahami bagaimana data ekonomi, bank sentral, dan
+                    peristiwa besar dapat memengaruhi pasar.
+                </p>
+            </div>
+
+            <div class="premium-card">
+                <span class="premium-icon">◇</span>
+                <h4>Riset Pasar Profesional</h4>
+                <p>
+                    Hubungkan informasi pasar untuk membangun proses
+                    analisis yang lebih jelas dan terstruktur.
+                </p>
+            </div>
+        </div>
+
+        <p class="premium-footer">
+            Ingin belajar lebih mendalam? Hubungi tim THE DESK untuk
+            mengetahui informasi mengenai program pembelajaran Premium.
+        </p>
+    </section>
+
+    <footer>
+        THE DESK Academy · Educational purposes only.<br>
+        Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.
+    </footer>
+
+</main>
+
+<script>
+const quizForm = document.getElementById("quizForm");
+const checkBtn = document.getElementById("checkBtn");
+const retryBtn = document.getElementById("retryBtn");
+const result = document.getElementById("result");
+const completionLinks = document.getElementById("completionLinks");
+
+checkBtn.addEventListener("click", function () {
+    const questions = document.querySelectorAll(".question");
+    let score = 0;
+    let unanswered = 0;
+
+    questions.forEach(function (question) {
+        const selected = question.querySelector("input:checked");
+        const explanation = question.querySelector(".explanation");
+
+        explanation.style.display = "block";
+        explanation.classList.remove("correct-answer", "wrong-answer");
+
+        if (!selected) {
+            unanswered++;
+            explanation.classList.add("wrong-answer");
+            return;
+        }
+
+        if (selected.value === question.dataset.answer) {
+            score++;
+            explanation.classList.add("correct-answer");
+        } else {
+            explanation.classList.add("wrong-answer");
+        }
+    });
+
+    result.style.display = "block";
+    completionLinks.style.display = "none";
+
+    if (unanswered > 0) {
+        result.innerHTML =
+            "<strong class='wrong-answer'>Masih ada " +
+            unanswered +
+            " pertanyaan yang belum dijawab.</strong>" +
+            "<p>Lengkapi semua pertanyaan, lalu periksa kembali.</p>";
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        return;
+    }
+
+    const percentage = score * 20;
+
+    if (score >= 4) {
+        result.innerHTML =
+            "<strong class='correct-answer'>Selamat, kamu lulus!</strong>" +
+            "<p>Skor kamu: <strong>" +
+            score + "/5 (" + percentage +
+            "%)</strong>. Kamu telah menyelesaikan Technical Analysis Module 05.</p>";
+
+        completionLinks.style.display = "block";
+    } else {
+        result.innerHTML =
+            "<strong class='wrong-answer'>Kamu belum mencapai nilai kelulusan.</strong>" +
+            "<p>Skor kamu: <strong>" +
+            score + "/5 (" + percentage +
+            "%)</strong>. Nilai minimum kelulusan adalah 80%. Pelajari penjelasan jawaban, lalu ulangi kuis.</p>";
+    }
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+});
+
+retryBtn.addEventListener("click", function () {
+    quizForm.reset();
+
+    document.querySelectorAll(".explanation").forEach(function (item) {
+        item.style.display = "none";
+        item.classList.remove("correct-answer", "wrong-answer");
+    });
+
+    result.style.display = "none";
+    result.innerHTML = "";
+    completionLinks.style.display = "none";
+});
+</script>
+
+</body>
+</html>
