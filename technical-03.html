@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari support dan resistance, zona harga, rejection, serta breakout bersama THE DESK Academy.">
-  <title>Support &amp; Resistance | THE DESK Academy</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Pelajari Support & Resistance, zona harga, rejection, dan breakout bersama THE DESK Academy.">
+  <title>Support & Resistance | THE DESK Academy</title>
 
   <style>
     :root {
@@ -24,6 +24,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -33,9 +37,32 @@
     }
 
     .container {
-      width: min(900px, 92%);
+      width: min(960px, 90%);
       margin: auto;
       padding: 30px 0 60px;
+    }
+
+    .language-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .lang-btn {
+      padding: 7px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #111;
     }
 
     nav {
@@ -50,7 +77,7 @@
 
     .brand {
       color: var(--gold);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 2px;
     }
@@ -73,14 +100,18 @@
     }
 
     h1 {
-      margin: 14px 0;
-      font-size: clamp(34px, 6vw, 48px);
-      line-height: 1.15;
-      letter-spacing: -1px;
+      margin: 16px 0;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span {
+      color: var(--gold);
     }
 
     h2 {
-      margin: 36px 0 12px;
+      margin: 20px 0 14px;
       color: var(--gold);
       font-size: 23px;
       line-height: 1.4;
@@ -91,12 +122,13 @@
       font-size: 17px;
     }
 
-    p, li {
+    p,
+    li {
       color: #c1c7cf;
     }
 
     .intro {
-      margin: 16px 0 24px;
+      margin: 18px 0 24px;
       color: var(--muted);
       font-size: 15px;
     }
@@ -105,7 +137,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
     .tag {
@@ -134,11 +166,16 @@
       color: #f0d59d;
     }
 
+    .concept p {
+      margin-bottom: 0;
+    }
+
     .insight {
       margin: 22px 0;
       padding: 18px;
       background: var(--panel);
       border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
     }
 
     .insight strong {
@@ -181,6 +218,14 @@
       font-weight: 700;
     }
 
+    .quiz-panel {
+      margin-top: 35px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+    }
+
     .quiz-question {
       margin: 20px 0;
       padding: 18px;
@@ -189,7 +234,7 @@
       border-radius: 6px;
     }
 
-    .quiz-question p {
+    .quiz-question>p {
       margin-top: 0;
       color: #e8ebef;
       font-weight: 600;
@@ -199,17 +244,19 @@
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      margin: 10px 0;
+      margin: 12px 0;
       color: #c1c7cf;
       cursor: pointer;
+      line-height: 1.6;
     }
 
     .option input {
+      flex: 0 0 auto;
       margin-top: 7px;
       accent-color: var(--gold);
     }
 
-    button {
+    button.action {
       padding: 12px 18px;
       border: 1px solid var(--gold);
       border-radius: 4px;
@@ -220,8 +267,16 @@
     }
 
     button.secondary {
+      margin-left: 8px;
       background: transparent;
       color: var(--gold);
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
     }
 
     #result {
@@ -240,6 +295,10 @@
       font-size: 14px;
     }
 
+    .explanation p {
+      margin-bottom: 0;
+    }
+
     .correct {
       color: var(--green);
     }
@@ -250,8 +309,8 @@
 
     #nextModule {
       display: none;
-      margin-top: 20px;
-      padding: 18px;
+      margin-top: 22px;
+      padding: 20px;
       background: var(--panel);
       border: 1px solid var(--gold);
       border-radius: 6px;
@@ -267,12 +326,20 @@
     }
 
     @media (max-width: 600px) {
+      .container {
+        padding-top: 20px;
+      }
+
       nav {
         align-items: flex-start;
       }
 
-      .container {
-        padding-top: 20px;
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .quiz-panel {
+        padding: 15px;
       }
 
       .level-table {
@@ -283,6 +350,20 @@
       .level-table td {
         padding: 8px;
       }
+
+      button.action {
+        margin: 5px 0;
+      }
+
+      button.secondary {
+        margin-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -290,57 +371,66 @@
 <body>
   <main class="container">
 
+    <div class="language-bar">
+      <button type="button" class="lang-btn" data-lang="id">ID</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <nav>
       <div class="brand">THE DESK / ACADEMY</div>
-      <a href="technical.html">← Technical Analysis</a>
+      <a href="technical.html" data-i18n="back">← Technical Analysis</a>
     </nav>
 
     <header>
-      <div class="eyebrow">Technical Analysis · Module 03</div>
-      <h1>Support &amp; Resistance</h1>
+      <div class="eyebrow" data-i18n="eyebrow">TECHNICAL ANALYSIS · MODULE 03</div>
 
-      <p class="intro">
-        Pahami zona harga penting, cara membaca reaksi pasar, serta
-        perbedaan rejection dan breakout sebelum menyusun rencana trading.
+      <h1>
+        <span data-i18n="title1">Support &amp;</span><br>
+        <span data-i18n="title2">Resistance.</span>
+      </h1>
+
+      <p class="intro" data-i18n="intro">
+        Pahami zona harga penting, cara membaca reaksi pasar, serta perbedaan
+        rejection dan breakout sebelum menyusun rencana trading.
       </p>
 
       <div class="meta">
-        <span class="tag">LEVEL: BASIC</span>
-        <span class="tag">5 QUIZ QUESTIONS</span>
-        <span class="tag">PASSING SCORE: 80%</span>
+        <span class="tag" data-i18n="tag1">GRATIS · DASAR</span>
+        <span class="tag" data-i18n="tag2">PEMULA</span>
+        <span class="tag" data-i18n="tag3">5 PERTANYAAN</span>
+        <span class="tag" data-i18n="tag4">KELULUSAN 80%</span>
       </div>
     </header>
 
     <section class="section">
-      <div class="eyebrow">01 · KEY PRICE AREAS</div>
-      <h2>Apa Itu Support &amp; Resistance?</h2>
+      <div class="eyebrow" data-i18n="eyebrow1">01 · KEY PRICE AREAS</div>
+      <h2 data-i18n="section1">Apa Itu Support &amp; Resistance?</h2>
 
-      <p>
-        Support dan resistance adalah area harga yang sering diamati
-        trader karena sebelumnya harga menunjukkan reaksi di area tersebut.
-        Area ini membantu menyusun konteks, bukan menjamin harga akan
-        berbalik arah.
+      <p data-i18n="p1">
+        Support dan resistance adalah area harga yang sering diamati trader
+        karena sebelumnya harga menunjukkan reaksi di area tersebut. Area ini
+        membantu menyusun konteks, bukan menjamin harga akan berbalik arah.
       </p>
 
       <div class="concept">
         <h3>Support</h3>
-        <p>
-          Area tempat tekanan beli sebelumnya membantu menahan penurunan
-          atau mendorong harga kembali naik.
+        <p data-i18n="support">
+          Area tempat tekanan beli sebelumnya membantu menahan penurunan atau
+          mendorong harga kembali naik.
         </p>
       </div>
 
       <div class="concept">
         <h3>Resistance</h3>
-        <p>
-          Area tempat tekanan jual sebelumnya membantu menahan kenaikan
-          atau mendorong harga kembali turun.
+        <p data-i18n="resistance">
+          Area tempat tekanan jual sebelumnya membantu menahan kenaikan atau
+          mendorong harga kembali turun.
         </p>
       </div>
 
       <div class="insight">
-        <strong>KEY INSIGHT</strong>
-        <p>
+        <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+        <p data-i18n="insight1">
           Support dan resistance lebih tepat diperlakukan sebagai zona
           pengamatan, bukan garis yang pasti menahan harga.
         </p>
@@ -348,100 +438,101 @@
     </section>
 
     <section class="section">
-      <div class="eyebrow">02 · IDENTIFYING ZONES</div>
-      <h2>Bagaimana Menentukan Zona Penting?</h2>
+      <div class="eyebrow" data-i18n="eyebrow2">02 · IDENTIFYING ZONES</div>
+      <h2 data-i18n="section2">Bagaimana Menentukan Zona Penting?</h2>
 
-      <p>
+      <p data-i18n="p2">
         Trader dapat mengamati area ketika harga sebelumnya beberapa kali
-        berhenti, berbalik arah, atau bergerak cepat meninggalkan suatu
-        wilayah. Semakin jelas reaksi harga sebelumnya, semakin relevan
-        area tersebut untuk dianalisis, tetapi tidak ada jaminan area akan
-        bertahan pada pengujian berikutnya.
+        berhenti, berbalik arah, atau bergerak cepat meninggalkan suatu wilayah.
+        Semakin jelas reaksi harga sebelumnya, semakin relevan area tersebut
+        untuk dianalisis, tetapi tidak ada jaminan area akan bertahan pada
+        pengujian berikutnya.
       </p>
 
       <ul>
-        <li>Amati swing high dan swing low yang terlihat jelas.</li>
-        <li>Perhatikan area konsolidasi sebelum pergerakan kuat.</li>
-        <li>Gunakan zona yang relevan, bukan memenuhi chart dengan terlalu banyak garis.</li>
-        <li>Evaluasi ulang zona ketika struktur harga berubah.</li>
+        <li data-i18n="list1">Amati swing high dan swing low yang terlihat jelas.</li>
+        <li data-i18n="list2">Perhatikan area konsolidasi sebelum pergerakan kuat.</li>
+        <li data-i18n="list3">Gunakan zona yang relevan, bukan memenuhi chart dengan terlalu banyak garis.</li>
+        <li data-i18n="list4">Evaluasi ulang zona ketika struktur harga berubah.</li>
       </ul>
 
       <div class="insight">
-        <strong>PRAKTIK YANG BAIK</strong>
-        <p>
-          Mulai dari area yang paling jelas. Zona yang terlalu banyak
-          dapat membuat analisis rumit dan keputusan menjadi tidak konsisten.
+        <strong data-i18n="goodPractice">PRAKTIK YANG BAIK</strong>
+        <p data-i18n="insight2">
+          Mulai dari area yang paling jelas. Zona yang terlalu banyak dapat
+          membuat analisis rumit dan keputusan menjadi tidak konsisten.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="eyebrow">03 · PRICE REACTION</div>
-      <h2>Rejection dan Breakout</h2>
+      <div class="eyebrow" data-i18n="eyebrow3">03 · PRICE REACTION</div>
+      <h2 data-i18n="section3">Rejection dan Breakout</h2>
 
       <div class="concept">
         <h3>Rejection</h3>
-        <p>
-          Harga menguji suatu zona, tetapi gagal melanjutkan penembusan
-          dan bergerak menjauh dari area tersebut. Rejection dapat menjadi
-          petunjuk respons pasar, bukan sinyal yang selalu berhasil.
+        <p data-i18n="rejection">
+          Harga menguji suatu zona, tetapi gagal melanjutkan penembusan dan
+          bergerak menjauh dari area tersebut. Rejection dapat menjadi petunjuk
+          respons pasar, bukan sinyal yang selalu berhasil.
         </p>
       </div>
 
       <div class="concept">
         <h3>Breakout</h3>
-        <p>
-          Harga bergerak menembus zona yang sebelumnya menjadi support
-          atau resistance. Penembusan dapat menandakan perubahan kondisi,
-          tetapi juga dapat gagal dan berbalik kembali.
+        <p data-i18n="breakout">
+          Harga bergerak menembus zona yang sebelumnya menjadi support atau
+          resistance. Penembusan dapat menandakan perubahan kondisi, tetapi
+          juga dapat gagal dan berbalik kembali.
         </p>
       </div>
 
-      <table class="level-table">
-        <thead>
-          <tr>
-            <th>Perilaku Harga</th>
-            <th>Hal yang Diamati</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rejection</td>
-            <td>Harga gagal bertahan melewati zona dan bergerak menjauh.</td>
-          </tr>
-          <tr>
-            <td>Breakout</td>
-            <td>Harga menembus zona dan menunjukkan apakah mampu bertahan di luarnya.</td>
-          </tr>
-          <tr>
-            <td>False Breakout</td>
-            <td>Harga sempat menembus zona, lalu kembali ke dalam rentang sebelumnya.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="overflow-x:auto">
+        <table class="level-table">
+          <thead>
+            <tr>
+              <th data-i18n="table1">Perilaku Harga</th>
+              <th data-i18n="table2">Hal yang Diamati</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rejection</td>
+              <td data-i18n="tableRejection">Harga gagal bertahan melewati zona dan bergerak menjauh.</td>
+            </tr>
+            <tr>
+              <td>Breakout</td>
+              <td data-i18n="tableBreakout">Harga menembus zona dan menunjukkan apakah mampu bertahan di luarnya.</td>
+            </tr>
+            <tr>
+              <td>False Breakout</td>
+              <td data-i18n="tableFalse">Harga sempat menembus zona, lalu kembali ke dalam rentang sebelumnya.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="section">
-      <div class="eyebrow">04 · CONFIRMATION</div>
-      <h2>Menilai Reaksi Harga</h2>
+      <div class="eyebrow" data-i18n="eyebrow4">04 · CONFIRMATION</div>
+      <h2 data-i18n="section4">Menilai Reaksi Harga</h2>
 
-      <p>
-        Saat harga mendekati zona penting, hindari mengambil keputusan
-        hanya karena harga telah menyentuh area tersebut. Perhatikan
-        bagaimana candle terbentuk dan bagaimana harga bereaksi setelah
-        menyentuh atau menembus zona.
+      <p data-i18n="p4">
+        Saat harga mendekati zona penting, hindari mengambil keputusan hanya
+        karena harga telah menyentuh area tersebut. Perhatikan bagaimana candle
+        terbentuk dan bagaimana harga bereaksi setelah menyentuh atau menembus zona.
       </p>
 
       <ul>
-        <li>Apakah candle ditutup di dalam atau di luar zona?</li>
-        <li>Apakah harga mampu bertahan setelah penembusan?</li>
-        <li>Apakah struktur pasar mendukung skenario yang sedang diamati?</li>
-        <li>Di mana skenario dianggap tidak lagi valid?</li>
+        <li data-i18n="list5">Apakah candle ditutup di dalam atau di luar zona?</li>
+        <li data-i18n="list6">Apakah harga mampu bertahan setelah penembusan?</li>
+        <li data-i18n="list7">Apakah struktur pasar mendukung skenario yang sedang diamati?</li>
+        <li data-i18n="list8">Di mana skenario dianggap tidak lagi valid?</li>
       </ul>
 
       <div class="insight">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
+        <strong data-i18n="principle">THE DESK PRINCIPLE</strong>
+        <p data-i18n="insight3">
           Zona memberi konteks. Reaksi harga memberi informasi tambahan.
           Keputusan tetap membutuhkan rencana dan batas risiko.
         </p>
@@ -449,249 +540,475 @@
     </section>
 
     <section class="section">
-      <div class="eyebrow">05 · RISK MANAGEMENT</div>
-      <h2>Ketika Zona Gagal Bertahan</h2>
+      <div class="eyebrow" data-i18n="eyebrow5">05 · RISK MANAGEMENT</div>
+      <h2 data-i18n="section5">Ketika Zona Gagal Bertahan</h2>
 
-      <p>
+      <p data-i18n="p5">
         Tidak ada support atau resistance yang pasti bertahan. Jika harga
         bergerak melewati zona, trader perlu mengevaluasi apakah skenario
         sebelumnya masih valid atau harus dibatalkan.
       </p>
 
       <ul>
-        <li>Tentukan titik invalidasi sebelum membuka posisi.</li>
-        <li>Sesuaikan ukuran posisi dengan batas risiko.</li>
-        <li>Hindari menambah posisi hanya untuk mengejar kerugian.</li>
-        <li>Jangan menganggap setiap breakout sebagai peluang yang wajib diambil.</li>
+        <li data-i18n="list9">Tentukan titik invalidasi sebelum membuka posisi.</li>
+        <li data-i18n="list10">Sesuaikan ukuran posisi dengan batas risiko.</li>
+        <li data-i18n="list11">Hindari menambah posisi hanya untuk mengejar kerugian.</li>
+        <li data-i18n="list12">Jangan menganggap setiap breakout sebagai peluang yang wajib diambil.</li>
       </ul>
 
       <div class="insight">
-        <strong>KEY TAKEAWAY</strong>
-        <p>
-          Tujuan support dan resistance adalah membantu membaca konteks
-          harga dan menyusun rencana, bukan memastikan titik balik pasar.
+        <strong data-i18n="takeaway">KEY TAKEAWAY</strong>
+        <p data-i18n="insight4">
+          Tujuan support dan resistance adalah membantu membaca konteks harga
+          dan menyusun rencana, bukan memastikan titik balik pasar.
         </p>
       </div>
     </section>
 
-    <section class="section" id="quiz">
-      <div class="eyebrow">Knowledge Check</div>
-      <h2>Uji Pemahaman Anda</h2>
-      <p>
+    <section class="quiz-panel" id="quiz">
+      <div class="eyebrow" data-i18n="quizEyebrow">KNOWLEDGE CHECK</div>
+      <h2 data-i18n="quizTitle">Uji Pemahaman Anda</h2>
+      <p data-i18n="quizIntro">
         Jawab seluruh pertanyaan. Nilai kelulusan adalah 4 dari 5 atau 80%.
       </p>
 
       <form id="quizForm">
-
         <div class="quiz-question">
-          <p>1. Apa fungsi utama support dan resistance?</p>
-          <label class="option">
-            <input type="radio" name="q1" value="a">
-            Menjamin harga selalu berbalik arah
-          </label>
-          <label class="option">
-            <input type="radio" name="q1" value="b">
-            Menjadi zona pengamatan untuk memahami reaksi harga
-          </label>
-          <label class="option">
-            <input type="radio" name="q1" value="c">
-            Menentukan profit tanpa perlu mengelola risiko
-          </label>
+          <p data-i18n="q1">1. Apa fungsi utama support dan resistance?</p>
+          <label class="option"><input type="radio" name="q1" value="a"><span data-i18n="q1a">Menjamin harga selalu
+              berbalik arah</span></label>
+          <label class="option"><input type="radio" name="q1" value="b"><span data-i18n="q1b">Menjadi zona pengamatan
+              untuk memahami reaksi harga</span></label>
+          <label class="option"><input type="radio" name="q1" value="c"><span data-i18n="q1c">Menentukan profit tanpa
+              perlu mengelola risiko</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>2. Apa yang dimaksud support?</p>
-          <label class="option">
-            <input type="radio" name="q2" value="a">
-            Area tempat tekanan beli sebelumnya membantu menahan penurunan
-          </label>
-          <label class="option">
-            <input type="radio" name="q2" value="b">
-            Area yang tidak mungkin ditembus harga
-          </label>
-          <label class="option">
-            <input type="radio" name="q2" value="c">
-            Harga tertinggi sepanjang waktu
-          </label>
+          <p data-i18n="q2">2. Apa yang dimaksud support?</p>
+          <label class="option"><input type="radio" name="q2" value="a"><span data-i18n="q2a">Area tempat tekanan beli
+              sebelumnya membantu menahan penurunan</span></label>
+          <label class="option"><input type="radio" name="q2" value="b"><span data-i18n="q2b">Area yang tidak mungkin
+              ditembus harga</span></label>
+          <label class="option"><input type="radio" name="q2" value="c"><span data-i18n="q2c">Harga tertinggi sepanjang
+              waktu</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>3. Apa yang dimaksud breakout?</p>
-          <label class="option">
-            <input type="radio" name="q3" value="a">
-            Harga selalu kembali ke titik awal
-          </label>
-          <label class="option">
-            <input type="radio" name="q3" value="b">
-            Harga tidak bergerak selama beberapa candle
-          </label>
-          <label class="option">
-            <input type="radio" name="q3" value="c">
-            Harga bergerak menembus zona penting
-          </label>
+          <p data-i18n="q3">3. Apa yang dimaksud breakout?</p>
+          <label class="option"><input type="radio" name="q3" value="a"><span data-i18n="q3a">Harga selalu kembali ke
+              titik awal</span></label>
+          <label class="option"><input type="radio" name="q3" value="b"><span data-i18n="q3b">Harga tidak bergerak
+              selama beberapa candle</span></label>
+          <label class="option"><input type="radio" name="q3" value="c"><span data-i18n="q3c">Harga bergerak menembus
+              zona penting</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>4. Apa itu false breakout?</p>
-          <label class="option">
-            <input type="radio" name="q4" value="a">
-            Harga menyentuh support lalu langsung naik
-          </label>
-          <label class="option">
-            <input type="radio" name="q4" value="b">
-            Harga menembus zona, lalu kembali ke rentang sebelumnya
-          </label>
-          <label class="option">
-            <input type="radio" name="q4" value="c">
-            Harga selalu bergerak mengikuti tren
-          </label>
+          <p data-i18n="q4">4. Apa itu false breakout?</p>
+          <label class="option"><input type="radio" name="q4" value="a"><span data-i18n="q4a">Harga menyentuh support
+              lalu langsung naik</span></label>
+          <label class="option"><input type="radio" name="q4" value="b"><span data-i18n="q4b">Harga menembus zona, lalu
+              kembali ke rentang sebelumnya</span></label>
+          <label class="option"><input type="radio" name="q4" value="c"><span data-i18n="q4c">Harga selalu bergerak
+              mengikuti tren</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>5. Apa yang sebaiknya dilakukan jika zona tidak bertahan?</p>
-          <label class="option">
-            <input type="radio" name="q5" value="a">
-            Mengevaluasi skenario dan mengikuti batas risiko yang direncanakan
-          </label>
-          <label class="option">
-            <input type="radio" name="q5" value="b">
-            Mengabaikan stop loss
-          </label>
-          <label class="option">
-            <input type="radio" name="q5" value="c">
-            Menambah posisi tanpa perhitungan
-          </label>
+          <p data-i18n="q5">5. Apa yang sebaiknya dilakukan jika zona tidak bertahan?</p>
+          <label class="option"><input type="radio" name="q5" value="a"><span data-i18n="q5a">Mengevaluasi skenario dan
+              mengikuti batas risiko yang direncanakan</span></label>
+          <label class="option"><input type="radio" name="q5" value="b"><span data-i18n="q5b">Mengabaikan stop
+              loss</span></label>
+          <label class="option"><input type="radio" name="q5" value="c"><span data-i18n="q5c">Menambah posisi tanpa
+              perhitungan</span></label>
         </div>
 
-        <button type="submit">Periksa Jawaban</button>
-        <button type="button" class="secondary" id="retryButton">
-          Ulangi Kuis
-        </button>
-
+        <button type="submit" class="action" data-i18n="check">Periksa Jawaban</button>
+        <button type="button" class="action secondary" id="retryButton" data-i18n="retry">Ulangi Kuis</button>
       </form>
 
       <div id="result" aria-live="polite"></div>
 
       <div id="nextModule">
-        <strong class="correct">Module 03 completed.</strong>
-        <p>
-          Anda memenuhi nilai minimum. Lanjutkan ke Breakout &amp; Retest.
-        </p>
-        <a href="technical-04.html">Lanjut ke Module 04 →</a>
+        <strong class="correct" data-i18n="completed">Modul 03 selesai.</strong>
+        <p data-i18n="passedMessage">Anda memenuhi nilai minimum. Lanjutkan ke Breakout &amp; Retest.</p>
+        <a href="technical-04.html" data-i18n="nextLink">Lanjut ke Modul 04 →</a>
       </div>
     </section>
 
     <footer>
-      THE DESK Academy · Educational purposes only.<br>
-      Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.
+      THE DESK Academy · <span data-i18n="footerTitle">Analisis Teknikal</span><br>
+      <span data-i18n="disclaimer">Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi atau jaminan hasil
+        trading.</span>
     </footer>
 
   </main>
 
   <script>
-    const answers = {
-      q1: {
-        correct: "b",
-        explanation: "Support dan resistance membantu mengidentifikasi zona yang relevan untuk mengamati reaksi harga. Keduanya tidak menjamin pembalikan."
-      },
-      q2: {
-        correct: "a",
-        explanation: "Support adalah area tempat tekanan beli sebelumnya membantu menahan penurunan harga."
-      },
-      q3: {
-        correct: "c",
-        explanation: "Breakout adalah pergerakan harga yang menembus zona penting, meskipun penembusan tersebut belum tentu bertahan."
-      },
-      q4: {
-        correct: "b",
-        explanation: "False breakout terjadi ketika harga menembus zona tetapi kemudian kembali ke rentang sebelumnya."
-      },
-      q5: {
-        correct: "a",
-        explanation: "Ketika zona gagal bertahan, evaluasi kembali skenario dan patuhi batas risiko yang telah direncanakan."
+    (() => {
+      const translations = {
+        id: {
+          back: "← Technical Analysis",
+          eyebrow: "TECHNICAL ANALYSIS · MODUL 03",
+          title1: "Support &",
+          title2: "Resistance.",
+          intro: "Pahami zona harga penting, cara membaca reaksi pasar, serta perbedaan rejection dan breakout sebelum menyusun rencana trading.",
+          tag1: "GRATIS · DASAR",
+          tag2: "PEMULA",
+          tag3: "5 PERTANYAAN",
+          tag4: "KELULUSAN 80%",
+          eyebrow1: "01 · KEY PRICE AREAS",
+          section1: "Apa Itu Support & Resistance?",
+          p1: "Support dan resistance adalah area harga yang sering diamati trader karena sebelumnya harga menunjukkan reaksi di area tersebut. Area ini membantu menyusun konteks, bukan menjamin harga akan berbalik arah.",
+          support: "Area tempat tekanan beli sebelumnya membantu menahan penurunan atau mendorong harga kembali naik.",
+          resistance: "Area tempat tekanan jual sebelumnya membantu menahan kenaikan atau mendorong harga kembali turun.",
+          keyInsight: "INSIGHT UTAMA",
+          insight1: "Support dan resistance lebih tepat diperlakukan sebagai zona pengamatan, bukan garis yang pasti menahan harga.",
+          eyebrow2: "02 · IDENTIFYING ZONES",
+          section2: "Bagaimana Menentukan Zona Penting?",
+          p2: "Trader dapat mengamati area ketika harga sebelumnya beberapa kali berhenti, berbalik arah, atau bergerak cepat meninggalkan suatu wilayah. Semakin jelas reaksi harga sebelumnya, semakin relevan area tersebut untuk dianalisis, tetapi tidak ada jaminan area akan bertahan pada pengujian berikutnya.",
+          list1: "Amati swing high dan swing low yang terlihat jelas.",
+          list2: "Perhatikan area konsolidasi sebelum pergerakan kuat.",
+          list3: "Gunakan zona yang relevan, bukan memenuhi chart dengan terlalu banyak garis.",
+          list4: "Evaluasi ulang zona ketika struktur harga berubah.",
+          goodPractice: "PRAKTIK YANG BAIK",
+          insight2: "Mulai dari area yang paling jelas. Zona yang terlalu banyak dapat membuat analisis rumit dan keputusan menjadi tidak konsisten.",
+          eyebrow3: "03 · PRICE REACTION",
+          section3: "Rejection dan Breakout",
+          rejection: "Harga menguji suatu zona, tetapi gagal melanjutkan penembusan dan bergerak menjauh dari area tersebut. Rejection dapat menjadi petunjuk respons pasar, bukan sinyal yang selalu berhasil.",
+          breakout: "Harga bergerak menembus zona yang sebelumnya menjadi support atau resistance. Penembusan dapat menandakan perubahan kondisi, tetapi juga dapat gagal dan berbalik kembali.",
+          table1: "Perilaku Harga",
+          table2: "Hal yang Diamati",
+          tableRejection: "Harga gagal bertahan melewati zona dan bergerak menjauh.",
+          tableBreakout: "Harga menembus zona dan menunjukkan apakah mampu bertahan di luarnya.",
+          tableFalse: "Harga sempat menembus zona, lalu kembali ke dalam rentang sebelumnya.",
+          eyebrow4: "04 · CONFIRMATION",
+          section4: "Menilai Reaksi Harga",
+          p4: "Saat harga mendekati zona penting, hindari mengambil keputusan hanya karena harga telah menyentuh area tersebut. Perhatikan bagaimana candle terbentuk dan bagaimana harga bereaksi setelah menyentuh atau menembus zona.",
+          list5: "Apakah candle ditutup di dalam atau di luar zona?",
+          list6: "Apakah harga mampu bertahan setelah penembusan?",
+          list7: "Apakah struktur pasar mendukung skenario yang sedang diamati?",
+          list8: "Di mana skenario dianggap tidak lagi valid?",
+          principle: "THE DESK PRINCIPLE",
+          insight3: "Zona memberi konteks. Reaksi harga memberi informasi tambahan. Keputusan tetap membutuhkan rencana dan batas risiko.",
+          eyebrow5: "05 · RISK MANAGEMENT",
+          section5: "Ketika Zona Gagal Bertahan",
+          p5: "Tidak ada support atau resistance yang pasti bertahan. Jika harga bergerak melewati zona, trader perlu mengevaluasi apakah skenario sebelumnya masih valid atau harus dibatalkan.",
+          list9: "Tentukan titik invalidasi sebelum membuka posisi.",
+          list10: "Sesuaikan ukuran posisi dengan batas risiko.",
+          list11: "Hindari menambah posisi hanya untuk mengejar kerugian.",
+          list12: "Jangan menganggap setiap breakout sebagai peluang yang wajib diambil.",
+          takeaway: "KEY TAKEAWAY",
+          insight4: "Tujuan support dan resistance adalah membantu membaca konteks harga dan menyusun rencana, bukan memastikan titik balik pasar.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Uji Pemahaman Anda",
+          quizIntro: "Jawab seluruh pertanyaan. Nilai kelulusan adalah 4 dari 5 atau 80%.",
+          q1: "1. Apa fungsi utama support dan resistance?",
+          q1a: "Menjamin harga selalu berbalik arah",
+          q1b: "Menjadi zona pengamatan untuk memahami reaksi harga",
+          q1c: "Menentukan profit tanpa perlu mengelola risiko",
+          q2: "2. Apa yang dimaksud support?",
+          q2a: "Area tempat tekanan beli sebelumnya membantu menahan penurunan",
+          q2b: "Area yang tidak mungkin ditembus harga",
+          q2c: "Harga tertinggi sepanjang waktu",
+          q3: "3. Apa yang dimaksud breakout?",
+          q3a: "Harga selalu kembali ke titik awal",
+          q3b: "Harga tidak bergerak selama beberapa candle",
+          q3c: "Harga bergerak menembus zona penting",
+          q4: "4. Apa itu false breakout?",
+          q4a: "Harga menyentuh support lalu langsung naik",
+          q4b: "Harga menembus zona, lalu kembali ke rentang sebelumnya",
+          q4c: "Harga selalu bergerak mengikuti tren",
+          q5: "5. Apa yang sebaiknya dilakukan jika zona tidak bertahan?",
+          q5a: "Mengevaluasi skenario dan mengikuti batas risiko yang direncanakan",
+          q5b: "Mengabaikan stop loss",
+          q5c: "Menambah posisi tanpa perhitungan",
+          check: "Periksa Jawaban",
+          retry: "Ulangi Kuis",
+          completed: "Modul 03 selesai.",
+          passedMessage: "Anda memenuhi nilai minimum. Lanjutkan ke Breakout & Retest.",
+          nextLink: "Lanjut ke Modul 04 →",
+          footerTitle: "Analisis Teknikal",
+          disclaimer: "Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.",
+          unanswered: "Lengkapi semua pertanyaan terlebih dahulu.",
+          notAnswered: "Belum dijawab:",
+          score: "Nilai",
+          passed: "Selamat, Anda lulus modul ini.",
+          failed: "Anda belum lulus. Pelajari kembali materi dan coba lagi.",
+          correct: "Benar",
+          wrong: "Belum tepat",
+          explanations: [
+            "Support dan resistance membantu mengidentifikasi zona untuk mengamati reaksi harga. Keduanya tidak menjamin pembalikan.",
+            "Support adalah area tempat tekanan beli sebelumnya membantu menahan penurunan harga.",
+            "Breakout adalah pergerakan harga yang menembus zona penting, meskipun penembusan belum tentu bertahan.",
+            "False breakout terjadi ketika harga menembus zona tetapi kemudian kembali ke rentang sebelumnya.",
+            "Ketika zona gagal bertahan, evaluasi skenario dan patuhi batas risiko yang telah direncanakan."
+          ]
+        },
+
+        en: {
+          back: "← Technical Analysis",
+          eyebrow: "TECHNICAL ANALYSIS · MODULE 03",
+          title1: "Support &",
+          title2: "Resistance.",
+          intro: "Understand key price zones, market reactions, and the difference between rejection and breakout before planning a trade.",
+          tag1: "FREE · BASIC",
+          tag2: "BEGINNER",
+          tag3: "5 QUESTIONS",
+          tag4: "80% PASSING SCORE",
+          eyebrow1: "01 · KEY PRICE AREAS",
+          section1: "What Are Support & Resistance?",
+          p1: "Support and resistance are price areas traders watch because price has reacted around them before. These areas provide context, but they do not guarantee a reversal.",
+          support: "An area where previous buying pressure helped slow a decline or push price higher.",
+          resistance: "An area where previous selling pressure helped slow a rise or push price lower.",
+          keyInsight: "KEY INSIGHT",
+          insight1: "Support and resistance are better treated as zones to observe, not lines that price must respect.",
+          eyebrow2: "02 · IDENTIFYING ZONES",
+          section2: "How to Identify Important Zones",
+          p2: "Traders can observe areas where price has repeatedly paused, reversed, or moved away sharply. Clearer previous reactions can make a zone more relevant, but there is no guarantee it will hold on the next test.",
+          list1: "Observe clearly visible swing highs and swing lows.",
+          list2: "Look for consolidation areas before strong moves.",
+          list3: "Use relevant zones instead of filling the chart with too many lines.",
+          list4: "Reassess zones when market structure changes.",
+          goodPractice: "GOOD PRACTICE",
+          insight2: "Start with the clearest areas. Too many zones can complicate analysis and lead to inconsistent decisions.",
+          eyebrow3: "03 · PRICE REACTION",
+          section3: "Rejection and Breakout",
+          rejection: "Price tests a zone but fails to continue through it and moves away. Rejection can provide information about market response, but it is not a signal that always works.",
+          breakout: "Price moves through a zone that previously acted as support or resistance. A breakout may signal changing conditions, but it can also fail and reverse.",
+          table1: "Price Behavior",
+          table2: "What to Observe",
+          tableRejection: "Price fails to hold beyond the zone and moves away.",
+          tableBreakout: "Price breaks through the zone; observe whether it can hold beyond it.",
+          tableFalse: "Price briefly breaks the zone and then returns to the previous range.",
+          eyebrow4: "04 · CONFIRMATION",
+          section4: "Evaluating Price Reactions",
+          p4: "When price approaches an important zone, avoid making a decision simply because price has touched it. Observe candle formation and how price reacts after touching or breaking the zone.",
+          list5: "Did the candle close inside or outside the zone?",
+          list6: "Can price hold beyond the zone after the breakout?",
+          list7: "Does market structure support the scenario being considered?",
+          list8: "At what point is the scenario no longer valid?",
+          principle: "THE DESK PRINCIPLE",
+          insight3: "Zones provide context. Price reactions provide additional information. Decisions still require a plan and risk limits.",
+          eyebrow5: "05 · RISK MANAGEMENT",
+          section5: "When a Zone Fails",
+          p5: "No support or resistance zone is guaranteed to hold. If price moves through a zone, reassess whether the original scenario remains valid or should be cancelled.",
+          list9: "Define the invalidation point before opening a position.",
+          list10: "Adjust position size to your risk limit.",
+          list11: "Avoid adding positions simply to chase losses.",
+          list12: "Do not assume every breakout must be traded.",
+          takeaway: "KEY TAKEAWAY",
+          insight4: "Support and resistance help explain price context and structure a plan; they do not identify market turning points with certainty.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Test Your Understanding",
+          quizIntro: "Answer every question. The passing score is 4 out of 5, or 80%.",
+          q1: "1. What is the main purpose of support and resistance?",
+          q1a: "To guarantee that price always reverses",
+          q1b: "To provide zones for observing price reactions",
+          q1c: "To determine profit without managing risk",
+          q2: "2. What is support?",
+          q2a: "An area where previous buying pressure helped slow a decline",
+          q2b: "An area that price can never break",
+          q2c: "The all-time highest price",
+          q3: "3. What is a breakout?",
+          q3a: "Price always returns to its starting point",
+          q3b: "Price does not move for several candles",
+          q3c: "Price moves through an important zone",
+          q4: "4. What is a false breakout?",
+          q4a: "Price touches support and immediately rises",
+          q4b: "Price breaks a zone and then returns to the previous range",
+          q4c: "Price always follows the trend",
+          q5: "5. What should you do if a zone fails?",
+          q5a: "Reassess the scenario and follow the planned risk limits",
+          q5b: "Ignore the stop loss",
+          q5c: "Add positions without calculation",
+          check: "Check Answers",
+          retry: "Retry Quiz",
+          completed: "Module 03 completed.",
+          passedMessage: "You have met the passing score. Continue to Breakout & Retest.",
+          nextLink: "Continue to Module 04 →",
+          footerTitle: "Technical Analysis",
+          disclaimer: "For educational purposes only. This material is not a trading recommendation or a guarantee of trading results.",
+          unanswered: "Please answer every question first.",
+          notAnswered: "Unanswered:",
+          score: "Score",
+          passed: "Congratulations, you passed this module.",
+          failed: "You have not passed yet. Review the material and try again.",
+          correct: "Correct",
+          wrong: "Incorrect",
+          explanations: [
+            "Support and resistance identify zones for observing price reactions. They do not guarantee reversals.",
+            "Support is an area where previous buying pressure helped slow a price decline.",
+            "A breakout is a price move through an important zone, although it may not hold.",
+            "A false breakout occurs when price breaks a zone but then returns to the previous range.",
+            "When a zone fails, reassess the scenario and follow the risk limits you planned."
+          ]
+        }
+      };
+
+      const answers = {
+        q1: "b",
+        q2: "a",
+        q3: "c",
+        q4: "b",
+        q5: "a"
+      };
+
+      const form = document.getElementById("quizForm");
+      const result = document.getElementById("result");
+      const nextModule = document.getElementById("nextModule");
+      const retryButton = document.getElementById("retryButton");
+      const languageButtons = document.querySelectorAll("[data-lang]");
+
+      let currentLanguage = "id";
+      let quizSubmitted = false;
+
+      function getSavedLanguage() {
+        try {
+          const saved = localStorage.getItem("desk_language");
+          return translations[saved] ? saved : "id";
+        } catch (error) {
+          return "id";
+        }
       }
-    };
 
-    const form = document.getElementById("quizForm");
-    const result = document.getElementById("result");
-    const nextModule = document.getElementById("nextModule");
-    const retryButton = document.getElementById("retryButton");
+      function applyLanguage(language) {
+        currentLanguage = translations[language] ? language : "id";
+        const t = translations[currentLanguage];
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
+        document.documentElement.lang = currentLanguage;
 
-      let score = 0;
-      const unanswered = [];
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+          const key = element.dataset.i18n;
+          if (Object.prototype.hasOwnProperty.call(t, key)) {
+            element.textContent = t[key];
+          }
+        });
 
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector(
-          'input[name="' + key + '"]:checked'
-        );
+        languageButtons.forEach(button => {
+          const active = button.dataset.lang === currentLanguage;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
 
-        if (!selected) {
-          unanswered.push(index + 1);
-        } else if (selected.value === answers[key].correct) {
-          score++;
+        if (quizSubmitted) {
+          gradeQuiz(false);
+        }
+      }
+
+      languageButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const language = button.dataset.lang;
+
+          try {
+            localStorage.setItem("desk_language", language);
+          } catch (error) {
+            // Language selection remains available on this page.
+          }
+
+          applyLanguage(language);
+        });
+      });
+
+      function gradeQuiz(scrollToResult = true) {
+        const t = translations[currentLanguage];
+        let score = 0;
+        const unanswered = [];
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+
+          if (!selected) {
+            unanswered.push(index + 1);
+          } else if (selected.value === answers[key]) {
+            score++;
+          }
+        });
+
+        if (unanswered.length > 0) {
+          quizSubmitted = false;
+          result.style.display = "block";
+          result.innerHTML =
+            "<strong class='incorrect'>" + t.unanswered + "</strong>" +
+            "<p>" + t.notAnswered + " " + unanswered.join(", ") + "</p>";
+
+          nextModule.style.display = "none";
+
+          if (scrollToResult) {
+            result.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          return;
+        }
+
+        quizSubmitted = true;
+        let details = "";
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+          const isCorrect = selected.value === answers[key];
+
+          details +=
+            "<div class='explanation'>" +
+            "<strong class='" + (isCorrect ? "correct" : "incorrect") + "'>" +
+            (currentLanguage === "en" ? "Question " : "Soal ") +
+            (index + 1) + ": " +
+            (isCorrect ? t.correct : t.wrong) +
+            "</strong><p>" + t.explanations[index] + "</p></div>";
+        });
+
+        const passed = score >= 4;
+
+        result.style.display = "block";
+        result.innerHTML =
+          "<h3>" + t.score + ": " + score + "/5 (" +
+          (score * 20) + "%)</h3>" +
+          "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
+          (passed ? t.passed : t.failed) + "</p>" +
+          details;
+
+        nextModule.style.display = passed ? "block" : "none";
+
+        if (scrollToResult) {
+          result.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        gradeQuiz();
+      });
+
+      retryButton.addEventListener("click", () => {
+        form.reset();
+        quizSubmitted = false;
+        result.style.display = "none";
+        result.innerHTML = "";
+        nextModule.style.display = "none";
+
+        document.getElementById("quiz").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+
+      applyLanguage(getSavedLanguage());
+
+      window.addEventListener("storage", event => {
+        if (event.key === "desk_language" || event.key === null) {
+          applyLanguage(getSavedLanguage());
         }
       });
 
-      if (unanswered.length > 0) {
-        result.style.display = "block";
-        result.innerHTML =
-          "<strong class='incorrect'>Lengkapi semua pertanyaan terlebih dahulu.</strong>" +
-          "<p>Belum dijawab: " + unanswered.join(", ") + "</p>";
-
-        nextModule.style.display = "none";
-        return;
-      }
-
-      let details = "";
-
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector(
-          'input[name="' + key + '"]:checked'
-        );
-
-        const isCorrect = selected.value === answers[key].correct;
-
-        details +=
-          "<div class='explanation'>" +
-          "<strong class='" + (isCorrect ? "correct" : "incorrect") + "'>" +
-          "Soal " + (index + 1) + ": " +
-          (isCorrect ? "Benar" : "Belum tepat") +
-          "</strong><p>" + answers[key].explanation + "</p></div>";
+      window.addEventListener("pageshow", () => {
+        applyLanguage(getSavedLanguage());
       });
-
-      const passed = score >= 4;
-
-      result.style.display = "block";
-      result.innerHTML =
-        "<h3>Nilai: " + score + "/5 (" + (score * 20) + "%)</h3>" +
-        "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
-        (passed
-          ? "Selamat, Anda lulus modul ini."
-          : "Anda belum lulus. Pelajari kembali materi dan coba lagi.") +
-        "</p>" + details;
-
-      nextModule.style.display = passed ? "block" : "none";
-
-      result.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
-
-    retryButton.addEventListener("click", function() {
-      form.reset();
-      result.style.display = "none";
-      result.innerHTML = "";
-      nextModule.style.display = "none";
-
-      document.getElementById("quiz").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+    })();
   </script>
+
 </body>
+
 </html>

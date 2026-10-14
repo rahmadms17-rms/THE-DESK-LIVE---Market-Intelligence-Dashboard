@@ -1,173 +1,409 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090b0e">
-    <title>THE DESK Academy | Market Education</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .academy-page {
-            max-width: 1180px;
-            margin: auto;
-            padding: 64px 24px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="THE DESK Academy — Learn financial markets, technical analysis, and macro fundamentals.">
+  <title>THE DESK Academy | Market Education</title>
 
-        .academy-hero {
-            padding: 48px 0 64px;
-            border-bottom: 1px solid var(--border, #262c33);
-        }
+  <link rel="stylesheet" href="style.css">
 
-        .academy-eyebrow {
-            color: var(--gold, #c9a45c);
-            letter-spacing: 2px;
-            font-size: 11px;
-            font-weight: 700;
-        }
+  <style>
+    :root {
+      --academy-bg: #090b0e;
+      --academy-panel: #11151a;
+      --academy-border: #262c33;
+      --academy-gold: #c9a45c;
+      --academy-muted: #939ba6;
+      --academy-text: #f2f2f2;
+    }
 
-        .academy-hero h1 {
-            max-width: 760px;
-            font-size: clamp(38px, 6vw, 68px);
-            line-height: 1.08;
-            margin: 22px 0;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .academy-hero p {
-            max-width: 650px;
-            line-height: 1.8;
-            color: var(--muted, #939ba6);
-        }
+    body {
+      margin: 0;
+      background: var(--academy-bg);
+      color: var(--academy-text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        .academy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 28px;
-        }
+    .academy-page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 54px 24px 64px;
+    }
 
-        .academy-card {
-            padding: 26px;
-            border: 1px solid var(--border, #262c33);
-            background: var(--panel, #11151a);
-            border-radius: 8px;
-        }
+    .academy-eyebrow {
+      color: var(--academy-gold);
+      letter-spacing: 2px;
+      font-size: 11px;
+      line-height: 1.8;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-        .academy-card span {
-            color: var(--gold, #c9a45c);
-            font-size: 11px;
-            letter-spacing: 1.5px;
-        }
+    .academy-hero {
+      padding: 46px 0 58px;
+      border-bottom: 1px solid var(--academy-border);
+    }
 
-        .academy-card h3 {
-            margin: 14px 0 10px;
-        }
+    .academy-hero h1 {
+      max-width: 850px;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin: 20px 0;
+    }
 
-        .academy-card p {
-            color: var(--muted, #939ba6);
-            line-height: 1.7;
-            font-size: 14px;
-        }
+    .academy-hero h1 span {
+      color: var(--academy-gold);
+    }
 
-        .academy-label {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 6px 10px;
-            border: 1px solid var(--border, #262c33);
-            border-radius: 4px;
-            font-size: 10px;
-            letter-spacing: 1px;
-        }
+    .academy-hero p {
+      max-width: 650px;
+      line-height: 1.9;
+      color: var(--academy-muted);
+      font-size: 15px;
+    }
 
-        .academy-back {
-            display: inline-block;
-            margin-top: 32px;
-            color: var(--gold, #c9a45c);
-            text-decoration: none;
-        }
+    .academy-section {
+      padding-top: 38px;
+    }
 
-        @media (max-width: 640px) {
-            .academy-page {
-                padding: 36px 18px;
-            }
+    .academy-section h2 {
+      margin: 12px 0;
+      font-size: clamp(23px, 4vw, 30px);
+    }
 
-            .academy-grid {
-                grid-template-columns: 1fr;
-            }
+    .academy-section-intro {
+      margin: 0;
+      color: var(--academy-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-            .academy-hero {
-                padding: 30px 0 42px;
-            }
-        }
-    </style>
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .academy-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 245px;
+      padding: 26px;
+      border: 1px solid var(--academy-border);
+      background: var(--academy-panel);
+      border-radius: 7px;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+
+    a.academy-card:hover {
+      border-color: var(--academy-gold);
+      transform: translateY(-3px);
+      background: #15191e;
+    }
+
+    .academy-card > span {
+      color: var(--academy-gold);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .academy-card h3 {
+      margin: 18px 0 10px;
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .academy-card p {
+      margin: 0 0 24px;
+      color: var(--academy-muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .academy-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding: 8px 10px;
+      border: 1px solid var(--academy-border);
+      border-radius: 4px;
+      color: #d7dbe0;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .academy-card-arrow {
+      margin-left: 4px;
+      color: var(--academy-gold);
+      font-size: 14px;
+    }
+
+    .academy-premium {
+      border-color: #59492c;
+      background: linear-gradient(135deg, #11151a, #19160f);
+      opacity: .9;
+    }
+
+    .academy-premium .academy-label {
+      border-color: #59492c;
+    }
+
+    .academy-back {
+      display: inline-block;
+      margin-top: 34px;
+      color: var(--academy-gold);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .academy-back:hover {
+      opacity: .75;
+    }
+
+    .academy-footer {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid var(--academy-border);
+      color: #68717d;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .academy-page {
+        padding: 30px 18px 44px;
+      }
+
+      .academy-hero {
+        padding: 32px 0 40px;
+      }
+
+      .academy-hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .academy-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .academy-card {
+        min-height: 210px;
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main class="academy-page">
-        <header class="academy-hero">
-            <span class="academy-eyebrow">THE DESK · MARKET EDUCATION</span>
-            <h1>Understand the Market.<br>Think Beyond the Chart.</h1>
-            <p>
-                Pelajari dasar pasar global, faktor penggerak harga,
-                dan cara memahami market sebelum mengambil keputusan.
-            </p>
-        </header>
+  <main class="academy-page">
 
-        <section aria-labelledby="learning-title">
-            <p class="academy-eyebrow">LEARNING PATHS</p>
-            <h2 id="learning-title">Explore the Academy.</h2>
-            <p>Pilih topik untuk memulai perjalanan belajar kamu.</p>
+    <header class="academy-hero">
+      <span class="academy-eyebrow" data-i18n="eyebrow">
+        THE DESK · EDUKASI PASAR
+      </span>
 
+      <h1>
+        <span data-i18n="heroLine1">Memahami Pasar.</span><br>
+        <span data-i18n="heroLine2">Melampaui Grafik.</span>
+      </h1>
 
-            <div class="academy-grid">
-                <a href="fundamentals.html" class="academy-card"
-                    style="display:block; text-decoration:none; color:inherit;">
-                    <span>01 · FUNDAMENTALS</span>
-                    <h3>Market Fundamentals</h3>
-                    <p>
-                        Kenali Forex, Gold, indeks, cryptocurrency,
-                        dan faktor dasar yang menggerakkan pasar.
-                    </p>
-                    <small class="academy-label">FREE · BASIC →</small>
-                </a>
+      <p data-i18n="intro">
+        Pelajari dasar pasar global, faktor penggerak harga, dan cara
+        memahami pasar sebelum mengambil keputusan.
+      </p>
+    </header>
 
-                <a href="technical.html" class="academy-card"
-                    style="display:block; text-decoration:none; color:inherit;">
-                    <span>02 · TECHNICAL</span>
-                    <h3>Technical Analysis</h3>
-                    <p>
-                        Pelajari trend, support dan resistance,
-                        market structure, serta breakout.
-                    </p>
-                    <small class="academy-label">FREE · BASIC →</small>
-                </a>
+    <section class="academy-section" aria-labelledby="learning-title">
+      <span class="academy-eyebrow" data-i18n="paths">
+        JALUR PEMBELAJARAN
+      </span>
 
-                <a href="macro.html" class="academy-card" style="display:block; text-decoration:none; color:inherit;">
-                    <span>03 · MACRO</span>
-                    <h3>Macro & News Impact</h3>
-                    <p>
-                        Pahami CPI, NFP, FOMC, suku bunga,
-                        DXY, dan Treasury Yields.
-                    </p>
-                    <small class="academy-label">FREE · BASIC →</small>
-                </a>
+      <h2 id="learning-title" data-i18n="explore">
+        Jelajahi Academy.
+      </h2>
 
-                <article class="academy-card">
-                    <span>04 · ADVANCED RESEARCH</span>
-                    <h3>Advanced Market Research</h3>
-                    <p>
-                        Studi kasus, analisis lanjutan,
-                        dan materi eksklusif yang direncanakan.
-                    </p>
-                    <small class="academy-label">PREMIUM · COMING SOON</small>
-                </article>
-            </div>
-        </section>
+      <p class="academy-section-intro" data-i18n="choose">
+        Pilih topik untuk memulai perjalanan belajar kamu.
+      </p>
 
-        <a class="academy-back" href="index.html">
-            ← Back to THE DESK LIVE
+      <div class="academy-grid">
+
+        <a href="fundamentals.html" class="academy-card">
+          <span data-i18n="fundamentalCategory">01 · FUNDAMENTALS</span>
+          <h3 data-i18n="fundamentals">Fundamental Pasar</h3>
+          <p data-i18n="fundamentalsDesc">
+            Kenali Forex, Gold, indeks, cryptocurrency, dan faktor dasar
+            yang menggerakkan pasar.
+          </p>
+          <small class="academy-label">
+            <span data-i18n="free">GRATIS · DASAR</span>
+            <span class="academy-card-arrow" aria-hidden="true">→</span>
+          </small>
         </a>
-    </main>
-</body>
 
+        <a href="technical.html" class="academy-card">
+          <span data-i18n="technicalCategory">02 · TECHNICAL</span>
+          <h3 data-i18n="technical">Analisis Teknikal</h3>
+          <p data-i18n="technicalDesc">
+            Pelajari tren, support dan resistance, market structure,
+            serta breakout.
+          </p>
+          <small class="academy-label">
+            <span data-i18n="free">GRATIS · DASAR</span>
+            <span class="academy-card-arrow" aria-hidden="true">→</span>
+          </small>
+        </a>
+
+        <a href="macro.html" class="academy-card">
+          <span data-i18n="macroCategory">03 · MACRO</span>
+          <h3 data-i18n="macro">Makro & Dampak Berita</h3>
+          <p data-i18n="macroDesc">
+            Pahami CPI, NFP, FOMC, suku bunga, DXY, dan Treasury Yields.
+          </p>
+          <small class="academy-label">
+            <span data-i18n="free">GRATIS · DASAR</span>
+            <span class="academy-card-arrow" aria-hidden="true">→</span>
+          </small>
+        </a>
+
+        <article class="academy-card academy-premium">
+          <span data-i18n="advancedCategory">04 · ADVANCED RESEARCH</span>
+          <h3 data-i18n="advanced">Riset Pasar Lanjutan</h3>
+          <p data-i18n="advancedDesc">
+            Studi kasus, analisis lanjutan, dan materi eksklusif
+            yang direncanakan.
+          </p>
+          <small class="academy-label" data-i18n="premium">
+            PREMIUM · SEGERA HADIR
+          </small>
+        </article>
+
+      </div>
+    </section>
+
+    <a class="academy-back" href="index.html" data-i18n="back">
+      ← Kembali ke THE DESK LIVE
+    </a>
+
+    <footer class="academy-footer">
+      THE DESK ACADEMY · MARKET EDUCATION
+    </footer>
+
+  </main>
+
+  <script>
+    (() => {
+      const translations = {
+        id: {
+          eyebrow: "THE DESK · EDUKASI PASAR",
+          heroLine1: "Memahami Pasar.",
+          heroLine2: "Melampaui Grafik.",
+          intro: "Pelajari dasar pasar global, faktor penggerak harga, dan cara memahami pasar sebelum mengambil keputusan.",
+          paths: "JALUR PEMBELAJARAN",
+          explore: "Jelajahi Academy.",
+          choose: "Pilih topik untuk memulai perjalanan belajar kamu.",
+          fundamentalCategory: "01 · FUNDAMENTALS",
+          fundamentals: "Fundamental Pasar",
+          fundamentalsDesc: "Kenali Forex, Gold, indeks, cryptocurrency, dan faktor dasar yang menggerakkan pasar.",
+          technicalCategory: "02 · TECHNICAL",
+          technical: "Analisis Teknikal",
+          technicalDesc: "Pelajari tren, support dan resistance, market structure, serta breakout.",
+          macroCategory: "03 · MACRO",
+          macro: "Makro & Dampak Berita",
+          macroDesc: "Pahami CPI, NFP, FOMC, suku bunga, DXY, dan Treasury Yields.",
+          advancedCategory: "04 · ADVANCED RESEARCH",
+          advanced: "Riset Pasar Lanjutan",
+          advancedDesc: "Studi kasus, analisis lanjutan, dan materi eksklusif yang direncanakan.",
+          free: "GRATIS · DASAR",
+          premium: "PREMIUM · SEGERA HADIR",
+          back: "← Kembali ke THE DESK LIVE"
+        },
+
+        en: {
+          eyebrow: "THE DESK · MARKET EDUCATION",
+          heroLine1: "Understand the Market.",
+          heroLine2: "Think Beyond the Chart.",
+          intro: "Learn global market fundamentals, price drivers, and how to understand markets before making decisions.",
+          paths: "LEARNING PATHS",
+          explore: "Explore the Academy.",
+          choose: "Choose a topic to begin your learning journey.",
+          fundamentalCategory: "01 · FUNDAMENTALS",
+          fundamentals: "Market Fundamentals",
+          fundamentalsDesc: "Explore Forex, Gold, indices, cryptocurrency, and the fundamental forces that move markets.",
+          technicalCategory: "02 · TECHNICAL",
+          technical: "Technical Analysis",
+          technicalDesc: "Learn trends, support and resistance, market structure, and breakouts.",
+          macroCategory: "03 · MACRO",
+          macro: "Macro & News Impact",
+          macroDesc: "Understand CPI, NFP, FOMC, interest rates, DXY, and Treasury yields.",
+          advancedCategory: "04 · ADVANCED RESEARCH",
+          advanced: "Advanced Market Research",
+          advancedDesc: "Case studies, advanced analysis, and planned exclusive learning materials.",
+          free: "FREE · BASIC",
+          premium: "PREMIUM · COMING SOON",
+          back: "← Back to THE DESK LIVE"
+        }
+      };
+
+      function applyAcademyLanguage() {
+        let language = "id";
+
+        try {
+          language = localStorage.getItem("desk_language") || "id";
+        } catch (error) {
+          language = "id";
+        }
+
+        if (!Object.prototype.hasOwnProperty.call(translations, language)) {
+          language = "id";
+        }
+
+        const content = translations[language];
+        document.documentElement.lang = language;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+
+          if (Object.prototype.hasOwnProperty.call(content, key)) {
+            element.textContent = content[key];
+          }
+        });
+      }
+
+      applyAcademyLanguage();
+
+      window.addEventListener("storage", (event) => {
+        if (event.key === "desk_language" || event.key === null) {
+          applyAcademyLanguage();
+        }
+      });
+
+      window.addEventListener("pageshow", applyAcademyLanguage);
+    })();
+  </script>
+</body>
 </html>

@@ -1,23 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="Learn the foundations of technical analysis with THE DESK Academy.">
   <title>Introduction to Technical Analysis | THE DESK Academy</title>
+
   <style>
     :root {
       --gold: #c9a45c;
-      --bg: #090c10;
+      --bg: #090b0e;
       --panel: #11151a;
       --border: #262c33;
       --text: #e8ebef;
       --muted: #939ba6;
       --green: #42c994;
+      --red: #ff8585;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -29,86 +37,105 @@
     }
 
     .container {
-      width: min(900px, 92%);
-      margin: auto;
+      width: min(960px, 90%);
+      margin: 0 auto;
       padding: 30px 0 60px;
     }
 
-    nav {
+    .language-bar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 45px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 25px;
     }
 
-    .brand {
+    .lang-btn {
+      padding: 5px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: transparent;
       color: var(--gold);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 3px;
+      cursor: pointer;
     }
 
-    a {
+    .lang-btn.active {
+      background: var(--gold);
+      color: #111;
+    }
+
+    nav {
+      margin-bottom: 40px;
+    }
+
+    .back-link {
       color: var(--gold);
+      font-size: 13px;
       text-decoration: none;
     }
 
-    a:hover {
+    .back-link:hover {
       opacity: .8;
     }
 
     .eyebrow {
       color: var(--gold);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     h1 {
-      margin: 12px 0;
-      font-size: clamp(30px, 6vw, 46px);
-      line-height: 1.2;
-      letter-spacing: -1px;
+      max-width: 800px;
+      margin: 16px 0;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
     }
 
-    h2 {
-      margin-top: 36px;
+    h1 span {
       color: var(--gold);
-      font-size: 23px;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-      font-size: 17px;
-    }
-
-    p, li {
-      color: #c1c7cf;
     }
 
     .intro {
-      margin: 16px 0 25px;
-      color: var(--muted);
-      font-size: 16px;
+      max-width: 850px;
+      margin: 22px 0;
+      color: #a9b2bf;
+      font-size: 15px;
     }
 
     .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 30px;
+      margin: 25px 0 36px;
     }
 
     .tag {
       padding: 5px 11px;
       border: 1px solid var(--border);
       border-radius: 4px;
-      color: var(--muted);
-      font-size: 12px;
+      color: #b8c0cb;
+      font-size: 11px;
+    }
+
+    h2 {
+      margin: 36px 0 16px;
+      color: var(--gold);
+      font-size: 23px;
+      line-height: 1.4;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    p,
+    li {
+      color: #c1c7cf;
     }
 
     .panel {
@@ -116,7 +143,7 @@
       padding: 22px;
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 7px;
     }
 
     .insight {
@@ -129,14 +156,17 @@
 
     .concept {
       margin: 14px 0;
-      padding: 16px;
+      padding: 16px 18px;
       border: 1px solid var(--border);
       border-radius: 6px;
     }
 
     .concept h3 {
-      margin-top: 0;
-      color: #f0d59d;
+      color: var(--gold);
+    }
+
+    .concept p {
+      margin-bottom: 0;
     }
 
     .quiz-question {
@@ -147,7 +177,7 @@
       border-radius: 6px;
     }
 
-    .quiz-question p {
+    .quiz-question>p {
       margin-top: 0;
       color: var(--text);
       font-weight: 600;
@@ -155,20 +185,22 @@
 
     .option {
       display: flex;
-      gap: 10px;
       align-items: flex-start;
-      margin: 10px 0;
+      gap: 10px;
+      margin: 12px 0;
       color: #c1c7cf;
       cursor: pointer;
+      line-height: 1.6;
     }
 
     .option input {
+      flex: 0 0 auto;
       margin-top: 7px;
       accent-color: var(--gold);
     }
 
-    button {
-      padding: 12px 18px;
+    button.action {
+      padding: 11px 17px;
       border: 1px solid var(--gold);
       border-radius: 4px;
       background: var(--gold);
@@ -178,13 +210,16 @@
     }
 
     button.secondary {
+      margin-left: 8px;
       background: transparent;
       color: var(--gold);
     }
 
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
     }
 
     #result {
@@ -195,6 +230,14 @@
       border-radius: 6px;
     }
 
+    .correct {
+      color: var(--green);
+    }
+
+    .incorrect {
+      color: var(--red);
+    }
+
     .explanation {
       margin: 14px 0;
       padding-bottom: 14px;
@@ -203,21 +246,22 @@
       font-size: 14px;
     }
 
-    .correct {
-      color: var(--green);
-    }
-
-    .incorrect {
-      color: #ff8585;
+    .explanation p {
+      margin-bottom: 0;
     }
 
     #nextModule {
       display: none;
-      margin-top: 20px;
-      padding: 18px;
+      margin-top: 22px;
+      padding: 20px;
       background: var(--panel);
       border: 1px solid var(--gold);
       border-radius: 6px;
+    }
+
+    #nextModule a {
+      color: var(--gold);
+      text-decoration: none;
     }
 
     footer {
@@ -234,143 +278,184 @@
         padding-top: 20px;
       }
 
-      nav {
-        margin-bottom: 30px;
+      h1 {
+        letter-spacing: -1px;
       }
 
       .panel {
         padding: 16px;
       }
+
+      button.action {
+        margin: 5px 0;
+      }
+
+      button.secondary {
+        margin-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="container">
+
+    <div class="language-bar" aria-label="Language selection">
+      <button type="button" class="lang-btn" data-lang="id">ID</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <nav>
-      <div class="brand">THE DESK <span style="color:#939ba6">/ ACADEMY</span></div>
-      <a href="technical.html">← Technical Analysis</a>
+      <a href="technical.html" class="back-link" data-i18n="back">
+        ← Kembali ke Technical Analysis
+      </a>
     </nav>
 
     <header>
-      <div class="eyebrow">Technical Analysis · Module 01</div>
-      <h1>Introduction to Technical Analysis</h1>
-      <p class="intro">
+      <div class="eyebrow" data-i18n="eyebrow">
+        THE DESK ACADEMY · MODUL 01
+      </div>
+
+      <h1>
+        <span data-i18n="titleLine1">Introduction to</span><br>
+        <span data-i18n="titleLine2">Technical Analysis.</span>
+      </h1>
+
+      <p class="intro" data-i18n="intro">
         Memahami cara membaca pergerakan harga melalui chart, candlestick,
         timeframe, dan perilaku pasar.
       </p>
+
       <div class="meta">
-        <span class="tag">Level: Basic</span>
-        <span class="tag">5 Quiz Questions</span>
-        <span class="tag">Passing Score: 80%</span>
+        <span class="tag" data-i18n="level">GRATIS · DASAR</span>
+        <span class="tag" data-i18n="beginner">PEMULA</span>
+        <span class="tag" data-i18n="questions">5 PERTANYAAN</span>
+        <span class="tag" data-i18n="passing">KELULUSAN 80%</span>
       </div>
     </header>
 
     <section>
-      <h2>01. Apa Itu Technical Analysis?</h2>
-      <p>
+      <h2 data-i18n="section1">01. Apa Itu Technical Analysis?</h2>
+
+      <p data-i18n="p1a">
         Technical analysis adalah pendekatan untuk mempelajari pergerakan harga
         menggunakan data historis, chart, pola harga, dan indikator. Tujuannya
-        adalah membantu trader menyusun skenario dan mengambil keputusan yang
-        lebih terstruktur.
+        membantu trader menyusun skenario dan mengambil keputusan secara terstruktur.
       </p>
-      <p>
+
+      <p data-i18n="p1b">
         Analisis teknikal tidak dapat memastikan harga berikutnya secara mutlak.
-        Chart membantu kita mengidentifikasi kemungkinan, bukan menjamin hasil.
+        Chart membantu mengidentifikasi kemungkinan, bukan menjamin hasil.
       </p>
 
       <div class="panel insight">
-        <strong>KEY INSIGHT</strong>
-        <p>
+        <strong data-i18n="keyInsight">INSIGHT UTAMA</strong>
+        <p data-i18n="insight1">
           Technical analysis bukan alat untuk meramal dengan kepastian.
           Ini adalah metode untuk membaca kondisi pasar, mengukur risiko,
           dan merencanakan keputusan.
         </p>
       </div>
 
-      <h2>02. Memahami Candlestick</h2>
-      <p>
+      <h2 data-i18n="section2">02. Memahami Candlestick</h2>
+
+      <p data-i18n="p2">
         Candlestick merangkum pergerakan harga selama periode tertentu.
         Satu candle umumnya menampilkan empat informasi utama:
       </p>
 
       <div class="concept">
         <h3>Open</h3>
-        <p>Harga ketika periode candle dimulai.</p>
+        <p data-i18n="openDesc">Harga ketika periode candle dimulai.</p>
       </div>
 
       <div class="concept">
         <h3>High</h3>
-        <p>Harga tertinggi yang tercapai selama periode candle.</p>
+        <p data-i18n="highDesc">Harga tertinggi yang tercapai selama periode candle.</p>
       </div>
 
       <div class="concept">
         <h3>Low</h3>
-        <p>Harga terendah yang tercapai selama periode candle.</p>
+        <p data-i18n="lowDesc">Harga terendah yang tercapai selama periode candle.</p>
       </div>
 
       <div class="concept">
         <h3>Close</h3>
-        <p>Harga ketika periode candle berakhir.</p>
+        <p data-i18n="closeDesc">Harga ketika periode candle berakhir.</p>
       </div>
 
-      <p>
+      <p data-i18n="p2b">
         Body menunjukkan jarak antara open dan close, sedangkan wick atau shadow
         menunjukkan jangkauan harga di atas dan di bawah body. Warna candle
-        mengikuti pengaturan chart yang digunakan.
+        mengikuti pengaturan chart.
       </p>
 
-      <h2>03. Bullish dan Bearish Candle</h2>
+      <h2 data-i18n="section3">03. Bullish dan Bearish Candles</h2>
+
       <div class="concept">
         <h3>Bullish Candle</h3>
-        <p>
-          Close berada di atas open. Ini menunjukkan harga berakhir lebih tinggi
-          daripada saat periode dimulai.
+        <p data-i18n="bullishDesc">
+          Close berada di atas open. Harga berakhir lebih tinggi daripada
+          saat periode dimulai.
         </p>
       </div>
+
       <div class="concept">
         <h3>Bearish Candle</h3>
-        <p>
-          Close berada di bawah open. Ini menunjukkan harga berakhir lebih rendah
-          daripada saat periode dimulai.
+        <p data-i18n="bearishDesc">
+          Close berada di bawah open. Harga berakhir lebih rendah daripada
+          saat periode dimulai.
         </p>
       </div>
-      <p>
+
+      <p data-i18n="p3b">
         Satu candle bullish tidak otomatis berarti tren akan naik. Begitu pula,
-        satu candle bearish tidak menjamin tren akan turun. Selalu perhatikan
-        struktur dan konteks harga.
+        satu candle bearish tidak menjamin tren akan turun. Perhatikan struktur
+        dan konteks harga.
       </p>
 
-      <h2>04. Memahami Timeframe</h2>
-      <p>
+      <h2 data-i18n="section4">04. Memahami Timeframe</h2>
+
+      <p data-i18n="p4">
         Timeframe menunjukkan durasi yang diwakili oleh satu candle.
-        Pada timeframe H1, setiap candle mewakili satu jam. Pada timeframe H4,
-        setiap candle mewakili empat jam.
+        Pada H1, satu candle mewakili satu jam. Pada H4, satu candle
+        mewakili empat jam.
       </p>
+
       <ul>
-        <li><strong>M5–M15:</strong> memperlihatkan pergerakan jangka pendek.</li>
-        <li><strong>H1–H4:</strong> membantu membaca pergerakan intraday hingga beberapa hari.</li>
-        <li><strong>D1:</strong> memperlihatkan pergerakan harian dengan perspektif lebih luas.</li>
+        <li data-i18n="tf1">M5–M15: memperlihatkan pergerakan jangka pendek.</li>
+        <li data-i18n="tf2">H1–H4: membantu membaca pergerakan intraday hingga beberapa hari.</li>
+        <li data-i18n="tf3">D1: memperlihatkan pergerakan harian dengan perspektif lebih luas.</li>
       </ul>
-      <p>
+
+      <p data-i18n="p4b">
         Tidak ada timeframe yang selalu paling baik. Pilih timeframe sesuai
         metode, waktu pemantauan, dan toleransi risiko.
       </p>
 
-      <h2>05. Harga dan Konteks Pasar</h2>
-      <p>
+      <h2 data-i18n="section5">05. Harga dan Konteks Pasar</h2>
+
+      <p data-i18n="p5a">
         Chart perlu dibaca sebagai rangkaian pergerakan, bukan kumpulan candle
         yang berdiri sendiri. Trader dapat mengamati arah tren, area harga
         penting, momentum, dan respons harga terhadap level tertentu.
       </p>
-      <p>
+
+      <p data-i18n="p5b">
         Hindari mengambil keputusan hanya karena satu candle terlihat kuat.
         Tunggu bukti yang sesuai dengan metode trading dan tentukan risiko
         sebelum membuka posisi.
       </p>
 
       <div class="panel insight">
-        <strong>KEY INSIGHT</strong>
-        <p>
+        <strong data-i18n="keyInsight">INSIGHT UTAMA</strong>
+        <p data-i18n="insight2">
           Candle menunjukkan apa yang terjadi selama satu periode.
           Struktur pasar membantu menempatkan informasi tersebut dalam konteks.
         </p>
@@ -378,151 +463,455 @@
     </section>
 
     <section class="panel" id="quiz">
-      <div class="eyebrow">Knowledge Check</div>
-      <h2 style="margin-top:8px">Uji Pemahaman Anda</h2>
-      <p>Pilih satu jawaban untuk setiap pertanyaan. Nilai kelulusan adalah 80%.</p>
+      <div class="eyebrow" data-i18n="quizEyebrow">KNOWLEDGE CHECK</div>
+      <h2 style="margin-top:8px" data-i18n="quizTitle">Uji Pemahaman Anda</h2>
+      <p data-i18n="quizIntro">
+        Pilih satu jawaban untuk setiap pertanyaan. Nilai kelulusan adalah 80%.
+      </p>
 
       <form id="quizForm">
         <div class="quiz-question">
-          <p>1. Apa tujuan utama technical analysis?</p>
-          <label class="option"><input type="radio" name="q1" value="a"> Menjamin setiap transaksi menghasilkan profit</label>
-          <label class="option"><input type="radio" name="q1" value="b"> Mempelajari pergerakan harga untuk menyusun keputusan dan skenario</label>
-          <label class="option"><input type="radio" name="q1" value="c"> Mengetahui harga masa depan secara pasti</label>
+          <p data-i18n="q1">1. Apa tujuan utama technical analysis?</p>
+          <label class="option">
+            <input type="radio" name="q1" value="a">
+            <span data-i18n="q1a">Menjamin setiap transaksi menghasilkan profit</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q1" value="b">
+            <span data-i18n="q1b">Mempelajari pergerakan harga untuk menyusun keputusan dan skenario</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q1" value="c">
+            <span data-i18n="q1c">Mengetahui harga masa depan secara pasti</span>
+          </label>
         </div>
 
         <div class="quiz-question">
-          <p>2. Informasi apa yang tidak termasuk dalam data utama sebuah candlestick?</p>
-          <label class="option"><input type="radio" name="q2" value="a"> Open</label>
-          <label class="option"><input type="radio" name="q2" value="b"> High</label>
-          <label class="option"><input type="radio" name="q2" value="c"> Saldo rekening trader</label>
+          <p data-i18n="q2">2. Informasi apa yang tidak termasuk dalam data utama candlestick?</p>
+          <label class="option">
+            <input type="radio" name="q2" value="a">
+            <span>Open</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q2" value="b">
+            <span>High</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q2" value="c">
+            <span data-i18n="q2c">Saldo rekening trader</span>
+          </label>
         </div>
 
         <div class="quiz-question">
-          <p>3. Apa arti bullish candle secara umum?</p>
-          <label class="option"><input type="radio" name="q3" value="a"> Close berada di atas open</label>
-          <label class="option"><input type="radio" name="q3" value="b"> Close selalu berada di bawah open</label>
-          <label class="option"><input type="radio" name="q3" value="c"> Harga pasti naik pada candle berikutnya</label>
+          <p data-i18n="q3">3. Apa arti bullish candle secara umum?</p>
+          <label class="option">
+            <input type="radio" name="q3" value="a">
+            <span data-i18n="q3a">Close berada di atas open</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q3" value="b">
+            <span data-i18n="q3b">Close selalu berada di bawah open</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q3" value="c">
+            <span data-i18n="q3c">Harga pasti naik pada candle berikutnya</span>
+          </label>
         </div>
 
         <div class="quiz-question">
-          <p>4. Satu candle pada timeframe H1 mewakili periode berapa lama?</p>
-          <label class="option"><input type="radio" name="q4" value="a"> Lima menit</label>
-          <label class="option"><input type="radio" name="q4" value="b"> Satu jam</label>
-          <label class="option"><input type="radio" name="q4" value="c"> Satu hari</label>
+          <p data-i18n="q4">4. Satu candle pada timeframe H1 mewakili periode berapa lama?</p>
+          <label class="option">
+            <input type="radio" name="q4" value="a">
+            <span data-i18n="q4a">Lima menit</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q4" value="b">
+            <span data-i18n="q4b">Satu jam</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q4" value="c">
+            <span data-i18n="q4c">Satu hari</span>
+          </label>
         </div>
 
         <div class="quiz-question">
-          <p>5. Mengapa trader perlu melihat konteks harga?</p>
-          <label class="option"><input type="radio" name="q5" value="a"> Agar tidak perlu menggunakan stop loss</label>
-          <label class="option"><input type="radio" name="q5" value="b"> Agar bisa memastikan hasil transaksi</label>
-          <label class="option"><input type="radio" name="q5" value="c"> Agar candle dapat dinilai bersama struktur dan kondisi pasar</label>
+          <p data-i18n="q5">5. Mengapa trader perlu melihat konteks harga?</p>
+          <label class="option">
+            <input type="radio" name="q5" value="a">
+            <span data-i18n="q5a">Agar tidak perlu menggunakan stop loss</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q5" value="b">
+            <span data-i18n="q5b">Agar bisa memastikan hasil transaksi</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="q5" value="c">
+            <span data-i18n="q5c">Agar candle dapat dinilai bersama struktur dan kondisi pasar</span>
+          </label>
         </div>
 
-        <button type="submit">Periksa Jawaban</button>
-        <button type="button" class="secondary" id="retryButton">Ulangi Kuis</button>
+        <button type="submit" class="action" data-i18n="checkAnswers">
+          Periksa Jawaban
+        </button>
+        <button type="button" class="action secondary" id="retryButton" data-i18n="retry">
+          Ulangi Kuis
+        </button>
       </form>
 
       <div id="result" aria-live="polite"></div>
 
       <div id="nextModule">
-        <strong class="correct">Module 01 completed.</strong>
-        <p>Anda memenuhi nilai minimum. Lanjutkan ke Market Structure.</p>
-        <a href="technical-02.html">Lanjut ke Module 02 →</a>
+        <strong class="correct" data-i18n="completed">Modul 01 selesai.</strong>
+        <p data-i18n="passedMessage">
+          Anda memenuhi nilai minimum. Lanjutkan ke Market Structure.
+        </p>
+        <a href="technical-02.html" data-i18n="nextLink">
+          Lanjut ke Modul 02 →
+        </a>
       </div>
     </section>
 
     <footer>
-      THE DESK Academy · Educational purposes only. Materi ini bukan rekomendasi
-      transaksi atau jaminan hasil trading.
+      THE DESK Academy · <span data-i18n="footerTitle">Analisis Teknikal</span><br>
+      <span data-i18n="disclaimer">
+        Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi
+        atau jaminan hasil trading.
+      </span>
     </footer>
+
   </main>
 
   <script>
-    const answers = {
-      q1: {
-        correct: "b",
-        explanation: "Technical analysis membantu membaca pergerakan harga untuk menyusun skenario dan keputusan, bukan menjamin profit."
-      },
-      q2: {
-        correct: "c",
-        explanation: "Open, High, Low, dan Close adalah empat data utama candlestick. Saldo rekening bukan bagian dari candle."
-      },
-      q3: {
-        correct: "a",
-        explanation: "Bullish candle berarti close berada di atas open. Kondisi ini tidak menjamin candle berikutnya akan naik."
-      },
-      q4: {
-        correct: "b",
-        explanation: "H1 berarti satu candle mewakili satu jam."
-      },
-      q5: {
-        correct: "c",
-        explanation: "Konteks membantu trader menilai candle bersama struktur dan kondisi pasar, bukan secara terpisah."
+    (() => {
+      const translations = {
+        id: {
+          back: "← Kembali ke Technical Analysis",
+          eyebrow: "THE DESK ACADEMY · MODUL 01",
+          titleLine1: "Introduction to",
+          titleLine2: "Technical Analysis.",
+          intro: "Memahami cara membaca pergerakan harga melalui chart, candlestick, timeframe, dan perilaku pasar.",
+          level: "GRATIS · DASAR",
+          beginner: "PEMULA",
+          questions: "5 PERTANYAAN",
+          passing: "KELULUSAN 80%",
+          section1: "01. Apa Itu Technical Analysis?",
+          p1a: "Technical analysis adalah pendekatan untuk mempelajari pergerakan harga menggunakan data historis, chart, pola harga, dan indikator. Tujuannya membantu trader menyusun skenario dan mengambil keputusan secara terstruktur.",
+          p1b: "Analisis teknikal tidak dapat memastikan harga berikutnya secara mutlak. Chart membantu mengidentifikasi kemungkinan, bukan menjamin hasil.",
+          keyInsight: "INSIGHT UTAMA",
+          insight1: "Technical analysis bukan alat untuk meramal dengan kepastian. Ini adalah metode untuk membaca kondisi pasar, mengukur risiko, dan merencanakan keputusan.",
+          section2: "02. Memahami Candlestick",
+          p2: "Candlestick merangkum pergerakan harga selama periode tertentu. Satu candle umumnya menampilkan empat informasi utama:",
+          openDesc: "Harga ketika periode candle dimulai.",
+          highDesc: "Harga tertinggi yang tercapai selama periode candle.",
+          lowDesc: "Harga terendah yang tercapai selama periode candle.",
+          closeDesc: "Harga ketika periode candle berakhir.",
+          p2b: "Body menunjukkan jarak antara open dan close, sedangkan wick atau shadow menunjukkan jangkauan harga di atas dan di bawah body. Warna candle mengikuti pengaturan chart.",
+          section3: "03. Bullish dan Bearish Candles",
+          bullishDesc: "Close berada di atas open. Harga berakhir lebih tinggi daripada saat periode dimulai.",
+          bearishDesc: "Close berada di bawah open. Harga berakhir lebih rendah daripada saat periode dimulai.",
+          p3b: "Satu candle bullish tidak otomatis berarti tren akan naik. Begitu pula, satu candle bearish tidak menjamin tren akan turun. Perhatikan struktur dan konteks harga.",
+          section4: "04. Memahami Timeframe",
+          p4: "Timeframe menunjukkan durasi yang diwakili oleh satu candle. Pada H1, satu candle mewakili satu jam. Pada H4, satu candle mewakili empat jam.",
+          tf1: "M5–M15: memperlihatkan pergerakan jangka pendek.",
+          tf2: "H1–H4: membantu membaca pergerakan intraday hingga beberapa hari.",
+          tf3: "D1: memperlihatkan pergerakan harian dengan perspektif lebih luas.",
+          p4b: "Tidak ada timeframe yang selalu paling baik. Pilih timeframe sesuai metode, waktu pemantauan, dan toleransi risiko.",
+          section5: "05. Harga dan Konteks Pasar",
+          p5a: "Chart perlu dibaca sebagai rangkaian pergerakan, bukan kumpulan candle yang berdiri sendiri. Trader dapat mengamati arah tren, area harga penting, momentum, dan respons harga terhadap level tertentu.",
+          p5b: "Hindari mengambil keputusan hanya karena satu candle terlihat kuat. Tunggu bukti yang sesuai dengan metode trading dan tentukan risiko sebelum membuka posisi.",
+          insight2: "Candle menunjukkan apa yang terjadi selama satu periode. Struktur pasar membantu menempatkan informasi tersebut dalam konteks.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Uji Pemahaman Anda",
+          quizIntro: "Pilih satu jawaban untuk setiap pertanyaan. Nilai kelulusan adalah 80%.",
+          q1: "1. Apa tujuan utama technical analysis?",
+          q1a: "Menjamin setiap transaksi menghasilkan profit",
+          q1b: "Mempelajari pergerakan harga untuk menyusun keputusan dan skenario",
+          q1c: "Mengetahui harga masa depan secara pasti",
+          q2: "2. Informasi apa yang tidak termasuk dalam data utama candlestick?",
+          q2c: "Saldo rekening trader",
+          q3: "3. Apa arti bullish candle secara umum?",
+          q3a: "Close berada di atas open",
+          q3b: "Close selalu berada di bawah open",
+          q3c: "Harga pasti naik pada candle berikutnya",
+          q4: "4. Satu candle pada timeframe H1 mewakili periode berapa lama?",
+          q4a: "Lima menit",
+          q4b: "Satu jam",
+          q4c: "Satu hari",
+          q5: "5. Mengapa trader perlu melihat konteks harga?",
+          q5a: "Agar tidak perlu menggunakan stop loss",
+          q5b: "Agar bisa memastikan hasil transaksi",
+          q5c: "Agar candle dapat dinilai bersama struktur dan kondisi pasar",
+          checkAnswers: "Periksa Jawaban",
+          retry: "Ulangi Kuis",
+          completed: "Modul 01 selesai.",
+          passedMessage: "Anda memenuhi nilai minimum. Lanjutkan ke Market Structure.",
+          nextLink: "Lanjut ke Modul 02 →",
+          footerTitle: "Analisis Teknikal",
+          disclaimer: "Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.",
+          unanswered: "Lengkapi semua pertanyaan terlebih dahulu.",
+          notAnswered: "Belum dijawab:",
+          scoreLabel: "Nilai",
+          passed: "Selamat, Anda lulus modul ini.",
+          failed: "Anda belum lulus. Pelajari kembali materi dan coba lagi.",
+          correct: "Benar",
+          wrong: "Belum tepat",
+          explanations: [
+            "Technical analysis membantu membaca pergerakan harga untuk menyusun skenario dan keputusan, bukan menjamin profit.",
+            "Open, High, Low, dan Close adalah empat data utama candlestick. Saldo rekening bukan bagian dari candle.",
+            "Bullish candle berarti close berada di atas open. Kondisi ini tidak menjamin candle berikutnya akan naik.",
+            "H1 berarti satu candle mewakili satu jam.",
+            "Konteks membantu trader menilai candle bersama struktur dan kondisi pasar, bukan secara terpisah."
+          ]
+        },
+
+        en: {
+          back: "← Back to Technical Analysis",
+          eyebrow: "THE DESK ACADEMY · MODULE 01",
+          titleLine1: "Introduction to",
+          titleLine2: "Technical Analysis.",
+          intro: "Learn to read price movements through charts, candlesticks, timeframes, and market behavior.",
+          level: "FREE · BASIC",
+          beginner: "BEGINNER",
+          questions: "5 QUESTIONS",
+          passing: "80% PASSING SCORE",
+          section1: "01. What Is Technical Analysis?",
+          p1a: "Technical analysis is an approach to studying price movements using historical data, charts, price patterns, and indicators. Its purpose is to help traders develop scenarios and make structured decisions.",
+          p1b: "Technical analysis cannot determine the next price with certainty. Charts help identify possibilities, not guarantee outcomes.",
+          keyInsight: "KEY INSIGHT",
+          insight1: "Technical analysis is not a tool for predicting with certainty. It is a method for reading market conditions, assessing risk, and planning decisions.",
+          section2: "02. Understanding Candlesticks",
+          p2: "A candlestick summarizes price movements over a specific period. Each candle generally displays four key pieces of information:",
+          openDesc: "The price at which the candle period begins.",
+          highDesc: "The highest price reached during the candle period.",
+          lowDesc: "The lowest price reached during the candle period.",
+          closeDesc: "The price at which the candle period ends.",
+          p2b: "The body shows the distance between the open and close, while the wick or shadow shows the price range above and below the body. Candle colors depend on the chart settings.",
+          section3: "03. Bullish and Bearish Candles",
+          bullishDesc: "The close is above the open. The price ended higher than where the period began.",
+          bearishDesc: "The close is below the open. The price ended lower than where the period began.",
+          p3b: "A single bullish candle does not automatically mean the trend will rise. Likewise, a single bearish candle does not guarantee a decline. Consider price structure and context.",
+          section4: "04. Understanding Timeframes",
+          p4: "A timeframe indicates the duration represented by one candle. On H1, each candle represents one hour. On H4, each candle represents four hours.",
+          tf1: "M5–M15: show short-term price movements.",
+          tf2: "H1–H4: help analyze intraday movements through several days.",
+          tf3: "D1: shows daily price movements from a broader perspective.",
+          p4b: "No timeframe is always the best. Choose one that fits your method, monitoring schedule, and risk tolerance.",
+          section5: "05. Price and Market Context",
+          p5a: "Charts should be read as a sequence of movements, not as isolated candles. Traders can observe trend direction, important price areas, momentum, and price responses to specific levels.",
+          p5b: "Avoid making decisions simply because one candle looks strong. Wait for evidence that fits your trading method and define risk before opening a position.",
+          insight2: "A candle shows what happened during one period. Market structure helps place that information into context.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Test Your Understanding",
+          quizIntro: "Choose one answer for each question. The passing score is 80%.",
+          q1: "1. What is the main purpose of technical analysis?",
+          q1a: "To guarantee that every trade makes a profit",
+          q1b: "To study price movements and develop decisions and scenarios",
+          q1c: "To know future prices with certainty",
+          q2: "2. Which item is not part of the main data in a candlestick?",
+          q2c: "A trader's account balance",
+          q3: "3. What does a bullish candle generally mean?",
+          q3a: "The close is above the open",
+          q3b: "The close is always below the open",
+          q3c: "The next candle will definitely rise",
+          q4: "4. How long does one candle on the H1 timeframe represent?",
+          q4a: "Five minutes",
+          q4b: "One hour",
+          q4c: "One day",
+          q5: "5. Why should traders consider price context?",
+          q5a: "So they do not need to use a stop-loss",
+          q5b: "So they can guarantee trading outcomes",
+          q5c: "So candles can be assessed alongside market structure and conditions",
+          checkAnswers: "Check Answers",
+          retry: "Retry Quiz",
+          completed: "Module 01 completed.",
+          passedMessage: "You have met the passing score. Continue to Market Structure.",
+          nextLink: "Continue to Module 02 →",
+          footerTitle: "Technical Analysis",
+          disclaimer: "For educational purposes only. This material is not a trading recommendation or a guarantee of trading results.",
+          unanswered: "Please answer all questions first.",
+          notAnswered: "Unanswered:",
+          scoreLabel: "Score",
+          passed: "Congratulations, you passed this module.",
+          failed: "You have not passed yet. Review the material and try again.",
+          correct: "Correct",
+          wrong: "Incorrect",
+          explanations: [
+            "Technical analysis helps traders interpret price movements and develop scenarios; it does not guarantee profit.",
+            "Open, High, Low, and Close are the four main candlestick data points. An account balance is not part of a candle.",
+            "A bullish candle means the close is above the open. It does not guarantee that the next candle will rise.",
+            "H1 means each candle represents one hour.",
+            "Context helps traders assess a candle alongside market structure and conditions rather than in isolation."
+          ]
+        }
+      };
+
+      const answers = {
+        q1: "b",
+        q2: "c",
+        q3: "a",
+        q4: "b",
+        q5: "c"
+      };
+
+      const form = document.getElementById("quizForm");
+      const result = document.getElementById("result");
+      const nextModule = document.getElementById("nextModule");
+      const retryButton = document.getElementById("retryButton");
+      const languageButtons = document.querySelectorAll("[data-lang]");
+
+      let currentLanguage = "id";
+      let quizSubmitted = false;
+
+      function getLanguage() {
+        try {
+          const saved = localStorage.getItem("desk_language");
+          return saved && translations[saved] ? saved : "id";
+        } catch (error) {
+          return "id";
+        }
       }
-    };
 
-    const form = document.getElementById("quizForm");
-    const result = document.getElementById("result");
-    const nextModule = document.getElementById("nextModule");
-    const retryButton = document.getElementById("retryButton");
+      function applyLanguage(language) {
+        currentLanguage = translations[language] ? language : "id";
+        const t = translations[currentLanguage];
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
+        document.documentElement.lang = currentLanguage;
+        document.title = currentLanguage === "en"
+          ? "Introduction to Technical Analysis | THE DESK Academy"
+          : "Pengenalan Analisis Teknikal | THE DESK Academy";
 
-      let score = 0;
-      let unanswered = [];
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+          const key = element.dataset.i18n;
+          if (Object.prototype.hasOwnProperty.call(t, key)) {
+            element.textContent = t[key];
+          }
+        });
 
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector('input[name="' + key + '"]:checked');
+        languageButtons.forEach(button => {
+          const active = button.dataset.lang === currentLanguage;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
 
-        if (!selected) {
-          unanswered.push(index + 1);
-        } else if (selected.value === answers[key].correct) {
-          score++;
+        if (quizSubmitted) {
+          gradeQuiz(false);
+        }
+      }
+
+      languageButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const language = button.dataset.lang;
+
+          try {
+            localStorage.setItem("desk_language", language);
+          } catch (error) {
+            // The language still changes for this page if storage is unavailable.
+          }
+
+          applyLanguage(language);
+        });
+      });
+
+      function gradeQuiz(scrollToResult = true) {
+        const t = translations[currentLanguage];
+        let score = 0;
+        const unanswered = [];
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+
+          if (!selected) {
+            unanswered.push(index + 1);
+          } else if (selected.value === answers[key]) {
+            score++;
+          }
+        });
+
+        if (unanswered.length > 0) {
+          quizSubmitted = false;
+          result.style.display = "block";
+          result.innerHTML =
+            "<strong class='incorrect'>" + t.unanswered + "</strong>" +
+            "<p>" + t.notAnswered + " " + unanswered.join(", ") + "</p>";
+
+          nextModule.style.display = "none";
+
+          if (scrollToResult) {
+            result.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          return;
+        }
+
+        quizSubmitted = true;
+        let details = "";
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+
+          const isCorrect = selected.value === answers[key];
+
+          details +=
+            "<div class='explanation'>" +
+            "<strong class='" + (isCorrect ? "correct" : "incorrect") + "'>" +
+            (currentLanguage === "en" ? "Question " : "Soal ") +
+            (index + 1) + ": " +
+            (isCorrect ? t.correct : t.wrong) +
+            "</strong><p>" + t.explanations[index] + "</p></div>";
+        });
+
+        const passed = score >= 4;
+
+        result.style.display = "block";
+        result.innerHTML =
+          "<h3>" + t.scoreLabel + ": " + score + "/5 (" +
+          (score * 20) + "%)</h3>" +
+          "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
+          (passed ? t.passed : t.failed) + "</p>" +
+          details;
+
+        nextModule.style.display = passed ? "block" : "none";
+
+        if (scrollToResult) {
+          result.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        gradeQuiz();
+      });
+
+      retryButton.addEventListener("click", () => {
+        form.reset();
+        quizSubmitted = false;
+        result.style.display = "none";
+        result.innerHTML = "";
+        nextModule.style.display = "none";
+
+        document.getElementById("quiz").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+
+      applyLanguage(getLanguage());
+
+      window.addEventListener("storage", event => {
+        if (event.key === "desk_language" || event.key === null) {
+          applyLanguage(getLanguage());
         }
       });
 
-      if (unanswered.length > 0) {
-        result.style.display = "block";
-        result.innerHTML = "<strong class='incorrect'>Lengkapi semua pertanyaan terlebih dahulu.</strong><p>Belum dijawab: " + unanswered.join(", ") + "</p>";
-        nextModule.style.display = "none";
-        return;
-      }
-
-      let details = "";
-
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector('input[name="' + key + '"]:checked');
-        const isCorrect = selected.value === answers[key].correct;
-
-        details +=
-          "<div class='explanation'><strong class='" +
-          (isCorrect ? "correct" : "incorrect") +
-          "'>Soal " + (index + 1) + ": " +
-          (isCorrect ? "Benar" : "Belum tepat") +
-          "</strong><p>" + answers[key].explanation + "</p></div>";
+      window.addEventListener("pageshow", () => {
+        applyLanguage(getLanguage());
       });
-
-      const passed = score >= 4;
-
-      result.style.display = "block";
-      result.innerHTML =
-        "<h3>" + score + "/5 (" + (score * 20) + "%)</h3>" +
-        "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
-        (passed ? "Selamat, Anda lulus modul ini." : "Anda belum lulus. Pelajari kembali materi dan coba lagi.") +
-        "</p>" + details;
-
-      nextModule.style.display = passed ? "block" : "none";
-      result.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    retryButton.addEventListener("click", function() {
-      form.reset();
-      result.style.display = "none";
-      result.innerHTML = "";
-      nextModule.style.display = "none";
-      document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    })();
   </script>
+
 </body>
+
 </html>

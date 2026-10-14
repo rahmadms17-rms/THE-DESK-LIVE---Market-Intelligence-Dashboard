@@ -1,49 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Module 01 THE DESK Academy: Introduction to Financial Markets.">
+  <meta name="description" content="THE DESK Academy Module 01: Introduction to Financial Markets.">
   <title>Module 01 | THE DESK Academy</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
     .module-page {
       max-width: 960px;
       margin: auto;
       padding: 44px 24px 80px;
     }
+
+    .module-language {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .module-language button {
+      padding: 8px 14px;
+      border: 1px solid var(--gold, #c9a45c);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--gold, #c9a45c);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .module-language button.active {
+      background: var(--gold, #c9a45c);
+      color: #111;
+    }
+
     .module-back {
       color: var(--gold, #c9a45c);
       text-decoration: none;
       font-size: 13px;
     }
+
     .module-hero {
       padding: 40px 0 34px;
       border-bottom: 1px solid var(--border, #262c33);
     }
+
     .module-eyebrow {
       color: var(--gold, #c9a45c);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
     }
+
     .module-hero h1 {
       font-size: clamp(36px, 6vw, 58px);
       line-height: 1.1;
       margin: 18px 0;
     }
-    .module-hero p, .module-section p {
+
+    .module-hero p,
+    .module-section p {
       color: var(--muted, #939ba6);
       line-height: 1.85;
     }
+
     .module-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 22px;
     }
+
     .module-tag {
       border: 1px solid var(--border, #262c33);
       padding: 7px 10px;
@@ -51,23 +82,23 @@
       font-size: 10px;
       letter-spacing: 1px;
     }
+
     .module-section {
       padding: 28px 0;
       border-bottom: 1px solid var(--border, #262c33);
     }
+
     .module-section h2 {
       font-size: 24px;
       margin: 12px 0;
     }
-    .module-section h3 {
-      font-size: 17px;
-      margin-top: 24px;
-    }
+
     .module-list {
       padding-left: 22px;
       color: var(--muted, #939ba6);
       line-height: 1.9;
     }
+
     .module-note {
       margin-top: 20px;
       padding: 18px;
@@ -75,28 +106,38 @@
       border-left: 3px solid var(--gold, #c9a45c);
       line-height: 1.8;
     }
+
+    .module-note strong {
+      color: var(--gold, #c9a45c);
+    }
+
     .quiz-question {
       margin: 22px 0;
       padding: 18px;
       border: 1px solid var(--border, #262c33);
       border-radius: 6px;
     }
+
     .quiz-question legend {
       padding: 0 5px;
       font-weight: 600;
       line-height: 1.7;
     }
+
     .quiz-option {
       display: block;
       padding: 9px 0;
       cursor: pointer;
       line-height: 1.6;
     }
+
     .quiz-option input {
       margin-right: 8px;
       accent-color: var(--gold, #c9a45c);
     }
-    .quiz-button, .module-next {
+
+    .quiz-button,
+    .module-next {
       display: inline-block;
       padding: 13px 18px;
       background: var(--gold, #c9a45c);
@@ -108,6 +149,7 @@
       text-decoration: none;
       cursor: pointer;
     }
+
     .quiz-result {
       display: none;
       margin-top: 24px;
@@ -116,294 +158,593 @@
       border-radius: 6px;
       line-height: 1.8;
     }
+
     .quiz-result h3 {
       margin-top: 0;
     }
+
     .quiz-feedback {
       padding: 12px 0;
       border-top: 1px solid var(--border, #262c33);
     }
+
     .quiz-feedback p {
       margin: 6px 0;
       color: var(--muted, #939ba6);
     }
+
     .quiz-pass {
       color: var(--green, #42c994);
     }
+
     .quiz-retry {
       color: var(--gold, #c9a45c);
     }
+
     .module-next {
       margin-top: 24px;
     }
+
     .module-next[hidden] {
       display: none;
     }
+
+    .retry-button {
+      margin-top: 16px;
+      background: transparent;
+      color: var(--gold, #c9a45c);
+      border: 1px solid var(--gold, #c9a45c);
+    }
+
     @media (max-width: 600px) {
-      .module-page { padding: 30px 18px 56px; }
+      .module-page {
+        padding: 30px 18px 56px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="module-page">
-    <a class="module-back" href="fundamentals.html">← Back to Fundamentals</a>
+<main class="module-page">
 
-    <header class="module-hero">
-      <span class="module-eyebrow">THE DESK ACADEMY · MODULE 01</span>
-      <h1>Introduction to<br>Financial Markets.</h1>
-      <p>
-        Sebelum membaca chart dan mencari peluang trading,
-        pahami terlebih dahulu bagaimana pasar keuangan bekerja
-        dan mengapa harga dapat berubah.
-      </p>
-      <div class="module-tags">
-        <span class="module-tag">FREE · BASIC</span>
-        <span class="module-tag">BEGINNER</span>
-        <span class="module-tag">5 QUESTIONS</span>
-      </div>
-    </header>
+  <div class="module-language" aria-label="Language selection">
+    <button type="button" data-language="id">ID</button>
+    <button type="button" data-language="en">EN</button>
+  </div>
 
-    <section class="module-section">
-      <span class="module-eyebrow">01 · THE BIG PICTURE</span>
-      <h2>Apa Itu Pasar Keuangan?</h2>
-      <p>
-        Pasar keuangan adalah bagian dari sistem ekonomi tempat
-        instrumen seperti mata uang, saham, obligasi, komoditas,
-        dan aset digital diperdagangkan.
-      </p>
-      <p>
-        Pasar membantu berbagai pihak melakukan transaksi,
-        mengelola risiko, memperoleh pendanaan, dan menempatkan
-        modal. Bagi trader, pasar menjadi tempat untuk mengambil
-        keputusan berdasarkan perubahan harga dan informasi.
-      </p>
-    </section>
+  <a class="module-back" href="fundamentals.html" id="backLink"></a>
 
-    <section class="module-section">
-      <span class="module-eyebrow">02 · PRICE FORMATION</span>
-      <h2>Bagaimana Harga Terbentuk?</h2>
-      <p>
-        Harga terbentuk melalui interaksi antara permintaan dan
-        penawaran. Ketika pembeli bersedia membayar lebih tinggi
-        atau penjual bersedia menerima harga lebih rendah,
-        transaksi dapat terjadi pada tingkat harga yang berbeda.
-      </p>
-      <p>
-        Informasi ekonomi, kebijakan bank sentral, kondisi
-        perusahaan, likuiditas, dan perubahan sentimen dapat
-        memengaruhi keputusan pelaku pasar.
-      </p>
-      <div class="module-note">
-        <strong>Key Insight</strong>
-        <p>
-          Harga yang bergerak bukan sekadar angka pada chart.
-          Harga mencerminkan hasil interaksi berbagai keputusan
-          dan ekspektasi pelaku pasar.
-        </p>
-      </div>
-    </section>
+  <header class="module-hero">
+    <span class="module-eyebrow">THE DESK ACADEMY · MODULE 01</span>
+    <h1>Introduction to<br>Financial Markets.</h1>
+    <p id="heroDescription"></p>
+    <div class="module-tags">
+      <span class="module-tag" id="tagFree"></span>
+      <span class="module-tag" id="tagLevel"></span>
+      <span class="module-tag" id="tagQuestions"></span>
+    </div>
+  </header>
 
-    <section class="module-section">
-      <span class="module-eyebrow">03 · MARKET PARTICIPANTS</span>
-      <h2>Siapa yang Berpartisipasi?</h2>
-      <ul class="module-list">
-        <li><strong>Bank sentral:</strong> menetapkan kebijakan moneter dan memengaruhi kondisi likuiditas.</li>
-        <li><strong>Bank dan institusi keuangan:</strong> memfasilitasi transaksi serta mengelola eksposur keuangan.</li>
-        <li><strong>Perusahaan:</strong> dapat melakukan transaksi untuk kebutuhan bisnis, pembayaran, atau lindung nilai.</li>
-        <li><strong>Investor dan trader:</strong> mengambil keputusan sesuai tujuan, jangka waktu, dan toleransi risiko masing-masing.</li>
-      </ul>
-      <p>
-        Setiap peserta memiliki tujuan dan batasan berbeda.
-        Karena itu, pergerakan harga tidak selalu dapat
-        dijelaskan oleh satu kelompok pelaku saja.
-      </p>
-    </section>
+  <div id="lessonContent"></div>
 
-    <section class="module-section">
-      <span class="module-eyebrow">04 · INFORMATION & EXPECTATIONS</span>
-      <h2>Mengapa Informasi Penting?</h2>
-      <p>
-        Pasar tidak hanya bereaksi terhadap informasi baru,
-        tetapi juga terhadap perbedaan antara hasil aktual
-        dan apa yang sebelumnya diharapkan.
-      </p>
-      <p>
-        Sebagai contoh, data ekonomi yang terlihat positif
-        belum tentu mendorong suatu aset naik. Jika hasilnya
-        lebih rendah daripada ekspektasi atau mengubah
-        perkiraan kebijakan, respons harga dapat berbeda.
-      </p>
-    </section>
+  <section class="module-section" id="module-quiz">
+    <span class="module-eyebrow" id="quizEyebrow"></span>
+    <h2 id="quizTitle"></h2>
+    <p id="quizDescription"></p>
 
-    <section class="module-section">
-      <span class="module-eyebrow">05 · TRADER'S PERSPECTIVE</span>
-      <h2>Memahami Sebelum Mengambil Keputusan</h2>
-      <ul class="module-list">
-        <li>Kenali instrumen yang sedang diamati.</li>
-        <li>Pahami faktor yang berpotensi memengaruhi harga.</li>
-        <li>Bedakan fakta, ekspektasi, dan asumsi pribadi.</li>
-        <li>Tentukan risiko sebelum mengambil posisi.</li>
-        <li>Terima bahwa hasil analisis tidak pernah pasti.</li>
-      </ul>
-      <div class="module-note">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
-          Tujuan analisis bukan mengetahui masa depan dengan
-          pasti. Tujuannya adalah membuat keputusan yang lebih
-          terstruktur berdasarkan informasi yang tersedia.
-        </p>
-      </div>
-    </section>
+    <form id="moduleQuiz">
+      <div id="quizQuestions"></div>
+      <button class="quiz-button" type="submit" id="submitQuiz"></button>
+    </form>
 
-    <section class="module-section" id="module-quiz">
-      <span class="module-eyebrow">KNOWLEDGE CHECK · 5 QUESTIONS</span>
-      <h2>Test Your Understanding</h2>
-      <p>
-        Jawab lima pertanyaan berikut. Nilai kelulusan adalah
-        80%, atau minimal empat jawaban benar.
-      </p>
+    <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
+      <h3 id="quizScore"></h3>
+      <p id="quizSummary"></p>
+      <div id="quizFeedback"></div>
 
-      <form id="moduleQuiz">
-        <fieldset class="quiz-question">
-          <legend>1. Apa fungsi utama pasar keuangan?</legend>
-          <label class="quiz-option"><input type="radio" name="q1" value="a" required> Memastikan semua trader mendapat keuntungan</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="b"> Memfasilitasi transaksi dan pertukaran instrumen keuangan</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="c"> Menentukan satu harga yang tidak pernah berubah</label>
-        </fieldset>
+      <a class="module-next" id="nextModule" href="fundamentals-02.html" hidden></a>
 
-        <fieldset class="quiz-question">
-          <legend>2. Faktor dasar apa yang berperan dalam pembentukan harga?</legend>
-          <label class="quiz-option"><input type="radio" name="q2" value="a" required> Permintaan dan penawaran</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="b"> Warna latar chart</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="c"> Jumlah indikator yang digunakan trader</label>
-        </fieldset>
+      <button class="quiz-button retry-button" id="retryQuiz" type="button"></button>
+    </div>
+  </section>
 
-        <fieldset class="quiz-question">
-          <legend>3. Mengapa harga dapat bereaksi terhadap data ekonomi?</legend>
-          <label class="quiz-option"><input type="radio" name="q3" value="a" required> Karena semua data selalu membuat harga bergerak satu arah</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="b"> Karena data dapat mengubah ekspektasi dan keputusan pelaku pasar</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="c"> Karena data menghilangkan seluruh risiko pasar</label>
-        </fieldset>
+  <p style="margin-top:30px">
+    <a class="module-back" href="fundamentals.html" id="bottomBackLink"></a>
+  </p>
 
-        <fieldset class="quiz-question">
-          <legend>4. Jika data ekonomi lebih baik dari perkiraan, apa yang pasti terjadi pada harga?</legend>
-          <label class="quiz-option"><input type="radio" name="q4" value="a" required> Harga pasti naik</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="b"> Harga pasti turun</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="c"> Tidak ada arah yang bisa dipastikan hanya dari informasi itu</label>
-        </fieldset>
+</main>
 
-        <fieldset class="quiz-question">
-          <legend>5. Apa tujuan analisis pasar yang paling tepat?</legend>
-          <label class="quiz-option"><input type="radio" name="q5" value="a" required> Menghilangkan semua kemungkinan kerugian</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="b"> Membuat keputusan terstruktur dengan memahami konteks dan risiko</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="c"> Menebak setiap pergerakan harga tanpa kesalahan</label>
-        </fieldset>
+<script>
+const content = {
+  id: {
+    back: "← Kembali ke Fundamentals",
+    bottomBack: "← Kembali ke daftar modul",
+    description: "Sebelum membaca chart dan mencari peluang trading, pahami terlebih dahulu bagaimana pasar keuangan bekerja dan mengapa harga dapat berubah.",
+    free: "GRATIS · DASAR",
+    level: "PEMULA",
+    questions: "5 PERTANYAAN",
 
-        <button class="quiz-button" type="submit">Periksa Jawaban →</button>
-      </form>
+    lessons: [
+      {
+        eyebrow: "01 · THE BIG PICTURE",
+        title: "Apa Itu Pasar Keuangan?",
+        paragraphs: [
+          "Pasar keuangan adalah bagian dari sistem ekonomi tempat instrumen seperti mata uang, saham, obligasi, komoditas, dan aset digital diperdagangkan.",
+          "Pasar membantu berbagai pihak melakukan transaksi, mengelola risiko, memperoleh pendanaan, dan menempatkan modal. Bagi trader, pasar menjadi tempat untuk mengambil keputusan berdasarkan perubahan harga dan informasi."
+        ]
+      },
+      {
+        eyebrow: "02 · PRICE FORMATION",
+        title: "Bagaimana Harga Terbentuk?",
+        paragraphs: [
+          "Harga terbentuk melalui interaksi antara permintaan dan penawaran. Ketika pembeli bersedia membayar lebih tinggi atau penjual bersedia menerima harga lebih rendah, transaksi dapat terjadi pada tingkat harga yang berbeda.",
+          "Informasi ekonomi, kebijakan bank sentral, kondisi perusahaan, likuiditas, dan perubahan sentimen dapat memengaruhi keputusan pelaku pasar."
+        ],
+        noteTitle: "KEY INSIGHT",
+        note: "Harga yang bergerak bukan sekadar angka pada chart. Harga mencerminkan hasil interaksi berbagai keputusan dan ekspektasi pelaku pasar."
+      },
+      {
+        eyebrow: "03 · MARKET PARTICIPANTS",
+        title: "Siapa yang Berpartisipasi?",
+        list: [
+          ["Bank sentral:", " menetapkan kebijakan moneter dan memengaruhi kondisi likuiditas."],
+          ["Bank dan institusi keuangan:", " memfasilitasi transaksi serta mengelola eksposur keuangan."],
+          ["Perusahaan:", " melakukan transaksi untuk kebutuhan bisnis, pembayaran, atau lindung nilai."],
+          ["Investor dan trader:", " mengambil keputusan sesuai tujuan, jangka waktu, dan toleransi risiko masing-masing."]
+        ],
+        paragraphs: [
+          "Setiap peserta memiliki tujuan dan batasan berbeda. Karena itu, pergerakan harga tidak selalu dapat dijelaskan oleh satu kelompok pelaku saja."
+        ]
+      },
+      {
+        eyebrow: "04 · INFORMATION & EXPECTATIONS",
+        title: "Mengapa Informasi Penting?",
+        paragraphs: [
+          "Pasar tidak hanya bereaksi terhadap informasi baru, tetapi juga terhadap perbedaan antara hasil aktual dan apa yang sebelumnya diharapkan.",
+          "Sebagai contoh, data ekonomi yang terlihat positif belum tentu mendorong suatu aset naik. Jika hasilnya lebih rendah daripada ekspektasi atau mengubah perkiraan kebijakan, respons harga dapat berbeda."
+        ]
+      },
+      {
+        eyebrow: "05 · TRADER'S PERSPECTIVE",
+        title: "Memahami Sebelum Mengambil Keputusan",
+        list: [
+          "Kenali instrumen yang sedang diamati.",
+          "Pahami faktor yang berpotensi memengaruhi harga.",
+          "Bedakan fakta, ekspektasi, dan asumsi pribadi.",
+          "Tentukan risiko sebelum mengambil posisi.",
+          "Terima bahwa hasil analisis tidak pernah pasti."
+        ],
+        noteTitle: "THE DESK PRINCIPLE",
+        note: "Tujuan analisis bukan mengetahui masa depan dengan pasti. Tujuannya adalah membuat keputusan yang lebih terstruktur berdasarkan informasi yang tersedia."
+      }
+    ],
 
-      <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
-        <h3 id="quizScore"></h3>
-        <p id="quizSummary"></p>
-        <div id="quizFeedback"></div>
-        <a class="module-next" id="nextModule" href="fundamentals-02.html" hidden>
-          Lanjut ke Module 02 →
-        </a>
-        <button class="quiz-button" id="retryQuiz" type="button" style="margin-top:16px;background:transparent;color:var(--gold,#c9a45c);border:1px solid var(--gold,#c9a45c);">
-          Coba Lagi
-        </button>
-      </div>
-    </section>
+    quizEyebrow: "KNOWLEDGE CHECK · 5 QUESTIONS",
+    quizTitle: "Uji Pemahaman Anda",
+    quizDescription: "Jawab lima pertanyaan berikut. Nilai kelulusan adalah 80%, atau minimal empat jawaban benar.",
+    submit: "Periksa Jawaban →",
+    retry: "Coba Lagi",
+    next: "Lanjut ke Module 02 →",
+    score: "Skor kamu: ",
+    correct: "Benar",
+    incorrect: "Belum tepat",
+    passed: "Selamat! Kamu lulus Module 01. Kamu bisa melanjutkan ke modul berikutnya.",
+    failed: "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan di bawah, lalu coba lagi.",
 
-    <a class="module-back" href="fundamentals.html">← Kembali ke daftar modul</a>
-  </main>
-
-  <script>
-    const quizForm = document.getElementById("moduleQuiz");
-    const quizResult = document.getElementById("quizResult");
-    const quizScore = document.getElementById("quizScore");
-    const quizSummary = document.getElementById("quizSummary");
-    const quizFeedback = document.getElementById("quizFeedback");
-    const nextModule = document.getElementById("nextModule");
-    const retryQuiz = document.getElementById("retryQuiz");
-
-    const correctAnswers = {
-      q1: "b",
-      q2: "a",
-      q3: "b",
-      q4: "c",
-      q5: "b"
-    };
-
-    const explanations = {
-      q1: {
+    quiz: [
+      {
+        question: "Apa fungsi utama pasar keuangan?",
+        options: [
+          "Memastikan semua trader mendapat keuntungan",
+          "Memfasilitasi transaksi dan pertukaran instrumen keuangan",
+          "Menentukan satu harga yang tidak pernah berubah"
+        ],
+        answer: "b",
         correct: "Pasar keuangan memfasilitasi transaksi berbagai instrumen keuangan.",
         incorrect: "Pasar keuangan tidak menjamin keuntungan. Fungsinya memfasilitasi transaksi instrumen keuangan."
       },
-      q2: {
+      {
+        question: "Faktor dasar apa yang berperan dalam pembentukan harga?",
+        options: [
+          "Permintaan dan penawaran",
+          "Warna latar chart",
+          "Jumlah indikator yang digunakan trader"
+        ],
+        answer: "a",
         correct: "Permintaan dan penawaran merupakan dasar pembentukan harga.",
         incorrect: "Harga terbentuk melalui interaksi permintaan dan penawaran, bukan tampilan chart atau jumlah indikator."
       },
-      q3: {
+      {
+        question: "Mengapa harga dapat bereaksi terhadap data ekonomi?",
+        options: [
+          "Karena semua data selalu membuat harga bergerak satu arah",
+          "Karena data dapat mengubah ekspektasi dan keputusan pelaku pasar",
+          "Karena data menghilangkan seluruh risiko pasar"
+        ],
+        answer: "b",
         correct: "Informasi dapat mengubah ekspektasi dan keputusan pelaku pasar.",
         incorrect: "Data ekonomi dapat memengaruhi ekspektasi, tetapi tidak menghilangkan risiko atau selalu mengarahkan harga ke satu sisi."
       },
-      q4: {
+      {
+        question: "Jika data ekonomi lebih baik dari perkiraan, apa yang pasti terjadi pada harga?",
+        options: [
+          "Harga pasti naik",
+          "Harga pasti turun",
+          "Tidak ada arah yang bisa dipastikan hanya dari informasi itu"
+        ],
+        answer: "c",
         correct: "Respons harga bergantung pada ekspektasi, konteks, dan faktor lain yang relevan.",
         incorrect: "Data yang lebih baik dari perkiraan tidak menjamin harga naik atau turun. Konteks dan ekspektasi tetap penting."
       },
-      q5: {
+      {
+        question: "Apa tujuan analisis pasar yang paling tepat?",
+        options: [
+          "Menghilangkan semua kemungkinan kerugian",
+          "Membuat keputusan terstruktur dengan memahami konteks dan risiko",
+          "Menebak setiap pergerakan harga tanpa kesalahan"
+        ],
+        answer: "b",
         correct: "Analisis membantu menyusun keputusan yang terstruktur dengan mempertimbangkan risiko.",
         incorrect: "Analisis tidak bisa menghilangkan seluruh risiko atau memprediksi semua pergerakan secara sempurna."
       }
-    };
+    ]
+  },
 
-    quizForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+  en: {
+    back: "← Back to Fundamentals",
+    bottomBack: "← Back to module catalog",
+    description: "Before reading charts and looking for trading opportunities, first understand how financial markets work and why prices change.",
+    free: "FREE · BASIC",
+    level: "BEGINNER",
+    questions: "5 QUESTIONS",
 
-      const formData = new FormData(quizForm);
-      let score = 0;
-      let feedbackHTML = "";
-
-      for (let i = 1; i <= 5; i++) {
-        const key = "q" + i;
-        const selected = formData.get(key);
-        const isCorrect = selected === correctAnswers[key];
-
-        if (isCorrect) score++;
-
-        feedbackHTML += `
-          <div class="quiz-feedback">
-            <strong>${i}. ${isCorrect ? "Benar" : "Belum tepat"}</strong>
-            <p>${isCorrect ? explanations[key].correct : explanations[key].incorrect}</p>
-          </div>
-        `;
+    lessons: [
+      {
+        eyebrow: "01 · THE BIG PICTURE",
+        title: "What Are Financial Markets?",
+        paragraphs: [
+          "Financial markets are part of the economic system where instruments such as currencies, stocks, bonds, commodities, and digital assets are traded.",
+          "Markets help participants transact, manage risk, obtain funding, and allocate capital. For traders, markets provide an environment for making decisions based on price changes and information."
+        ]
+      },
+      {
+        eyebrow: "02 · PRICE FORMATION",
+        title: "How Are Prices Formed?",
+        paragraphs: [
+          "Prices are formed through the interaction of supply and demand. When buyers are willing to pay more or sellers are willing to accept less, transactions can occur at different price levels.",
+          "Economic information, central bank policy, business conditions, liquidity, and changes in sentiment can influence market participants' decisions."
+        ],
+        noteTitle: "KEY INSIGHT",
+        note: "A moving price is more than a number on a chart. It reflects the interaction of decisions and expectations among market participants."
+      },
+      {
+        eyebrow: "03 · MARKET PARTICIPANTS",
+        title: "Who Participates in Markets?",
+        list: [
+          ["Central banks:", " set monetary policy and influence liquidity conditions."],
+          ["Banks and financial institutions:", " facilitate transactions and manage financial exposure."],
+          ["Businesses:", " transact for business needs, payments, or hedging."],
+          ["Investors and traders:", " make decisions based on their objectives, time horizons, and risk tolerance."]
+        ],
+        paragraphs: [
+          "Each participant has different objectives and constraints. Therefore, price movements cannot always be explained by the actions of a single group."
+        ]
+      },
+      {
+        eyebrow: "04 · INFORMATION & EXPECTATIONS",
+        title: "Why Does Information Matter?",
+        paragraphs: [
+          "Markets react not only to new information but also to the difference between actual results and what was previously expected.",
+          "For example, seemingly positive economic data does not always push an asset higher. If the result falls short of expectations or changes policy forecasts, the price response may differ."
+        ]
+      },
+      {
+        eyebrow: "05 · TRADER'S PERSPECTIVE",
+        title: "Understand Before Making Decisions",
+        list: [
+          "Identify the instrument you are observing.",
+          "Understand the factors that may influence its price.",
+          "Distinguish facts, expectations, and personal assumptions.",
+          "Define risk before taking a position.",
+          "Accept that analytical outcomes are never certain."
+        ],
+        noteTitle: "THE DESK PRINCIPLE",
+        note: "The goal of analysis is not to know the future with certainty. It is to make more structured decisions based on available information."
       }
+    ],
 
-      const passed = score >= 4;
+    quizEyebrow: "KNOWLEDGE CHECK · 5 QUESTIONS",
+    quizTitle: "Test Your Understanding",
+    quizDescription: "Answer the five questions below. The passing score is 80%, or at least four correct answers.",
+    submit: "Check Answers →",
+    retry: "Try Again",
+    next: "Continue to Module 02 →",
+    score: "Your score: ",
+    correct: "Correct",
+    incorrect: "Not quite",
+    passed: "Congratulations! You passed Module 01. You can continue to the next module.",
+    failed: "You have not reached the 80% passing score. Review the explanations below and try again.",
 
-      quizScore.textContent = "Skor kamu: " + score + "/5 (" + (score * 20) + "%)";
-      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
-      quizSummary.textContent = passed
-        ? "Selamat! Kamu lulus Module 01. Kamu bisa melanjutkan ke modul berikutnya."
-        : "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan di bawah, lalu coba lagi.";
+    quiz: [
+      {
+        question: "What is the main function of financial markets?",
+        options: [
+          "To guarantee profits for all traders",
+          "To facilitate transactions and the exchange of financial instruments",
+          "To establish one price that never changes"
+        ],
+        answer: "b",
+        correct: "Financial markets facilitate transactions in various financial instruments.",
+        incorrect: "Financial markets do not guarantee profits. Their function is to facilitate transactions in financial instruments."
+      },
+      {
+        question: "Which basic factors play a role in price formation?",
+        options: [
+          "Supply and demand",
+          "The chart background color",
+          "The number of indicators used by a trader"
+        ],
+        answer: "a",
+        correct: "Supply and demand are the foundation of price formation.",
+        incorrect: "Prices form through the interaction of supply and demand, not through chart appearance or the number of indicators."
+      },
+      {
+        question: "Why can prices react to economic data?",
+        options: [
+          "Because all data always moves prices in one direction",
+          "Because data can change expectations and market participants' decisions",
+          "Because data eliminates all market risk"
+        ],
+        answer: "b",
+        correct: "Information can change market participants' expectations and decisions.",
+        incorrect: "Economic data can influence expectations, but it does not eliminate risk or always push prices in one direction."
+      },
+      {
+        question: "If economic data is better than expected, what must happen to prices?",
+        options: [
+          "Prices must rise",
+          "Prices must fall",
+          "The direction cannot be determined from that information alone"
+        ],
+        answer: "c",
+        correct: "Price responses depend on expectations, context, and other relevant factors.",
+        incorrect: "Better-than-expected data does not guarantee that prices will rise or fall. Context and expectations still matter."
+      },
+      {
+        question: "What is the most appropriate goal of market analysis?",
+        options: [
+          "To eliminate every possibility of loss",
+          "To make structured decisions by understanding context and risk",
+          "To predict every price movement without error"
+        ],
+        answer: "b",
+        correct: "Analysis helps structure decisions while taking risk into account.",
+        incorrect: "Analysis cannot eliminate all risk or predict every price movement perfectly."
+      }
+    ]
+  }
+};
 
-      quizFeedback.innerHTML = feedbackHTML;
-      nextModule.hidden = !passed;
-      quizResult.style.display = "block";
-      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
-      quizResult.focus();
-    });
+const quizForm = document.getElementById("moduleQuiz");
+const quizResult = document.getElementById("quizResult");
+const quizScore = document.getElementById("quizScore");
+const quizSummary = document.getElementById("quizSummary");
+const quizFeedback = document.getElementById("quizFeedback");
+const nextModule = document.getElementById("nextModule");
+const retryQuiz = document.getElementById("retryQuiz");
 
-    retryQuiz.addEventListener("click", function() {
-      quizForm.reset();
-      quizResult.style.display = "none";
-      nextModule.hidden = true;
-      document.getElementById("module-quiz").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+let currentLang = "id";
+
+function getSavedLanguage() {
+  try {
+    return localStorage.getItem("desk_language") === "en" ? "en" : "id";
+  } catch (error) {
+    return "id";
+  }
+}
+
+function renderLessons(t) {
+  const container = document.getElementById("lessonContent");
+  container.replaceChildren();
+
+  t.lessons.forEach(lesson => {
+    const section = document.createElement("section");
+    section.className = "module-section";
+
+    const eyebrow = document.createElement("span");
+    eyebrow.className = "module-eyebrow";
+    eyebrow.textContent = lesson.eyebrow;
+    section.appendChild(eyebrow);
+
+    const heading = document.createElement("h2");
+    heading.textContent = lesson.title;
+    section.appendChild(heading);
+
+    if (lesson.paragraphs) {
+      lesson.paragraphs.forEach(text => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        section.appendChild(p);
       });
+    }
+
+    if (lesson.list) {
+      const list = document.createElement("ul");
+      list.className = "module-list";
+
+      lesson.list.forEach(item => {
+        const li = document.createElement("li");
+
+        if (Array.isArray(item)) {
+          const strong = document.createElement("strong");
+          strong.textContent = item[0];
+          li.append(strong, document.createTextNode(item[1]));
+        } else {
+          li.textContent = item;
+        }
+
+        list.appendChild(li);
+      });
+
+      section.appendChild(list);
+    }
+
+    if (lesson.note) {
+      const note = document.createElement("div");
+      note.className = "module-note";
+
+      const strong = document.createElement("strong");
+      strong.textContent = lesson.noteTitle;
+
+      const p = document.createElement("p");
+      p.textContent = lesson.note;
+
+      note.append(strong, p);
+      section.appendChild(note);
+    }
+
+    container.appendChild(section);
+  });
+}
+
+function renderQuiz(t) {
+  const container = document.getElementById("quizQuestions");
+  container.replaceChildren();
+
+  t.quiz.forEach((question, index) => {
+    const fieldset = document.createElement("fieldset");
+    fieldset.className = "quiz-question";
+
+    const legend = document.createElement("legend");
+    legend.textContent = `${index + 1}. ${question.question}`;
+    fieldset.appendChild(legend);
+
+    question.options.forEach((option, optionIndex) => {
+      const label = document.createElement("label");
+      label.className = "quiz-option";
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `q${index + 1}`;
+      input.value = ["a", "b", "c"][optionIndex];
+      input.required = optionIndex === 0;
+
+      label.append(input, document.createTextNode(" " + option));
+      fieldset.appendChild(label);
     });
-  </script>
+
+    container.appendChild(fieldset);
+  });
+}
+
+function setLanguage(language) {
+  currentLang = language === "en" ? "en" : "id";
+  const t = content[currentLang];
+
+  document.documentElement.lang = currentLang;
+
+  try {
+    localStorage.setItem("desk_language", currentLang);
+  } catch (error) {}
+
+  document.querySelectorAll("[data-language]").forEach(button => {
+    button.classList.toggle("active", button.dataset.language === currentLang);
+  });
+
+  document.getElementById("backLink").textContent = t.back;
+  document.getElementById("bottomBackLink").textContent = t.bottomBack;
+  document.getElementById("heroDescription").textContent = t.description;
+  document.getElementById("tagFree").textContent = t.free;
+  document.getElementById("tagLevel").textContent = t.level;
+  document.getElementById("tagQuestions").textContent = t.questions;
+
+  document.getElementById("quizEyebrow").textContent = t.quizEyebrow;
+  document.getElementById("quizTitle").textContent = t.quizTitle;
+  document.getElementById("quizDescription").textContent = t.quizDescription;
+  document.getElementById("submitQuiz").textContent = t.submit;
+  retryQuiz.textContent = t.retry;
+  nextModule.textContent = t.next;
+
+  renderLessons(t);
+  renderQuiz(t);
+
+  quizResult.style.display = "none";
+  nextModule.hidden = true;
+  quizFeedback.replaceChildren();
+}
+
+document.querySelectorAll("[data-language]").forEach(button => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.language);
+  });
+});
+
+quizForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const t = content[currentLang];
+  const formData = new FormData(quizForm);
+  let score = 0;
+
+  quizFeedback.replaceChildren();
+
+  t.quiz.forEach((question, index) => {
+    const key = `q${index + 1}`;
+    const selected = formData.get(key);
+    const isCorrect = selected === question.answer;
+
+    if (isCorrect) score++;
+
+    const feedback = document.createElement("div");
+    feedback.className = "quiz-feedback";
+
+    const heading = document.createElement("strong");
+    heading.textContent = `${index + 1}. ${isCorrect ? t.correct : t.incorrect}`;
+
+    const explanation = document.createElement("p");
+    explanation.textContent = isCorrect ? question.correct : question.incorrect;
+
+    feedback.append(heading, explanation);
+    quizFeedback.appendChild(feedback);
+  });
+
+  const passed = score >= 4;
+
+  quizScore.textContent = t.score + score + "/5 (" + (score * 20) + "%)";
+  quizScore.className = passed ? "quiz-pass" : "quiz-retry";
+  quizSummary.textContent = passed ? t.passed : t.failed;
+
+  nextModule.hidden = !passed;
+  quizResult.style.display = "block";
+
+  quizResult.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  quizResult.focus();
+});
+
+retryQuiz.addEventListener("click", function() {
+  quizForm.reset();
+  quizResult.style.display = "none";
+  nextModule.hidden = true;
+  quizFeedback.replaceChildren();
+
+  document.getElementById("module-quiz").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+window.addEventListener("storage", function(event) {
+  if (event.key === "desk_language") {
+    setLanguage(event.newValue === "en" ? "en" : "id");
+  }
+});
+
+setLanguage(getSavedLanguage());
+</script>
+
 </body>
 </html>

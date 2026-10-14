@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari breakout, retest, false breakout, dan konfirmasi harga bersama THE DESK Academy.">
-  <title>Breakout &amp; Retest | THE DESK Academy</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Pelajari breakout, retest, false breakout, dan konfirmasi harga bersama THE DESK Academy.">
+  <title>Breakout & Retest | THE DESK Academy</title>
 
   <style>
     :root {
@@ -20,7 +20,13 @@
       --red: #ff8585;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -31,9 +37,32 @@
     }
 
     .container {
-      width: min(900px, 92%);
+      width: min(960px, 90%);
       margin: auto;
       padding: 30px 0 60px;
+    }
+
+    .language-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .lang-btn {
+      padding: 7px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #111;
     }
 
     nav {
@@ -48,7 +77,7 @@
 
     .brand {
       color: var(--gold);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 2px;
     }
@@ -58,7 +87,9 @@
       text-decoration: none;
     }
 
-    a:hover { opacity: .8; }
+    a:hover {
+      opacity: .8;
+    }
 
     .eyebrow {
       color: var(--gold);
@@ -69,14 +100,18 @@
     }
 
     h1 {
-      margin: 14px 0;
-      font-size: clamp(34px, 6vw, 48px);
-      line-height: 1.15;
-      letter-spacing: -1px;
+      margin: 16px 0;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span {
+      color: var(--gold);
     }
 
     h2 {
-      margin: 36px 0 12px;
+      margin: 20px 0 14px;
       color: var(--gold);
       font-size: 23px;
       line-height: 1.4;
@@ -87,10 +122,13 @@
       font-size: 17px;
     }
 
-    p, li { color: #c1c7cf; }
+    p,
+    li {
+      color: #c1c7cf;
+    }
 
     .intro {
-      margin: 16px 0 24px;
+      margin: 18px 0 24px;
       color: var(--muted);
       font-size: 15px;
     }
@@ -99,7 +137,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
     .tag {
@@ -124,13 +162,20 @@
       border-radius: 6px;
     }
 
-    .concept h3 { color: #f0d59d; }
+    .concept h3 {
+      color: #f0d59d;
+    }
+
+    .concept p {
+      margin-bottom: 0;
+    }
 
     .insight {
       margin: 22px 0;
       padding: 18px;
       background: var(--panel);
       border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
     }
 
     .insight strong {
@@ -139,7 +184,9 @@
       letter-spacing: 1px;
     }
 
-    .insight p { margin-bottom: 0; }
+    .insight p {
+      margin-bottom: 0;
+    }
 
     .comparison {
       width: 100%;
@@ -148,7 +195,8 @@
       font-size: 13px;
     }
 
-    .comparison th, .comparison td {
+    .comparison th,
+    .comparison td {
       padding: 12px;
       border: 1px solid var(--border);
       text-align: left;
@@ -160,6 +208,14 @@
       background: var(--panel);
     }
 
+    .quiz-panel {
+      margin-top: 35px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+    }
+
     .quiz-question {
       margin: 20px 0;
       padding: 18px;
@@ -168,7 +224,7 @@
       border-radius: 6px;
     }
 
-    .quiz-question p {
+    .quiz-question>p {
       margin-top: 0;
       color: #e8ebef;
       font-weight: 600;
@@ -178,17 +234,19 @@
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      margin: 10px 0;
+      margin: 12px 0;
       color: #c1c7cf;
       cursor: pointer;
+      line-height: 1.6;
     }
 
     .option input {
+      flex: 0 0 auto;
       margin-top: 7px;
       accent-color: var(--gold);
     }
 
-    button {
+    button.action {
       padding: 12px 18px;
       border: 1px solid var(--gold);
       border-radius: 4px;
@@ -199,9 +257,16 @@
     }
 
     button.secondary {
-      margin-left: 6px;
+      margin-left: 8px;
       background: transparent;
       color: var(--gold);
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
     }
 
     #result {
@@ -220,13 +285,22 @@
       font-size: 14px;
     }
 
-    .correct { color: var(--green); }
-    .incorrect { color: var(--red); }
+    .explanation p {
+      margin-bottom: 0;
+    }
+
+    .correct {
+      color: var(--green);
+    }
+
+    .incorrect {
+      color: var(--red);
+    }
 
     #nextModule {
       display: none;
-      margin-top: 20px;
-      padding: 18px;
+      margin-top: 22px;
+      padding: 20px;
       background: var(--panel);
       border: 1px solid var(--gold);
       border-radius: 6px;
@@ -242,15 +316,43 @@
     }
 
     @media (max-width: 600px) {
-      nav { align-items: flex-start; }
-      .container { padding-top: 20px; }
+      .container {
+        padding-top: 20px;
+      }
 
-      .comparison { font-size: 11px; }
+      nav {
+        align-items: flex-start;
+      }
 
-      .comparison th, .comparison td { padding: 8px; }
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .quiz-panel {
+        padding: 15px;
+      }
+
+      .comparison {
+        font-size: 11px;
+      }
+
+      .comparison th,
+      .comparison td {
+        padding: 8px;
+      }
+
+      button.action {
+        margin: 5px 0;
+      }
 
       button.secondary {
-        margin: 10px 0 0;
+        margin-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -259,413 +361,658 @@
 <body>
   <main class="container">
 
+    <div class="language-bar">
+      <button type="button" class="lang-btn" data-lang="id">ID</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <nav>
       <div class="brand">THE DESK / ACADEMY</div>
-      <a href="technical.html">← Technical Analysis</a>
+      <a href="technical.html" data-i18n="back">← Technical Analysis</a>
     </nav>
 
     <header>
-      <div class="eyebrow">Technical Analysis · Module 04</div>
-      <h1>Breakout &amp; Retest</h1>
+      <div class="eyebrow" data-i18n="eyebrow">TECHNICAL ANALYSIS · MODULE 04</div>
 
-      <p class="intro">
+      <h1>
+        <span data-i18n="title1">Breakout</span><br>
+        <span data-i18n="title2">& Retest.</span>
+      </h1>
+
+      <p class="intro" data-i18n="intro">
         Pelajari cara membaca penembusan level penting, memahami retest,
         mengenali false breakout, dan menghindari entry yang terburu-buru.
       </p>
 
       <div class="meta">
-        <span class="tag">LEVEL: INTERMEDIATE</span>
-        <span class="tag">5 QUIZ QUESTIONS</span>
-        <span class="tag">PASSING SCORE: 80%</span>
+        <span class="tag" data-i18n="tag1">GRATIS · MENENGAH</span>
+        <span class="tag" data-i18n="tag2">INTERMEDIATE</span>
+        <span class="tag" data-i18n="tag3">5 PERTANYAAN</span>
+        <span class="tag" data-i18n="tag4">KELULUSAN 80%</span>
       </div>
     </header>
 
     <section class="section">
-      <div class="eyebrow">01 · BREAKOUT BASICS</div>
-      <h2>Apa Itu Breakout?</h2>
+      <div class="eyebrow" data-i18n="eyebrow1">01 · BREAKOUT BASICS</div>
+      <h2 data-i18n="section1">Apa Itu Breakout?</h2>
 
-      <p>
-        Breakout terjadi ketika harga bergerak melewati area penting,
-        seperti support, resistance, atau batas konsolidasi. Penembusan
-        dapat menunjukkan perubahan perilaku harga, tetapi tidak otomatis
-        berarti pergerakan akan berlanjut.
+      <p data-i18n="p1">
+        Breakout terjadi ketika harga bergerak melewati area penting, seperti
+        support, resistance, atau batas konsolidasi. Penembusan dapat menunjukkan
+        perubahan perilaku harga, tetapi tidak otomatis berarti pergerakan akan berlanjut.
       </p>
 
       <div class="concept">
-        <h3>Bullish Breakout</h3>
-        <p>
-          Harga menembus resistance atau batas atas rentang. Trader
-          kemudian mengamati apakah harga mampu bertahan di atas area
-          tersebut dan apakah momentum berlanjut.
+        <h3 data-i18n="bullishTitle">Bullish Breakout</h3>
+        <p data-i18n="bullish">
+          Harga menembus resistance atau batas atas rentang. Trader kemudian
+          mengamati apakah harga mampu bertahan di atas area tersebut dan apakah momentum berlanjut.
         </p>
       </div>
 
       <div class="concept">
-        <h3>Bearish Breakout</h3>
-        <p>
-          Harga menembus support atau batas bawah rentang. Trader
-          mengamati apakah harga bertahan di bawah area tersebut
-          atau justru kembali masuk ke rentang sebelumnya.
+        <h3 data-i18n="bearishTitle">Bearish Breakout</h3>
+        <p data-i18n="bearish">
+          Harga menembus support atau batas bawah rentang. Trader mengamati
+          apakah harga bertahan di bawah area tersebut atau kembali masuk ke rentang sebelumnya.
         </p>
       </div>
 
       <div class="insight">
-        <strong>KEY INSIGHT</strong>
-        <p>
-          Penembusan level adalah informasi awal. Kualitas setup perlu
-          dinilai melalui konteks pasar, penutupan candle, dan respons
-          harga setelah penembusan.
+        <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+        <p data-i18n="insight1">
+          Penembusan level adalah informasi awal. Kualitas setup perlu dinilai
+          melalui konteks pasar, penutupan candle, dan respons harga setelah penembusan.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="eyebrow">02 · BREAKOUT CONFIRMATION</div>
-      <h2>Mengamati Konfirmasi</h2>
+      <div class="eyebrow" data-i18n="eyebrow2">02 · BREAKOUT CONFIRMATION</div>
+      <h2 data-i18n="section2">Mengamati Konfirmasi</h2>
 
-      <p>
+      <p data-i18n="p2">
         Tidak ada satu indikator atau bentuk candle yang dapat memastikan
-        breakout akan berhasil. Namun, beberapa hal dapat membantu
-        mengevaluasi kualitas penembusan.
+        breakout akan berhasil. Namun, beberapa hal dapat membantu mengevaluasi kualitas penembusan.
       </p>
 
       <ul>
-        <li><strong>Penutupan candle:</strong> periksa apakah candle berakhir di luar zona.</li>
-        <li><strong>Momentum:</strong> amati apakah pergerakan menunjukkan dorongan yang konsisten.</li>
-        <li><strong>Konteks:</strong> pertimbangkan struktur harga dan kondisi pasar saat itu.</li>
-        <li><strong>Invalidasi:</strong> tentukan kondisi yang membatalkan skenario sebelum entry.</li>
+        <li><strong data-i18n="closeLabel">Penutupan candle:</strong> <span data-i18n="closeText">periksa apakah candle
+            berakhir di luar zona.</span></li>
+        <li><strong data-i18n="momentumLabel">Momentum:</strong> <span data-i18n="momentumText">amati apakah pergerakan
+            menunjukkan dorongan yang konsisten.</span></li>
+        <li><strong data-i18n="contextLabel">Konteks:</strong> <span data-i18n="contextText">pertimbangkan struktur
+            harga dan kondisi pasar saat itu.</span></li>
+        <li><strong data-i18n="invalidationLabel">Invalidasi:</strong> <span data-i18n="invalidationText">tentukan
+            kondisi yang membatalkan skenario sebelum entry.</span></li>
       </ul>
 
       <div class="insight">
-        <strong>IMPORTANT</strong>
-        <p>
-          Konfirmasi membantu menilai probabilitas, bukan menghilangkan
-          risiko false breakout.
+        <strong data-i18n="important">IMPORTANT</strong>
+        <p data-i18n="insight2">
+          Konfirmasi membantu menilai probabilitas, bukan menghilangkan risiko false breakout.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="eyebrow">03 · RETEST</div>
-      <h2>Memahami Retest</h2>
+      <div class="eyebrow" data-i18n="eyebrow3">03 · RETEST</div>
+      <h2 data-i18n="section3">Memahami Retest</h2>
 
-      <p>
-        Retest adalah kondisi ketika harga kembali menguji area yang baru
-        ditembus. Setelah resistance ditembus, area tersebut dapat berperan
-        sebagai support. Setelah support ditembus, area tersebut dapat
-        berperan sebagai resistance.
+      <p data-i18n="p3">
+        Retest adalah kondisi ketika harga kembali menguji area yang baru ditembus.
+        Setelah resistance ditembus, area tersebut dapat berperan sebagai support.
+        Setelah support ditembus, area tersebut dapat berperan sebagai resistance.
       </p>
 
       <div class="concept">
-        <h3>Retest setelah bullish breakout</h3>
-        <p>
+        <h3 data-i18n="bullRetestTitle">Retest setelah bullish breakout</h3>
+        <p data-i18n="bullRetest">
           Harga menembus resistance, kemudian kembali menguji area tersebut.
-          Jika harga bertahan dan kembali naik, perilaku ini dapat mendukung
-          skenario bullish.
+          Jika harga bertahan dan kembali naik, perilaku ini dapat mendukung skenario bullish.
         </p>
       </div>
 
       <div class="concept">
-        <h3>Retest setelah bearish breakout</h3>
-        <p>
+        <h3 data-i18n="bearRetestTitle">Retest setelah bearish breakout</h3>
+        <p data-i18n="bearRetest">
           Harga menembus support, kemudian naik kembali menguji area tersebut.
-          Jika harga gagal menembus kembali area dan bergerak turun, perilaku
-          ini dapat mendukung skenario bearish.
+          Jika harga gagal menembus kembali area dan bergerak turun, perilaku ini dapat mendukung skenario bearish.
         </p>
       </div>
 
-      <p>
-        Retest tidak selalu terjadi. Harga juga dapat melanjutkan pergerakan
-        tanpa kembali menguji level yang ditembus.
+      <p data-i18n="p4">
+        Retest tidak selalu terjadi. Harga juga dapat melanjutkan pergerakan tanpa kembali menguji level yang ditembus.
       </p>
     </section>
 
     <section class="section">
-      <div class="eyebrow">04 · FALSE BREAKOUT</div>
-      <h2>Mengenali False Breakout</h2>
+      <div class="eyebrow" data-i18n="eyebrow4">04 · FALSE BREAKOUT</div>
+      <h2 data-i18n="section4">Mengenali False Breakout</h2>
 
-      <p>
+      <p data-i18n="p5">
         False breakout terjadi ketika harga tampak menembus level penting,
-        tetapi kemudian kembali ke dalam rentang sebelumnya. Kondisi ini
-        dapat membuat trader yang masuk terlalu cepat terjebak pada arah
-        yang salah.
+        tetapi kemudian kembali ke dalam rentang sebelumnya. Kondisi ini dapat
+        membuat trader yang masuk terlalu cepat terjebak pada arah yang salah.
       </p>
 
-      <table class="comparison">
-        <thead>
-          <tr>
-            <th>Kondisi</th>
-            <th>Yang Perlu Diamati</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Breakout berlanjut</td>
-            <td>Harga bertahan di luar level dan menunjukkan kelanjutan pergerakan.</td>
-          </tr>
-          <tr>
-            <td>False breakout</td>
-            <td>Harga kembali ke dalam rentang setelah sempat menembus level.</td>
-          </tr>
-          <tr>
-            <td>Breakout belum jelas</td>
-            <td>Harga bergerak di sekitar level tanpa arah lanjutan yang meyakinkan.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="overflow-x:auto">
+        <table class="comparison">
+          <thead>
+            <tr>
+              <th data-i18n="table1">Kondisi</th>
+              <th data-i18n="table2">Yang Perlu Diamati</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="row1title">Breakout berlanjut</td>
+              <td data-i18n="row1">Harga bertahan di luar level dan menunjukkan kelanjutan pergerakan.</td>
+            </tr>
+            <tr>
+              <td>False breakout</td>
+              <td data-i18n="row2">Harga kembali ke dalam rentang setelah sempat menembus level.</td>
+            </tr>
+            <tr>
+              <td data-i18n="row3title">Breakout belum jelas</td>
+              <td data-i18n="row3">Harga bergerak di sekitar level tanpa arah lanjutan yang meyakinkan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="insight">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
+        <strong data-i18n="principle">THE DESK PRINCIPLE</strong>
+        <p data-i18n="insight3">
           Jangan mengejar harga hanya karena level baru saja ditembus.
-          Tunggu informasi yang sesuai dengan rencana trading dan
-          pertimbangkan kemungkinan penembusan gagal.
+          Tunggu informasi yang sesuai dengan rencana trading dan pertimbangkan kemungkinan penembusan gagal.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="eyebrow">05 · EXECUTION &amp; RISK</div>
-      <h2>Menyusun Rencana Entry</h2>
+      <div class="eyebrow" data-i18n="eyebrow5">05 · EXECUTION & RISK</div>
+      <h2 data-i18n="section5">Menyusun Rencana Entry</h2>
 
-      <p>
+      <p data-i18n="p6">
         Breakout dapat dianalisis dengan pendekatan entry langsung setelah
         konfirmasi atau menunggu retest. Keduanya memiliki kelebihan dan
         kekurangan, dan tidak ada metode yang selalu lebih baik.
       </p>
 
       <ul>
-        <li>Tentukan level yang menjadi acuan breakout.</li>
-        <li>Tetapkan kondisi konfirmasi sesuai metode yang digunakan.</li>
-        <li>Tentukan stop loss atau titik invalidasi sebelum entry.</li>
-        <li>Hitung ukuran posisi berdasarkan batas risiko.</li>
-        <li>Jangan memaksakan entry ketika setup tidak memenuhi kriteria.</li>
+        <li data-i18n="list1">Tentukan level yang menjadi acuan breakout.</li>
+        <li data-i18n="list2">Tetapkan kondisi konfirmasi sesuai metode yang digunakan.</li>
+        <li data-i18n="list3">Tentukan stop loss atau titik invalidasi sebelum entry.</li>
+        <li data-i18n="list4">Hitung ukuran posisi berdasarkan batas risiko.</li>
+        <li data-i18n="list5">Jangan memaksakan entry ketika setup tidak memenuhi kriteria.</li>
       </ul>
 
       <div class="insight">
-        <strong>KEY TAKEAWAY</strong>
-        <p>
-          Setup yang baik bukan sekadar harga menembus level. Trader perlu
-          memahami konteks, merencanakan entry, dan menerima bahwa setiap
-          breakout tetap memiliki kemungkinan gagal.
+        <strong data-i18n="takeaway">KEY TAKEAWAY</strong>
+        <p data-i18n="insight4">
+          Setup yang baik bukan sekadar harga menembus level. Trader perlu memahami
+          konteks, merencanakan entry, dan menerima bahwa setiap breakout tetap memiliki kemungkinan gagal.
         </p>
       </div>
     </section>
 
-    <section class="section" id="quiz">
-      <div class="eyebrow">Knowledge Check</div>
-      <h2>Uji Pemahaman Anda</h2>
-      <p>Jawab seluruh pertanyaan. Nilai kelulusan adalah 4 dari 5 atau 80%.</p>
+    <section class="quiz-panel" id="quiz">
+      <div class="eyebrow" data-i18n="quizEyebrow">KNOWLEDGE CHECK</div>
+      <h2 data-i18n="quizTitle">Uji Pemahaman Anda</h2>
+      <p data-i18n="quizIntro">Jawab seluruh pertanyaan. Nilai kelulusan adalah 4 dari 5 atau 80%.</p>
 
       <form id="quizForm">
-
         <div class="quiz-question">
-          <p>1. Apa yang dimaksud breakout?</p>
-          <label class="option">
-            <input type="radio" name="q1" value="a">
-            Harga menembus area penting seperti support atau resistance
-          </label>
-          <label class="option">
-            <input type="radio" name="q1" value="b">
-            Harga selalu berbalik arah setelah menyentuh level
-          </label>
-          <label class="option">
-            <input type="radio" name="q1" value="c">
-            Harga tidak mengalami perubahan
-          </label>
+          <p data-i18n="q1">1. Apa yang dimaksud breakout?</p>
+          <label class="option"><input type="radio" name="q1" value="a"><span data-i18n="q1a">Harga menembus area
+              penting seperti support atau resistance</span></label>
+          <label class="option"><input type="radio" name="q1" value="b"><span data-i18n="q1b">Harga selalu berbalik arah
+              setelah menyentuh level</span></label>
+          <label class="option"><input type="radio" name="q1" value="c"><span data-i18n="q1c">Harga tidak mengalami
+              perubahan</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>2. Mengapa penutupan candle di luar level dapat diamati saat breakout?</p>
-          <label class="option">
-            <input type="radio" name="q2" value="a">
-            Karena hal itu menjamin harga terus bergerak
-          </label>
-          <label class="option">
-            <input type="radio" name="q2" value="b">
-            Karena membantu mengevaluasi apakah penembusan bertahan hingga candle ditutup
-          </label>
-          <label class="option">
-            <input type="radio" name="q2" value="c">
-            Karena stop loss tidak lagi diperlukan
-          </label>
+          <p data-i18n="q2">2. Mengapa penutupan candle di luar level dapat diamati saat breakout?</p>
+          <label class="option"><input type="radio" name="q2" value="a"><span data-i18n="q2a">Karena hal itu menjamin
+              harga terus bergerak</span></label>
+          <label class="option"><input type="radio" name="q2" value="b"><span data-i18n="q2b">Karena membantu
+              mengevaluasi apakah penembusan bertahan hingga candle ditutup</span></label>
+          <label class="option"><input type="radio" name="q2" value="c"><span data-i18n="q2c">Karena stop loss tidak
+              lagi diperlukan</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>3. Apa yang dimaksud retest?</p>
-          <label class="option">
-            <input type="radio" name="q3" value="a">
-            Harga tidak pernah kembali bergerak
-          </label>
-          <label class="option">
-            <input type="radio" name="q3" value="b">
-            Harga selalu membuat level tertinggi baru
-          </label>
-          <label class="option">
-            <input type="radio" name="q3" value="c">
-            Harga kembali menguji area yang baru ditembus
-          </label>
+          <p data-i18n="q3">3. Apa yang dimaksud retest?</p>
+          <label class="option"><input type="radio" name="q3" value="a"><span data-i18n="q3a">Harga tidak pernah kembali
+              bergerak</span></label>
+          <label class="option"><input type="radio" name="q3" value="b"><span data-i18n="q3b">Harga selalu membuat level
+              tertinggi baru</span></label>
+          <label class="option"><input type="radio" name="q3" value="c"><span data-i18n="q3c">Harga kembali menguji area
+              yang baru ditembus</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>4. Apa ciri false breakout?</p>
-          <label class="option">
-            <input type="radio" name="q4" value="a">
-            Harga menembus level lalu kembali ke rentang sebelumnya
-          </label>
-          <label class="option">
-            <input type="radio" name="q4" value="b">
-            Harga selalu bergerak sesuai arah breakout
-          </label>
-          <label class="option">
-            <input type="radio" name="q4" value="c">
-            Harga tidak menyentuh level penting
-          </label>
+          <p data-i18n="q4">4. Apa ciri false breakout?</p>
+          <label class="option"><input type="radio" name="q4" value="a"><span data-i18n="q4a">Harga menembus level lalu
+              kembali ke rentang sebelumnya</span></label>
+          <label class="option"><input type="radio" name="q4" value="b"><span data-i18n="q4b">Harga selalu bergerak
+              sesuai arah breakout</span></label>
+          <label class="option"><input type="radio" name="q4" value="c"><span data-i18n="q4c">Harga tidak menyentuh
+              level penting</span></label>
         </div>
 
         <div class="quiz-question">
-          <p>5. Apa yang perlu dilakukan sebelum entry breakout?</p>
-          <label class="option">
-            <input type="radio" name="q5" value="a">
-            Masuk dengan ukuran posisi terbesar
-          </label>
-          <label class="option">
-            <input type="radio" name="q5" value="b">
-            Menentukan kriteria setup, invalidasi, dan batas risiko
-          </label>
-          <label class="option">
-            <input type="radio" name="q5" value="c">
-            Mengabaikan kemungkinan false breakout
-          </label>
+          <p data-i18n="q5">5. Apa yang perlu dilakukan sebelum entry breakout?</p>
+          <label class="option"><input type="radio" name="q5" value="a"><span data-i18n="q5a">Masuk dengan ukuran posisi
+              terbesar</span></label>
+          <label class="option"><input type="radio" name="q5" value="b"><span data-i18n="q5b">Menentukan kriteria setup,
+              invalidasi, dan batas risiko</span></label>
+          <label class="option"><input type="radio" name="q5" value="c"><span data-i18n="q5c">Mengabaikan kemungkinan
+              false breakout</span></label>
         </div>
 
-        <button type="submit">Periksa Jawaban</button>
-        <button type="button" class="secondary" id="retryButton">Ulangi Kuis</button>
-
+        <button type="submit" class="action" data-i18n="check">Periksa Jawaban</button>
+        <button type="button" class="action secondary" id="retryButton" data-i18n="retry">Ulangi Kuis</button>
       </form>
 
       <div id="result" aria-live="polite"></div>
 
       <div id="nextModule">
-        <strong class="correct">Module 04 completed.</strong>
-        <p>
-          Anda memenuhi nilai minimum. Lanjutkan ke Entry, Stop Loss &amp; Take Profit.
-        </p>
-        <a href="technical-05.html">Lanjut ke Module 05 →</a>
+        <strong class="correct" data-i18n="completed">Modul 04 selesai.</strong>
+        <p data-i18n="passedMessage">Anda memenuhi nilai minimum. Lanjutkan ke Entry, Stop Loss & Take Profit.</p>
+        <a href="technical-05.html" data-i18n="nextLink">Lanjut ke Modul 05 →</a>
       </div>
     </section>
 
     <footer>
-      THE DESK Academy · Educational purposes only.<br>
-      Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.
+      THE DESK Academy · <span data-i18n="footerTitle">Analisis Teknikal</span><br>
+      <span data-i18n="disclaimer">Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi atau jaminan hasil
+        trading.</span>
     </footer>
-
   </main>
 
   <script>
-    const answers = {
-      q1: {
-        correct: "a",
-        explanation: "Breakout adalah pergerakan harga yang menembus area penting, seperti support atau resistance."
-      },
-      q2: {
-        correct: "b",
-        explanation: "Penutupan candle membantu mengevaluasi apakah harga masih berada di luar level ketika periode candle berakhir. Ini bukan jaminan breakout berhasil."
-      },
-      q3: {
-        correct: "c",
-        explanation: "Retest terjadi ketika harga kembali menguji area yang baru ditembus. Retest tidak selalu terjadi pada setiap breakout."
-      },
-      q4: {
-        correct: "a",
-        explanation: "False breakout terjadi ketika harga sempat menembus level, lalu kembali ke dalam rentang sebelumnya."
-      },
-      q5: {
-        correct: "b",
-        explanation: "Sebelum entry, trader perlu menetapkan kriteria setup, titik invalidasi, dan batas risiko."
+    (() => {
+      const translations = {
+        id: {
+          back: "← Technical Analysis",
+          eyebrow: "TECHNICAL ANALYSIS · MODUL 04",
+          title1: "Breakout",
+          title2: "& Retest.",
+          intro: "Pelajari cara membaca penembusan level penting, memahami retest, mengenali false breakout, dan menghindari entry yang terburu-buru.",
+          tag1: "GRATIS · MENENGAH",
+          tag2: "INTERMEDIATE",
+          tag3: "5 PERTANYAAN",
+          tag4: "KELULUSAN 80%",
+          eyebrow1: "01 · BREAKOUT BASICS",
+          section1: "Apa Itu Breakout?",
+          p1: "Breakout terjadi ketika harga bergerak melewati area penting, seperti support, resistance, atau batas konsolidasi. Penembusan dapat menunjukkan perubahan perilaku harga, tetapi tidak otomatis berarti pergerakan akan berlanjut.",
+          bullishTitle: "Bullish Breakout",
+          bullish: "Harga menembus resistance atau batas atas rentang. Trader kemudian mengamati apakah harga mampu bertahan di atas area tersebut dan apakah momentum berlanjut.",
+          bearishTitle: "Bearish Breakout",
+          bearish: "Harga menembus support atau batas bawah rentang. Trader mengamati apakah harga bertahan di bawah area tersebut atau kembali masuk ke rentang sebelumnya.",
+          keyInsight: "KEY INSIGHT",
+          insight1: "Penembusan level adalah informasi awal. Kualitas setup perlu dinilai melalui konteks pasar, penutupan candle, dan respons harga setelah penembusan.",
+          eyebrow2: "02 · BREAKOUT CONFIRMATION",
+          section2: "Mengamati Konfirmasi",
+          p2: "Tidak ada satu indikator atau bentuk candle yang dapat memastikan breakout akan berhasil. Namun, beberapa hal dapat membantu mengevaluasi kualitas penembusan.",
+          closeLabel: "Penutupan candle:",
+          closeText: "periksa apakah candle berakhir di luar zona.",
+          momentumLabel: "Momentum:",
+          momentumText: "amati apakah pergerakan menunjukkan dorongan yang konsisten.",
+          contextLabel: "Konteks:",
+          contextText: "pertimbangkan struktur harga dan kondisi pasar saat itu.",
+          invalidationLabel: "Invalidasi:",
+          invalidationText: "tentukan kondisi yang membatalkan skenario sebelum entry.",
+          important: "PENTING",
+          insight2: "Konfirmasi membantu menilai probabilitas, bukan menghilangkan risiko false breakout.",
+          eyebrow3: "03 · RETEST",
+          section3: "Memahami Retest",
+          p3: "Retest adalah kondisi ketika harga kembali menguji area yang baru ditembus. Setelah resistance ditembus, area tersebut dapat berperan sebagai support. Setelah support ditembus, area tersebut dapat berperan sebagai resistance.",
+          bullRetestTitle: "Retest setelah bullish breakout",
+          bullRetest: "Harga menembus resistance, kemudian kembali menguji area tersebut. Jika harga bertahan dan kembali naik, perilaku ini dapat mendukung skenario bullish.",
+          bearRetestTitle: "Retest setelah bearish breakout",
+          bearRetest: "Harga menembus support, kemudian naik kembali menguji area tersebut. Jika harga gagal menembus kembali area dan bergerak turun, perilaku ini dapat mendukung skenario bearish.",
+          p4: "Retest tidak selalu terjadi. Harga juga dapat melanjutkan pergerakan tanpa kembali menguji level yang ditembus.",
+          eyebrow4: "04 · FALSE BREAKOUT",
+          section4: "Mengenali False Breakout",
+          p5: "False breakout terjadi ketika harga tampak menembus level penting, tetapi kemudian kembali ke dalam rentang sebelumnya. Kondisi ini dapat membuat trader yang masuk terlalu cepat terjebak pada arah yang salah.",
+          table1: "Kondisi",
+          table2: "Yang Perlu Diamati",
+          row1title: "Breakout berlanjut",
+          row1: "Harga bertahan di luar level dan menunjukkan kelanjutan pergerakan.",
+          row2: "Harga kembali ke dalam rentang setelah sempat menembus level.",
+          row3title: "Breakout belum jelas",
+          row3: "Harga bergerak di sekitar level tanpa arah lanjutan yang meyakinkan.",
+          principle: "THE DESK PRINCIPLE",
+          insight3: "Jangan mengejar harga hanya karena level baru saja ditembus. Tunggu informasi yang sesuai dengan rencana trading dan pertimbangkan kemungkinan penembusan gagal.",
+          eyebrow5: "05 · EXECUTION & RISK",
+          section5: "Menyusun Rencana Entry",
+          p6: "Breakout dapat dianalisis dengan pendekatan entry langsung setelah konfirmasi atau menunggu retest. Keduanya memiliki kelebihan dan kekurangan, dan tidak ada metode yang selalu lebih baik.",
+          list1: "Tentukan level yang menjadi acuan breakout.",
+          list2: "Tetapkan kondisi konfirmasi sesuai metode yang digunakan.",
+          list3: "Tentukan stop loss atau titik invalidasi sebelum entry.",
+          list4: "Hitung ukuran posisi berdasarkan batas risiko.",
+          list5: "Jangan memaksakan entry ketika setup tidak memenuhi kriteria.",
+          takeaway: "KEY TAKEAWAY",
+          insight4: "Setup yang baik bukan sekadar harga menembus level. Trader perlu memahami konteks, merencanakan entry, dan menerima bahwa setiap breakout tetap memiliki kemungkinan gagal.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Uji Pemahaman Anda",
+          quizIntro: "Jawab seluruh pertanyaan. Nilai kelulusan adalah 4 dari 5 atau 80%.",
+          q1: "1. Apa yang dimaksud breakout?",
+          q1a: "Harga menembus area penting seperti support atau resistance",
+          q1b: "Harga selalu berbalik arah setelah menyentuh level",
+          q1c: "Harga tidak mengalami perubahan",
+          q2: "2. Mengapa penutupan candle di luar level dapat diamati saat breakout?",
+          q2a: "Karena hal itu menjamin harga terus bergerak",
+          q2b: "Karena membantu mengevaluasi apakah penembusan bertahan hingga candle ditutup",
+          q2c: "Karena stop loss tidak lagi diperlukan",
+          q3: "3. Apa yang dimaksud retest?",
+          q3a: "Harga tidak pernah kembali bergerak",
+          q3b: "Harga selalu membuat level tertinggi baru",
+          q3c: "Harga kembali menguji area yang baru ditembus",
+          q4: "4. Apa ciri false breakout?",
+          q4a: "Harga menembus level lalu kembali ke rentang sebelumnya",
+          q4b: "Harga selalu bergerak sesuai arah breakout",
+          q4c: "Harga tidak menyentuh level penting",
+          q5: "5. Apa yang perlu dilakukan sebelum entry breakout?",
+          q5a: "Masuk dengan ukuran posisi terbesar",
+          q5b: "Menentukan kriteria setup, invalidasi, dan batas risiko",
+          q5c: "Mengabaikan kemungkinan false breakout",
+          check: "Periksa Jawaban",
+          retry: "Ulangi Kuis",
+          completed: "Modul 04 selesai.",
+          passedMessage: "Anda memenuhi nilai minimum. Lanjutkan ke Entry, Stop Loss & Take Profit.",
+          nextLink: "Lanjut ke Modul 05 →",
+          footerTitle: "Analisis Teknikal",
+          disclaimer: "Untuk tujuan edukasi. Materi ini bukan rekomendasi transaksi atau jaminan hasil trading.",
+          unanswered: "Lengkapi semua pertanyaan terlebih dahulu.",
+          notAnswered: "Belum dijawab:",
+          score: "Nilai",
+          passed: "Selamat, Anda lulus modul ini.",
+          failed: "Anda belum lulus. Pelajari kembali materi dan coba lagi.",
+          correct: "Benar",
+          wrong: "Belum tepat",
+          question: "Soal",
+          explanations: [
+            "Breakout adalah pergerakan harga yang menembus area penting, seperti support atau resistance.",
+            "Penutupan candle membantu mengevaluasi apakah harga masih berada di luar level ketika periode candle berakhir. Ini bukan jaminan breakout berhasil.",
+            "Retest terjadi ketika harga kembali menguji area yang baru ditembus. Retest tidak selalu terjadi pada setiap breakout.",
+            "False breakout terjadi ketika harga sempat menembus level, lalu kembali ke dalam rentang sebelumnya.",
+            "Sebelum entry, trader perlu menetapkan kriteria setup, titik invalidasi, dan batas risiko."
+          ]
+        },
+
+        en: {
+          back: "← Technical Analysis",
+          eyebrow: "TECHNICAL ANALYSIS · MODULE 04",
+          title1: "Breakout",
+          title2: "& Retest.",
+          intro: "Learn to read breaks of key levels, understand retests, recognize false breakouts, and avoid rushed entries.",
+          tag1: "FREE · INTERMEDIATE",
+          tag2: "INTERMEDIATE",
+          tag3: "5 QUESTIONS",
+          tag4: "80% PASSING SCORE",
+          eyebrow1: "01 · BREAKOUT BASICS",
+          section1: "What Is a Breakout?",
+          p1: "A breakout occurs when price moves beyond an important area, such as support, resistance, or a consolidation boundary. A break may signal a change in price behavior, but it does not automatically mean the move will continue.",
+          bullishTitle: "Bullish Breakout",
+          bullish: "Price breaks above resistance or the upper boundary of a range. Traders then observe whether price can hold above the area and whether momentum continues.",
+          bearishTitle: "Bearish Breakout",
+          bearish: "Price breaks below support or the lower boundary of a range. Traders observe whether price stays below the area or returns to the previous range.",
+          keyInsight: "KEY INSIGHT",
+          insight1: "A break is initial information. Setup quality should be assessed through market context, candle closes, and price behavior after the break.",
+          eyebrow2: "02 · BREAKOUT CONFIRMATION",
+          section2: "Observing Confirmation",
+          p2: "No single indicator or candle pattern can ensure a breakout will succeed. However, several factors can help assess the quality of a break.",
+          closeLabel: "Candle close:",
+          closeText: "check whether the candle closes outside the zone.",
+          momentumLabel: "Momentum:",
+          momentumText: "observe whether the move shows consistent strength.",
+          contextLabel: "Context:",
+          contextText: "consider market structure and current conditions.",
+          invalidationLabel: "Invalidation:",
+          invalidationText: "define what would invalidate the scenario before entry.",
+          important: "IMPORTANT",
+          insight2: "Confirmation helps assess probability; it does not eliminate false-breakout risk.",
+          eyebrow3: "03 · RETEST",
+          section3: "Understanding Retests",
+          p3: "A retest occurs when price returns to test an area it has just broken. After resistance breaks, the area may act as support. After support breaks, the area may act as resistance.",
+          bullRetestTitle: "Retest after a bullish breakout",
+          bullRetest: "Price breaks resistance and then returns to test the area. If price holds and rises again, this behavior may support a bullish scenario.",
+          bearRetestTitle: "Retest after a bearish breakout",
+          bearRetest: "Price breaks support and then rises to test the area again. If price fails to reclaim the area and moves lower, this behavior may support a bearish scenario.",
+          p4: "A retest does not always occur. Price may continue moving without returning to test the broken level.",
+          eyebrow4: "04 · FALSE BREAKOUT",
+          section4: "Recognizing False Breakouts",
+          p5: "A false breakout occurs when price appears to break an important level but then returns to the previous range. Traders who enter too early may get caught on the wrong side.",
+          table1: "Condition",
+          table2: "What to Observe",
+          row1title: "Breakout continues",
+          row1: "Price holds outside the level and shows continued movement.",
+          row2: "Price returns to the previous range after briefly breaking the level.",
+          row3title: "Unclear breakout",
+          row3: "Price moves around the level without convincing follow-through.",
+          principle: "THE DESK PRINCIPLE",
+          insight3: "Do not chase price just because a level has been broken. Wait for information that fits your trading plan and consider the possibility of a failed break.",
+          eyebrow5: "05 · EXECUTION & RISK",
+          section5: "Building an Entry Plan",
+          p6: "Breakouts can be approached with an entry after confirmation or by waiting for a retest. Both approaches have advantages and disadvantages; neither is always better.",
+          list1: "Identify the level used as the breakout reference.",
+          list2: "Define confirmation conditions for your chosen method.",
+          list3: "Set a stop loss or invalidation point before entry.",
+          list4: "Calculate position size based on your risk limit.",
+          list5: "Do not force an entry when the setup fails to meet your criteria.",
+          takeaway: "KEY TAKEAWAY",
+          insight4: "A good setup is more than price breaking a level. Traders must understand context, plan the entry, and accept that every breakout can fail.",
+          quizEyebrow: "KNOWLEDGE CHECK",
+          quizTitle: "Test Your Understanding",
+          quizIntro: "Answer every question. The passing score is 4 out of 5, or 80%.",
+          q1: "1. What is a breakout?",
+          q1a: "Price breaks an important area such as support or resistance",
+          q1b: "Price always reverses after touching a level",
+          q1c: "Price does not change",
+          q2: "2. Why observe a candle close outside a level during a breakout?",
+          q2a: "Because it guarantees price will continue moving",
+          q2b: "Because it helps assess whether the break holds until the candle closes",
+          q2c: "Because a stop loss is no longer necessary",
+          q3: "3. What is a retest?",
+          q3a: "Price never moves again",
+          q3b: "Price always makes a new high",
+          q3c: "Price returns to test the area it has just broken",
+          q4: "4. What characterizes a false breakout?",
+          q4a: "Price breaks a level and then returns to the previous range",
+          q4b: "Price always moves in the breakout direction",
+          q4c: "Price never touches an important level",
+          q5: "5. What should be done before entering a breakout trade?",
+          q5a: "Enter with the largest possible position size",
+          q5b: "Define setup criteria, invalidation, and risk limits",
+          q5c: "Ignore the possibility of a false breakout",
+          check: "Check Answers",
+          retry: "Retry Quiz",
+          completed: "Module 04 completed.",
+          passedMessage: "You have met the passing score. Continue to Entry, Stop Loss & Take Profit.",
+          nextLink: "Continue to Module 05 →",
+          footerTitle: "Technical Analysis",
+          disclaimer: "For educational purposes only. This material is not a trading recommendation or a guarantee of trading results.",
+          unanswered: "Please answer every question first.",
+          notAnswered: "Unanswered:",
+          score: "Score",
+          passed: "Congratulations, you passed this module.",
+          failed: "You have not passed yet. Review the material and try again.",
+          correct: "Correct",
+          wrong: "Incorrect",
+          question: "Question",
+          explanations: [
+            "A breakout is a price move through an important area, such as support or resistance.",
+            "A candle close helps assess whether price remains beyond the level when the candle period ends. It does not guarantee success.",
+            "A retest occurs when price returns to test an area it has just broken. Not every breakout produces a retest.",
+            "A false breakout occurs when price briefly breaks a level and then returns to the previous range.",
+            "Before entry, traders should define setup criteria, an invalidation point, and risk limits."
+          ]
+        }
+      };
+
+      const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "c",
+        q4: "a",
+        q5: "b"
+      };
+
+      const form = document.getElementById("quizForm");
+      const result = document.getElementById("result");
+      const nextModule = document.getElementById("nextModule");
+      const retryButton = document.getElementById("retryButton");
+      const languageButtons = document.querySelectorAll("[data-lang]");
+
+      let currentLanguage = "id";
+      let quizSubmitted = false;
+
+      function getSavedLanguage() {
+        try {
+          const saved = localStorage.getItem("desk_language");
+          return translations[saved] ? saved : "id";
+        } catch (error) {
+          return "id";
+        }
       }
-    };
 
-    const form = document.getElementById("quizForm");
-    const result = document.getElementById("result");
-    const nextModule = document.getElementById("nextModule");
-    const retryButton = document.getElementById("retryButton");
+      function applyLanguage(language) {
+        currentLanguage = translations[language] ? language : "id";
+        const t = translations[currentLanguage];
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
+        document.documentElement.lang = currentLanguage;
 
-      let score = 0;
-      const unanswered = [];
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+          const key = element.dataset.i18n;
+          if (Object.prototype.hasOwnProperty.call(t, key)) {
+            element.textContent = t[key];
+          }
+        });
 
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector(
-          'input[name="' + key + '"]:checked'
-        );
+        languageButtons.forEach(button => {
+          const active = button.dataset.lang === currentLanguage;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
 
-        if (!selected) {
-          unanswered.push(index + 1);
-        } else if (selected.value === answers[key].correct) {
-          score++;
+        if (quizSubmitted) gradeQuiz(false);
+      }
+
+      languageButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const language = button.dataset.lang;
+
+          try {
+            localStorage.setItem("desk_language", language);
+          } catch (error) {
+            // Pilihan bahasa tetap bekerja untuk halaman ini.
+          }
+
+          applyLanguage(language);
+        });
+      });
+
+      function gradeQuiz(scrollToResult = true) {
+        const t = translations[currentLanguage];
+        let score = 0;
+        const unanswered = [];
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+
+          if (!selected) {
+            unanswered.push(index + 1);
+          } else if (selected.value === answers[key]) {
+            score++;
+          }
+        });
+
+        if (unanswered.length > 0) {
+          quizSubmitted = false;
+          result.style.display = "block";
+          result.innerHTML =
+            "<strong class='incorrect'>" + t.unanswered + "</strong>" +
+            "<p>" + t.notAnswered + " " + unanswered.join(", ") + "</p>";
+
+          nextModule.style.display = "none";
+
+          if (scrollToResult) {
+            result.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          return;
+        }
+
+        quizSubmitted = true;
+        let details = "";
+
+        Object.keys(answers).forEach((key, index) => {
+          const selected = form.querySelector(
+            'input[name="' + key + '"]:checked'
+          );
+          const isCorrect = selected.value === answers[key];
+
+          details +=
+            "<div class='explanation'>" +
+            "<strong class='" + (isCorrect ? "correct" : "incorrect") + "'>" +
+            t.question + " " + (index + 1) + ": " +
+            (isCorrect ? t.correct : t.wrong) +
+            "</strong><p>" + t.explanations[index] + "</p></div>";
+        });
+
+        const passed = score >= 4;
+
+        result.style.display = "block";
+        result.innerHTML =
+          "<h3>" + t.score + ": " + score + "/5 (" + (score * 20) + "%)</h3>" +
+          "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
+          (passed ? t.passed : t.failed) + "</p>" + details;
+
+        nextModule.style.display = passed ? "block" : "none";
+
+        if (scrollToResult) {
+          result.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        gradeQuiz();
+      });
+
+      retryButton.addEventListener("click", () => {
+        form.reset();
+        quizSubmitted = false;
+        result.style.display = "none";
+        result.innerHTML = "";
+        nextModule.style.display = "none";
+
+        document.getElementById("quiz").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+
+      applyLanguage(getSavedLanguage());
+
+      window.addEventListener("storage", event => {
+        if (event.key === "desk_language" || event.key === null) {
+          applyLanguage(getSavedLanguage());
         }
       });
 
-      if (unanswered.length > 0) {
-        result.style.display = "block";
-        result.innerHTML =
-          "<strong class='incorrect'>Lengkapi semua pertanyaan terlebih dahulu.</strong>" +
-          "<p>Belum dijawab: " + unanswered.join(", ") + "</p>";
-
-        nextModule.style.display = "none";
-        return;
-      }
-
-      let details = "";
-
-      Object.keys(answers).forEach(function(key, index) {
-        const selected = form.querySelector(
-          'input[name="' + key + '"]:checked'
-        );
-
-        const isCorrect = selected.value === answers[key].correct;
-
-        details +=
-          "<div class='explanation'>" +
-          "<strong class='" + (isCorrect ? "correct" : "incorrect") + "'>" +
-          "Soal " + (index + 1) + ": " +
-          (isCorrect ? "Benar" : "Belum tepat") +
-          "</strong><p>" + answers[key].explanation + "</p></div>";
+      window.addEventListener("pageshow", () => {
+        applyLanguage(getSavedLanguage());
       });
-
-      const passed = score >= 4;
-
-      result.style.display = "block";
-      result.innerHTML =
-        "<h3>Nilai: " + score + "/5 (" + (score * 20) + "%)</h3>" +
-        "<p class='" + (passed ? "correct" : "incorrect") + "'>" +
-        (passed
-          ? "Selamat, Anda lulus modul ini."
-          : "Anda belum lulus. Pelajari kembali materi dan coba lagi.") +
-        "</p>" + details;
-
-      nextModule.style.display = passed ? "block" : "none";
-
-      result.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
-
-    retryButton.addEventListener("click", function() {
-      form.reset();
-      result.style.display = "none";
-      result.innerHTML = "";
-      nextModule.style.display = "none";
-
-      document.getElementById("quiz").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+    })();
   </script>
+
 </body>
+
 </html>

@@ -1,71 +1,377 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari peran bank sentral, institusi keuangan, perusahaan, investor, dan trader bersama THE DESK Academy.">
-  <title>Module 04 | Market Participants</title>
+  <meta name="description" content="THE DESK Academy Module 04: Market Participants. Learn about central banks, financial institutions, companies, investors and traders.">
+  <title>Module 04 | Market Participants — THE DESK Academy</title>
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-    .module-page{max-width:960px;margin:auto;padding:44px 24px 80px}
-    .module-back{color:var(--gold,#c9a45c);text-decoration:none;font-size:13px}
-    .module-hero{padding:40px 0 34px;border-bottom:1px solid var(--border,#262c33)}
-    .module-eyebrow{color:var(--gold,#c9a45c);font-size:11px;font-weight:700;letter-spacing:2px}
-    .module-hero h1{font-size:clamp(36px,6vw,58px);line-height:1.1;margin:18px 0}
-    .module-hero p,.module-section p{color:var(--muted,#939ba6);line-height:1.85}
-    .module-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .module-tag{border:1px solid var(--border,#262c33);padding:7px 10px;border-radius:4px;font-size:10px;letter-spacing:1px}
-    .module-section{padding:28px 0;border-bottom:1px solid var(--border,#262c33)}
-    .module-section h2{font-size:24px;margin:12px 0}
-    .module-section h3{font-size:17px;margin-top:24px}
-    .module-list{padding-left:22px;color:var(--muted,#939ba6);line-height:1.9}
-    .module-note{margin-top:20px;padding:18px;background:var(--panel,#11151a);border-left:3px solid var(--gold,#c9a45c);line-height:1.8}
-    .quiz-question{margin:22px 0;padding:18px;border:1px solid var(--border,#262c33);border-radius:6px}
-    .quiz-question legend{padding:0 5px;font-weight:600;line-height:1.7}
-    .quiz-option{display:block;padding:9px 0;cursor:pointer;line-height:1.6}
-    .quiz-option input{margin-right:8px;accent-color:var(--gold,#c9a45c)}
-    .quiz-button,.module-next{display:inline-block;padding:13px 18px;background:var(--gold,#c9a45c);color:#111;border:0;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
-    .quiz-result{display:none;margin-top:24px;padding:20px;border:1px solid var(--border,#262c33);border-radius:6px;line-height:1.8}
-    .quiz-result h3{margin-top:0}
-    .quiz-feedback{padding:12px 0;border-top:1px solid var(--border,#262c33)}
-    .quiz-feedback p{margin:6px 0;color:var(--muted,#939ba6)}
-    .quiz-pass{color:var(--green,#42c994)}
-    .quiz-retry{color:var(--gold,#c9a45c)}
-    .module-next{margin-top:24px}
-    .module-next[hidden]{display:none}
-    @media(max-width:600px){.module-page{padding:30px 18px 56px}}
+    :root {
+      --gold: #c9a45c;
+      --bg: #090b0e;
+      --panel: #11151a;
+      --border: #262c33;
+      --muted: #939ba6;
+      --text: #e8e9eb;
+      --green: #42c994;
+      --red: #ef7777;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .module-page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+    }
+
+    .module-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .module-back {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .module-back:hover {
+      color: #f1d59a;
+    }
+
+    .language-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 4px;
+      background: var(--panel);
+    }
+
+    .language-switch button {
+      border: 0;
+      border-radius: 3px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .language-switch button.active {
+      color: #111;
+      background: var(--gold);
+    }
+
+    .module-hero {
+      padding: 28px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1.8;
+    }
+
+    .module-hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.1;
+      margin: 18px 0;
+      letter-spacing: -1.5px;
+    }
+
+    .module-hero p,
+    .module-section p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 14px;
+    }
+
+    .module-hero p {
+      max-width: 700px;
+    }
+
+    .module-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .module-tag {
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--text);
+    }
+
+    .module-section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-section h2 {
+      font-size: clamp(22px, 4vw, 28px);
+      margin: 12px 0;
+      line-height: 1.35;
+    }
+
+    .module-section h3 {
+      font-size: 17px;
+      margin-top: 26px;
+    }
+
+    .module-list {
+      padding-left: 22px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .module-list li {
+      padding-left: 4px;
+      margin-bottom: 6px;
+    }
+
+    .module-note {
+      margin-top: 22px;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .module-note strong {
+      color: var(--gold);
+      letter-spacing: 1px;
+      font-size: 11px;
+    }
+
+    .quiz-intro {
+      margin-bottom: 24px;
+    }
+
+    .quiz-question {
+      min-width: 0;
+      margin: 22px 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .quiz-question legend {
+      max-width: 100%;
+      padding: 0 6px;
+      font-weight: 600;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .quiz-option {
+      display: block;
+      padding: 10px 8px;
+      cursor: pointer;
+      line-height: 1.7;
+      font-size: 13px;
+      color: var(--muted);
+      border-radius: 4px;
+    }
+
+    .quiz-option:hover {
+      background: rgba(201, 164, 92, 0.06);
+      color: var(--text);
+    }
+
+    .quiz-option input {
+      margin-right: 9px;
+      accent-color: var(--gold);
+    }
+
+    .quiz-button,
+    .module-next {
+      display: inline-block;
+      padding: 13px 18px;
+      background: var(--gold);
+      color: #111;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .quiz-button:hover,
+    .module-next:hover {
+      opacity: 0.88;
+    }
+
+    .quiz-result {
+      display: none;
+      margin-top: 26px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .quiz-result h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .quiz-pass {
+      color: var(--green);
+    }
+
+    .quiz-retry {
+      color: var(--gold);
+    }
+
+    .quiz-feedback {
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .quiz-feedback p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .feedback-correct {
+      color: var(--green);
+    }
+
+    .feedback-incorrect {
+      color: var(--red);
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .quiz-retry-button {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .module-next[hidden] {
+      display: none;
+    }
+
+    .module-footer {
+      padding-top: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .module-page {
+        padding: 22px 18px 56px;
+      }
+
+      .module-hero {
+        padding-top: 20px;
+      }
+
+      .module-hero h1 {
+        letter-spacing: -0.8px;
+      }
+
+      .quiz-question {
+        padding: 14px;
+      }
+
+      .quiz-button,
+      .module-next {
+        text-align: center;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="module-page">
-    <a class="module-back" href="fundamentals.html">← Back to Fundamentals</a>
+
+    <div class="module-topbar">
+      <a class="module-back" href="fundamentals.html"
+         data-i18n="backTop">← Kembali ke Fundamentals</a>
+
+      <div class="language-switch" aria-label="Language selection">
+        <button type="button" id="langID" class="active"
+                aria-pressed="true">ID</button>
+        <button type="button" id="langEN"
+                aria-pressed="false">EN</button>
+      </div>
+    </div>
 
     <header class="module-hero">
-      <span class="module-eyebrow">THE DESK ACADEMY · MODULE 04</span>
-      <h1>Market<br>Participants.</h1>
-      <p>
+      <span class="module-eyebrow" data-i18n="eyebrow">
+        THE DESK ACADEMY · MODULE 04
+      </span>
+
+      <h1 data-i18n="title">Market Participants.</h1>
+
+      <p data-i18n="heroDescription">
         Pasar keuangan terdiri dari berbagai pelaku dengan tujuan
         berbeda. Kenali peran mereka untuk memahami konteks di
         balik aktivitas pasar.
       </p>
+
       <div class="module-tags">
-        <span class="module-tag">FREE · BASIC</span>
-        <span class="module-tag">BEGINNER</span>
-        <span class="module-tag">5 QUESTIONS</span>
+        <span class="module-tag" data-i18n="tag1">FREE · BASIC</span>
+        <span class="module-tag" data-i18n="tag2">BEGINNER</span>
+        <span class="module-tag" data-i18n="tag3">5 QUESTIONS</span>
       </div>
     </header>
 
     <section class="module-section">
-      <span class="module-eyebrow">01 · CENTRAL BANKS</span>
-      <h2>Bank Sentral</h2>
-      <p>
+      <span class="module-eyebrow" data-i18n="section1Label">
+        01 · CENTRAL BANKS
+      </span>
+
+      <h2 data-i18n="section1Title">Bank Sentral</h2>
+
+      <p data-i18n="section1P1">
         Bank sentral menjalankan kebijakan moneter sesuai mandatnya.
         Kebijakan tersebut dapat mencakup penetapan suku bunga,
         pengelolaan likuiditas, dan komunikasi mengenai prospek ekonomi.
       </p>
-      <p>
+
+      <p data-i18n="section1P2">
         Contohnya, Federal Reserve (The Fed) memengaruhi kondisi
         moneter Amerika Serikat. Keputusan dan pernyataannya dapat
         mengubah ekspektasi pasar terhadap dolar AS, obligasi, Gold,
@@ -74,14 +380,19 @@
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">02 · BANKS & FINANCIAL INSTITUTIONS</span>
-      <h2>Bank dan Institusi Keuangan</h2>
-      <p>
+      <span class="module-eyebrow" data-i18n="section2Label">
+        02 · BANKS & FINANCIAL INSTITUTIONS
+      </span>
+
+      <h2 data-i18n="section2Title">Bank dan Institusi Keuangan</h2>
+
+      <p data-i18n="section2P1">
         Bank dan institusi keuangan memfasilitasi transaksi,
         menyediakan layanan keuangan, serta mengelola risiko dan
         eksposur mereka sendiri maupun klien.
       </p>
-      <p>
+
+      <p data-i18n="section2P2">
         Aktivitas mereka merupakan bagian dari aliran transaksi
         di pasar. Namun, pergerakan harga tidak bisa disimpulkan
         hanya dari dugaan aktivitas satu institusi tertentu.
@@ -89,14 +400,19 @@
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">03 · COMPANIES & HEDGERS</span>
-      <h2>Perusahaan dan Hedger</h2>
-      <p>
+      <span class="module-eyebrow" data-i18n="section3Label">
+        03 · COMPANIES & HEDGERS
+      </span>
+
+      <h2 data-i18n="section3Title">Perusahaan dan Hedger</h2>
+
+      <p data-i18n="section3P1">
         Perusahaan dapat bertransaksi di pasar keuangan untuk
         kebutuhan operasional, pembayaran lintas negara,
         pendanaan, atau mengurangi risiko perubahan harga.
       </p>
-      <p>
+
+      <p data-i18n="section3P2">
         Sebagai contoh, perusahaan yang memiliki kewajiban
         pembayaran dalam mata uang asing dapat menggunakan
         instrumen tertentu untuk mengelola risiko nilai tukar.
@@ -106,18 +422,23 @@
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">04 · INVESTORS & TRADERS</span>
-      <h2>Investor dan Trader</h2>
+      <span class="module-eyebrow" data-i18n="section4Label">
+        04 · INVESTORS & TRADERS
+      </span>
 
-      <h3>Investor</h3>
-      <p>
+      <h2 data-i18n="section4Title">Investor dan Trader</h2>
+
+      <h3 data-i18n="investorTitle">Investor</h3>
+
+      <p data-i18n="investorDescription">
         Investor umumnya menempatkan modal dengan mempertimbangkan
         nilai, pertumbuhan, pendapatan, atau tujuan jangka panjang.
         Jangka waktu dan pendekatan tiap investor dapat berbeda.
       </p>
 
-      <h3>Trader</h3>
-      <p>
+      <h3 data-i18n="traderTitle">Trader</h3>
+
+      <p data-i18n="traderDescription">
         Trader biasanya berfokus pada peluang pergerakan harga
         dalam jangka waktu tertentu. Mereka dapat menggunakan
         analisis fundamental, teknikal, atau kombinasi keduanya.
@@ -125,18 +446,35 @@
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">05 · MARKET CONTEXT</span>
-      <h2>Membaca Aktivitas Pasar dengan Bijak</h2>
+      <span class="module-eyebrow" data-i18n="section5Label">
+        05 · MARKET CONTEXT
+      </span>
+
+      <h2 data-i18n="section5Title">
+        Membaca Aktivitas Pasar dengan Bijak
+      </h2>
+
       <ul class="module-list">
-        <li>Pelaku pasar memiliki tujuan, batasan, dan jangka waktu berbeda.</li>
-        <li>Satu transaksi besar tidak otomatis menentukan arah pasar selanjutnya.</li>
-        <li>Harga dipengaruhi interaksi banyak peserta dan informasi.</li>
-        <li>Perubahan kebijakan dapat mengubah ekspektasi, tetapi dampaknya tidak selalu sama.</li>
-        <li>Hindari menganggap suatu kelompok pelaku selalu benar atau selalu mengendalikan harga.</li>
+        <li data-i18n="principle1">
+          Pelaku pasar memiliki tujuan, batasan, dan jangka waktu berbeda.
+        </li>
+        <li data-i18n="principle2">
+          Satu transaksi besar tidak otomatis menentukan arah pasar selanjutnya.
+        </li>
+        <li data-i18n="principle3">
+          Harga dipengaruhi interaksi banyak peserta dan informasi.
+        </li>
+        <li data-i18n="principle4">
+          Perubahan kebijakan dapat mengubah ekspektasi, tetapi dampaknya tidak selalu sama.
+        </li>
+        <li data-i18n="principle5">
+          Hindari menganggap suatu kelompok pelaku selalu benar atau selalu mengendalikan harga.
+        </li>
       </ul>
+
       <div class="module-note">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
+        <strong data-i18n="deskPrinciple">THE DESK PRINCIPLE</strong>
+        <p data-i18n="deskPrincipleText">
           Jangan hanya bertanya siapa yang membeli atau menjual.
           Pertimbangkan juga tujuan transaksi, konteks ekonomi,
           likuiditas, dan informasi yang sudah diperhitungkan pasar.
@@ -145,77 +483,371 @@
     </section>
 
     <section class="module-section" id="module-quiz">
-      <span class="module-eyebrow">KNOWLEDGE CHECK · 5 QUESTIONS</span>
-      <h2>Test Your Understanding</h2>
-      <p>
+      <span class="module-eyebrow" data-i18n="quizLabel">
+        KNOWLEDGE CHECK · 5 QUESTIONS
+      </span>
+
+      <h2 data-i18n="quizTitle">Uji Pemahaman</h2>
+
+      <p class="quiz-intro" data-i18n="quizDescription">
         Jawab lima pertanyaan. Nilai kelulusan adalah 80%,
         atau minimal empat jawaban benar.
       </p>
 
       <form id="moduleQuiz">
+
         <fieldset class="quiz-question">
-          <legend>1. Apa salah satu peran utama bank sentral?</legend>
-          <label class="quiz-option"><input type="radio" name="q1" value="a" required> Menjamin keuntungan setiap trader</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="b"> Menjalankan kebijakan moneter sesuai mandatnya</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="c"> Menentukan semua harga aset secara langsung</label>
+          <legend data-i18n="q1">1. Apa salah satu peran utama bank sentral?</legend>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="a" required>
+            <span data-i18n="q1a">Menjamin keuntungan setiap trader</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="b">
+            <span data-i18n="q1b">Menjalankan kebijakan moneter sesuai mandatnya</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="c">
+            <span data-i18n="q1c">Menentukan semua harga aset secara langsung</span>
+          </label>
         </fieldset>
 
         <fieldset class="quiz-question">
-          <legend>2. Mengapa aktivitas institusi keuangan tidak selalu menentukan arah harga?</legend>
-          <label class="quiz-option"><input type="radio" name="q2" value="a" required> Karena harga hanya dipengaruhi satu indikator</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="b"> Karena institusi tidak pernah melakukan transaksi</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="c"> Karena harga dipengaruhi banyak peserta dan faktor pasar</label>
+          <legend data-i18n="q2">
+            2. Mengapa aktivitas institusi keuangan tidak selalu menentukan arah harga?
+          </legend>
+
+          <label class="quiz-option">
+            <input type="radio" name="q2" value="a" required>
+            <span data-i18n="q2a">Karena harga hanya dipengaruhi satu indikator</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q2" value="b">
+            <span data-i18n="q2b">Karena institusi tidak pernah melakukan transaksi</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q2" value="c">
+            <span data-i18n="q2c">Karena harga dipengaruhi banyak peserta dan faktor pasar</span>
+          </label>
         </fieldset>
 
         <fieldset class="quiz-question">
-          <legend>3. Mengapa perusahaan dapat menggunakan instrumen keuangan?</legend>
-          <label class="quiz-option"><input type="radio" name="q3" value="a" required> Untuk mengelola risiko bisnis, seperti perubahan nilai tukar</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="b"> Agar tidak pernah mengalami kerugian</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="c"> Karena semua perusahaan wajib menjadi trader harian</label>
+          <legend data-i18n="q3">
+            3. Mengapa perusahaan dapat menggunakan instrumen keuangan?
+          </legend>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="a" required>
+            <span data-i18n="q3a">
+              Untuk mengelola risiko bisnis, seperti perubahan nilai tukar
+            </span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="b">
+            <span data-i18n="q3b">Agar tidak pernah mengalami kerugian</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="c">
+            <span data-i18n="q3c">Karena semua perusahaan wajib menjadi trader harian</span>
+          </label>
         </fieldset>
 
         <fieldset class="quiz-question">
-          <legend>4. Apa perbedaan umum antara investor dan trader?</legend>
-          <label class="quiz-option"><input type="radio" name="q4" value="a" required> Investor selalu untung dan trader selalu rugi</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="b"> Tujuan dan jangka waktu pendekatan mereka dapat berbeda</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="c"> Keduanya selalu menggunakan metode yang sama</label>
+          <legend data-i18n="q4">
+            4. Apa perbedaan umum antara investor dan trader?
+          </legend>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="a" required>
+            <span data-i18n="q4a">Investor selalu untung dan trader selalu rugi</span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="b">
+            <span data-i18n="q4b">
+              Tujuan dan jangka waktu pendekatan mereka dapat berbeda
+            </span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="c">
+            <span data-i18n="q4c">Keduanya selalu menggunakan metode yang sama</span>
+          </label>
         </fieldset>
 
         <fieldset class="quiz-question">
-          <legend>5. Bagaimana cara yang tepat menilai aktivitas pelaku pasar?</legend>
-          <label class="quiz-option"><input type="radio" name="q5" value="a" required> Menganggap satu kelompok selalu mengendalikan harga</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="b"> Mengabaikan konteks ekonomi dan likuiditas</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="c"> Mempertimbangkan tujuan transaksi dan konteks pasar secara luas</label>
+          <legend data-i18n="q5">
+            5. Bagaimana cara yang tepat menilai aktivitas pelaku pasar?
+          </legend>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="a" required>
+            <span data-i18n="q5a">
+              Menganggap satu kelompok selalu mengendalikan harga
+            </span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="b">
+            <span data-i18n="q5b">
+              Mengabaikan konteks ekonomi dan likuiditas
+            </span>
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="c">
+            <span data-i18n="q5c">
+              Mempertimbangkan tujuan transaksi dan konteks pasar secara luas
+            </span>
+          </label>
         </fieldset>
 
-        <button class="quiz-button" type="submit">Periksa Jawaban →</button>
+        <button class="quiz-button" type="submit" data-i18n="submitQuiz">
+          Periksa Jawaban →
+        </button>
       </form>
 
-      <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
+      <div class="quiz-result" id="quizResult"
+           role="status" aria-live="polite" tabindex="-1">
+
         <h3 id="quizScore"></h3>
         <p id="quizSummary"></p>
         <div id="quizFeedback"></div>
-        <a class="module-next" id="nextModule" href="fundamentals-05.html" hidden>
-          Lanjut ke Module 05 →
-        </a>
-        <button class="quiz-button" id="retryQuiz" type="button"
-          style="margin-top:16px;background:transparent;color:var(--gold,#c9a45c);border:1px solid var(--gold,#c9a45c);">
-          Coba Lagi
-        </button>
+
+        <div class="quiz-actions">
+          <a class="module-next" id="nextModule"
+             href="fundamentals-05.html" hidden
+             data-i18n="nextModule">
+            Lanjut ke Module 05 →
+          </a>
+
+          <button class="quiz-button quiz-retry-button"
+                  id="retryQuiz" type="button"
+                  data-i18n="retryQuiz">
+            Coba Lagi
+          </button>
+        </div>
       </div>
     </section>
 
-    <a class="module-back" href="fundamentals.html">← Kembali ke daftar modul</a>
+    <footer class="module-footer">
+      <a class="module-back" href="fundamentals.html"
+         data-i18n="backBottom">
+        ← Kembali ke daftar modul
+      </a>
+    </footer>
+
   </main>
 
   <script>
-    const quizForm = document.getElementById("moduleQuiz");
-    const quizResult = document.getElementById("quizResult");
-    const quizScore = document.getElementById("quizScore");
-    const quizSummary = document.getElementById("quizSummary");
-    const quizFeedback = document.getElementById("quizFeedback");
-    const nextModule = document.getElementById("nextModule");
-    const retryQuiz = document.getElementById("retryQuiz");
+    const translations = {
+      id: {
+        backTop: "← Kembali ke Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODULE 04",
+        title: "Market Participants.",
+        heroDescription: "Pasar keuangan terdiri dari berbagai pelaku dengan tujuan berbeda. Kenali peran mereka untuk memahami konteks di balik aktivitas pasar.",
+        tag1: "FREE · BASIC",
+        tag2: "BEGINNER",
+        tag3: "5 QUESTIONS",
+
+        section1Label: "01 · CENTRAL BANKS",
+        section1Title: "Bank Sentral",
+        section1P1: "Bank sentral menjalankan kebijakan moneter sesuai mandatnya. Kebijakan tersebut dapat mencakup penetapan suku bunga, pengelolaan likuiditas, dan komunikasi mengenai prospek ekonomi.",
+        section1P2: "Contohnya, Federal Reserve (The Fed) memengaruhi kondisi moneter Amerika Serikat. Keputusan dan pernyataannya dapat mengubah ekspektasi pasar terhadap dolar AS, obligasi, Gold, dan berbagai aset lainnya.",
+
+        section2Label: "02 · BANKS & FINANCIAL INSTITUTIONS",
+        section2Title: "Bank dan Institusi Keuangan",
+        section2P1: "Bank dan institusi keuangan memfasilitasi transaksi, menyediakan layanan keuangan, serta mengelola risiko dan eksposur mereka sendiri maupun klien.",
+        section2P2: "Aktivitas mereka merupakan bagian dari aliran transaksi di pasar. Namun, pergerakan harga tidak bisa disimpulkan hanya dari dugaan aktivitas satu institusi tertentu.",
+
+        section3Label: "03 · COMPANIES & HEDGERS",
+        section3Title: "Perusahaan dan Hedger",
+        section3P1: "Perusahaan dapat bertransaksi di pasar keuangan untuk kebutuhan operasional, pembayaran lintas negara, pendanaan, atau mengurangi risiko perubahan harga.",
+        section3P2: "Sebagai contoh, perusahaan yang memiliki kewajiban pembayaran dalam mata uang asing dapat menggunakan instrumen tertentu untuk mengelola risiko nilai tukar. Tujuan transaksi ini tidak selalu untuk mencari keuntungan dari perubahan harga.",
+
+        section4Label: "04 · INVESTORS & TRADERS",
+        section4Title: "Investor dan Trader",
+        investorTitle: "Investor",
+        investorDescription: "Investor umumnya menempatkan modal dengan mempertimbangkan nilai, pertumbuhan, pendapatan, atau tujuan jangka panjang. Jangka waktu dan pendekatan tiap investor dapat berbeda.",
+        traderTitle: "Trader",
+        traderDescription: "Trader biasanya berfokus pada peluang pergerakan harga dalam jangka waktu tertentu. Mereka dapat menggunakan analisis fundamental, teknikal, atau kombinasi keduanya.",
+
+        section5Label: "05 · MARKET CONTEXT",
+        section5Title: "Membaca Aktivitas Pasar dengan Bijak",
+        principle1: "Pelaku pasar memiliki tujuan, batasan, dan jangka waktu berbeda.",
+        principle2: "Satu transaksi besar tidak otomatis menentukan arah pasar selanjutnya.",
+        principle3: "Harga dipengaruhi interaksi banyak peserta dan informasi.",
+        principle4: "Perubahan kebijakan dapat mengubah ekspektasi, tetapi dampaknya tidak selalu sama.",
+        principle5: "Hindari menganggap suatu kelompok pelaku selalu benar atau selalu mengendalikan harga.",
+
+        deskPrinciple: "THE DESK PRINCIPLE",
+        deskPrincipleText: "Jangan hanya bertanya siapa yang membeli atau menjual. Pertimbangkan juga tujuan transaksi, konteks ekonomi, likuiditas, dan informasi yang sudah diperhitungkan pasar.",
+
+        quizLabel: "KNOWLEDGE CHECK · 5 QUESTIONS",
+        quizTitle: "Uji Pemahaman",
+        quizDescription: "Jawab lima pertanyaan. Nilai kelulusan adalah 80%, atau minimal empat jawaban benar.",
+        submitQuiz: "Periksa Jawaban →",
+        nextModule: "Lanjut ke Module 05 →",
+        retryQuiz: "Coba Lagi",
+        backBottom: "← Kembali ke daftar modul",
+
+        q1: "1. Apa salah satu peran utama bank sentral?",
+        q1a: "Menjamin keuntungan setiap trader",
+        q1b: "Menjalankan kebijakan moneter sesuai mandatnya",
+        q1c: "Menentukan semua harga aset secara langsung",
+
+        q2: "2. Mengapa aktivitas institusi keuangan tidak selalu menentukan arah harga?",
+        q2a: "Karena harga hanya dipengaruhi satu indikator",
+        q2b: "Karena institusi tidak pernah melakukan transaksi",
+        q2c: "Karena harga dipengaruhi banyak peserta dan faktor pasar",
+
+        q3: "3. Mengapa perusahaan dapat menggunakan instrumen keuangan?",
+        q3a: "Untuk mengelola risiko bisnis, seperti perubahan nilai tukar",
+        q3b: "Agar tidak pernah mengalami kerugian",
+        q3c: "Karena semua perusahaan wajib menjadi trader harian",
+
+        q4: "4. Apa perbedaan umum antara investor dan trader?",
+        q4a: "Investor selalu untung dan trader selalu rugi",
+        q4b: "Tujuan dan jangka waktu pendekatan mereka dapat berbeda",
+        q4c: "Keduanya selalu menggunakan metode yang sama",
+
+        q5: "5. Bagaimana cara yang tepat menilai aktivitas pelaku pasar?",
+        q5a: "Menganggap satu kelompok selalu mengendalikan harga",
+        q5b: "Mengabaikan konteks ekonomi dan likuiditas",
+        q5c: "Mempertimbangkan tujuan transaksi dan konteks pasar secara luas",
+
+        scoreLabel: "Skor kamu: ",
+        passedTitle: "Selamat! Kamu lulus Module 04.",
+        passedDescription: "Kamu sudah memenuhi nilai kelulusan. Modul berikutnya membahas risiko dalam trading.",
+        failedTitle: "Kamu belum lulus Module 04.",
+        failedDescription: "Nilai kelulusan adalah 80%. Pelajari kembali materi dan coba lagi.",
+        correctLabel: "Benar",
+        incorrectLabel: "Belum tepat",
+        answerRequired: "Jawab semua pertanyaan sebelum memeriksa hasil.",
+
+        explain1Correct: "Bank sentral menjalankan kebijakan moneter sesuai mandatnya.",
+        explain1Incorrect: "Bank sentral menjalankan kebijakan moneter. Bank sentral tidak menjamin keuntungan trader atau menentukan seluruh harga aset secara langsung.",
+
+        explain2Correct: "Harga merupakan hasil interaksi banyak peserta, informasi, likuiditas, dan faktor lainnya.",
+        explain2Incorrect: "Aktivitas satu institusi tidak cukup untuk memastikan arah pasar karena banyak faktor dan peserta memengaruhi harga.",
+
+        explain3Correct: "Perusahaan dapat menggunakan instrumen keuangan untuk mengelola risiko bisnis, termasuk risiko nilai tukar.",
+        explain3Incorrect: "Perusahaan dapat menggunakan instrumen keuangan untuk kebutuhan operasional atau lindung nilai, tetapi risiko tidak pernah hilang sepenuhnya.",
+
+        explain4Correct: "Investor dan trader dapat memiliki tujuan serta jangka waktu yang berbeda.",
+        explain4Incorrect: "Perbedaan keduanya umumnya berkaitan dengan tujuan, jangka waktu, dan pendekatan. Tidak ada kelompok yang selalu untung atau rugi.",
+
+        explain5Correct: "Aktivitas pasar perlu dipahami dalam konteks tujuan transaksi dan kondisi pasar yang lebih luas.",
+        explain5Incorrect: "Hindari kesimpulan dari satu kelompok saja. Perhatikan konteks ekonomi, likuiditas, dan interaksi banyak peserta."
+      },
+
+      en: {
+        backTop: "← Back to Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODULE 04",
+        title: "Market Participants.",
+        heroDescription: "Financial markets consist of different participants with different objectives. Understanding their roles helps explain the context behind market activity.",
+        tag1: "FREE · BASIC",
+        tag2: "BEGINNER",
+        tag3: "5 QUESTIONS",
+
+        section1Label: "01 · CENTRAL BANKS",
+        section1Title: "Central Banks",
+        section1P1: "Central banks conduct monetary policy according to their mandates. Their policies may include setting interest rates, managing liquidity, and communicating their economic outlook.",
+        section1P2: "For example, the Federal Reserve (the Fed) influences monetary conditions in the United States. Its decisions and statements can change market expectations for the US dollar, bonds, Gold, and other assets.",
+
+        section2Label: "02 · BANKS & FINANCIAL INSTITUTIONS",
+        section2Title: "Banks and Financial Institutions",
+        section2P1: "Banks and financial institutions facilitate transactions, provide financial services, and manage their own risks and exposures as well as those of their clients.",
+        section2P2: "Their activities are part of the flow of transactions in financial markets. However, price movements cannot be explained solely by assumptions about the activity of one particular institution.",
+
+        section3Label: "03 · COMPANIES & HEDGERS",
+        section3Title: "Companies and Hedgers",
+        section3P1: "Companies may participate in financial markets to meet operational needs, make cross-border payments, obtain funding, or reduce exposure to price changes.",
+        section3P2: "For example, a company with payment obligations in a foreign currency may use certain financial instruments to manage exchange-rate risk. The purpose of these transactions is not always to profit from price movements.",
+
+        section4Label: "04 · INVESTORS & TRADERS",
+        section4Title: "Investors and Traders",
+        investorTitle: "Investors",
+        investorDescription: "Investors generally allocate capital based on value, growth, income, or long-term objectives. Their time horizons and approaches can vary.",
+        traderTitle: "Traders",
+        traderDescription: "Traders typically focus on price opportunities over a particular time horizon. They may use fundamental analysis, technical analysis, or a combination of both.",
+
+        section5Label: "05 · MARKET CONTEXT",
+        section5Title: "Reading Market Activity Wisely",
+        principle1: "Market participants have different objectives, constraints, and time horizons.",
+        principle2: "One large transaction does not automatically determine the market's next direction.",
+        principle3: "Prices are influenced by the interaction of many participants and information.",
+        principle4: "Policy changes can shift expectations, but their effects are not always the same.",
+        principle5: "Avoid assuming that one group of participants is always right or always controls prices.",
+
+        deskPrinciple: "THE DESK PRINCIPLE",
+        deskPrincipleText: "Do not only ask who is buying or selling. Also consider the purpose of the transaction, the economic context, liquidity, and the information already priced into the market.",
+
+        quizLabel: "KNOWLEDGE CHECK · 5 QUESTIONS",
+        quizTitle: "Test Your Understanding",
+        quizDescription: "Answer all five questions. The passing score is 80%, or at least four correct answers.",
+        submitQuiz: "Check Answers →",
+        nextModule: "Continue to Module 05 →",
+        retryQuiz: "Try Again",
+        backBottom: "← Back to the module list",
+
+        q1: "1. What is one of the main roles of a central bank?",
+        q1a: "Guaranteeing profits for every trader",
+        q1b: "Conducting monetary policy according to its mandate",
+        q1c: "Directly determining all asset prices",
+
+        q2: "2. Why does the activity of a financial institution not always determine price direction?",
+        q2a: "Because prices are influenced by only one indicator",
+        q2b: "Because institutions never execute transactions",
+        q2c: "Because prices are influenced by many participants and market factors",
+
+        q3: "3. Why might companies use financial instruments?",
+        q3a: "To manage business risks, such as exchange-rate changes",
+        q3b: "To ensure they never experience losses",
+        q3c: "Because every company must become a day trader",
+
+        q4: "4. What is a general difference between investors and traders?",
+        q4a: "Investors always profit and traders always lose",
+        q4b: "Their objectives and time horizons may differ",
+        q4c: "They always use the same methods",
+
+        q5: "5. What is an appropriate way to assess market participants' activity?",
+        q5a: "Assuming one group always controls prices",
+        q5b: "Ignoring the economic context and liquidity",
+        q5c: "Considering transaction objectives and the broader market context",
+
+        scoreLabel: "Your score: ",
+        passedTitle: "Congratulations! You passed Module 04.",
+        passedDescription: "You have achieved the passing score. The next module covers risk in trading.",
+        failedTitle: "You have not passed Module 04 yet.",
+        failedDescription: "The passing score is 80%. Review the material and try again.",
+        correctLabel: "Correct",
+        incorrectLabel: "Not quite",
+        answerRequired: "Answer all questions before checking your results.",
+
+        explain1Correct: "Central banks conduct monetary policy according to their mandates.",
+        explain1Incorrect: "Central banks conduct monetary policy. They do not guarantee trader profits or directly determine every asset price.",
+
+        explain2Correct: "Prices reflect the interaction of many participants, information, liquidity, and other factors.",
+        explain2Incorrect: "One institution's activity is not enough to establish market direction because many participants and factors influence prices.",
+
+        explain3Correct: "Companies can use financial instruments to manage business risks, including exchange-rate risk.",
+        explain3Incorrect: "Companies may use financial instruments for operational needs or hedging, but risk is never eliminated entirely.",
+
+        explain4Correct: "Investors and traders may have different objectives and time horizons.",
+        explain4Incorrect: "Their differences generally relate to objectives, time horizons, and approaches. Neither group always wins or loses.",
+
+        explain5Correct: "Market activity should be understood in the context of transaction objectives and broader market conditions.",
+        explain5Incorrect: "Avoid drawing conclusions based on one group alone. Consider the economic context, liquidity, and interaction of many participants."
+      }
+    };
 
     const correctAnswers = {
       q1: "b",
@@ -225,73 +857,174 @@
       q5: "c"
     };
 
-    const explanations = {
-      q1: {
-        correct: "Bank sentral menjalankan kebijakan moneter sesuai mandatnya.",
-        incorrect: "Bank sentral menjalankan kebijakan moneter. Bank sentral tidak menjamin keuntungan trader atau menentukan seluruh harga aset secara langsung."
-      },
-      q2: {
-        correct: "Harga merupakan hasil interaksi banyak peserta, informasi, likuiditas, dan faktor lainnya.",
-        incorrect: "Aktivitas satu institusi tidak cukup untuk memastikan arah pasar karena banyak faktor dan peserta memengaruhi harga."
-      },
-      q3: {
-        correct: "Perusahaan dapat menggunakan instrumen keuangan untuk mengelola risiko bisnis, termasuk risiko nilai tukar.",
-        incorrect: "Perusahaan dapat menggunakan instrumen keuangan untuk kebutuhan operasional atau lindung nilai, tetapi risiko tidak pernah hilang sepenuhnya."
-      },
-      q4: {
-        correct: "Investor dan trader dapat memiliki tujuan serta jangka waktu yang berbeda.",
-        incorrect: "Perbedaan keduanya umumnya berkaitan dengan tujuan, jangka waktu, dan pendekatan. Tidak ada kelompok yang selalu untung atau rugi."
-      },
-      q5: {
-        correct: "Aktivitas pasar perlu dipahami dalam konteks tujuan transaksi dan kondisi pasar yang lebih luas.",
-        incorrect: "Hindari kesimpulan dari satu kelompok saja. Perhatikan konteks ekonomi, likuiditas, dan interaksi banyak peserta."
-      }
+    const explanationKeys = {
+      q1: ["explain1Correct", "explain1Incorrect"],
+      q2: ["explain2Correct", "explain2Incorrect"],
+      q3: ["explain3Correct", "explain3Incorrect"],
+      q4: ["explain4Correct", "explain4Incorrect"],
+      q5: ["explain5Correct", "explain5Incorrect"]
     };
 
-    quizForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    const quizForm = document.getElementById("moduleQuiz");
+    const quizResult = document.getElementById("quizResult");
+    const quizScore = document.getElementById("quizScore");
+    const quizSummary = document.getElementById("quizSummary");
+    const quizFeedback = document.getElementById("quizFeedback");
+    const nextModule = document.getElementById("nextModule");
+    const retryQuiz = document.getElementById("retryQuiz");
+    const langID = document.getElementById("langID");
+    const langEN = document.getElementById("langEN");
 
-      const formData = new FormData(quizForm);
-      let score = 0;
+    let currentLanguage = "id";
+
+    function setLanguage(language) {
+      currentLanguage = language === "en" ? "en" : "id";
+
+      document.documentElement.lang = currentLanguage;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        const translatedText = translations[currentLanguage][key];
+
+        if (translatedText !== undefined) {
+          element.textContent = translatedText;
+        }
+      });
+
+      langID.classList.toggle("active", currentLanguage === "id");
+      langEN.classList.toggle("active", currentLanguage === "en");
+
+      langID.setAttribute(
+        "aria-pressed",
+        String(currentLanguage === "id")
+      );
+
+      langEN.setAttribute(
+        "aria-pressed",
+        String(currentLanguage === "en")
+      );
+
+      try {
+        localStorage.setItem("desk_language", currentLanguage);
+      } catch (error) {
+        // Language selection still works if storage is unavailable.
+      }
+
+      // Update displayed results when the language changes.
+      if (quizResult.style.display === "block") {
+        renderQuizResults();
+      }
+    }
+
+    langID.addEventListener("click", () => setLanguage("id"));
+    langEN.addEventListener("click", () => setLanguage("en"));
+
+    function getSavedLanguage() {
+      try {
+        return localStorage.getItem("desk_language") || "id";
+      } catch (error) {
+        return "id";
+      }
+    }
+
+    let lastQuizScore = null;
+    let lastQuizAnswers = null;
+
+    function renderQuizResults() {
+      if (lastQuizScore === null || !lastQuizAnswers) {
+        return;
+      }
+
+      const t = translations[currentLanguage];
+      const score = lastQuizScore;
+      const passed = score >= 4;
+
+      quizScore.textContent =
+        t.scoreLabel + score + "/5 (" + (score * 20) + "%)";
+
+      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
+
+      quizSummary.textContent = passed
+        ? t.passedTitle + " " + t.passedDescription
+        : t.failedTitle + " " + t.failedDescription;
+
       let feedbackHTML = "";
 
       for (let i = 1; i <= 5; i++) {
         const key = "q" + i;
-        const isCorrect = formData.get(key) === correctAnswers[key];
+        const isCorrect = lastQuizAnswers[key] === correctAnswers[key];
 
-        if (isCorrect) score++;
+        const status = isCorrect ? t.correctLabel : t.incorrectLabel;
+        const explanationKey = isCorrect
+          ? explanationKeys[key][0]
+          : explanationKeys[key][1];
 
         feedbackHTML += `
           <div class="quiz-feedback">
-            <strong>${i}. ${isCorrect ? "Benar" : "Belum tepat"}</strong>
-            <p>${isCorrect ? explanations[key].correct : explanations[key].incorrect}</p>
+            <strong class="${isCorrect ? "feedback-correct" : "feedback-incorrect"}">
+              ${i}. ${status}
+            </strong>
+            <p>${t[explanationKey]}</p>
           </div>
         `;
       }
 
-      const passed = score >= 4;
-      quizScore.textContent = "Skor kamu: " + score + "/5 (" + (score * 20) + "%)";
-      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
-      quizSummary.textContent = passed
-        ? "Selamat! Kamu lulus Module 04. Modul berikutnya membahas risiko dalam trading."
-        : "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan, lalu coba lagi.";
-
       quizFeedback.innerHTML = feedbackHTML;
       nextModule.hidden = !passed;
+    }
+
+    quizForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!quizForm.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(quizForm);
+      let score = 0;
+      const answers = {};
+
+      for (let i = 1; i <= 5; i++) {
+        const key = "q" + i;
+        answers[key] = formData.get(key);
+
+        if (answers[key] === correctAnswers[key]) {
+          score++;
+        }
+      }
+
+      lastQuizScore = score;
+      lastQuizAnswers = answers;
+
+      renderQuizResults();
+
       quizResult.style.display = "block";
-      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      quizResult.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
       quizResult.focus();
     });
 
     retryQuiz.addEventListener("click", function() {
       quizForm.reset();
+
+      lastQuizScore = null;
+      lastQuizAnswers = null;
+
       quizResult.style.display = "none";
       nextModule.hidden = true;
+
       document.getElementById("module-quiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
     });
+
+    // Apply the saved language preference on page load.
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>

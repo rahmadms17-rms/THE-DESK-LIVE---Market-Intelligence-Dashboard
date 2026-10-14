@@ -1,319 +1,1057 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari supply and demand, likuiditas, volatilitas, dan pergerakan harga bersama THE DESK Academy.">
-  <title>Module 03 | How Prices Move</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Learn how supply and demand, market structure, liquidity, volatility, and sentiment influence price movements with THE DESK Academy.">
+  <title>Module 03 | How Prices Move | THE DESK Academy</title>
+
   <style>
-    .module-page{max-width:960px;margin:auto;padding:44px 24px 80px}
-    .module-back{color:var(--gold,#c9a45c);text-decoration:none;font-size:13px}
-    .module-hero{padding:40px 0 34px;border-bottom:1px solid var(--border,#262c33)}
-    .module-eyebrow{color:var(--gold,#c9a45c);font-size:11px;font-weight:700;letter-spacing:2px}
-    .module-hero h1{font-size:clamp(36px,6vw,58px);line-height:1.1;margin:18px 0}
-    .module-hero p,.module-section p{color:var(--muted,#939ba6);line-height:1.85}
-    .module-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .module-tag{border:1px solid var(--border,#262c33);padding:7px 10px;border-radius:4px;font-size:10px;letter-spacing:1px}
-    .module-section{padding:28px 0;border-bottom:1px solid var(--border,#262c33)}
-    .module-section h2{font-size:24px;margin:12px 0}
-    .module-section h3{font-size:17px;margin-top:24px}
-    .module-list{padding-left:22px;color:var(--muted,#939ba6);line-height:1.9}
-    .module-note{margin-top:20px;padding:18px;background:var(--panel,#11151a);border-left:3px solid var(--gold,#c9a45c);line-height:1.8}
-    .quiz-question{margin:22px 0;padding:18px;border:1px solid var(--border,#262c33);border-radius:6px}
-    .quiz-question legend{padding:0 5px;font-weight:600;line-height:1.7}
-    .quiz-option{display:block;padding:9px 0;cursor:pointer;line-height:1.6}
-    .quiz-option input{margin-right:8px;accent-color:var(--gold,#c9a45c)}
-    .quiz-button,.module-next{display:inline-block;padding:13px 18px;background:var(--gold,#c9a45c);color:#111;border:0;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
-    .quiz-result{display:none;margin-top:24px;padding:20px;border:1px solid var(--border,#262c33);border-radius:6px;line-height:1.8}
-    .quiz-result h3{margin-top:0}
-    .quiz-feedback{padding:12px 0;border-top:1px solid var(--border,#262c33)}
-    .quiz-feedback p{margin:6px 0;color:var(--muted,#939ba6)}
-    .quiz-pass{color:var(--green,#42c994)}
-    .quiz-retry{color:var(--gold,#c9a45c)}
-    .module-next{margin-top:24px}
-    .module-next[hidden]{display:none}
-    @media(max-width:600px){.module-page{padding:30px 18px 56px}}
+    :root {
+      --bg: #090b0e;
+      --panel: #11151a;
+      --border: #292f37;
+      --gold: #d5ad57;
+      --gold-light: #edc875;
+      --text: #edf0f4;
+      --muted: #a1adbd;
+      --green: #42c994;
+      --red: #ef7777;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold-light);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .module-page {
+      width: min(100% - 40px, 912px);
+      margin: 0 auto;
+      padding: 36px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .module-back {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      min-width: 42px;
+      padding: 5px 12px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .module-hero {
+      padding: 30px 0 34px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-eyebrow {
+      display: block;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .module-hero h1 {
+      margin: 18px 0;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    .module-hero p,
+    .module-section p {
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .module-hero p {
+      max-width: 850px;
+    }
+
+    .module-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .module-tag {
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .7px;
+    }
+
+    .module-section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-section h2 {
+      margin: 12px 0;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .module-section h3 {
+      margin: 24px 0 8px;
+      font-size: 17px;
+    }
+
+    .module-note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--gold);
+      background: var(--panel);
+      line-height: 1.8;
+    }
+
+    .module-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .module-note p {
+      margin: 0;
+    }
+
+    .structure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .structure-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .structure-card h3 {
+      margin: 0 0 10px;
+    }
+
+    .structure-card p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .structure-code {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 3px 8px;
+      border: 1px solid #5e5034;
+      border-radius: 4px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .8px;
+    }
+
+    .quiz-intro {
+      margin-bottom: 22px;
+    }
+
+    .quiz-question {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .quiz-question legend {
+      max-width: 100%;
+      padding: 0 5px;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 10px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1.7;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--border);
+      background: #171c21;
+    }
+
+    .quiz-option:has(input:checked) {
+      border-color: #79653e;
+      color: var(--text);
+    }
+
+    .quiz-option input {
+      margin-top: 7px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .quiz-button,
+    .module-next {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 43px;
+      padding: 11px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: var(--gold);
+      color: #111;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .quiz-button:hover,
+    .module-next:hover {
+      background: var(--gold-light);
+      color: #111;
+    }
+
+    .quiz-button.secondary {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .quiz-button.secondary:hover {
+      background: #19160f;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .quiz-result {
+      display: none;
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+      line-height: 1.8;
+    }
+
+    .quiz-result.show {
+      display: block;
+    }
+
+    .quiz-result.pass {
+      border-color: var(--green);
+    }
+
+    .quiz-result.fail {
+      border-color: var(--red);
+    }
+
+    .quiz-result h3 {
+      margin: 0 0 8px;
+    }
+
+    .quiz-pass {
+      color: var(--green);
+    }
+
+    .quiz-retry {
+      color: var(--gold);
+    }
+
+    .quiz-score {
+      margin: 8px 0;
+      color: var(--text);
+      font-size: 30px;
+      font-weight: 750;
+    }
+
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .quiz-feedback strong {
+      display: block;
+      color: var(--text);
+    }
+
+    .quiz-feedback p {
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .module-next {
+      margin-top: 20px;
+    }
+
+    .module-next[hidden] {
+      display: none;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      color: #6e7987;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      .module-page {
+        width: min(100% - 28px, 912px);
+        padding-top: 24px;
+      }
+
+      .structure-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .module-hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .quiz-question {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="module-page">
-    <a class="module-back" href="fundamentals.html">← Back to Fundamentals</a>
+    <div class="topbar">
+      <a class="module-back" href="fundamentals.html" data-i18n="back">
+        ← Back to Fundamentals
+      </a>
+
+      <div class="language-switch" aria-label="Language selector">
+        <button class="lang-btn" type="button" data-lang="id">ID</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+    </div>
 
     <header class="module-hero">
-      <span class="module-eyebrow">THE DESK ACADEMY · MODULE 03</span>
-      <h1>How Prices<br>Move.</h1>
-      <p>
-        Harga tidak bergerak dalam ruang kosong. Pelajari peran
-        permintaan, penawaran, likuiditas, volatilitas, dan sentimen
-        dalam membentuk pergerakan pasar.
+      <span class="module-eyebrow" data-i18n="eyebrow">THE DESK ACADEMY · MODULE 03</span>
+      <h1 data-i18n="title">How Prices Move.</h1>
+      <p data-i18n="subtitle">
+        Prices do not move in a vacuum. Learn how supply, demand, liquidity,
+        volatility, and sentiment shape market movements.
       </p>
+
       <div class="module-tags">
-        <span class="module-tag">FREE · BASIC</span>
-        <span class="module-tag">BEGINNER</span>
-        <span class="module-tag">5 QUESTIONS</span>
+        <span class="module-tag" data-i18n="tag1">FREE · BASIC</span>
+        <span class="module-tag" data-i18n="tag2">BEGINNER</span>
+        <span class="module-tag" data-i18n="tag3">5 QUESTIONS</span>
       </div>
     </header>
 
     <section class="module-section">
-      <span class="module-eyebrow">01 · SUPPLY & DEMAND</span>
-      <h2>Permintaan dan Penawaran</h2>
-      <p>
-        Permintaan menggambarkan keinginan dan kemampuan pembeli
-        untuk membeli suatu aset. Penawaran menggambarkan keinginan
-        dan kemampuan penjual untuk menjualnya.
+      <span class="module-eyebrow" data-i18n="s1Label">01 · SUPPLY & DEMAND</span>
+      <h2 data-i18n="s1Title">Understanding Supply and Demand</h2>
+      <p data-i18n="s1p1">
+        Demand describes buyers' willingness and ability to purchase an asset.
+        Supply describes sellers' willingness and ability to offer an asset for sale.
       </p>
-      <p>
-        Perubahan keseimbangan antara permintaan dan penawaran
-        dapat memengaruhi harga. Ketika pembeli bersedia menerima
-        harga penawaran yang semakin tinggi, harga transaksi dapat
-        bergerak naik. Tekanan jual yang dominan juga dapat mendorong
-        transaksi pada harga yang lebih rendah.
+      <p data-i18n="s1p2">
+        Changes in the balance between supply and demand can influence prices.
+        When buyers are willing to accept increasingly higher asking prices,
+        transaction prices may rise. Dominant selling pressure can also push
+        transactions toward lower prices.
       </p>
+
       <div class="module-note">
-        <strong>Key Insight</strong>
-        <p>
-          Harga mencerminkan transaksi yang terjadi, bukan sekadar
-          jumlah orang yang terlihat bullish atau bearish.
+        <strong data-i18n="insightTitle">KEY INSIGHT</strong>
+        <p data-i18n="insightText">
+          Prices reflect actual transactions, not simply the number of people
+          who appear bullish or bearish.
         </p>
       </div>
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">02 · MARKET STRUCTURE</span>
-      <h2>Uptrend, Downtrend, dan Sideways</h2>
+      <span class="module-eyebrow" data-i18n="s2Label">02 · MARKET STRUCTURE</span>
+      <h2 data-i18n="s2Title">Uptrend, Downtrend, and Sideways</h2>
 
-      <h3>Uptrend</h3>
-      <p>
-        Uptrend umumnya ditandai oleh rangkaian higher high (HH)
-        dan higher low (HL). Puncak dan lembah harga cenderung
-        bergerak semakin tinggi.
-      </p>
+      <div class="structure-grid">
+        <article class="structure-card">
+          <span class="structure-code">HH + HL</span>
+          <h3 data-i18n="upTitle">Uptrend</h3>
+          <p data-i18n="upText">
+            An uptrend is generally characterized by a sequence of higher highs
+            (HH) and higher lows (HL). Price peaks and troughs tend to move higher.
+          </p>
+        </article>
 
-      <h3>Downtrend</h3>
-      <p>
-        Downtrend umumnya ditandai oleh lower high (LH) dan
-        lower low (LL). Puncak dan lembah harga cenderung
-        bergerak semakin rendah.
-      </p>
+        <article class="structure-card">
+          <span class="structure-code">LH + LL</span>
+          <h3 data-i18n="downTitle">Downtrend</h3>
+          <p data-i18n="downText">
+            A downtrend is generally characterized by lower highs (LH) and lower
+            lows (LL). Price peaks and troughs tend to move lower.
+          </p>
+        </article>
 
-      <h3>Sideways</h3>
-      <p>
-        Pasar sideways bergerak dalam rentang tertentu tanpa
-        arah tren yang jelas. Harga dapat berulang kali bergerak
-        di antara area support dan resistance.
-      </p>
+        <article class="structure-card">
+          <span class="structure-code">RANGE</span>
+          <h3 data-i18n="sideTitle">Sideways</h3>
+          <p data-i18n="sideText">
+            A sideways market moves within a range without a clear trend.
+            Price may repeatedly move between support and resistance areas.
+          </p>
+        </article>
+      </div>
+
+      <div class="module-note">
+        <strong data-i18n="structureInsightTitle">STRUCTURE MATTERS</strong>
+        <p data-i18n="structureInsightText">
+          Market structure describes what price has been doing. It does not
+          guarantee what price will do next.
+        </p>
+      </div>
     </section>
 
     <section class="module-section">
-      <span class="module-eyebrow">03 · LIQUIDITY</span>
-      <h2>Memahami Likuiditas</h2>
-      <p>
-        Likuiditas menggambarkan seberapa mudah suatu instrumen
-        diperdagangkan tanpa menyebabkan perubahan harga yang
-        besar akibat transaksi itu sendiri.
+      <span class="module-eyebrow" data-i18n="s3Label">03 · LIQUIDITY</span>
+      <h2 data-i18n="s3Title">Understanding Liquidity</h2>
+      <p data-i18n="s3p1">
+        Liquidity describes how easily an instrument can be traded without
+        the transaction itself causing a substantial price change.
       </p>
-      <p>
-        Dalam kondisi likuiditas yang baik, transaksi relatif
-        mudah dilakukan di sekitar harga yang tersedia. Ketika
-        likuiditas menipis, spread dapat melebar dan pergerakan
-        harga bisa menjadi lebih tajam, terutama saat berita
-        penting atau pergantian sesi.
-      </p>
-    </section>
-
-    <section class="module-section">
-      <span class="module-eyebrow">04 · VOLATILITY</span>
-      <h2>Memahami Volatilitas</h2>
-      <p>
-        Volatilitas menggambarkan besarnya perubahan harga
-        dalam suatu periode. Volatilitas tinggi berarti harga
-        mengalami perubahan yang relatif besar, sedangkan
-        volatilitas rendah menunjukkan perubahan yang relatif kecil.
-      </p>
-      <p>
-        Volatilitas tinggi dapat menciptakan peluang sekaligus
-        meningkatkan risiko. Stop loss dapat mengalami slippage,
-        spread dapat melebar, dan ukuran posisi yang terlalu besar
-        dapat mempercepat kerugian.
-      </p>
-    </section>
-
-    <section class="module-section">
-      <span class="module-eyebrow">05 · SENTIMENT & BREAKOUT</span>
-      <h2>Sentimen dan Perubahan Arah</h2>
-      <p>
-        Sentimen menggambarkan kecenderungan pelaku pasar terhadap
-        kondisi atau prospek suatu aset. Sentimen dapat berubah
-        akibat data ekonomi, kebijakan bank sentral, berita,
-        dan perubahan ekspektasi.
-      </p>
-      <p>
-        Breakout terjadi ketika harga keluar dari area yang
-        sebelumnya membatasi pergerakannya. Namun, tidak setiap
-        breakout berlanjut. Harga bisa kembali ke dalam rentang,
-        sehingga konfirmasi dan pengelolaan risiko tetap penting.
+      <p data-i18n="s3p2">
+        In relatively liquid conditions, transactions can generally be executed
+        more easily near available market prices. When liquidity thins, spreads
+        may widen and price movements may become sharper, especially around
+        major news releases or session transitions.
       </p>
       <div class="module-note">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
-          Jangan menilai pergerakan hanya dari satu candle.
-          Perhatikan struktur, konteks, dan risiko sebelum
-          menarik kesimpulan.
+        <strong data-i18n="liquidityInsightTitle">PRACTICAL INSIGHT</strong>
+        <p data-i18n="liquidityInsightText">
+          A visible price does not guarantee that an order can be filled at
+          exactly that price. Execution depends on available liquidity and
+          trading conditions.
+        </p>
+      </div>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow" data-i18n="s4Label">04 · VOLATILITY</span>
+      <h2 data-i18n="s4Title">Understanding Volatility</h2>
+      <p data-i18n="s4p1">
+        Volatility describes the magnitude of price changes over a period.
+        High volatility means prices are changing relatively substantially,
+        while low volatility indicates comparatively smaller changes.
+      </p>
+      <p data-i18n="s4p2">
+        High volatility can create opportunities while also increasing risk.
+        Stop-loss orders may experience slippage, spreads may widen, and
+        oversized positions can accelerate losses.
+      </p>
+      <div class="module-note">
+        <strong data-i18n="volatilityInsightTitle">RISK REMINDER</strong>
+        <p data-i18n="volatilityInsightText">
+          Bigger price movements do not automatically mean better opportunities.
+          Position size and potential loss must remain under control.
+        </p>
+      </div>
+    </section>
+
+    <section class="module-section">
+      <span class="module-eyebrow" data-i18n="s5Label">05 · SENTIMENT & BREAKOUT</span>
+      <h2 data-i18n="s5Title">Sentiment and Changes in Direction</h2>
+      <p data-i18n="s5p1">
+        Sentiment describes market participants' attitudes toward an asset's
+        conditions or outlook. It can change in response to economic data,
+        central-bank policy, news, and changing expectations.
+      </p>
+      <p data-i18n="s5p2">
+        A breakout occurs when price moves outside an area that previously
+        contained its movement. However, not every breakout continues.
+        Price can return inside the previous range, so confirmation and
+        risk management remain important.
+      </p>
+
+      <div class="module-note">
+        <strong data-i18n="principleTitle">THE DESK PRINCIPLE</strong>
+        <p data-i18n="principleText">
+          Do not judge a market move from a single candle. Consider structure,
+          context, and risk before drawing a conclusion.
         </p>
       </div>
     </section>
 
     <section class="module-section" id="module-quiz">
-      <span class="module-eyebrow">KNOWLEDGE CHECK · 5 QUESTIONS</span>
-      <h2>Test Your Understanding</h2>
-      <p>
-        Jawab lima pertanyaan. Nilai kelulusan adalah 80%,
-        atau minimal empat jawaban benar.
+      <span class="module-eyebrow" data-i18n="quizLabel">KNOWLEDGE CHECK · 5 QUESTIONS</span>
+      <h2 data-i18n="quizTitle">Test Your Understanding</h2>
+      <p class="quiz-intro" data-i18n="quizIntro">
+        Answer all five questions. The passing score is 80%, or at least
+        four correct answers.
       </p>
 
       <form id="moduleQuiz">
-        <fieldset class="quiz-question">
-          <legend>1. Apa yang dapat memengaruhi pembentukan harga?</legend>
-          <label class="quiz-option"><input type="radio" name="q1" value="a" required> Hanya warna candle</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="b"> Interaksi permintaan dan penawaran</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="c"> Hanya jumlah indikator teknikal</label>
-        </fieldset>
+        <div id="quizQuestions"></div>
 
-        <fieldset class="quiz-question">
-          <legend>2. Pola mana yang umum menggambarkan uptrend?</legend>
-          <label class="quiz-option"><input type="radio" name="q2" value="a" required> Lower high dan lower low</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="b"> Puncak dan lembah yang selalu sama</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="c"> Higher high dan higher low</label>
-        </fieldset>
-
-        <fieldset class="quiz-question">
-          <legend>3. Apa arti likuiditas dalam pasar?</legend>
-          <label class="quiz-option"><input type="radio" name="q3" value="a" required> Kemudahan memperdagangkan aset tanpa dampak harga yang besar</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="b"> Jaminan bahwa harga selalu naik</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="c"> Besarnya keuntungan yang pasti diperoleh</label>
-        </fieldset>
-
-        <fieldset class="quiz-question">
-          <legend>4. Apa yang perlu diperhatikan saat volatilitas meningkat?</legend>
-          <label class="quiz-option"><input type="radio" name="q4" value="a" required> Mengabaikan spread dan stop loss</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="b"> Risiko pergerakan cepat, spread, dan kemungkinan slippage</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="c"> Menambah ukuran posisi tanpa perhitungan</label>
-        </fieldset>
-
-        <fieldset class="quiz-question">
-          <legend>5. Apa yang benar tentang breakout?</legend>
-          <label class="quiz-option"><input type="radio" name="q5" value="a" required> Setiap breakout pasti berlanjut</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="b"> Breakout menghilangkan semua risiko</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="c"> Harga dapat keluar dari rentang, tetapi tetap berisiko gagal berlanjut</label>
-        </fieldset>
-
-        <button class="quiz-button" type="submit">Periksa Jawaban →</button>
+        <div class="quiz-actions">
+          <button class="quiz-button" type="submit" data-i18n="submitButton">
+            CHECK ANSWERS →
+          </button>
+          <button class="quiz-button secondary" id="retryQuiz" type="button" data-i18n="retryButton">
+            TRY AGAIN
+          </button>
+        </div>
       </form>
 
       <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
         <h3 id="quizScore"></h3>
+        <div class="quiz-score" id="scoreNumber"></div>
         <p id="quizSummary"></p>
         <div id="quizFeedback"></div>
-        <a class="module-next" id="nextModule" href="fundamentals-04.html" hidden>
-          Lanjut ke Module 04 →
+
+        <a class="module-next" id="nextModule" href="fundamentals-04.html" hidden data-i18n="nextButton">
+          CONTINUE TO MODULE 04 →
         </a>
-        <button class="quiz-button" id="retryQuiz" type="button"
-          style="margin-top:16px;background:transparent;color:var(--gold,#c9a45c);border:1px solid var(--gold,#c9a45c);">
-          Coba Lagi
-        </button>
       </div>
     </section>
 
-    <a class="module-back" href="fundamentals.html">← Kembali ke daftar modul</a>
+    <nav class="footer-nav">
+      <a href="fundamentals-02.html" data-i18n="previousModule">← Previous Module</a>
+      <a href="fundamentals.html" data-i18n="allModules">All Fundamentals →</a>
+    </nav>
+
+    <p class="footer-note" data-i18n="footer">
+      THE DESK ACADEMY · Understand the Market, Before You Trade It.
+    </p>
   </main>
 
   <script>
+    const translations = {
+      en: {
+        back: "← Back to Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODULE 03",
+        title: "How Prices Move.",
+        subtitle: "Prices do not move in a vacuum. Learn how supply, demand, liquidity, volatility, and sentiment shape market movements.",
+        tag1: "FREE · BASIC",
+        tag2: "BEGINNER",
+        tag3: "5 QUESTIONS",
+
+        s1Label: "01 · SUPPLY & DEMAND",
+        s1Title: "Understanding Supply and Demand",
+        s1p1: "Demand describes buyers' willingness and ability to purchase an asset. Supply describes sellers' willingness and ability to offer an asset for sale.",
+        s1p2: "Changes in the balance between supply and demand can influence prices. When buyers are willing to accept increasingly higher asking prices, transaction prices may rise. Dominant selling pressure can also push transactions toward lower prices.",
+        insightTitle: "KEY INSIGHT",
+        insightText: "Prices reflect actual transactions, not simply the number of people who appear bullish or bearish.",
+
+        s2Label: "02 · MARKET STRUCTURE",
+        s2Title: "Uptrend, Downtrend, and Sideways",
+        upTitle: "Uptrend",
+        upText: "An uptrend is generally characterized by a sequence of higher highs (HH) and higher lows (HL). Price peaks and troughs tend to move higher.",
+        downTitle: "Downtrend",
+        downText: "A downtrend is generally characterized by lower highs (LH) and lower lows (LL). Price peaks and troughs tend to move lower.",
+        sideTitle: "Sideways",
+        sideText: "A sideways market moves within a range without a clear trend. Price may repeatedly move between support and resistance areas.",
+        structureInsightTitle: "STRUCTURE MATTERS",
+        structureInsightText: "Market structure describes what price has been doing. It does not guarantee what price will do next.",
+
+        s3Label: "03 · LIQUIDITY",
+        s3Title: "Understanding Liquidity",
+        s3p1: "Liquidity describes how easily an instrument can be traded without the transaction itself causing a substantial price change.",
+        s3p2: "In relatively liquid conditions, transactions can generally be executed more easily near available market prices. When liquidity thins, spreads may widen and price movements may become sharper, especially around major news releases or session transitions.",
+        liquidityInsightTitle: "PRACTICAL INSIGHT",
+        liquidityInsightText: "A visible price does not guarantee that an order can be filled at exactly that price. Execution depends on available liquidity and trading conditions.",
+
+        s4Label: "04 · VOLATILITY",
+        s4Title: "Understanding Volatility",
+        s4p1: "Volatility describes the magnitude of price changes over a period. High volatility means prices are changing relatively substantially, while low volatility indicates comparatively smaller changes.",
+        s4p2: "High volatility can create opportunities while also increasing risk. Stop-loss orders may experience slippage, spreads may widen, and oversized positions can accelerate losses.",
+        volatilityInsightTitle: "RISK REMINDER",
+        volatilityInsightText: "Bigger price movements do not automatically mean better opportunities. Position size and potential loss must remain under control.",
+
+        s5Label: "05 · SENTIMENT & BREAKOUT",
+        s5Title: "Sentiment and Changes in Direction",
+        s5p1: "Sentiment describes market participants' attitudes toward an asset's conditions or outlook. It can change in response to economic data, central-bank policy, news, and changing expectations.",
+        s5p2: "A breakout occurs when price moves outside an area that previously contained its movement. However, not every breakout continues. Price can return inside the previous range, so confirmation and risk management remain important.",
+        principleTitle: "THE DESK PRINCIPLE",
+        principleText: "Do not judge a market move from a single candle. Consider structure, context, and risk before drawing a conclusion.",
+
+        quizLabel: "KNOWLEDGE CHECK · 5 QUESTIONS",
+        quizTitle: "Test Your Understanding",
+        quizIntro: "Answer all five questions. The passing score is 80%, or at least four correct answers.",
+        submitButton: "CHECK ANSWERS →",
+        retryButton: "TRY AGAIN",
+        nextButton: "CONTINUE TO MODULE 04 →",
+        previousModule: "← Previous Module",
+        allModules: "All Fundamentals →",
+        footer: "THE DESK ACADEMY · Understand the Market, Before You Trade It.",
+
+        unanswered: "Please answer all five questions before submitting.",
+        passTitle: "ASSESSMENT PASSED",
+        failTitle: "ASSESSMENT NOT PASSED",
+        passSummary: "Congratulations! You passed Module 03. Next, learn about the participants in financial markets.",
+        failSummary: "You have not reached the 80% passing score. Review the explanations and try again.",
+        correct: "Correct",
+        incorrect: "Not quite",
+        correctAnswer: "Correct answer",
+        explanation: [
+          "Price formation is influenced by transactions and the interaction between supply and demand.",
+          "An uptrend is generally characterized by progressively higher highs and higher lows.",
+          "Liquidity describes how easily an asset can be traded without causing a substantial price impact.",
+          "Higher volatility can involve rapid price changes, wider spreads, and slippage.",
+          "A breakout can fail to continue. Confirmation and risk management are still necessary."
+        ],
+        questions: [
+          {
+            q: "What can influence price formation?",
+            options: [
+              "Only the color of a candle",
+              "The interaction between supply and demand",
+              "Only the number of technical indicators"
+            ],
+            answer: "b"
+          },
+          {
+            q: "Which pattern generally describes an uptrend?",
+            options: [
+              "Lower highs and lower lows",
+              "Peaks and troughs that always remain the same",
+              "Higher highs and higher lows"
+            ],
+            answer: "c"
+          },
+          {
+            q: "What does liquidity mean in a market?",
+            options: [
+              "The ease of trading an asset without a substantial price impact",
+              "A guarantee that prices will always rise",
+              "The amount of profit that is guaranteed"
+            ],
+            answer: "a"
+          },
+          {
+            q: "What should traders consider when volatility increases?",
+            options: [
+              "Ignoring spreads and stop-loss orders",
+              "Rapid price movements, spreads, and possible slippage",
+              "Increasing position size without calculation"
+            ],
+            answer: "b"
+          },
+          {
+            q: "Which statement about breakouts is correct?",
+            options: [
+              "Every breakout will continue",
+              "A breakout eliminates all risk",
+              "Price can leave a range but still fail to continue"
+            ],
+            answer: "c"
+          }
+        ]
+      },
+
+      id: {
+        back: "← Kembali ke Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODUL 03",
+        title: "Bagaimana Harga Bergerak.",
+        subtitle: "Harga tidak bergerak tanpa sebab. Pelajari bagaimana permintaan, penawaran, likuiditas, volatilitas, dan sentimen membentuk pergerakan pasar.",
+        tag1: "GRATIS · DASAR",
+        tag2: "PEMULA",
+        tag3: "5 PERTANYAAN",
+
+        s1Label: "01 · SUPPLY & DEMAND",
+        s1Title: "Memahami Permintaan dan Penawaran",
+        s1p1: "Permintaan menggambarkan keinginan dan kemampuan pembeli untuk membeli suatu aset. Penawaran menggambarkan keinginan dan kemampuan penjual untuk menawarkan aset untuk dijual.",
+        s1p2: "Perubahan keseimbangan antara permintaan dan penawaran dapat memengaruhi harga. Ketika pembeli bersedia menerima harga penawaran yang semakin tinggi, harga transaksi dapat naik. Tekanan jual yang dominan juga dapat mendorong transaksi pada harga yang lebih rendah.",
+        insightTitle: "INSIGHT UTAMA",
+        insightText: "Harga mencerminkan transaksi yang benar-benar terjadi, bukan sekadar jumlah orang yang terlihat bullish atau bearish.",
+
+        s2Label: "02 · MARKET STRUCTURE",
+        s2Title: "Uptrend, Downtrend, dan Sideways",
+        upTitle: "Uptrend",
+        upText: "Uptrend umumnya ditandai oleh rangkaian higher high (HH) dan higher low (HL). Puncak dan lembah harga cenderung bergerak semakin tinggi.",
+        downTitle: "Downtrend",
+        downText: "Downtrend umumnya ditandai oleh lower high (LH) dan lower low (LL). Puncak dan lembah harga cenderung bergerak semakin rendah.",
+        sideTitle: "Sideways",
+        sideText: "Pasar sideways bergerak dalam rentang tertentu tanpa arah tren yang jelas. Harga dapat berulang kali bergerak di antara area support dan resistance.",
+        structureInsightTitle: "STRUKTUR ITU PENTING",
+        structureInsightText: "Struktur pasar menggambarkan perilaku harga yang telah terjadi. Struktur tidak menjamin apa yang akan terjadi selanjutnya.",
+
+        s3Label: "03 · LIQUIDITY",
+        s3Title: "Memahami Likuiditas",
+        s3p1: "Likuiditas menggambarkan seberapa mudah suatu instrumen diperdagangkan tanpa menyebabkan perubahan harga yang besar akibat transaksi itu sendiri.",
+        s3p2: "Dalam kondisi likuiditas yang relatif baik, transaksi umumnya lebih mudah dilakukan di sekitar harga pasar yang tersedia. Ketika likuiditas menipis, spread dapat melebar dan pergerakan harga bisa menjadi lebih tajam, terutama saat rilis berita penting atau pergantian sesi.",
+        liquidityInsightTitle: "INSIGHT PRAKTIS",
+        liquidityInsightText: "Harga yang terlihat tidak menjamin order akan tereksekusi tepat pada harga tersebut. Eksekusi bergantung pada likuiditas yang tersedia dan kondisi perdagangan.",
+
+        s4Label: "04 · VOLATILITY",
+        s4Title: "Memahami Volatilitas",
+        s4p1: "Volatilitas menggambarkan besarnya perubahan harga dalam suatu periode. Volatilitas tinggi berarti harga mengalami perubahan yang relatif besar, sedangkan volatilitas rendah menunjukkan perubahan yang relatif kecil.",
+        s4p2: "Volatilitas tinggi dapat menciptakan peluang sekaligus meningkatkan risiko. Stop loss dapat mengalami slippage, spread dapat melebar, dan posisi yang terlalu besar dapat mempercepat kerugian.",
+        volatilityInsightTitle: "PENGINGAT RISIKO",
+        volatilityInsightText: "Pergerakan harga yang lebih besar tidak otomatis berarti peluang yang lebih baik. Ukuran posisi dan potensi kerugian harus tetap terkendali.",
+
+        s5Label: "05 · SENTIMENT & BREAKOUT",
+        s5Title: "Sentimen dan Perubahan Arah",
+        s5p1: "Sentimen menggambarkan kecenderungan pelaku pasar terhadap kondisi atau prospek suatu aset. Sentimen dapat berubah akibat data ekonomi, kebijakan bank sentral, berita, dan perubahan ekspektasi.",
+        s5p2: "Breakout terjadi ketika harga keluar dari area yang sebelumnya membatasi pergerakannya. Namun, tidak setiap breakout berlanjut. Harga bisa kembali ke dalam rentang sebelumnya sehingga konfirmasi dan pengelolaan risiko tetap penting.",
+        principleTitle: "PRINSIP THE DESK",
+        principleText: "Jangan menilai pergerakan pasar hanya dari satu candle. Perhatikan struktur, konteks, dan risiko sebelum menarik kesimpulan.",
+
+        quizLabel: "UJI PEMAHAMAN · 5 PERTANYAAN",
+        quizTitle: "Uji Pemahaman Anda",
+        quizIntro: "Jawab kelima pertanyaan. Nilai kelulusan adalah 80%, atau minimal empat jawaban benar.",
+        submitButton: "PERIKSA JAWABAN →",
+        retryButton: "COBA LAGI",
+        nextButton: "LANJUT KE MODUL 04 →",
+        previousModule: "← Modul Sebelumnya",
+        allModules: "Semua Fundamentals →",
+        footer: "THE DESK ACADEMY · Pahami Pasar Sebelum Anda Trading.",
+
+        unanswered: "Silakan jawab kelima pertanyaan sebelum mengirim jawaban.",
+        passTitle: "PENILAIAN LULUS",
+        failTitle: "PENILAIAN BELUM LULUS",
+        passSummary: "Selamat! Anda lulus Module 03. Berikutnya, pelajari siapa saja yang berpartisipasi di pasar keuangan.",
+        failSummary: "Anda belum mencapai nilai kelulusan 80%. Pelajari kembali pembahasan dan coba lagi.",
+        correct: "Benar",
+        incorrect: "Belum tepat",
+        correctAnswer: "Jawaban benar",
+        explanation: [
+          "Pembentukan harga dipengaruhi oleh transaksi serta interaksi permintaan dan penawaran.",
+          "Uptrend umumnya ditandai oleh higher high dan higher low yang semakin tinggi.",
+          "Likuiditas menggambarkan kemudahan aset diperdagangkan tanpa dampak harga yang besar.",
+          "Volatilitas tinggi dapat disertai pergerakan harga cepat, spread melebar, dan slippage.",
+          "Breakout dapat gagal berlanjut. Konfirmasi dan pengelolaan risiko tetap diperlukan."
+        ],
+        questions: [
+          {
+            q: "Apa yang dapat memengaruhi pembentukan harga?",
+            options: [
+              "Hanya warna candle",
+              "Interaksi permintaan dan penawaran",
+              "Hanya jumlah indikator teknikal"
+            ],
+            answer: "b"
+          },
+          {
+            q: "Pola mana yang umumnya menggambarkan uptrend?",
+            options: [
+              "Lower high dan lower low",
+              "Puncak dan lembah yang selalu sama",
+              "Higher high dan higher low"
+            ],
+            answer: "c"
+          },
+          {
+            q: "Apa arti likuiditas dalam pasar?",
+            options: [
+              "Kemudahan memperdagangkan aset tanpa dampak harga yang besar",
+              "Jaminan bahwa harga selalu naik",
+              "Besarnya keuntungan yang pasti diperoleh"
+            ],
+            answer: "a"
+          },
+          {
+            q: "Apa yang perlu diperhatikan saat volatilitas meningkat?",
+            options: [
+              "Mengabaikan spread dan stop loss",
+              "Risiko pergerakan cepat, spread, dan kemungkinan slippage",
+              "Menambah ukuran posisi tanpa perhitungan"
+            ],
+            answer: "b"
+          },
+          {
+            q: "Apa pernyataan yang benar tentang breakout?",
+            options: [
+              "Setiap breakout pasti berlanjut",
+              "Breakout menghilangkan semua risiko",
+              "Harga dapat keluar dari rentang, tetapi tetap berisiko gagal berlanjut"
+            ],
+            answer: "c"
+          }
+        ]
+      }
+    };
+
+    let currentLang = "en";
+
     const quizForm = document.getElementById("moduleQuiz");
+    const quizQuestions = document.getElementById("quizQuestions");
     const quizResult = document.getElementById("quizResult");
     const quizScore = document.getElementById("quizScore");
+    const scoreNumber = document.getElementById("scoreNumber");
     const quizSummary = document.getElementById("quizSummary");
     const quizFeedback = document.getElementById("quizFeedback");
     const nextModule = document.getElementById("nextModule");
     const retryQuiz = document.getElementById("retryQuiz");
 
-    const correctAnswers = {
-      q1: "b",
-      q2: "c",
-      q3: "a",
-      q4: "b",
-      q5: "c"
-    };
+    let lastResult = null;
 
-    const explanations = {
-      q1: {
-        correct: "Interaksi permintaan dan penawaran berperan dalam pembentukan harga.",
-        incorrect: "Harga terbentuk melalui transaksi dan interaksi permintaan serta penawaran."
-      },
-      q2: {
-        correct: "Uptrend umumnya membentuk higher high dan higher low.",
-        incorrect: "Uptrend umumnya ditandai puncak dan lembah yang semakin tinggi."
-      },
-      q3: {
-        correct: "Likuiditas berkaitan dengan kemudahan transaksi dan dampaknya terhadap harga.",
-        incorrect: "Likuiditas bukan jaminan keuntungan. Likuiditas menggambarkan kemudahan aset diperdagangkan tanpa dampak harga yang besar."
-      },
-      q4: {
-        correct: "Volatilitas tinggi dapat disertai perubahan cepat, spread melebar, dan slippage.",
-        incorrect: "Ketika volatilitas meningkat, pertimbangkan risiko pergerakan cepat, spread, dan slippage."
-      },
-      q5: {
-        correct: "Breakout dapat gagal berlanjut dan harga bisa kembali ke rentang sebelumnya.",
-        incorrect: "Breakout tidak menjamin kelanjutan tren. Konfirmasi dan pengelolaan risiko tetap diperlukan."
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem("desk_language");
+        return saved === "id" || saved === "en" ? saved : "en";
+      } catch (error) {
+        return "en";
       }
-    };
+    }
 
-    quizForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
 
-      const formData = new FormData(quizForm);
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      try {
+        localStorage.setItem("desk_language", lang);
+      } catch (error) {
+        // The lesson remains usable if local storage is unavailable.
+      }
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        const translated = translations[lang][key];
+
+        if (typeof translated === "string") {
+          element.textContent = translated;
+        }
+      });
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      renderQuestions();
+
+      if (lastResult) {
+        renderResult(lastResult.answers);
+      }
+    }
+
+    function renderQuestions() {
+      const t = translations[currentLang];
+
+      quizQuestions.innerHTML = t.questions.map((question, index) => {
+        const name = "q" + (index + 1);
+
+        const options = question.options.map((option, optionIndex) => {
+          const value = ["a", "b", "c"][optionIndex];
+
+          return `
+            <label class="quiz-option">
+              <input
+                type="radio"
+                name="${name}"
+                value="${value}"
+                required
+              >
+              <span>${escapeHTML(option)}</span>
+            </label>
+          `;
+        }).join("");
+
+        return `
+          <fieldset class="quiz-question">
+            <legend>
+              ${index + 1}. ${escapeHTML(question.q)}
+            </legend>
+            ${options}
+          </fieldset>
+        `;
+      }).join("");
+    }
+
+    function renderResult(answers) {
+      const t = translations[currentLang];
       let score = 0;
-      let feedbackHTML = "";
 
-      for (let i = 1; i <= 5; i++) {
-        const key = "q" + i;
-        const isCorrect = formData.get(key) === correctAnswers[key];
+      const feedbackHTML = t.questions.map((question, index) => {
+        const key = "q" + (index + 1);
+        const isCorrect = answers[index] === question.answer;
 
         if (isCorrect) score++;
 
-        feedbackHTML += `
+        return `
           <div class="quiz-feedback">
-            <strong>${i}. ${isCorrect ? "Benar" : "Belum tepat"}</strong>
-            <p>${isCorrect ? explanations[key].correct : explanations[key].incorrect}</p>
+            <strong>
+              ${index + 1}. ${isCorrect ? t.correct : t.incorrect}
+            </strong>
+            ${!isCorrect ? `
+              <p>
+                <strong>${escapeHTML(t.correctAnswer)}:</strong>
+                ${escapeHTML(
+                  question.options[["a", "b", "c"].indexOf(question.answer)]
+                )}
+              </p>
+            ` : ""}
+            <p>${escapeHTML(t.explanation[index])}</p>
           </div>
         `;
-      }
+      }).join("");
 
       const passed = score >= 4;
-      quizScore.textContent = "Skor kamu: " + score + "/5 (" + (score * 20) + "%)";
-      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
-      quizSummary.textContent = passed
-        ? "Selamat! Kamu lulus Module 03. Berikutnya, pelajari siapa saja yang berpartisipasi di pasar."
-        : "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan, lalu coba lagi.";
 
+      quizResult.className = "quiz-result show " + (passed ? "pass" : "fail");
+      quizScore.textContent = passed ? t.passTitle : t.failTitle;
+      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
+      scoreNumber.textContent = score + "/5 · " + (score * 20) + "%";
+      quizSummary.textContent = passed ? t.passSummary : t.failSummary;
       quizFeedback.innerHTML = feedbackHTML;
       nextModule.hidden = !passed;
-      quizResult.style.display = "block";
-      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      lastResult = { answers };
+    }
+
+    quizForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const t = translations[currentLang];
+      const formData = new FormData(quizForm);
+      const answers = [];
+
+      for (let i = 1; i <= 5; i++) {
+        const answer = formData.get("q" + i);
+
+        if (!answer) {
+          quizResult.className = "quiz-result show fail";
+          quizScore.textContent = t.failTitle;
+          scoreNumber.textContent = "";
+          quizSummary.textContent = t.unanswered;
+          quizFeedback.innerHTML = "";
+          nextModule.hidden = true;
+          quizResult.scrollIntoView({ behavior: "smooth", block: "center" });
+          quizResult.focus();
+          return;
+        }
+
+        answers.push(answer);
+      }
+
+      renderResult(answers);
+
+      quizResult.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
       quizResult.focus();
     });
 
-    retryQuiz.addEventListener("click", function() {
+    retryQuiz.addEventListener("click", () => {
       quizForm.reset();
-      quizResult.style.display = "none";
+      lastResult = null;
+
+      quizResult.className = "quiz-result";
+      quizScore.textContent = "";
+      scoreNumber.textContent = "";
+      quizSummary.textContent = "";
+      quizFeedback.innerHTML = "";
       nextModule.hidden = true;
+
       document.getElementById("module-quiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
     });
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>

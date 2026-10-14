@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080a0d">
-    <title>Risiko Trading & Fundamental | THE DESK Academy</title>
+    <meta name="description"
+        content="THE DESK Academy Module 05: Trading Risk and Fundamentals. Learn risk management, position sizing, leverage, volatility and trading discipline.">
+    <title>Module 05 | Trading Risk & Fundamentals — THE DESK Academy</title>
+    <link rel="stylesheet" href="style.css">
 
     <style>
         :root {
@@ -41,12 +44,13 @@
 
         .nav {
             max-width: 1050px;
-            margin: auto;
-            padding: 19px 22px;
+            margin: 0 auto;
+            padding: 17px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -61,15 +65,48 @@
             font-weight: 400;
         }
 
-        .nav a {
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav a,
+        .bottom-links a {
             color: var(--gold);
             font-size: 12px;
             text-decoration: none;
         }
 
+        .language-switch {
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            background: var(--panel);
+        }
+
+        .language-switch button {
+            padding: 7px 10px;
+            border: 0;
+            border-radius: 3px;
+            background: transparent;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .language-switch button.active {
+            background: var(--gold);
+            color: #111;
+        }
+
         .container {
             width: min(912px, 100%);
-            margin: auto;
+            margin: 0 auto;
             padding: 36px 22px 65px;
         }
 
@@ -80,6 +117,7 @@
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
+            line-height: 1.8;
         }
 
         h1 {
@@ -207,10 +245,12 @@
             color: #c6cdd6;
             font-size: 13px;
             cursor: pointer;
+            transition: border-color .2s, background .2s;
         }
 
         .option:hover {
             border-color: var(--gold);
+            background: rgba(201, 164, 92, .04);
         }
 
         .option input {
@@ -222,42 +262,48 @@
             margin-top: 10px;
             font-size: 12px;
             color: var(--muted);
+            line-height: 1.8;
         }
 
         button {
             font-family: inherit;
         }
 
-        .primary-btn {
+        .primary-btn,
+        .secondary-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 12px 19px;
             border: 1px solid var(--gold);
             border-radius: 4px;
-            background: var(--gold);
-            color: #111;
             font-size: 12px;
             font-weight: bold;
-            text-decoration: none;
             cursor: pointer;
         }
 
+        .primary-btn {
+            background: var(--gold);
+            color: #111;
+        }
+
         .secondary-btn {
-            margin: 20px 0 0 8px;
-            padding: 12px 18px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            margin-left: 8px;
+            border-color: var(--border);
             background: transparent;
             color: var(--text);
-            cursor: pointer;
         }
 
         #result {
             display: none;
-            padding: 18px;
+            padding: 20px;
             margin-top: 22px;
             border: 1px solid var(--border);
+            border-radius: 5px;
             background: var(--panel);
+        }
+
+        #result h3 {
+            margin-top: 0;
         }
 
         .correct {
@@ -344,12 +390,6 @@
             margin-top: 30px;
         }
 
-        .bottom-links a {
-            color: var(--gold);
-            font-size: 12px;
-            text-decoration: none;
-        }
-
         .disclaimer {
             margin-top: 28px;
             color: #7f8995;
@@ -363,6 +403,10 @@
             color: var(--muted);
             font-size: 11px;
             letter-spacing: .5px;
+        }
+
+        [hidden] {
+            display: none !important;
         }
 
         @media (max-width: 600px) {
@@ -385,56 +429,61 @@
             .secondary-btn {
                 margin-left: 0;
             }
-        }
 
-        [hidden] {
-            display: none !important;
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <header>
         <div class="nav">
             <div class="logo">THE DESK <span>ACADEMY</span></div>
-            <a href="fundamentals.html">← Kembali ke Fundamentals</a>
+
+            <div class="nav-right">
+                <a href="fundamentals.html" data-i18n="backTop">← Kembali ke Fundamentals</a>
+
+                <div class="language-switch" aria-label="Language selection">
+                    <button type="button" id="langID" class="active" aria-pressed="true">ID</button>
+                    <button type="button" id="langEN" aria-pressed="false">EN</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="container">
+        <div class="eyebrow" data-i18n="moduleLabel">THE DESK ACADEMY · MODULE 05</div>
 
-        <div class="eyebrow">THE DESK ACADEMY · MODULE 05</div>
+        <h1 data-i18n="pageTitle">Risiko Trading & Fundamental</h1>
 
-        <h1>Risiko Trading & Fundamental</h1>
-
-        <p class="intro">
+        <p class="intro" data-i18n="intro">
             Memahami peluang hanyalah setengah dari proses trading.
             Pelajari bagaimana mengelola risiko, melindungi modal, dan
             mengambil keputusan trading secara lebih terstruktur.
         </p>
 
         <div class="tags">
-            <span class="tag">FREE · BASIC</span>
-            <span class="tag">BEGINNER</span>
-            <span class="tag">5 QUESTIONS</span>
+            <span class="tag" data-i18n="tag1">FREE · BASIC</span>
+            <span class="tag" data-i18n="tag2">BEGINNER</span>
+            <span class="tag" data-i18n="tag3">5 QUESTIONS</span>
         </div>
 
         <hr>
 
-        <!-- SECTION 01 -->
-
         <section class="lesson-section">
-            <div class="section-number">01 · RISK MANAGEMENT</div>
-            <h2>Risiko Didahulukan daripada Profit</h2>
+            <div class="section-number" data-i18n="s1label">01 · RISK MANAGEMENT</div>
+            <h2 data-i18n="s1title">Risiko Didahulukan daripada Profit</h2>
 
-            <p>
+            <p data-i18n="s1p1">
                 Setiap transaksi memiliki ketidakpastian. Bahkan setup yang
                 terlihat kuat bisa gagal akibat perubahan likuiditas, data ekonomi,
                 sentimen, atau peristiwa yang tidak terduga.
             </p>
 
-            <p>
+            <p data-i18n="s1p2">
                 Sebelum membuka posisi, trader perlu menentukan berapa besar
                 potensi kerugian yang dapat ditanggung. Manajemen risiko tidak
                 menjamin keuntungan, tetapi dapat membantu membatasi kerugian
@@ -442,466 +491,691 @@
             </p>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Pola pikir profesional dimulai dari menjaga modal, bukan mengejar profit.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s1insight">
+                    Pola pikir profesional dimulai dari menjaga modal, bukan mengejar profit.
+                </p>
             </div>
         </section>
 
         <hr>
 
-        <!-- SECTION 02 -->
-
         <section class="lesson-section">
-            <div class="section-number">02 · POSITION SIZING</div>
-            <h2>Menentukan Ukuran Posisi</h2>
+            <div class="section-number" data-i18n="s2label">02 · POSITION SIZING</div>
+            <h2 data-i18n="s2title">Menentukan Ukuran Posisi</h2>
 
-            <p>
+            <p data-i18n="s2p1">
                 Position sizing menentukan seberapa besar posisi yang dibuka
-                berdasarkan modal, jarak stop-loss, dan risiko yang telah
-                direncanakan.
+                berdasarkan modal, jarak stop-loss, dan risiko yang telah direncanakan.
             </p>
 
-            <p>Beberapa hal yang perlu diperhatikan:</p>
+            <p data-i18n="s2listIntro">Beberapa hal yang perlu diperhatikan:</p>
 
             <ul>
-                <li>Posisi yang lebih besar dapat memperbesar keuntungan sekaligus kerugian.</li>
-                <li>Stop-loss yang lebih lebar mungkin membutuhkan lot lebih kecil agar nominal risiko tetap terkendali.
-                </li>
-                <li>Spesifikasi kontrak, leverage, dan volatilitas memengaruhi risiko aktual.</li>
+                <li data-i18n="s2li1">Posisi yang lebih besar dapat memperbesar keuntungan sekaligus kerugian.</li>
+                <li data-i18n="s2li2">Stop-loss yang lebih lebar mungkin membutuhkan lot lebih kecil agar nominal risiko
+                    tetap terkendali.</li>
+                <li data-i18n="s2li3">Spesifikasi kontrak, leverage, dan volatilitas memengaruhi risiko aktual.</li>
             </ul>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Lot terbesar yang diizinkan margin belum tentu merupakan lot yang tepat untuk akunmu.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s2insight">
+                    Lot terbesar yang diizinkan margin belum tentu merupakan lot yang tepat untuk akunmu.
+                </p>
             </div>
         </section>
 
         <hr>
 
-        <!-- SECTION 03 -->
-
         <section class="lesson-section">
-            <div class="section-number">03 · STOP-LOSS & RISK-TO-REWARD</div>
-            <h2>Stop-Loss dan Risk-to-Reward</h2>
+            <div class="section-number" data-i18n="s3label">03 · STOP-LOSS & RISK-TO-REWARD</div>
+            <h2 data-i18n="s3title">Stop-Loss dan Risk-to-Reward</h2>
 
-            <p>
-                Stop-loss menentukan rencana keluar ketika harga bergerak
-                berlawanan dengan posisi. Namun, saat terjadi gap atau volatilitas
-                ekstrem, harga eksekusi dapat berbeda dari harga yang diminta.
+            <p data-i18n="s3p1">
+                Stop-loss menentukan rencana keluar ketika harga bergerak berlawanan
+                dengan posisi. Namun, saat terjadi gap atau volatilitas ekstrem,
+                harga eksekusi dapat berbeda dari harga yang diminta.
             </p>
 
-            <p>
-                Contohnya, jika seorang trader merencanakan risiko sebesar
-                $100 dengan potensi keuntungan $200, rasio risk-to-reward
-                yang direncanakan adalah 1:2.
+            <p data-i18n="s3p2">
+                Contohnya, jika seorang trader merencanakan risiko sebesar $100
+                dengan potensi keuntungan $200, rasio risk-to-reward yang direncanakan
+                adalah 1:2.
             </p>
 
-            <p>
+            <p data-i18n="s3p3">
                 Rasio yang baik tidak menjamin strategi akan profit.
                 Hasil juga dipengaruhi win rate, biaya trading, dan kualitas eksekusi.
             </p>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Rasio keuntungan terhadap risiko adalah bagian dari perencanaan, bukan jaminan hasil transaksi.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s3insight">
+                    Rasio keuntungan terhadap risiko adalah bagian dari perencanaan, bukan jaminan hasil transaksi.
+                </p>
             </div>
         </section>
 
         <hr>
 
-        <!-- SECTION 04 -->
-
         <section class="lesson-section">
-            <div class="section-number">04 · LEVERAGE & MARGIN</div>
-            <h2>Memahami Leverage dan Margin</h2>
+            <div class="section-number" data-i18n="s4label">04 · LEVERAGE & MARGIN</div>
+            <h2 data-i18n="s4title">Memahami Leverage dan Margin</h2>
 
-            <p>
+            <p data-i18n="s4p1">
                 Leverage memungkinkan trader mengendalikan eksposur pasar yang
                 lebih besar daripada dana yang disetorkan. Kondisi ini juga
                 memperbesar dampak pergerakan harga terhadap ekuitas akun.
             </p>
 
             <ul>
-                <li><strong>Margin:</strong> dana yang dibutuhkan untuk membuka atau mempertahankan posisi.</li>
-                <li><strong>Leverage:</strong> perbandingan antara eksposur pasar dan modal sendiri.</li>
-                <li><strong>Stop-out:</strong> proses sesuai ketentuan broker yang dapat menutup posisi ketika ekuitas
-                    tidak mencukupi.</li>
+                <li data-i18n="s4li1"><strong>Margin:</strong> dana yang dibutuhkan untuk membuka atau mempertahankan
+                    posisi.</li>
+                <li data-i18n="s4li2"><strong>Leverage:</strong> perbandingan antara eksposur pasar dan modal sendiri.
+                </li>
+                <li data-i18n="s4li3"><strong>Stop-out:</strong> proses sesuai ketentuan broker yang dapat menutup
+                    posisi ketika ekuitas tidak mencukupi.</li>
             </ul>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Leverage tidak membuat analisis lebih akurat. Leverage dapat mempercepat akumulasi kerugian.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s4insight">
+                    Leverage tidak membuat analisis lebih akurat. Leverage dapat mempercepat akumulasi kerugian.
+                </p>
             </div>
         </section>
 
         <hr>
 
-        <!-- SECTION 05 -->
-
         <section class="lesson-section">
-            <div class="section-number">05 · NEWS & VOLATILITY</div>
-            <h2>Volatilitas dan Risiko Berita</h2>
+            <div class="section-number" data-i18n="s5label">05 · NEWS & VOLATILITY</div>
+            <h2 data-i18n="s5title">Volatilitas dan Risiko Berita</h2>
 
-            <p>
-                Rilis data ekonomi, keputusan bank sentral, dan peristiwa
-                geopolitik dapat mengubah harga pasar dengan cepat. Reaksi
-                harga tidak selalu searah dengan perkiraan awal trader.
+            <p data-i18n="s5p1">
+                Rilis data ekonomi, keputusan bank sentral, dan peristiwa geopolitik
+                dapat mengubah harga pasar dengan cepat. Reaksi harga tidak selalu
+                searah dengan perkiraan awal trader.
             </p>
 
             <ul>
-                <li>Spread dapat melebar ketika berita berdampak tinggi dirilis.</li>
-                <li>Slippage dapat menyebabkan eksekusi pada harga berbeda.</li>
-                <li>Volatilitas yang tidak terduga dapat membatalkan setup trading.</li>
-                <li>Stop-loss tidak selalu menjamin harga keluar yang persis sama.</li>
+                <li data-i18n="s5li1">Spread dapat melebar ketika berita berdampak tinggi dirilis.</li>
+                <li data-i18n="s5li2">Slippage dapat menyebabkan eksekusi pada harga berbeda.</li>
+                <li data-i18n="s5li3">Volatilitas yang tidak terduga dapat membatalkan setup trading.</li>
+                <li data-i18n="s5li4">Stop-loss tidak selalu menjamin harga keluar yang persis sama.</li>
             </ul>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Semakin tidak pasti kondisi pasar, semakin penting memahami risiko eksekusi.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s5insight">
+                    Semakin tidak pasti kondisi pasar, semakin penting memahami risiko eksekusi.
+                </p>
             </div>
         </section>
 
         <hr>
 
-        <!-- SECTION 06 -->
-
         <section class="lesson-section">
-            <div class="section-number">06 · TRADING PSYCHOLOGY</div>
-            <h2>Psikologi dan Disiplin Trading</h2>
+            <div class="section-number" data-i18n="s6label">06 · TRADING PSYCHOLOGY</div>
+            <h2 data-i18n="s6title">Psikologi dan Disiplin Trading</h2>
 
-            <p>
+            <p data-i18n="s6p1">
                 Rasa takut, keserakahan, revenge trading, dan overtrading dapat
                 membuat trader meninggalkan rencana awal. Keputusan impulsif
                 sering kali menambah risiko setelah kerugian.
             </p>
 
             <ul>
-                <li>Tentukan entry, exit, dan risiko sebelum membuka posisi.</li>
-                <li>Jangan meningkatkan risiko hanya untuk memulihkan kerugian.</li>
-                <li>Evaluasi kualitas keputusan, bukan hanya hasil profit atau loss.</li>
-                <li>Kenali kapan tidak masuk pasar merupakan pilihan yang lebih baik.</li>
+                <li data-i18n="s6li1">Tentukan entry, exit, dan risiko sebelum membuka posisi.</li>
+                <li data-i18n="s6li2">Jangan meningkatkan risiko hanya untuk memulihkan kerugian.</li>
+                <li data-i18n="s6li3">Evaluasi kualitas keputusan, bukan hanya hasil profit atau loss.</li>
+                <li data-i18n="s6li4">Kenali kapan tidak masuk pasar merupakan pilihan yang lebih baik.</li>
             </ul>
 
             <div class="insight">
-                <strong>Key Insight</strong>
-                <p>Kamu tidak harus mengikuti setiap pergerakan pasar. Selektif adalah bagian dari disiplin.</p>
+                <strong data-i18n="keyInsight">KEY INSIGHT</strong>
+                <p data-i18n="s6insight">
+                    Kamu tidak harus mengikuti setiap pergerakan pasar. Selektif adalah bagian dari disiplin.
+                </p>
             </div>
         </section>
 
-        <hr>
-
-        <!-- QUIZ -->
-
         <section class="quiz" id="quiz">
+            <div class="eyebrow" data-i18n="quizLabel">KNOWLEDGE CHECK</div>
+            <h2 data-i18n="quizTitle">Uji Pemahaman</h2>
 
-            <div class="eyebrow">KNOWLEDGE CHECK</div>
-            <h2>Uji Pemahaman</h2>
-
-            <p class="quiz-intro">
-                Jawab kelima pertanyaan berikut. Kamu membutuhkan minimal
-                4 jawaban benar untuk lulus.
+            <p class="quiz-intro" data-i18n="quizIntro">
+                Jawab kelima pertanyaan berikut. Kamu membutuhkan minimal 4 jawaban benar untuk lulus.
             </p>
 
             <form id="quizForm">
-
                 <div class="question">
-                    <div class="question-title">
-                        1. Apa yang harus ditentukan sebelum membuka transaksi?
+                    <div class="question-title" data-i18n="q1">1. Apa yang harus ditentukan sebelum membuka transaksi?
                     </div>
-
-                    <label class="option">
-                        <input type="radio" name="q1" value="a">
-                        Lot terbesar yang diizinkan broker
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q1" value="b">
-                        Potensi kerugian dan ukuran posisi yang sesuai
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q1" value="c">
-                        Hanya potensi keuntungan
-                    </label>
-
+                    <label class="option"><input type="radio" name="q1" value="a" required><span data-i18n="q1a">Lot
+                            terbesar yang diizinkan broker</span></label>
+                    <label class="option"><input type="radio" name="q1" value="b"><span data-i18n="q1b">Potensi kerugian
+                            dan ukuran posisi yang sesuai</span></label>
+                    <label class="option"><input type="radio" name="q1" value="c"><span data-i18n="q1c">Hanya potensi
+                            keuntungan</span></label>
                     <div class="explanation" id="e1"></div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">
-                        2. Apa arti rasio risk-to-reward 1:2?
-                    </div>
-
-                    <label class="option">
-                        <input type="radio" name="q2" value="a">
-                        Potensi keuntungan yang direncanakan dua kali risiko
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q2" value="b">
-                        Transaksi dijamin menghasilkan profit
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q2" value="c">
-                        Trader harus membuka dua posisi
-                    </label>
-
+                    <div class="question-title" data-i18n="q2">2. Apa arti rasio risk-to-reward 1:2?</div>
+                    <label class="option"><input type="radio" name="q2" value="a" required><span data-i18n="q2a">Potensi
+                            keuntungan yang direncanakan dua kali risiko</span></label>
+                    <label class="option"><input type="radio" name="q2" value="b"><span data-i18n="q2b">Transaksi
+                            dijamin menghasilkan profit</span></label>
+                    <label class="option"><input type="radio" name="q2" value="c"><span data-i18n="q2c">Trader harus
+                            membuka dua posisi</span></label>
                     <div class="explanation" id="e2"></div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">
-                        3. Apa risiko utama dari leverage tinggi?
-                    </div>
-
-                    <label class="option">
-                        <input type="radio" name="q3" value="a">
-                        Menghilangkan risiko pasar
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q3" value="b">
-                        Menjamin eksekusi lebih baik
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q3" value="c">
-                        Dapat memperbesar kerugian relatif terhadap modal
-                    </label>
-
+                    <div class="question-title" data-i18n="q3">3. Apa risiko utama dari leverage tinggi?</div>
+                    <label class="option"><input type="radio" name="q3" value="a" required><span
+                            data-i18n="q3a">Menghilangkan risiko pasar</span></label>
+                    <label class="option"><input type="radio" name="q3" value="b"><span data-i18n="q3b">Menjamin
+                            eksekusi lebih baik</span></label>
+                    <label class="option"><input type="radio" name="q3" value="c"><span data-i18n="q3c">Dapat
+                            memperbesar kerugian relatif terhadap modal</span></label>
                     <div class="explanation" id="e3"></div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">
-                        4. Apa yang dapat terjadi saat rilis berita berdampak tinggi?
-                    </div>
-
-                    <label class="option">
-                        <input type="radio" name="q4" value="a">
-                        Harga selalu bergerak sesuai prediksi
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q4" value="b">
-                        Spread dapat melebar dan slippage dapat terjadi
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q4" value="c">
-                        Stop-loss menjadi bebas risiko
-                    </label>
-
+                    <div class="question-title" data-i18n="q4">4. Apa yang dapat terjadi saat rilis berita berdampak
+                        tinggi?</div>
+                    <label class="option"><input type="radio" name="q4" value="a" required><span data-i18n="q4a">Harga
+                            selalu bergerak sesuai prediksi</span></label>
+                    <label class="option"><input type="radio" name="q4" value="b"><span data-i18n="q4b">Spread dapat
+                            melebar dan slippage dapat terjadi</span></label>
+                    <label class="option"><input type="radio" name="q4" value="c"><span data-i18n="q4c">Stop-loss
+                            menjadi bebas risiko</span></label>
                     <div class="explanation" id="e4"></div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">
-                        5. Apa respons yang disiplin setelah mengalami kerugian?
+                    <div class="question-title" data-i18n="q5">5. Apa respons yang disiplin setelah mengalami kerugian?
                     </div>
-
-                    <label class="option">
-                        <input type="radio" name="q5" value="a">
-                        Menaikkan lot agar segera balik modal
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q5" value="b">
-                        Menambah transaksi tanpa menunggu setup
-                    </label>
-                    <label class="option">
-                        <input type="radio" name="q5" value="c">
-                        Mengevaluasi transaksi dan mengikuti rencana risiko
-                    </label>
-
+                    <label class="option"><input type="radio" name="q5" value="a" required><span
+                            data-i18n="q5a">Menaikkan lot agar segera balik modal</span></label>
+                    <label class="option"><input type="radio" name="q5" value="b"><span data-i18n="q5b">Menambah
+                            transaksi tanpa menunggu setup</span></label>
+                    <label class="option"><input type="radio" name="q5" value="c"><span data-i18n="q5c">Mengevaluasi
+                            transaksi dan mengikuti rencana risiko</span></label>
                     <div class="explanation" id="e5"></div>
                 </div>
 
-                <button class="primary-btn" type="submit">
-                    KIRIM JAWABAN
-                </button>
-
-                <button class="secondary-btn" type="button" id="retryButton" onclick="resetQuiz()" hidden>
-                    ULANGI KUIS
-                </button>
-
+                <button class="primary-btn" type="submit" data-i18n="submitButton">KIRIM JAWABAN →</button>
+                <button class="secondary-btn" type="button" id="retryButton" hidden data-i18n="retryButton">ULANGI
+                    KUIS</button>
             </form>
 
-            <div id="result" aria-live="polite"></div>
+            <div id="result" role="status" aria-live="polite" tabindex="-1"></div>
 
             <div id="completion">
                 <div class="insight">
-                    <strong>Fundamentals Track Selesai</strong>
-                    <p>
+                    <strong data-i18n="completionTitle">FUNDAMENTALS TRACK SELESAI</strong>
+                    <p data-i18n="completionText">
                         Kamu telah menyelesaikan lima modul Market Fundamentals.
-                        Terus kembangkan pemahamanmu dan terapkan prinsip risiko
-                        secara konsisten.
+                        Terus kembangkan pemahamanmu dan terapkan prinsip risiko secara konsisten.
                     </p>
                 </div>
             </div>
-
         </section>
 
-        <!-- PREMIUM SECTION: ONLY ADDED AT THE BOTTOM -->
+        <section class="premium" id="premium">
+            <div class="premium-label" data-i18n="premiumLabel">THE DESK · PREMIUM LEARNING</div>
 
-        <section class="panel premium" id="premium">
+            <h2 data-i18n="premiumTitle">Kamu Sudah Memahami Dasarnya.</h2>
+            <h3 class="premium-subtitle" data-i18n="premiumSubtitle">Sekarang, Pelajari Cara Membaca Pasar.</h3>
 
-            <div class="premium-label">THE DESK · PREMIUM LEARNING</div>
-
-            <h2>Kamu Sudah Memahami Dasarnya.</h2>
-            <h3 class="premium-subtitle">
-                Sekarang, Pelajari Cara Membaca Pasar.
-            </h3>
-
-            <p>
+            <p data-i18n="premiumIntro">
                 Memahami dasar adalah langkah awal. Kembangkan kemampuanmu dengan
                 mempelajari struktur pasar, analisis teknikal, faktor makroekonomi,
                 dan riset pasar yang lebih mendalam.
             </p>
 
             <div class="premium-grid">
-
                 <div class="premium-item">
                     <div class="premium-icon">◈</div>
-                    <strong>Struktur Pasar Lanjutan</strong>
-                    <p>
-                        Pahami struktur harga, perilaku pasar, dan konsep teknikal
-                        yang lebih mendalam.
-                    </p>
+                    <strong data-i18n="premium1Title">Struktur Pasar Lanjutan</strong>
+                    <p data-i18n="premium1Text">Pahami struktur harga, perilaku pasar, dan konsep teknikal yang lebih
+                        mendalam.</p>
                 </div>
 
                 <div class="premium-item">
                     <div class="premium-icon">◈</div>
-                    <strong>Analisis Teknikal</strong>
-                    <p>
-                        Bangun pendekatan yang lebih terstruktur untuk mengidentifikasi
-                        potensi setup trading.
-                    </p>
+                    <strong data-i18n="premium2Title">Analisis Teknikal</strong>
+                    <p data-i18n="premium2Text">Bangun pendekatan yang lebih terstruktur untuk mengidentifikasi potensi
+                        setup trading.</p>
                 </div>
 
                 <div class="premium-item">
                     <div class="premium-icon">◈</div>
-                    <strong>Intelijen Makro & Berita</strong>
-                    <p>
-                        Pahami bagaimana data ekonomi, bank sentral, dan peristiwa besar
-                        dapat memengaruhi pasar.
-                    </p>
+                    <strong data-i18n="premium3Title">Intelijen Makro & Berita</strong>
+                    <p data-i18n="premium3Text">Pahami bagaimana data ekonomi, bank sentral, dan peristiwa besar dapat
+                        memengaruhi pasar.</p>
                 </div>
 
                 <div class="premium-item">
                     <div class="premium-icon">◈</div>
-                    <strong>Riset Pasar Profesional</strong>
-                    <p>
-                        Hubungkan informasi pasar untuk membangun proses analisis
-                        yang lebih jelas dan terstruktur.
-                    </p>
+                    <strong data-i18n="premium4Title">Riset Pasar Profesional</strong>
+                    <p data-i18n="premium4Text">Hubungkan informasi pasar untuk membangun proses analisis yang lebih
+                        jelas dan terstruktur.</p>
                 </div>
-
             </div>
 
-            <p class="premium-note">
-                Ingin belajar lebih mendalam? Hubungi tim THE DESK untuk mengetahui
-                informasi mengenai program pembelajaran Premium.
+            <p class="premium-note" data-i18n="premiumNote">
+                Ingin belajar lebih mendalam? Hubungi tim THE DESK untuk mengetahui informasi mengenai program
+                pembelajaran Premium.
             </p>
         </section>
 
         <div class="bottom-links">
-            <a href="fundamentals.html">← Kembali ke Fundamentals</a>
-            <a href="academy.html">Jelajahi Academy →</a>
+            <a href="fundamentals.html" data-i18n="backBottom">← Kembali ke Fundamentals</a>
+            <a href="academy.html" data-i18n="academyLink">Jelajahi Academy →</a>
         </div>
 
-        <p class="disclaimer">
-            Konten ini hanya untuk edukasi. Trading produk berleverage memiliki
-            risiko tinggi dan belum tentu sesuai untuk setiap investor.
+        <p class="disclaimer" data-i18n="disclaimer">
+            Konten ini hanya untuk edukasi. Trading produk berleverage memiliki risiko tinggi dan belum tentu sesuai
+            untuk setiap investor.
         </p>
-
     </main>
 
-    <footer>
-        THE DESK ACADEMY · UNDERSTAND THE MARKET, BEFORE YOU TRADE IT.
-    </footer>
+    <footer>THE DESK ACADEMY · UNDERSTAND THE MARKET, BEFORE YOU TRADE IT.</footer>
 
     <script>
-        const answers = {
-            q1: {
-                correct: "b",
-                explanation: "Ukuran posisi harus disesuaikan dengan potensi kerugian dan kemampuan menanggung risiko."
+        const translations = {
+            id: {
+                backTop: "← Kembali ke Fundamentals",
+                moduleLabel: "THE DESK ACADEMY · MODULE 05",
+                pageTitle: "Risiko Trading & Fundamental",
+                intro: "Memahami peluang hanyalah setengah dari proses trading. Pelajari bagaimana mengelola risiko, melindungi modal, dan mengambil keputusan trading secara lebih terstruktur.",
+                tag1: "FREE · BASIC",
+                tag2: "BEGINNER",
+                tag3: "5 QUESTIONS",
+
+                keyInsight: "KEY INSIGHT",
+                s1label: "01 · RISK MANAGEMENT",
+                s1title: "Risiko Didahulukan daripada Profit",
+                s1p1: "Setiap transaksi memiliki ketidakpastian. Bahkan setup yang terlihat kuat bisa gagal akibat perubahan likuiditas, data ekonomi, sentimen, atau peristiwa yang tidak terduga.",
+                s1p2: "Sebelum membuka posisi, trader perlu menentukan berapa besar potensi kerugian yang dapat ditanggung. Manajemen risiko tidak menjamin keuntungan, tetapi dapat membantu membatasi kerugian dan melindungi modal.",
+                s1insight: "Pola pikir profesional dimulai dari menjaga modal, bukan mengejar profit.",
+
+                s2label: "02 · POSITION SIZING",
+                s2title: "Menentukan Ukuran Posisi",
+                s2p1: "Position sizing menentukan seberapa besar posisi yang dibuka berdasarkan modal, jarak stop-loss, dan risiko yang telah direncanakan.",
+                s2listIntro: "Beberapa hal yang perlu diperhatikan:",
+                s2li1: "Posisi yang lebih besar dapat memperbesar keuntungan sekaligus kerugian.",
+                s2li2: "Stop-loss yang lebih lebar mungkin membutuhkan lot lebih kecil agar nominal risiko tetap terkendali.",
+                s2li3: "Spesifikasi kontrak, leverage, dan volatilitas memengaruhi risiko aktual.",
+                s2insight: "Lot terbesar yang diizinkan margin belum tentu merupakan lot yang tepat untuk akunmu.",
+
+                s3label: "03 · STOP-LOSS & RISK-TO-REWARD",
+                s3title: "Stop-Loss dan Risk-to-Reward",
+                s3p1: "Stop-loss menentukan rencana keluar ketika harga bergerak berlawanan dengan posisi. Namun, saat terjadi gap atau volatilitas ekstrem, harga eksekusi dapat berbeda dari harga yang diminta.",
+                s3p2: "Contohnya, jika seorang trader merencanakan risiko sebesar $100 dengan potensi keuntungan $200, rasio risk-to-reward yang direncanakan adalah 1:2.",
+                s3p3: "Rasio yang baik tidak menjamin strategi akan profit. Hasil juga dipengaruhi win rate, biaya trading, dan kualitas eksekusi.",
+                s3insight: "Rasio keuntungan terhadap risiko adalah bagian dari perencanaan, bukan jaminan hasil transaksi.",
+
+                s4label: "04 · LEVERAGE & MARGIN",
+                s4title: "Memahami Leverage dan Margin",
+                s4p1: "Leverage memungkinkan trader mengendalikan eksposur pasar yang lebih besar daripada dana yang disetorkan. Kondisi ini juga memperbesar dampak pergerakan harga terhadap ekuitas akun.",
+                s4li1: "Margin: dana yang dibutuhkan untuk membuka atau mempertahankan posisi.",
+                s4li2: "Leverage: perbandingan antara eksposur pasar dan modal sendiri.",
+                s4li3: "Stop-out: proses sesuai ketentuan broker yang dapat menutup posisi ketika ekuitas tidak mencukupi.",
+                s4insight: "Leverage tidak membuat analisis lebih akurat. Leverage dapat mempercepat akumulasi kerugian.",
+
+                s5label: "05 · NEWS & VOLATILITY",
+                s5title: "Volatilitas dan Risiko Berita",
+                s5p1: "Rilis data ekonomi, keputusan bank sentral, dan peristiwa geopolitik dapat mengubah harga pasar dengan cepat. Reaksi harga tidak selalu searah dengan perkiraan awal trader.",
+                s5li1: "Spread dapat melebar ketika berita berdampak tinggi dirilis.",
+                s5li2: "Slippage dapat menyebabkan eksekusi pada harga berbeda.",
+                s5li3: "Volatilitas yang tidak terduga dapat membatalkan setup trading.",
+                s5li4: "Stop-loss tidak selalu menjamin harga keluar yang persis sama.",
+                s5insight: "Semakin tidak pasti kondisi pasar, semakin penting memahami risiko eksekusi.",
+
+                s6label: "06 · TRADING PSYCHOLOGY",
+                s6title: "Psikologi dan Disiplin Trading",
+                s6p1: "Rasa takut, keserakahan, revenge trading, dan overtrading dapat membuat trader meninggalkan rencana awal. Keputusan impulsif sering kali menambah risiko setelah kerugian.",
+                s6li1: "Tentukan entry, exit, dan risiko sebelum membuka posisi.",
+                s6li2: "Jangan meningkatkan risiko hanya untuk memulihkan kerugian.",
+                s6li3: "Evaluasi kualitas keputusan, bukan hanya hasil profit atau loss.",
+                s6li4: "Kenali kapan tidak masuk pasar merupakan pilihan yang lebih baik.",
+                s6insight: "Kamu tidak harus mengikuti setiap pergerakan pasar. Selektif adalah bagian dari disiplin.",
+
+                quizLabel: "KNOWLEDGE CHECK",
+                quizTitle: "Uji Pemahaman",
+                quizIntro: "Jawab kelima pertanyaan berikut. Kamu membutuhkan minimal 4 jawaban benar untuk lulus.",
+                submitButton: "KIRIM JAWABAN →",
+                retryButton: "ULANGI KUIS",
+
+                q1: "1. Apa yang harus ditentukan sebelum membuka transaksi?",
+                q1a: "Lot terbesar yang diizinkan broker",
+                q1b: "Potensi kerugian dan ukuran posisi yang sesuai",
+                q1c: "Hanya potensi keuntungan",
+                q2: "2. Apa arti rasio risk-to-reward 1:2?",
+                q2a: "Potensi keuntungan yang direncanakan dua kali risiko",
+                q2b: "Transaksi dijamin menghasilkan profit",
+                q2c: "Trader harus membuka dua posisi",
+                q3: "3. Apa risiko utama dari leverage tinggi?",
+                q3a: "Menghilangkan risiko pasar",
+                q3b: "Menjamin eksekusi lebih baik",
+                q3c: "Dapat memperbesar kerugian relatif terhadap modal",
+                q4: "4. Apa yang dapat terjadi saat rilis berita berdampak tinggi?",
+                q4a: "Harga selalu bergerak sesuai prediksi",
+                q4b: "Spread dapat melebar dan slippage dapat terjadi",
+                q4c: "Stop-loss menjadi bebas risiko",
+                q5: "5. Apa respons yang disiplin setelah mengalami kerugian?",
+                q5a: "Menaikkan lot agar segera balik modal",
+                q5b: "Menambah transaksi tanpa menunggu setup",
+                q5c: "Mengevaluasi transaksi dan mengikuti rencana risiko",
+
+                scoreLabel: "Nilai kamu: ",
+                passedTitle: "Evaluasi Lulus",
+                failedTitle: "Terus Belajar",
+                passedText: "Kamu telah menyelesaikan evaluasi Fundamentals.",
+                failedText: "Pelajari kembali penjelasannya dan coba lagi. Kamu membutuhkan minimal 4 jawaban benar untuk lulus.",
+                answerAll: "Jawab semua pertanyaan sebelum memeriksa hasil.",
+                correctLabel: "Benar.",
+                incorrectLabel: "Belum tepat.",
+                explain1: "Ukuran posisi harus disesuaikan dengan potensi kerugian dan kemampuan menanggung risiko.",
+                explain2: "Rasio 1:2 berarti potensi keuntungan yang direncanakan dua kali risiko. Ini bukan jaminan profit.",
+                explain3: "Leverage meningkatkan eksposur relatif terhadap modal dan dapat memperbesar kerugian.",
+                explain4: "Volatilitas tinggi dapat menyebabkan spread melebar, slippage, dan pergerakan harga yang sulit diprediksi.",
+                explain5: "Evaluasi transaksi dan mengikuti rencana risiko membantu mencegah revenge trading.",
+
+                completionTitle: "FUNDAMENTALS TRACK SELESAI",
+                completionText: "Kamu telah menyelesaikan lima modul Market Fundamentals. Terus kembangkan pemahamanmu dan terapkan prinsip risiko secara konsisten.",
+
+                premiumLabel: "THE DESK · PREMIUM LEARNING",
+                premiumTitle: "Kamu Sudah Memahami Dasarnya.",
+                premiumSubtitle: "Sekarang, Pelajari Cara Membaca Pasar.",
+                premiumIntro: "Memahami dasar adalah langkah awal. Kembangkan kemampuanmu dengan mempelajari struktur pasar, analisis teknikal, faktor makroekonomi, dan riset pasar yang lebih mendalam.",
+                premium1Title: "Struktur Pasar Lanjutan",
+                premium1Text: "Pahami struktur harga, perilaku pasar, dan konsep teknikal yang lebih mendalam.",
+                premium2Title: "Analisis Teknikal",
+                premium2Text: "Bangun pendekatan yang lebih terstruktur untuk mengidentifikasi potensi setup trading.",
+                premium3Title: "Intelijen Makro & Berita",
+                premium3Text: "Pahami bagaimana data ekonomi, bank sentral, dan peristiwa besar dapat memengaruhi pasar.",
+                premium4Title: "Riset Pasar Profesional",
+                premium4Text: "Hubungkan informasi pasar untuk membangun proses analisis yang lebih jelas dan terstruktur.",
+                premiumNote: "Ingin belajar lebih mendalam? Hubungi tim THE DESK untuk mengetahui informasi mengenai program pembelajaran Premium.",
+                backBottom: "← Kembali ke Fundamentals",
+                academyLink: "Jelajahi Academy →",
+                disclaimer: "Konten ini hanya untuk edukasi. Trading produk berleverage memiliki risiko tinggi dan belum tentu sesuai untuk setiap investor."
             },
-            q2: {
-                correct: "a",
-                explanation: "Rasio 1:2 berarti potensi keuntungan yang direncanakan dua kali risiko. Ini bukan jaminan profit."
-            },
-            q3: {
-                correct: "c",
-                explanation: "Leverage meningkatkan eksposur relatif terhadap modal dan dapat memperbesar kerugian."
-            },
-            q4: {
-                correct: "b",
-                explanation: "Volatilitas tinggi dapat menyebabkan spread melebar, slippage, dan pergerakan harga yang sulit diprediksi."
-            },
-            q5: {
-                correct: "c",
-                explanation: "Evaluasi transaksi dan mengikuti rencana risiko membantu mencegah revenge trading."
+
+            en: {
+                backTop: "← Back to Fundamentals",
+                moduleLabel: "THE DESK ACADEMY · MODULE 05",
+                pageTitle: "Trading Risk & Fundamentals",
+                intro: "Understanding opportunities is only half of the trading process. Learn how to manage risk, protect capital, and make more structured trading decisions.",
+                tag1: "FREE · BASIC",
+                tag2: "BEGINNER",
+                tag3: "5 QUESTIONS",
+
+                keyInsight: "KEY INSIGHT",
+                s1label: "01 · RISK MANAGEMENT",
+                s1title: "Prioritize Risk Before Profit",
+                s1p1: "Every trade involves uncertainty. Even a setup that looks strong can fail because of changes in liquidity, economic data, sentiment, or unexpected events.",
+                s1p2: "Before opening a position, traders need to determine how much potential loss they can tolerate. Risk management does not guarantee profits, but it can help limit losses and protect capital.",
+                s1insight: "A professional mindset starts with protecting capital, not chasing profits.",
+
+                s2label: "02 · POSITION SIZING",
+                s2title: "Determining Position Size",
+                s2p1: "Position sizing determines how large a position should be based on account capital, stop-loss distance, and planned risk.",
+                s2listIntro: "Several factors deserve attention:",
+                s2li1: "Larger positions can increase both potential profits and losses.",
+                s2li2: "A wider stop-loss may require a smaller lot size to keep the monetary risk controlled.",
+                s2li3: "Contract specifications, leverage, and volatility affect actual risk.",
+                s2insight: "The largest lot size allowed by margin is not necessarily the right lot size for your account.",
+
+                s3label: "03 · STOP-LOSS & RISK-TO-REWARD",
+                s3title: "Stop-Loss and Risk-to-Reward",
+                s3p1: "A stop-loss defines an exit plan when price moves against a position. However, during gaps or extreme volatility, the execution price may differ from the requested price.",
+                s3p2: "For example, if a trader plans to risk $100 for a potential $200 profit, the planned risk-to-reward ratio is 1:2.",
+                s3p3: "A favorable ratio does not guarantee a profitable strategy. Results also depend on win rate, trading costs, and execution quality.",
+                s3insight: "The reward-to-risk ratio is part of planning, not a guarantee of trade outcomes.",
+
+                s4label: "04 · LEVERAGE & MARGIN",
+                s4title: "Understanding Leverage and Margin",
+                s4p1: "Leverage allows traders to control market exposure larger than the funds deposited. It also magnifies the impact of price movements on account equity.",
+                s4li1: "Margin: funds required to open or maintain a position.",
+                s4li2: "Leverage: the relationship between market exposure and the trader's own capital.",
+                s4li3: "Stop-out: a broker-defined process that may close positions when equity becomes insufficient.",
+                s4insight: "Leverage does not make analysis more accurate. It can accelerate the accumulation of losses.",
+
+                s5label: "05 · NEWS & VOLATILITY",
+                s5title: "Volatility and News Risk",
+                s5p1: "Economic releases, central bank decisions, and geopolitical events can move market prices quickly. Price reactions do not always follow a trader's initial expectations.",
+                s5li1: "Spreads may widen during high-impact news releases.",
+                s5li2: "Slippage may result in execution at a different price.",
+                s5li3: "Unexpected volatility may invalidate a trading setup.",
+                s5li4: "A stop-loss does not always guarantee an exact exit price.",
+                s5insight: "The more uncertain market conditions become, the more important it is to understand execution risk.",
+
+                s6label: "06 · TRADING PSYCHOLOGY",
+                s6title: "Trading Psychology and Discipline",
+                s6p1: "Fear, greed, revenge trading, and overtrading can cause traders to abandon their original plans. Impulsive decisions often add risk after a loss.",
+                s6li1: "Define entry, exit, and risk before opening a position.",
+                s6li2: "Do not increase risk just to recover losses.",
+                s6li3: "Evaluate decision quality, not only profit or loss outcomes.",
+                s6li4: "Recognize when staying out of the market is the better choice.",
+                s6insight: "You do not have to follow every market move. Selectivity is part of discipline.",
+
+                quizLabel: "KNOWLEDGE CHECK",
+                quizTitle: "Test Your Understanding",
+                quizIntro: "Answer all five questions. You need at least four correct answers to pass.",
+                submitButton: "SUBMIT ANSWERS →",
+                retryButton: "RETAKE QUIZ",
+
+                q1: "1. What should be determined before opening a trade?",
+                q1a: "The largest lot size allowed by the broker",
+                q1b: "Potential loss and an appropriate position size",
+                q1c: "Potential profit only",
+                q2: "2. What does a 1:2 risk-to-reward ratio mean?",
+                q2a: "The planned potential profit is twice the risk",
+                q2b: "The trade is guaranteed to be profitable",
+                q2c: "The trader must open two positions",
+                q3: "3. What is a major risk of high leverage?",
+                q3a: "It eliminates market risk",
+                q3b: "It guarantees better execution",
+                q3c: "It can magnify losses relative to capital",
+                q4: "4. What can happen during a high-impact news release?",
+                q4a: "Prices always move as predicted",
+                q4b: "Spreads may widen and slippage may occur",
+                q4c: "Stop-loss orders become risk-free",
+                q5: "5. What is a disciplined response after a loss?",
+                q5a: "Increase lot size to recover immediately",
+                q5b: "Add trades without waiting for a setup",
+                q5c: "Review the trade and follow the risk plan",
+
+                scoreLabel: "Your score: ",
+                passedTitle: "Assessment Passed",
+                failedTitle: "Keep Learning",
+                passedText: "You have completed the Fundamentals assessment.",
+                failedText: "Review the explanations and try again. You need at least four correct answers to pass.",
+                answerAll: "Answer all questions before checking your results.",
+                correctLabel: "Correct.",
+                incorrectLabel: "Not quite.",
+                explain1: "Position size should match potential loss and your ability to tolerate risk.",
+                explain2: "A 1:2 ratio means the planned potential profit is twice the risk. It does not guarantee a profit.",
+                explain3: "Leverage increases exposure relative to capital and can magnify losses.",
+                explain4: "High volatility may cause wider spreads, slippage, and unpredictable price movements.",
+                explain5: "Reviewing trades and following a risk plan can help prevent revenge trading.",
+
+                completionTitle: "FUNDAMENTALS TRACK COMPLETED",
+                completionText: "You have completed all five Market Fundamentals modules. Continue developing your understanding and applying risk principles consistently.",
+
+                premiumLabel: "THE DESK · PREMIUM LEARNING",
+                premiumTitle: "You Understand the Fundamentals.",
+                premiumSubtitle: "Now Learn How to Read the Market.",
+                premiumIntro: "Understanding the fundamentals is the first step. Develop your skills by exploring market structure, technical analysis, macroeconomic factors, and deeper market research.",
+                premium1Title: "Advanced Market Structure",
+                premium1Text: "Understand price structure, market behavior, and more advanced technical concepts.",
+                premium2Title: "Technical Analysis",
+                premium2Text: "Build a more structured approach to identifying potential trading setups.",
+                premium3Title: "Macro & News Intelligence",
+                premium3Text: "Understand how economic data, central banks, and major events can affect markets.",
+                premium4Title: "Professional Market Research",
+                premium4Text: "Connect market information to build a clearer and more structured analysis process.",
+                premiumNote: "Want to learn more? Contact THE DESK team for information about Premium learning programs.",
+                backBottom: "← Back to Fundamentals",
+                academyLink: "Explore Academy →",
+                disclaimer: "This content is for educational purposes only. Trading leveraged products carries a high level of risk and may not be suitable for every investor."
             }
         };
 
-        document.getElementById("quizForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+        const answers = {
+            q1: { correct: "b", explanation: "explain1" },
+            q2: { correct: "a", explanation: "explain2" },
+            q3: { correct: "c", explanation: "explain3" },
+            q4: { correct: "b", explanation: "explain4" },
+            q5: { correct: "c", explanation: "explain5" }
+        };
 
-            let score = 0;
+        const quizForm = document.getElementById("quizForm");
+        const result = document.getElementById("result");
+        const retryButton = document.getElementById("retryButton");
+        const completion = document.getElementById("completion");
+        const langID = document.getElementById("langID");
+        const langEN = document.getElementById("langEN");
 
-            Object.keys(answers).forEach(function (question) {
-                const selected = document.querySelector(
-                    'input[name="' + question + '"]:checked'
-                );
+        let currentLanguage = "id";
+        let lastScore = null;
+        let lastAnswers = null;
 
-                const explanation = document.getElementById(
-                    "e" + question.substring(1)
-                );
+        function setLanguage(language) {
+            currentLanguage = language === "en" ? "en" : "id";
+            document.documentElement.lang = currentLanguage;
 
-                const isCorrect = selected &&
-                    selected.value === answers[question].correct;
+            document.querySelectorAll("[data-i18n]").forEach(element => {
+                const key = element.dataset.i18n;
+                const value = translations[currentLanguage][key];
 
-                if (isCorrect) score++;
-
-                explanation.innerHTML =
-                    '<span class="' + (isCorrect ? "correct" : "incorrect") + '">' +
-                    (isCorrect ? "Benar. " : "Belum tepat. ") +
-                    '</span>' + answers[question].explanation;
+                if (value !== undefined) {
+                    element.textContent = value;
+                }
             });
 
-            const result = document.getElementById("result");
-            result.style.display = "block";
+            langID.classList.toggle("active", currentLanguage === "id");
+            langEN.classList.toggle("active", currentLanguage === "en");
+            langID.setAttribute("aria-pressed", String(currentLanguage === "id"));
+            langEN.setAttribute("aria-pressed", String(currentLanguage === "en"));
 
-            const percentage = Math.round(score / 5 * 100);
-
-            if (score >= 4) {
-                result.innerHTML =
-                    '<h3 class="correct">Evaluasi Lulus</h3>' +
-                    '<p>Nilai kamu: <strong>' + score + '/5 (' +
-                    percentage + '%)</strong></p>' +
-                    '<p>Kamu telah menyelesaikan evaluasi Fundamentals.</p>';
-
-                document.getElementById("completion").style.display = "block";
-            } else {
-                result.innerHTML =
-                    '<h3>Terus Belajar</h3>' +
-                    '<p>Nilai kamu: <strong>' + score + '/5 (' +
-                    percentage + '%)</strong></p>' +
-                    '<p>Pelajari kembali penjelasannya dan coba lagi. Kamu membutuhkan minimal 4 jawaban benar untuk lulus.</p>';
-
-                document.getElementById("completion").style.display = "none";
+            try {
+                localStorage.setItem("desk_language", currentLanguage);
+            } catch (error) {
+                // The language switch remains usable when storage is unavailable.
             }
 
-            document.getElementById("retryButton").hidden = false;
-            result.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (lastScore !== null) {
+                renderResults();
+            }
+        }
+
+        langID.addEventListener("click", () => setLanguage("id"));
+        langEN.addEventListener("click", () => setLanguage("en"));
+
+        function renderResults() {
+            const t = translations[currentLanguage];
+            const passed = lastScore >= 4;
+            const percentage = Math.round(lastScore / 5 * 100);
+
+            let feedback = "";
+
+            Object.keys(answers).forEach(question => {
+                const selected = lastAnswers[question];
+                const isCorrect = selected === answers[question].correct;
+                const number = question.substring(1);
+                const explanation = t[answers[question].explanation];
+
+                feedback += `
+          <div class="explanation">
+            <strong class="${isCorrect ? "correct" : "incorrect"}">
+              ${number}. ${isCorrect ? t.correctLabel : t.incorrectLabel}
+            </strong>
+            <span>${explanation}</span>
+          </div>
+        `;
+            });
+
+            result.innerHTML = `
+        <h3 class="${passed ? "correct" : ""}">
+          ${passed ? t.passedTitle : t.failedTitle}
+        </h3>
+        <p>${t.scoreLabel}<strong>${lastScore}/5 (${percentage}%)</strong></p>
+        <p>${passed ? t.passedText : t.failedText}</p>
+        ${feedback}
+      `;
+
+            completion.style.display = passed ? "block" : "none";
+            retryButton.hidden = false;
+        }
+
+        quizForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!quizForm.reportValidity()) {
+                return;
+            }
+
+            const formData = new FormData(quizForm);
+            let score = 0;
+            const submittedAnswers = {};
+
+            Object.keys(answers).forEach(question => {
+                submittedAnswers[question] = formData.get(question);
+
+                if (submittedAnswers[question] === answers[question].correct) {
+                    score++;
+                }
+            });
+
+            lastScore = score;
+            lastAnswers = submittedAnswers;
+
+            renderResults();
+
+            result.style.display = "block";
+            result.scrollIntoView({ behavior: "smooth", block: "start" });
+            result.focus();
         });
 
-        function resetQuiz() {
-            document.getElementById("quizForm").reset();
+        retryButton.addEventListener("click", function () {
+            quizForm.reset();
 
-            for (let i = 1; i <= 5; i++) {
-                document.getElementById("e" + i).innerHTML = "";
-            }
+            Object.keys(answers).forEach(question => {
+                document.getElementById("e" + question.substring(1)).textContent = "";
+            });
 
-            document.getElementById("result").style.display = "none";
-            document.getElementById("completion").style.display = "none";
-            document.getElementById("retryButton").hidden = true;
+            lastScore = null;
+            lastAnswers = null;
+
+            result.innerHTML = "";
+            result.style.display = "none";
+            completion.style.display = "none";
+            retryButton.hidden = true;
+
+            document.getElementById("quiz").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+
+        let savedLanguage = "id";
+
+        try {
+            savedLanguage = localStorage.getItem("desk_language") || "id";
+        } catch (error) {
+            // Default to Indonesian if local storage is unavailable.
         }
-    </script>
 
+        setLanguage(savedLanguage);
+    </script>
 </body>
 
 </html>

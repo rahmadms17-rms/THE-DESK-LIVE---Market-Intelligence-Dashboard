@@ -1,307 +1,1313 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari karakteristik Forex, Gold, indeks saham, dan cryptocurrency bersama THE DESK Academy.">
-  <title>Module 02 | Understanding Market Instruments</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#080a0c">
+  <title>Understanding Market Instruments | THE DESK Academy</title>
+  <meta name="description" content="Learn the characteristics of Forex, Gold, Indices, Equities, and Cryptocurrency at THE DESK Academy.">
+
   <style>
-    .module-page{max-width:960px;margin:auto;padding:44px 24px 80px}
-    .module-back{color:var(--gold,#c9a45c);text-decoration:none;font-size:13px}
-    .module-hero{padding:40px 0 34px;border-bottom:1px solid var(--border,#262c33)}
-    .module-eyebrow{color:var(--gold,#c9a45c);font-size:11px;font-weight:700;letter-spacing:2px}
-    .module-hero h1{font-size:clamp(36px,6vw,58px);line-height:1.1;margin:18px 0}
-    .module-hero p,.module-section p{color:var(--muted,#939ba6);line-height:1.85}
-    .module-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .module-tag{border:1px solid var(--border,#262c33);padding:7px 10px;border-radius:4px;font-size:10px;letter-spacing:1px}
-    .module-section{padding:28px 0;border-bottom:1px solid var(--border,#262c33)}
-    .module-section h2{font-size:24px;margin:12px 0}
-    .module-section h3{font-size:17px;margin-top:24px}
-    .module-list{padding-left:22px;color:var(--muted,#939ba6);line-height:1.9}
-    .module-note{margin-top:20px;padding:18px;background:var(--panel,#11151a);border-left:3px solid var(--gold,#c9a45c);line-height:1.8}
-    .quiz-question{margin:22px 0;padding:18px;border:1px solid var(--border,#262c33);border-radius:6px}
-    .quiz-question legend{padding:0 5px;font-weight:600;line-height:1.7}
-    .quiz-option{display:block;padding:9px 0;cursor:pointer;line-height:1.6}
-    .quiz-option input{margin-right:8px;accent-color:var(--gold,#c9a45c)}
-    .quiz-button,.module-next{display:inline-block;padding:13px 18px;background:var(--gold,#c9a45c);color:#111;border:0;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
-    .quiz-result{display:none;margin-top:24px;padding:20px;border:1px solid var(--border,#262c33);border-radius:6px;line-height:1.8}
-    .quiz-result h3{margin-top:0}
-    .quiz-feedback{padding:12px 0;border-top:1px solid var(--border,#262c33)}
-    .quiz-feedback p{margin:6px 0;color:var(--muted,#939ba6)}
-    .quiz-pass{color:var(--green,#42c994)}
-    .quiz-retry{color:var(--gold,#c9a45c)}
-    .module-next{margin-top:24px}
-    .module-next[hidden]{display:none}
-    @media(max-width:600px){.module-page{padding:30px 18px 56px}}
+    :root {
+      --bg: #080a0c;
+      --panel: #111519;
+      --panel-hover: #171c21;
+      --border: #293038;
+      --gold: #d5ad57;
+      --gold-light: #edc875;
+      --text: #edf0f4;
+      --muted: #a1adbd;
+      --success: #68c99a;
+      --danger: #ef7777;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold-light);
+    }
+
+    .page {
+      width: min(100% - 40px, 912px);
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      min-width: 42px;
+      padding: 5px 12px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s, color .2s;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 26px 0 34px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0 0 16px;
+      font-size: clamp(34px, 6vw, 60px);
+      font-weight: 750;
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      line-height: 1.35;
+      letter-spacing: -.4px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .hero-description {
+      max-width: 850px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .6px;
+    }
+
+    .lesson-section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .instrument-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .instrument-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .instrument-symbol {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .instrument-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--gold);
+      background: var(--panel);
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .comparison-wrap {
+      width: 100%;
+      margin-top: 18px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 530px;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .comparison th {
+      background: var(--panel);
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .comparison td {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .comparison td:first-child {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .comparison tr:last-child td {
+      border-bottom: none;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 15px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .check-number {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      place-items: center;
+      border: 1px solid #6b572f;
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .check-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .check-item p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .quiz-section {
+      padding-top: 36px;
+    }
+
+    .quiz-intro {
+      margin-bottom: 22px;
+    }
+
+    .question {
+      margin-bottom: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .question-title {
+      margin-bottom: 14px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .question-number {
+      margin-right: 8px;
+      color: var(--gold);
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+
+    .option:hover {
+      border-color: #79653e;
+      background: var(--panel-hover);
+    }
+
+    .option:has(input:checked) {
+      border-color: var(--gold);
+      color: var(--text);
+    }
+
+    .option input {
+      margin-top: 6px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .primary-btn {
+      background: var(--gold);
+      color: #101010;
+    }
+
+    .primary-btn:hover {
+      background: var(--gold-light);
+      color: #101010;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .secondary-btn:hover {
+      background: #19160f;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result.pass {
+      border-color: var(--success);
+    }
+
+    .result.fail {
+      border-color: var(--danger);
+    }
+
+    .result h3 {
+      margin-bottom: 8px;
+    }
+
+    .result.pass h3 {
+      color: var(--success);
+    }
+
+    .result.fail h3 {
+      color: var(--danger);
+    }
+
+    .result-score {
+      margin: 8px 0;
+      color: var(--text);
+      font-size: 32px;
+      font-weight: 750;
+    }
+
+    .answer-feedback {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .feedback-item {
+      padding: 12px;
+      border-radius: 5px;
+      background: #0a0d10;
+      font-size: 13px;
+    }
+
+    .feedback-item.correct {
+      border-left: 3px solid var(--success);
+    }
+
+    .feedback-item.incorrect {
+      border-left: 3px solid var(--danger);
+    }
+
+    .feedback-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .feedback-item p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .next-module {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid #6b572f;
+      border-radius: var(--radius);
+      background: #11120f;
+    }
+
+    .next-module.show {
+      display: block;
+    }
+
+    .next-module p {
+      margin: 5px 0 14px;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-nav a {
+      font-size: 12px;
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      color: #6e7987;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 28px, 912px);
+        padding-top: 24px;
+      }
+
+      .instrument-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .instrument-card,
+      .question {
+        padding: 17px;
+      }
+
+      .footer-nav {
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
-<body>
-  <main class="module-page">
-    <a class="module-back" href="fundamentals.html">← Back to Fundamentals</a>
 
-    <header class="module-hero">
-      <span class="module-eyebrow">THE DESK ACADEMY · MODULE 02</span>
-      <h1>Understanding<br>Market Instruments.</h1>
-      <p>
-        Setiap instrumen memiliki karakteristik dan faktor penggerak
-        yang berbeda. Kenali pasar yang kamu amati sebelum mengambil
-        keputusan trading.
-      </p>
-      <div class="module-tags">
-        <span class="module-tag">FREE · BASIC</span>
-        <span class="module-tag">BEGINNER</span>
-        <span class="module-tag">5 QUESTIONS</span>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="back-link" href="fundamentals.html" data-i18n="back">
+        ← Back to Fundamentals
+      </a>
+
+      <div class="language-switch" aria-label="Language selector">
+        <button class="lang-btn" id="btn-id" type="button" data-lang="id">ID</button>
+        <button class="lang-btn" id="btn-en" type="button" data-lang="en">EN</button>
       </div>
     </header>
 
-    <section class="module-section">
-      <span class="module-eyebrow">01 · FOREX</span>
-      <h2>Foreign Exchange Market</h2>
-      <p>
-        Forex adalah pasar pertukaran mata uang. Instrumen Forex
-        biasanya ditampilkan sebagai pasangan mata uang, misalnya
-        EUR/USD atau GBP/USD.
+    <section class="hero">
+      <p class="eyebrow" data-i18n="eyebrow">THE DESK ACADEMY · MODULE 02</p>
+      <h1 data-i18n="title">Understanding Market Instruments.</h1>
+      <p class="hero-description" data-i18n="subtitle">
+        Learn how Forex, Gold, indices, equities, and cryptocurrency work,
+        what makes them different, and what to understand before trading them.
       </p>
-      <p>
-        Pada EUR/USD, mata uang pertama disebut base currency,
-        sedangkan mata uang kedua disebut quote currency.
-        Harga menunjukkan berapa dolar AS yang setara dengan
-        satu euro.
+
+      <div class="tags">
+        <span class="tag" data-i18n="tagFree">FREE · BASIC</span>
+        <span class="tag" data-i18n="tagLevel">BEGINNER</span>
+        <span class="tag" data-i18n="tagQuestions">5 QUESTIONS</span>
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <p class="section-label" data-i18n="section1Label">01 · THE MARKET UNIVERSE</p>
+      <h2 data-i18n="section1Title">Understanding Market Instruments</h2>
+      <p data-i18n="section1Text">
+        A financial instrument is an asset or contract that can be traded or
+        invested in. Each instrument has its own market structure, price drivers,
+        trading hours, volatility, and risks.
       </p>
-      <div class="module-note">
-        <strong>Contoh</strong>
-        <p>
-          Jika EUR/USD berada di 1,1000, artinya satu euro bernilai
-          sekitar 1,10 dolar AS. Nilai tukar dapat berubah mengikuti
-          kondisi ekonomi dan permintaan pasar.
+      <p data-i18n="section1Text2">
+        Understanding the instrument is the first step toward making informed
+        decisions. A strategy that works in one market may behave differently
+        in another.
+      </p>
+
+      <div class="callout">
+        <strong data-i18n="insightTitle">KEY INSIGHT</strong>
+        <p data-i18n="insightText">
+          Before looking for an entry, understand what you are trading,
+          how its price moves, and which risks may affect it.
         </p>
       </div>
     </section>
 
-    <section class="module-section">
-      <span class="module-eyebrow">02 · GOLD</span>
-      <h2>Gold · XAUUSD</h2>
-      <p>
-        XAUUSD umumnya menunjukkan harga emas terhadap dolar AS.
-        Gold sering diperhatikan dalam analisis makro karena
-        dapat dipengaruhi oleh nilai dolar, ekspektasi suku bunga,
-        imbal hasil obligasi, dan permintaan aset aman.
+    <section class="lesson-section">
+      <p class="section-label" data-i18n="section2Label">02 · THE MAIN INSTRUMENTS</p>
+      <h2 data-i18n="section2Title">Five Markets to Know</h2>
+      <p data-i18n="section2Intro">
+        These markets are commonly followed by traders and investors.
+        Their characteristics are different, so each requires its own analysis.
       </p>
-      <p>
-        Hubungan tersebut tidak selalu bergerak dengan pola yang
-        sama. Respons Gold tetap bergantung pada konteks pasar,
-        kondisi likuiditas, dan faktor lain yang sedang dominan.
-      </p>
+
+      <div class="instrument-grid">
+        <article class="instrument-card">
+          <span class="instrument-symbol">01 / FOREX</span>
+          <h3 data-i18n="forexTitle">Foreign Exchange</h3>
+          <p data-i18n="forexText">
+            Forex is the market for exchanging one currency for another.
+            Currency pairs such as EUR/USD express the value of one currency
+            relative to another. Interest rates, economic data, and central-bank
+            decisions can influence exchange rates.
+          </p>
+        </article>
+
+        <article class="instrument-card">
+          <span class="instrument-symbol">02 / GOLD</span>
+          <h3 data-i18n="goldTitle">Gold · XAU/USD</h3>
+          <p data-i18n="goldText">
+            Gold is a precious metal traded globally. Its price can respond to
+            US dollar movements, real yields, interest-rate expectations,
+            investment demand, and geopolitical uncertainty. Gold can be highly
+            volatile, especially around major economic releases.
+          </p>
+        </article>
+
+        <article class="instrument-card">
+          <span class="instrument-symbol">03 / INDICES</span>
+          <h3 data-i18n="indicesTitle">Stock Market Indices</h3>
+          <p data-i18n="indicesText">
+            An index measures the performance of a group of securities under
+            a defined methodology. Examples include the S&P 500 and Nasdaq-100.
+            Index prices can be influenced by constituent companies, earnings,
+            interest rates, and overall market sentiment.
+          </p>
+        </article>
+
+        <article class="instrument-card">
+          <span class="instrument-symbol">04 / EQUITIES</span>
+          <h3 data-i18n="equitiesTitle">Individual Stocks</h3>
+          <p data-i18n="equitiesText">
+            Equities represent ownership in a company. Their prices may respond
+            to earnings, business performance, company announcements, valuation,
+            and broader economic conditions. Individual stocks can carry
+            company-specific risks.
+          </p>
+        </article>
+
+        <article class="instrument-card">
+          <span class="instrument-symbol">05 / CRYPTO</span>
+          <h3 data-i18n="cryptoTitle">Cryptocurrency</h3>
+          <p data-i18n="cryptoText">
+            Cryptocurrencies are digital assets that use cryptographic
+            technologies. Bitcoin and Ether are prominent examples. Prices may
+            react to adoption, liquidity, regulation, market sentiment, and
+            developments in the crypto ecosystem. Volatility can be substantial.
+          </p>
+        </article>
+
+        <article class="instrument-card">
+          <span class="instrument-symbol">06 / DERIVATIVES</span>
+          <h3 data-i18n="derivativesTitle">CFDs and Other Derivatives</h3>
+          <p data-i18n="derivativesText">
+            A derivative derives its value from an underlying asset or reference
+            price. A Contract for Difference (CFD), where available, allows
+            traders to speculate on price movements without owning the
+            underlying asset. CFDs may involve leverage, financing costs,
+            and significant risk of loss.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="module-section">
-      <span class="module-eyebrow">03 · STOCK INDICES</span>
-      <h2>Indeks Saham</h2>
-
-      <h3>S&P 500</h3>
-      <p>
-        S&P 500 mengikuti kinerja sekitar 500 perusahaan besar
-        yang terdaftar di bursa Amerika Serikat sesuai metodologi
-        indeksnya. Indeks ini sering digunakan sebagai gambaran
-        kondisi pasar saham AS.
+    <section class="lesson-section">
+      <p class="section-label" data-i18n="section3Label">03 · COMPARE BEFORE YOU TRADE</p>
+      <h2 data-i18n="section3Title">Different Instruments, Different Risks</h2>
+      <p data-i18n="section3Text">
+        No instrument is always the best choice. The right instrument depends
+        on your knowledge, trading objectives, risk tolerance, and the conditions
+        of the market.
       </p>
 
-      <h3>Nasdaq 100</h3>
-      <p>
-        Nasdaq 100 melacak perusahaan besar nonkeuangan yang
-        terdaftar di Nasdaq. Indeks ini memiliki eksposur besar
-        terhadap perusahaan teknologi dan pertumbuhan, tetapi
-        tidak terbatas pada sektor tersebut.
-      </p>
-    </section>
+      <div class="comparison-wrap">
+        <table class="comparison">
+          <thead>
+            <tr>
+              <th data-i18n="tableInstrument">Instrument</th>
+              <th data-i18n="tableDrivers">Potential Price Drivers</th>
+              <th data-i18n="tableRisks">Key Considerations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="rowForex">Forex</td>
+              <td data-i18n="rowForexDrivers">Interest rates, economic data, currency demand</td>
+              <td data-i18n="rowForexRisks">Leverage, spreads, event volatility</td>
+            </tr>
+            <tr>
+              <td data-i18n="rowGold">Gold</td>
+              <td data-i18n="rowGoldDrivers">US dollar, yields, investment demand</td>
+              <td data-i18n="rowGoldRisks">Sharp moves, news sensitivity</td>
+            </tr>
+            <tr>
+              <td data-i18n="rowIndices">Indices</td>
+              <td data-i18n="rowIndicesDrivers">Corporate earnings, rates, sentiment</td>
+              <td data-i18n="rowIndicesRisks">Broad market sell-offs, concentration</td>
+            </tr>
+            <tr>
+              <td data-i18n="rowEquities">Equities</td>
+              <td data-i18n="rowEquitiesDrivers">Company results, outlook, valuation</td>
+              <td data-i18n="rowEquitiesRisks">Company-specific events, liquidity</td>
+            </tr>
+            <tr>
+              <td data-i18n="rowCrypto">Cryptocurrency</td>
+              <td data-i18n="rowCryptoDrivers">Adoption, liquidity, regulation, sentiment</td>
+              <td data-i18n="rowCryptoRisks">High volatility, custody, platform risk</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <section class="module-section">
-      <span class="module-eyebrow">04 · CRYPTOCURRENCY</span>
-      <h2>Aset Digital</h2>
-      <p>
-        Cryptocurrency adalah aset digital yang menggunakan
-        teknologi kriptografi dan jaringan tertentu. Bitcoin
-        merupakan salah satu contoh yang paling dikenal.
-      </p>
-      <p>
-        Pasarnya dapat dipengaruhi likuiditas, sentimen investor,
-        perkembangan regulasi, adopsi, serta kondisi pasar global.
-        Volatilitasnya dapat tinggi sehingga pengelolaan risiko
-        menjadi sangat penting.
-      </p>
-    </section>
-
-    <section class="module-section">
-      <span class="module-eyebrow">05 · INSTRUMENT SELECTION</span>
-      <h2>Memilih Instrumen yang Dipahami</h2>
-      <ul class="module-list">
-        <li>Pahami jam perdagangan dan karakteristik instrumen.</li>
-        <li>Ketahui faktor ekonomi yang dapat memengaruhi harga.</li>
-        <li>Periksa spread, biaya transaksi, dan likuiditas.</li>
-        <li>Sesuaikan ukuran posisi dengan toleransi risiko.</li>
-        <li>Jangan menganggap satu instrumen selalu lebih mudah atau aman.</li>
-      </ul>
-      <div class="module-note">
-        <strong>THE DESK PRINCIPLE</strong>
-        <p>
-          Jangan memilih instrumen hanya karena pergerakannya
-          terlihat cepat. Pilih berdasarkan pemahaman, rencana,
-          dan risiko yang mampu kamu kelola.
+      <div class="callout">
+        <strong data-i18n="riskTitle">RISK REMINDER</strong>
+        <p data-i18n="riskText">
+          Leverage magnifies exposure and can magnify losses. Product terms,
+          trading hours, spreads, and available protections vary by provider
+          and jurisdiction. Understand the terms before placing a trade.
         </p>
       </div>
     </section>
 
-    <section class="module-section" id="module-quiz">
-      <span class="module-eyebrow">KNOWLEDGE CHECK · 5 QUESTIONS</span>
-      <h2>Test Your Understanding</h2>
-      <p>
-        Jawab lima pertanyaan. Nilai kelulusan adalah 80%,
-        atau minimal empat jawaban benar.
+    <section class="lesson-section">
+      <p class="section-label" data-i18n="section4Label">04 · BUILD YOUR MARKET CHECKLIST</p>
+      <h2 data-i18n="section4Title">Before Opening a Position</h2>
+      <p data-i18n="section4Text">
+        Use these checks to avoid choosing an instrument based only on excitement
+        or a recent price move.
       </p>
 
-      <form id="moduleQuiz">
-        <fieldset class="quiz-question">
-          <legend>1. Pada pasangan EUR/USD, apa arti mata uang pertama?</legend>
-          <label class="quiz-option"><input type="radio" name="q1" value="a" required> Quote currency</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="b"> Base currency</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="c"> Mata uang yang selalu lebih kuat</label>
-        </fieldset>
+      <div class="checklist">
+        <div class="check-item">
+          <span class="check-number">01</span>
+          <div>
+            <strong data-i18n="check1Title">Understand the Product</strong>
+            <p data-i18n="check1Text">Know whether you are trading an asset, a share, a currency pair, or a derivative.</p>
+          </div>
+        </div>
 
-        <fieldset class="quiz-question">
-          <legend>2. XAUUSD umumnya menunjukkan harga apa?</legend>
-          <label class="quiz-option"><input type="radio" name="q2" value="a" required> Emas terhadap dolar AS</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="b"> Euro terhadap dolar AS</label>
-          <label class="quiz-option"><input type="radio" name="q2" value="c"> Bitcoin terhadap emas</label>
-        </fieldset>
+        <div class="check-item">
+          <span class="check-number">02</span>
+          <div>
+            <strong data-i18n="check2Title">Identify the Main Drivers</strong>
+            <p data-i18n="check2Text">Know which economic releases, company events, or market conditions may affect the price.</p>
+          </div>
+        </div>
 
-        <fieldset class="quiz-question">
-          <legend>3. Apa yang digambarkan oleh S&P 500?</legend>
-          <label class="quiz-option"><input type="radio" name="q3" value="a" required> Harga satu komoditas saja</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="b"> Nilai tukar dolar terhadap euro</label>
-          <label class="quiz-option"><input type="radio" name="q3" value="c"> Kinerja kelompok perusahaan besar AS sesuai metodologi indeks</label>
-        </fieldset>
+        <div class="check-item">
+          <span class="check-number">03</span>
+          <div>
+            <strong data-i18n="check3Title">Check Trading Conditions</strong>
+            <p data-i18n="check3Text">Review spreads, fees, trading hours, liquidity, leverage, and contract specifications.</p>
+          </div>
+        </div>
 
-        <fieldset class="quiz-question">
-          <legend>4. Faktor mana yang dapat memengaruhi pasar cryptocurrency?</legend>
-          <label class="quiz-option"><input type="radio" name="q4" value="a" required> Hanya jam perdagangan bursa saham</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="b"> Likuiditas, sentimen, regulasi, dan kondisi pasar</label>
-          <label class="quiz-option"><input type="radio" name="q4" value="c"> Tidak ada faktor selain pola chart</label>
-        </fieldset>
+        <div class="check-item">
+          <span class="check-number">04</span>
+          <div>
+            <strong data-i18n="check4Title">Define Your Risk</strong>
+            <p data-i18n="check4Text">Set your invalidation level and position size before entering the market.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <fieldset class="quiz-question">
-          <legend>5. Apa pertimbangan yang tepat saat memilih instrumen trading?</legend>
-          <label class="quiz-option"><input type="radio" name="q5" value="a" required> Memilih instrumen dengan pergerakan paling cepat</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="b"> Mengabaikan biaya selama peluang terlihat menarik</label>
-          <label class="quiz-option"><input type="radio" name="q5" value="c"> Memahami karakteristik, biaya, likuiditas, dan risiko</label>
-        </fieldset>
+    <section class="quiz-section" id="module-quiz">
+      <p class="section-label" data-i18n="quizLabel">KNOWLEDGE CHECK</p>
+      <h2 data-i18n="quizTitle">Module 02 Assessment</h2>
+      <p class="quiz-intro" data-i18n="quizIntro">
+        Answer all five questions. You need at least 4 correct answers to pass.
+      </p>
 
-        <button class="quiz-button" type="submit">Periksa Jawaban →</button>
+      <form id="quiz-form">
+        <div id="quiz-questions"></div>
+
+        <div class="quiz-actions">
+          <button class="primary-btn" type="submit" data-i18n="submitQuiz">
+            SUBMIT ANSWERS
+          </button>
+          <button class="secondary-btn" type="button" id="reset-quiz" data-i18n="resetQuiz">
+            RETAKE QUIZ
+          </button>
+        </div>
       </form>
 
-      <div class="quiz-result" id="quizResult" role="status" aria-live="polite" tabindex="-1">
-        <h3 id="quizScore"></h3>
-        <p id="quizSummary"></p>
-        <div id="quizFeedback"></div>
-        <a class="module-next" id="nextModule" href="fundamentals-03.html" hidden>
-          Lanjut ke Module 03 →
+      <div class="result" id="quiz-result" aria-live="polite"></div>
+
+      <div class="next-module" id="next-module">
+        <h3 data-i18n="passedTitle">Module Completed</h3>
+        <p data-i18n="passedText">
+          You passed this assessment. Continue to Module 03.
+        </p>
+        <a class="primary-btn" href="fundamentals-03.html" data-i18n="nextButton">
+          CONTINUE TO MODULE 03 →
         </a>
-        <button class="quiz-button" id="retryQuiz" type="button"
-          style="margin-top:16px;background:transparent;color:var(--gold,#c9a45c);border:1px solid var(--gold,#c9a45c);">
-          Coba Lagi
-        </button>
       </div>
     </section>
 
-    <a class="module-back" href="fundamentals.html">← Kembali ke daftar modul</a>
+    <nav class="footer-nav">
+      <a href="fundamentals-01.html" data-i18n="previousModule">← Previous Module</a>
+      <a href="fundamentals.html" data-i18n="allModules">All Fundamentals →</a>
+    </nav>
+
+    <p class="footer-note" data-i18n="footer">
+      THE DESK ACADEMY · Understand the Market, Before You Trade It.
+    </p>
   </main>
 
   <script>
-    const quizForm = document.getElementById("moduleQuiz");
-    const quizResult = document.getElementById("quizResult");
-    const quizScore = document.getElementById("quizScore");
-    const quizSummary = document.getElementById("quizSummary");
-    const quizFeedback = document.getElementById("quizFeedback");
-    const nextModule = document.getElementById("nextModule");
-    const retryQuiz = document.getElementById("retryQuiz");
+    const translations = {
+      en: {
+        back: "← Back to Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODULE 02",
+        title: "Understanding Market Instruments.",
+        subtitle: "Learn how Forex, Gold, indices, equities, and cryptocurrency work, what makes them different, and what to understand before trading them.",
+        tagFree: "FREE · BASIC",
+        tagLevel: "BEGINNER",
+        tagQuestions: "5 QUESTIONS",
 
-    const correctAnswers = {
-      q1: "b",
-      q2: "a",
-      q3: "c",
-      q4: "b",
-      q5: "c"
-    };
+        section1Label: "01 · THE MARKET UNIVERSE",
+        section1Title: "Understanding Market Instruments",
+        section1Text: "A financial instrument is an asset or contract that can be traded or invested in. Each instrument has its own market structure, price drivers, trading hours, volatility, and risks.",
+        section1Text2: "Understanding the instrument is the first step toward making informed decisions. A strategy that works in one market may behave differently in another.",
+        insightTitle: "KEY INSIGHT",
+        insightText: "Before looking for an entry, understand what you are trading, how its price moves, and which risks may affect it.",
 
-    const explanations = {
-      q1: {
-        correct: "EUR adalah base currency pada pasangan EUR/USD.",
-        incorrect: "Mata uang pertama pada pasangan Forex disebut base currency. Mata uang kedua disebut quote currency."
+        section2Label: "02 · THE MAIN INSTRUMENTS",
+        section2Title: "Five Markets to Know",
+        section2Intro: "These markets are commonly followed by traders and investors. Their characteristics are different, so each requires its own analysis.",
+        forexTitle: "Foreign Exchange",
+        forexText: "Forex is the market for exchanging one currency for another. Currency pairs such as EUR/USD express the value of one currency relative to another. Interest rates, economic data, and central-bank decisions can influence exchange rates.",
+        goldTitle: "Gold · XAU/USD",
+        goldText: "Gold is a precious metal traded globally. Its price can respond to US dollar movements, real yields, interest-rate expectations, investment demand, and geopolitical uncertainty. Gold can be highly volatile, especially around major economic releases.",
+        indicesTitle: "Stock Market Indices",
+        indicesText: "An index measures the performance of a group of securities under a defined methodology. Examples include the S&P 500 and Nasdaq-100. Index prices can be influenced by constituent companies, earnings, interest rates, and overall market sentiment.",
+        equitiesTitle: "Individual Stocks",
+        equitiesText: "Equities represent ownership in a company. Their prices may respond to earnings, business performance, company announcements, valuation, and broader economic conditions. Individual stocks can carry company-specific risks.",
+        cryptoTitle: "Cryptocurrency",
+        cryptoText: "Cryptocurrencies are digital assets that use cryptographic technologies. Bitcoin and Ether are prominent examples. Prices may react to adoption, liquidity, regulation, market sentiment, and developments in the crypto ecosystem. Volatility can be substantial.",
+        derivativesTitle: "CFDs and Other Derivatives",
+        derivativesText: "A derivative derives its value from an underlying asset or reference price. A Contract for Difference (CFD), where available, allows traders to speculate on price movements without owning the underlying asset. CFDs may involve leverage, financing costs, and significant risk of loss.",
+
+        section3Label: "03 · COMPARE BEFORE YOU TRADE",
+        section3Title: "Different Instruments, Different Risks",
+        section3Text: "No instrument is always the best choice. The right instrument depends on your knowledge, trading objectives, risk tolerance, and the conditions of the market.",
+        tableInstrument: "Instrument",
+        tableDrivers: "Potential Price Drivers",
+        tableRisks: "Key Considerations",
+        rowForex: "Forex",
+        rowForexDrivers: "Interest rates, economic data, currency demand",
+        rowForexRisks: "Leverage, spreads, event volatility",
+        rowGold: "Gold",
+        rowGoldDrivers: "US dollar, yields, investment demand",
+        rowGoldRisks: "Sharp moves, news sensitivity",
+        rowIndices: "Indices",
+        rowIndicesDrivers: "Corporate earnings, rates, sentiment",
+        rowIndicesRisks: "Broad market sell-offs, concentration",
+        rowEquities: "Equities",
+        rowEquitiesDrivers: "Company results, outlook, valuation",
+        rowEquitiesRisks: "Company-specific events, liquidity",
+        rowCrypto: "Cryptocurrency",
+        rowCryptoDrivers: "Adoption, liquidity, regulation, sentiment",
+        rowCryptoRisks: "High volatility, custody, platform risk",
+        riskTitle: "RISK REMINDER",
+        riskText: "Leverage magnifies exposure and can magnify losses. Product terms, trading hours, spreads, and available protections vary by provider and jurisdiction. Understand the terms before placing a trade.",
+
+        section4Label: "04 · BUILD YOUR MARKET CHECKLIST",
+        section4Title: "Before Opening a Position",
+        section4Text: "Use these checks to avoid choosing an instrument based only on excitement or a recent price move.",
+        check1Title: "Understand the Product",
+        check1Text: "Know whether you are trading an asset, a share, a currency pair, or a derivative.",
+        check2Title: "Identify the Main Drivers",
+        check2Text: "Know which economic releases, company events, or market conditions may affect the price.",
+        check3Title: "Check Trading Conditions",
+        check3Text: "Review spreads, fees, trading hours, liquidity, leverage, and contract specifications.",
+        check4Title: "Define Your Risk",
+        check4Text: "Set your invalidation level and position size before entering the market.",
+
+        quizLabel: "KNOWLEDGE CHECK",
+        quizTitle: "Module 02 Assessment",
+        quizIntro: "Answer all five questions. You need at least 4 correct answers to pass.",
+        submitQuiz: "SUBMIT ANSWERS",
+        resetQuiz: "RETAKE QUIZ",
+        passedTitle: "Module Completed",
+        passedText: "You passed this assessment. Continue to Module 03.",
+        nextButton: "CONTINUE TO MODULE 03 →",
+        previousModule: "← Previous Module",
+        allModules: "All Fundamentals →",
+        footer: "THE DESK ACADEMY · Understand the Market, Before You Trade It.",
+
+        unanswered: "Please answer all five questions before submitting.",
+        passResult: "ASSESSMENT PASSED",
+        failResult: "ASSESSMENT NOT PASSED",
+        scoreLabel: "Your score",
+        passMessage: "Good work. You have demonstrated a basic understanding of market instruments.",
+        failMessage: "Review the material and try again. You need at least 80% to pass.",
+        correctLabel: "Correct",
+        incorrectLabel: "Incorrect",
+        correctAnswer: "Correct answer",
+        explanations: [
+          "Forex involves exchanging one currency for another. EUR/USD is an example of a currency pair.",
+          "Gold can be influenced by the US dollar, real yields, interest-rate expectations, and investment demand.",
+          "A stock market index measures the performance of a defined group of securities.",
+          "Equity represents ownership in a company, while an individual stock carries company-specific risks.",
+          "Leverage increases market exposure and can magnify both gains and losses."
+        ],
+        questions: [
+          {
+            q: "What does the Forex market primarily involve?",
+            options: [
+              "Exchanging one currency for another",
+              "Buying physical property only",
+              "Measuring company earnings",
+              "Mining precious metals"
+            ],
+            answer: 0
+          },
+          {
+            q: "Which factor can influence the price of Gold (XAU/USD)?",
+            options: [
+              "Only the number of gold mines",
+              "The US dollar and real yields",
+              "Only cryptocurrency adoption",
+              "The price of every individual stock equally"
+            ],
+            answer: 1
+          },
+          {
+            q: "What does a stock market index generally measure?",
+            options: [
+              "The value of one currency only",
+              "The profit of a single trader",
+              "The performance of a defined group of securities",
+              "The amount of physical gold in a bank"
+            ],
+            answer: 2
+          },
+          {
+            q: "What does owning an ordinary company share generally represent?",
+            options: [
+              "A guaranteed return",
+              "Ownership in a company",
+              "A fixed interest payment in every case",
+              "Protection against every market loss"
+            ],
+            answer: 1
+          },
+          {
+            q: "What is an important risk of trading with leverage?",
+            options: [
+              "It removes market volatility",
+              "It guarantees a profitable position",
+              "It eliminates trading costs",
+              "It can magnify losses as well as gains"
+            ],
+            answer: 3
+          }
+        ]
       },
-      q2: {
-        correct: "XAUUSD umumnya menunjukkan harga emas terhadap dolar AS.",
-        incorrect: "XAU adalah kode yang digunakan untuk emas, sedangkan USD adalah dolar AS."
-      },
-      q3: {
-        correct: "S&P 500 menggambarkan kinerja kelompok perusahaan besar AS sesuai metodologi indeksnya.",
-        incorrect: "S&P 500 merupakan indeks saham, bukan satu komoditas atau pasangan mata uang."
-      },
-      q4: {
-        correct: "Likuiditas, sentimen, regulasi, dan kondisi pasar dapat memengaruhi aset digital.",
-        incorrect: "Cryptocurrency dapat dipengaruhi banyak faktor, termasuk likuiditas, sentimen, dan regulasi."
-      },
-      q5: {
-        correct: "Memahami karakteristik dan biaya membantu menilai apakah instrumen sesuai dengan rencana dan risiko.",
-        incorrect: "Pemilihan instrumen sebaiknya mempertimbangkan karakteristik, biaya, likuiditas, dan kemampuan mengelola risiko."
+
+      id: {
+        back: "← Kembali ke Fundamentals",
+        eyebrow: "THE DESK ACADEMY · MODUL 02",
+        title: "Memahami Instrumen Pasar.",
+        subtitle: "Pelajari cara kerja Forex, Gold, indeks, saham, dan cryptocurrency, perbedaan karakteristiknya, serta hal yang perlu dipahami sebelum memperdagangkannya.",
+        tagFree: "GRATIS · DASAR",
+        tagLevel: "PEMULA",
+        tagQuestions: "5 PERTANYAAN",
+
+        section1Label: "01 · DUNIA PASAR KEUANGAN",
+        section1Title: "Memahami Instrumen Pasar",
+        section1Text: "Instrumen keuangan adalah aset atau kontrak yang dapat diperdagangkan atau digunakan untuk investasi. Setiap instrumen memiliki struktur pasar, penggerak harga, jam perdagangan, volatilitas, dan risiko yang berbeda.",
+        section1Text2: "Memahami instrumen merupakan langkah awal untuk mengambil keputusan yang lebih terinformasi. Strategi yang berhasil di satu pasar dapat berperilaku berbeda di pasar lainnya.",
+        insightTitle: "INSIGHT UTAMA",
+        insightText: "Sebelum mencari entry, pahami apa yang diperdagangkan, bagaimana harganya bergerak, dan risiko apa saja yang dapat memengaruhinya.",
+
+        section2Label: "02 · INSTRUMEN UTAMA",
+        section2Title: "Lima Pasar yang Perlu Dikenal",
+        section2Intro: "Pasar berikut umum diperhatikan oleh trader dan investor. Karakteristiknya berbeda sehingga masing-masing membutuhkan analisis tersendiri.",
+        forexTitle: "Foreign Exchange",
+        forexText: "Forex adalah pasar untuk menukarkan satu mata uang dengan mata uang lainnya. Pasangan mata uang seperti EUR/USD menunjukkan nilai satu mata uang terhadap mata uang lainnya. Suku bunga, data ekonomi, dan keputusan bank sentral dapat memengaruhi nilai tukar.",
+        goldTitle: "Gold · XAU/USD",
+        goldText: "Gold adalah logam mulia yang diperdagangkan secara global. Harganya dapat merespons pergerakan dolar AS, real yield, ekspektasi suku bunga, permintaan investasi, dan ketidakpastian geopolitik. Volatilitas Gold dapat meningkat, terutama saat rilis data ekonomi penting.",
+        indicesTitle: "Indeks Pasar Saham",
+        indicesText: "Indeks mengukur kinerja sekelompok sekuritas berdasarkan metodologi tertentu. Contohnya S&P 500 dan Nasdaq-100. Harga indeks dapat dipengaruhi oleh perusahaan penyusunnya, laporan laba, suku bunga, dan sentimen pasar secara keseluruhan.",
+        equitiesTitle: "Saham Individual",
+        equitiesText: "Saham merepresentasikan kepemilikan dalam suatu perusahaan. Harganya dapat merespons laporan laba, kinerja bisnis, pengumuman perusahaan, valuasi, dan kondisi ekonomi yang lebih luas. Saham individual juga memiliki risiko spesifik perusahaan.",
+        cryptoTitle: "Cryptocurrency",
+        cryptoText: "Cryptocurrency adalah aset digital yang menggunakan teknologi kriptografi. Bitcoin dan Ether merupakan contoh utama. Harga dapat merespons adopsi, likuiditas, regulasi, sentimen pasar, dan perkembangan ekosistem kripto. Volatilitasnya dapat sangat tinggi.",
+        derivativesTitle: "CFD dan Instrumen Derivatif Lainnya",
+        derivativesText: "Derivatif memperoleh nilainya dari aset acuan atau harga referensi. Contract for Difference (CFD), jika tersedia, memungkinkan trader berspekulasi terhadap pergerakan harga tanpa memiliki aset acuannya. CFD dapat melibatkan leverage, biaya pendanaan, dan risiko kerugian yang signifikan.",
+
+        section3Label: "03 · BANDINGKAN SEBELUM TRADING",
+        section3Title: "Instrumen Berbeda, Risiko Berbeda",
+        section3Text: "Tidak ada instrumen yang selalu menjadi pilihan terbaik. Instrumen yang sesuai bergantung pada pengetahuan, tujuan trading, toleransi risiko, dan kondisi pasar.",
+        tableInstrument: "Instrumen",
+        tableDrivers: "Potensi Penggerak Harga",
+        tableRisks: "Hal yang Perlu Diperhatikan",
+        rowForex: "Forex",
+        rowForexDrivers: "Suku bunga, data ekonomi, permintaan mata uang",
+        rowForexRisks: "Leverage, spread, volatilitas saat rilis berita",
+        rowGold: "Gold",
+        rowGoldDrivers: "Dolar AS, yield, permintaan investasi",
+        rowGoldRisks: "Pergerakan tajam, sensitivitas terhadap berita",
+        rowIndices: "Indeks",
+        rowIndicesDrivers: "Laba perusahaan, suku bunga, sentimen",
+        rowIndicesRisks: "Penurunan pasar luas, konsentrasi",
+        rowEquities: "Saham",
+        rowEquitiesDrivers: "Hasil bisnis, prospek, valuasi",
+        rowEquitiesRisks: "Peristiwa spesifik perusahaan, likuiditas",
+        rowCrypto: "Cryptocurrency",
+        rowCryptoDrivers: "Adopsi, likuiditas, regulasi, sentimen",
+        rowCryptoRisks: "Volatilitas tinggi, penyimpanan aset, risiko platform",
+        riskTitle: "PENGINGAT RISIKO",
+        riskText: "Leverage memperbesar eksposur dan dapat memperbesar kerugian. Ketentuan produk, jam perdagangan, spread, dan perlindungan yang tersedia berbeda menurut penyedia dan yurisdiksi. Pahami ketentuan produk sebelum melakukan transaksi.",
+
+        section4Label: "04 · SUSUN CHECKLIST PASAR",
+        section4Title: "Sebelum Membuka Posisi",
+        section4Text: "Gunakan pemeriksaan berikut agar tidak memilih instrumen hanya karena antusiasme atau pergerakan harga terbaru.",
+        check1Title: "Pahami Produknya",
+        check1Text: "Ketahui apakah Anda memperdagangkan aset, saham, pasangan mata uang, atau instrumen derivatif.",
+        check2Title: "Kenali Penggerak Utamanya",
+        check2Text: "Pahami rilis data ekonomi, peristiwa perusahaan, atau kondisi pasar yang dapat memengaruhi harga.",
+        check3Title: "Periksa Kondisi Perdagangan",
+        check3Text: "Periksa spread, biaya, jam perdagangan, likuiditas, leverage, dan spesifikasi kontrak.",
+        check4Title: "Tentukan Risiko",
+        check4Text: "Tentukan level invalidasi dan ukuran posisi sebelum memasuki pasar.",
+
+        quizLabel: "UJI PEMAHAMAN",
+        quizTitle: "Penilaian Modul 02",
+        quizIntro: "Jawab kelima pertanyaan. Anda membutuhkan minimal 4 jawaban benar untuk lulus.",
+        submitQuiz: "KIRIM JAWABAN",
+        resetQuiz: "ULANGI KUIS",
+        passedTitle: "Modul Selesai",
+        passedText: "Anda lulus penilaian ini. Silakan lanjut ke Modul 03.",
+        nextButton: "LANJUT KE MODUL 03 →",
+        previousModule: "← Modul Sebelumnya",
+        allModules: "Semua Fundamentals →",
+        footer: "THE DESK ACADEMY · Pahami Pasar Sebelum Anda Trading.",
+
+        unanswered: "Silakan jawab kelima pertanyaan sebelum mengirim jawaban.",
+        passResult: "PENILAIAN LULUS",
+        failResult: "PENILAIAN BELUM LULUS",
+        scoreLabel: "Nilai Anda",
+        passMessage: "Bagus. Anda telah menunjukkan pemahaman dasar mengenai instrumen pasar.",
+        failMessage: "Pelajari kembali materi dan coba lagi. Anda membutuhkan nilai minimal 80% untuk lulus.",
+        correctLabel: "Benar",
+        incorrectLabel: "Salah",
+        correctAnswer: "Jawaban benar",
+        explanations: [
+          "Forex melibatkan pertukaran satu mata uang dengan mata uang lainnya. EUR/USD adalah contoh pasangan mata uang.",
+          "Harga Gold dapat dipengaruhi oleh dolar AS, real yield, ekspektasi suku bunga, dan permintaan investasi.",
+          "Indeks pasar saham mengukur kinerja sekelompok sekuritas berdasarkan metodologi tertentu.",
+          "Saham merepresentasikan kepemilikan dalam perusahaan, sedangkan saham individual memiliki risiko spesifik perusahaan.",
+          "Leverage meningkatkan eksposur pasar dan dapat memperbesar keuntungan maupun kerugian."
+        ],
+        questions: [
+          {
+            q: "Apa yang terutama dilakukan di pasar Forex?",
+            options: [
+              "Menukarkan satu mata uang dengan mata uang lainnya",
+              "Hanya membeli properti fisik",
+              "Mengukur laba perusahaan",
+              "Menambang logam mulia"
+            ],
+            answer: 0
+          },
+          {
+            q: "Faktor mana yang dapat memengaruhi harga Gold (XAU/USD)?",
+            options: [
+              "Hanya jumlah tambang emas",
+              "Dolar AS dan real yield",
+              "Hanya adopsi cryptocurrency",
+              "Harga semua saham individual secara merata"
+            ],
+            answer: 1
+          },
+          {
+            q: "Apa yang umumnya diukur oleh indeks pasar saham?",
+            options: [
+              "Nilai satu mata uang saja",
+              "Keuntungan satu trader",
+              "Kinerja sekelompok sekuritas tertentu",
+              "Jumlah emas fisik di bank"
+            ],
+            answer: 2
+          },
+          {
+            q: "Apa yang umumnya direpresentasikan oleh kepemilikan saham biasa perusahaan?",
+            options: [
+              "Imbal hasil yang dijamin",
+              "Kepemilikan dalam perusahaan",
+              "Pembayaran bunga tetap dalam semua kondisi",
+              "Perlindungan dari seluruh kerugian pasar"
+            ],
+            answer: 1
+          },
+          {
+            q: "Apa salah satu risiko penting trading dengan leverage?",
+            options: [
+              "Menghilangkan volatilitas pasar",
+              "Menjamin posisi selalu untung",
+              "Menghilangkan seluruh biaya trading",
+              "Memperbesar kerugian sekaligus potensi keuntungan"
+            ],
+            answer: 3
+          }
+        ]
       }
     };
 
-    quizForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    let currentLang = "en";
+    let lastResult = null;
 
-      const formData = new FormData(quizForm);
-      let score = 0;
-      let feedbackHTML = "";
+    const quizForm = document.getElementById("quiz-form");
+    const quizQuestions = document.getElementById("quiz-questions");
+    const quizResult = document.getElementById("quiz-result");
+    const nextModule = document.getElementById("next-module");
 
-      for (let i = 1; i <= 5; i++) {
-        const key = "q" + i;
-        const isCorrect = formData.get(key) === correctAnswers[key];
+    function getSavedLanguage() {
+      try {
+        const saved = localStorage.getItem("desk_language");
+        return saved === "id" || saved === "en" ? saved : "en";
+      } catch (error) {
+        return "en";
+      }
+    }
 
-        if (isCorrect) score++;
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
 
-        feedbackHTML += `
-          <div class="quiz-feedback">
-            <strong>${i}. ${isCorrect ? "Benar" : "Belum tepat"}</strong>
-            <p>${isCorrect ? explanations[key].correct : explanations[key].incorrect}</p>
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      try {
+        localStorage.setItem("desk_language", lang);
+      } catch (error) {
+        // The page remains functional if storage is unavailable.
+      }
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        const value = translations[lang][key];
+
+        if (typeof value === "string") {
+          element.textContent = value;
+        }
+      });
+
+      document.getElementById("btn-id").classList.toggle("active", lang === "id");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+      renderQuestions();
+
+      if (lastResult) {
+        renderResult(lastResult.score, lastResult.answers);
+      }
+    }
+
+    function renderQuestions() {
+      const data = translations[currentLang].questions;
+
+      quizQuestions.innerHTML = data.map((question, index) => {
+        const options = question.options.map((option, optionIndex) => `
+          <label class="option">
+            <input
+              type="radio"
+              name="question-${index}"
+              value="${optionIndex}"
+              aria-label="${escapeHTML(option)}"
+            >
+            <span>${escapeHTML(option)}</span>
+          </label>
+        `).join("");
+
+        return `
+          <article class="question">
+            <div class="question-title">
+              <span class="question-number">${String(index + 1).padStart(2, "0")}.</span>
+              ${escapeHTML(question.q)}
+            </div>
+            <div class="options">${options}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function renderResult(score, answers) {
+      const t = translations[currentLang];
+      const questions = t.questions;
+      const passed = score >= 4;
+
+      quizResult.className = "result show " + (passed ? "pass" : "fail");
+
+      const heading = passed ? t.passResult : t.failResult;
+      const message = passed ? t.passMessage : t.failMessage;
+
+      const feedback = questions.map((question, index) => {
+        const isCorrect = answers[index] === question.answer;
+        const chosen = answers[index];
+        const chosenText = chosen === null
+          ? (currentLang === "id" ? "Tidak dijawab" : "Not answered")
+          : question.options[chosen];
+
+        return `
+          <div class="feedback-item ${isCorrect ? "correct" : "incorrect"}">
+            <strong>
+              ${index + 1}. ${isCorrect ? t.correctLabel : t.incorrectLabel}
+            </strong>
+            <p>
+              ${escapeHTML(chosenText)}
+            </p>
+            ${!isCorrect ? `
+              <p>
+                <strong>${escapeHTML(t.correctAnswer)}:</strong>
+                ${escapeHTML(question.options[question.answer])}
+              </p>
+            ` : ""}
+            <p>${escapeHTML(t.explanations[index])}</p>
           </div>
         `;
+      }).join("");
+
+      quizResult.innerHTML = `
+        <h3>${heading}</h3>
+        <div class="result-score">${score}/5 · ${score * 20}%</div>
+        <p>${message}</p>
+        <div class="answer-feedback">${feedback}</div>
+      `;
+
+      nextModule.classList.toggle("show", passed);
+    }
+
+    quizForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const t = translations[currentLang];
+      const answers = [];
+
+      for (let i = 0; i < t.questions.length; i++) {
+        const selected = quizForm.querySelector(
+          `input[name="question-${i}"]:checked`
+        );
+
+        if (!selected) {
+          quizResult.className = "result show fail";
+          quizResult.innerHTML = `<h3>${escapeHTML(t.unanswered)}</h3>`;
+          quizResult.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        answers.push(Number(selected.value));
       }
 
-      const passed = score >= 4;
-      quizScore.textContent = "Skor kamu: " + score + "/5 (" + (score * 20) + "%)";
-      quizScore.className = passed ? "quiz-pass" : "quiz-retry";
-      quizSummary.textContent = passed
-        ? "Selamat! Kamu lulus Module 02. Lanjutkan untuk mempelajari bagaimana harga bergerak."
-        : "Kamu belum mencapai nilai kelulusan 80%. Pelajari pembahasan, lalu coba lagi.";
+      const score = answers.reduce((total, answer, index) => {
+        return total + (answer === t.questions[index].answer ? 1 : 0);
+      }, 0);
 
-      quizFeedback.innerHTML = feedbackHTML;
-      nextModule.hidden = !passed;
-      quizResult.style.display = "block";
+      lastResult = { score, answers };
+      renderResult(score, answers);
+
       quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
-      quizResult.focus();
     });
 
-    retryQuiz.addEventListener("click", function() {
+    document.getElementById("reset-quiz").addEventListener("click", () => {
       quizForm.reset();
-      quizResult.style.display = "none";
-      nextModule.hidden = true;
+      lastResult = null;
+
+      quizResult.className = "result";
+      quizResult.innerHTML = "";
+      nextModule.classList.remove("show");
+
       document.getElementById("module-quiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
     });
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+
+    setLanguage(getSavedLanguage());
   </script>
 </body>
 </html>
