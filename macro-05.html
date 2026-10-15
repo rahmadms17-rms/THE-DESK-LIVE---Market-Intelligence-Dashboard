@@ -1,1047 +1,1360 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 05 - FOMC & Federal Reserve | THE DESK Academy</title>
-    <style>
-        :root {
-            --bg: #090b0e;
-            --panel: #11151a;
-            --panel2: #151a20;
-            --gold: #c9a45c;
-            --text: #edf0f4;
-            --muted: #a3adba;
-            --border: #292f37;
-            --green: #42c994;
-            --red: #f07878;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.75;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .topbar {
-            border-bottom: 1px solid var(--border);
-            background: #0d1014;
-            padding: 18px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .brand {
-            color: var(--gold);
-            font-size: 17px;
-            font-weight: 800;
-            letter-spacing: 3px;
-        }
-
-        .brand small {
-            display: block;
-            color: var(--muted);
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .top-link {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .top-link:hover {
-            color: var(--gold);
-        }
-
-        .container {
-            width: min(1000px, 90%);
-            margin: 0 auto;
-            padding: 42px 0 70px;
-        }
-
-        .breadcrumb {
-            font-size: 12px;
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--gold);
-        }
-
-        .eyebrow {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: clamp(30px, 5vw, 46px);
-            line-height: 1.2;
-            margin: 12px 0 16px;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            color: var(--gold);
-            font-size: 23px;
-            line-height: 1.4;
-            margin: 0 0 16px;
-        }
-
-        h3 {
-            font-size: 16px;
-            margin: 0 0 8px;
-        }
-
-        p {
-            margin: 0 0 14px;
-        }
-
-        .lead {
-            max-width: 780px;
-            color: var(--muted);
-            font-size: 16px;
-        }
-
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 24px 0 34px;
-        }
-
-        .tag {
-            border: 1px solid var(--border);
-            color: var(--muted);
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 11px;
-        }
-
-        .tag.gold {
-            color: var(--gold);
-            border-color: #5d4b2e;
-        }
-
-        .article-section {
-            border: 1px solid var(--border);
-            background: var(--panel);
-            border-radius: 10px;
-            padding: 27px;
-            margin: 20px 0;
-        }
-
-        .muted {
-            color: var(--muted);
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin: 20px 0;
-        }
-
-        .concept {
-            background: var(--panel2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 18px;
-        }
-
-        .concept p {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 0;
-        }
-
-        .insight {
-            border-left: 3px solid var(--gold);
-            background: #19170f;
-            padding: 17px 20px;
-            margin: 18px 0;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .insight strong {
-            color: var(--gold);
-        }
-
-        .example-box {
-            background: #0d1115;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 18px;
-            margin: 16px 0;
-        }
-
-        .example-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .direction {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .direction>div {
-            padding: 16px;
-            background: var(--panel2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .bull {
-            color: var(--green);
-        }
-
-        .bear {
-            color: var(--red);
-        }
-
-        .checklist {
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        .checklist li {
-            margin: 8px 0;
-        }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .progress {
-            height: 5px;
-            background: #252b32;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 24px;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: var(--gold);
-            transition: width .2s ease;
-        }
-
-        .question {
-            border: 1px solid var(--border);
-            background: var(--panel2);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 14px 0;
-        }
-
-        .question-title {
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .option {
-            display: block;
-            padding: 11px 13px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            margin: 8px 0;
-            cursor: pointer;
-            color: var(--muted);
-            font-size: 14px;
-            transition: .15s ease;
-        }
-
-        .option:hover {
-            border-color: var(--gold);
-            color: var(--text);
-        }
-
-        .option input {
-            margin-right: 9px;
-            accent-color: var(--gold);
-        }
-
-        .option:has(input:checked) {
-            border-color: var(--gold);
-            color: var(--text);
-            background: #201b12;
-        }
-
-        .option.correct {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .option.wrong {
-            border-color: var(--red);
-            color: var(--red);
-        }
-
-        button {
-            border: 0;
-            background: var(--gold);
-            color: #101010;
-            font-weight: 800;
-            padding: 13px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        button:hover {
-            filter: brightness(1.08);
-        }
-
-        button.secondary {
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-        }
-
-        button:disabled {
-            opacity: .45;
-            cursor: not-allowed;
-        }
-
-        #result {
-            display: none;
-            margin-top: 22px;
-            padding: 22px;
-            border: 1px solid var(--border);
-            background: #0d1115;
-            border-radius: 8px;
-        }
-
-        #result h3 {
-            font-size: 20px;
-        }
-
-        .explanation {
-            display: none;
-            padding: 12px 14px;
-            margin-top: 10px;
-            background: #0c1014;
-            border-radius: 6px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .next-panel {
-            display: none;
-            border: 1px solid #5d4b2e;
-            background: linear-gradient(135deg, #19170f, #11151a);
-            border-radius: 10px;
-            padding: 24px;
-            margin-top: 24px;
-        }
-
-        .next-panel p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .button-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .premium {
-            border: 1px solid #5d4b2e;
-            background: #15130e;
-            padding: 22px;
-            border-radius: 8px;
-            margin-top: 28px;
-        }
-
-        .premium .label {
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .premium p {
-            color: var(--muted);
-            font-size: 13px;
-            margin: 8px 0 0;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            padding: 24px 5%;
-            text-align: center;
-            font-size: 11px;
-        }
-
-        @media (max-width: 650px) {
-            .container {
-                width: 92%;
-                padding-top: 28px;
-            }
-
-            .article-section {
-                padding: 20px;
-            }
-
-            .concept-grid,
-            .direction {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="THE DESK Academy Module 05: FOMC, Federal Reserve, hawkish and dovish policy, and market impact.">
+  <title>Module 05 - FOMC & Federal Reserve | THE DESK Academy</title>
+
+  <style>
+    :root {
+      --bg: #090b0e;
+      --panel: #11151a;
+      --panel2: #151a20;
+      --gold: #c9a45c;
+      --gold-light: #f0d49b;
+      --text: #edf0f4;
+      --muted: #a3adba;
+      --border: #292f37;
+      --green: #42c994;
+      --red: #f07878;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, select { font: inherit; }
+
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: #0d1014;
+      padding: 16px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .top-link {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .top-link:hover { color: var(--gold); }
+
+    .language-control {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .language-control button {
+      padding: 6px 10px;
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .language-control button.active {
+      color: #101010;
+      background: var(--gold);
+    }
+
+    .container {
+      width: min(1000px, 90%);
+      margin: 0 auto;
+      padding: 40px 0 70px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .breadcrumb a:hover { color: var(--gold); }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.2;
+      margin: 12px 0 16px;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      color: var(--gold-light);
+      font-size: 23px;
+      line-height: 1.4;
+      margin: 0 0 16px;
+    }
+
+    h3 { font-size: 16px; margin: 0 0 8px; }
+
+    p { margin: 0 0 14px; }
+
+    .lead {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 34px;
+    }
+
+    .tag {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 11px;
+    }
+
+    .tag.gold {
+      color: var(--gold);
+      border-color: #5d4b2e;
+    }
+
+    .article-section {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 27px;
+      margin: 20px 0;
+    }
+
+    .muted { color: var(--muted); }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .concept {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .concept p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .insight {
+      border-left: 3px solid var(--gold);
+      background: #19170f;
+      padding: 17px 20px;
+      margin: 18px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .insight strong { color: var(--gold); }
+
+    .example-box {
+      background: #0d1115;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+
+    .example-box p:last-child { margin-bottom: 0; }
+
+    .direction {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .direction > div {
+      padding: 16px;
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .bull { color: var(--green); }
+    .bear { color: var(--red); }
+
+    .checklist {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .checklist li { margin: 8px 0; }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .progress {
+      height: 5px;
+      background: #252b32;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: var(--gold);
+      transition: width .2s ease;
+    }
+
+    .question {
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 14px 0;
+    }
+
+    .question-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .option {
+      display: block;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin: 8px 0;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 14px;
+      transition: .15s ease;
+    }
+
+    .option:hover {
+      border-color: var(--gold);
+      color: var(--text);
+    }
+
+    .option input {
+      margin-right: 9px;
+      accent-color: var(--gold);
+    }
+
+    .option:has(input:checked) {
+      border-color: var(--gold);
+      color: var(--text);
+      background: #201b12;
+    }
+
+    .option.correct {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .option.wrong {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .button {
+      display: inline-block;
+      border: 0;
+      background: var(--gold);
+      color: #101010;
+      font-weight: 800;
+      padding: 13px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .button:hover { filter: brightness(1.08); }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .button:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    #result {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      background: #0d1115;
+      border-radius: 8px;
+    }
+
+    #result h3 { font-size: 20px; }
+
+    .explanation {
+      display: none;
+      padding: 12px 14px;
+      margin-top: 10px;
+      background: #0c1014;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .next-panel {
+      display: none;
+      border: 1px solid #5d4b2e;
+      background: linear-gradient(135deg, #19170f, #11151a);
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .next-panel p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .premium {
+      border: 1px solid #5d4b2e;
+      background: #15130e;
+      padding: 22px;
+      border-radius: 8px;
+      margin-top: 28px;
+    }
+
+    .premium .label {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .premium p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 8px 0 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 24px 5%;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 92%;
+        padding-top: 28px;
+      }
+
+      .article-section { padding: 20px; }
+
+      .concept-grid,
+      .direction { grid-template-columns: 1fr; }
+
+      h1 { font-size: 32px; }
+
+      .topbar { padding: 15px 4%; }
+
+      .top-actions { width: 100%; justify-content: space-between; }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <a class="brand" href="academy.html">
+      THE DESK
+      <small>MARKET INTELLIGENCE ACADEMY</small>
+    </a>
 
-    <header class="topbar">
-        <a class="brand" href="academy.html">
-            THE DESK
-            <small>MARKET INTELLIGENCE ACADEMY</small>
-        </a>
-        <a class="top-link" href="macro.html">← Kembali ke Macro Learning</a>
-    </header>
+    <div class="top-actions">
+      <a class="top-link" href="macro.html" data-i18n="backMacro">← Kembali ke Macro Learning</a>
 
-    <main class="container">
+      <div class="language-control" aria-label="Language selector">
+        <button type="button" id="langID">ID</button>
+        <button type="button" id="langEN">EN</button>
+      </div>
+    </div>
+  </header>
 
-        <div class="breadcrumb">
-            <a href="academy.html">Academy</a> /
-            <a href="macro.html">Macro & News Impact</a> /
-            Module 05
+  <main class="container">
+    <div class="breadcrumb">
+      <a href="academy.html" data-i18n="academy">Academy</a> /
+      <a href="macro.html" data-i18n="macroTitle">Macro & News Impact</a> /
+      <span data-i18n="moduleLabel">Module 05</span>
+    </div>
+
+    <div class="eyebrow" data-i18n="eyebrow">MACRO & NEWS IMPACT · MODULE 05</div>
+    <h1 data-i18n="pageTitle">FOMC & Federal Reserve</h1>
+    <p class="lead" data-i18n="lead">
+      Memahami bagaimana kebijakan bank sentral Amerika Serikat membentuk ekspektasi
+      suku bunga, menggerakkan US Dollar, Treasury Yields, dan Gold.
+    </p>
+
+    <div class="meta">
+      <span class="tag gold" data-i18n="level">INTERMEDIATE</span>
+      <span class="tag" data-i18n="duration">Estimasi 12–15 menit</span>
+      <span class="tag" data-i18n="questionCount">5 Quiz Questions</span>
+    </div>
+
+    <section class="article-section">
+      <h2 data-i18n="s1Title">01. Apa Itu Federal Reserve?</h2>
+      <p data-i18n="s1p1">
+        Federal Reserve (The Fed) adalah bank sentral Amerika Serikat. Salah satu peran
+        utamanya adalah menjalankan kebijakan moneter untuk mendukung stabilitas harga
+        dan kondisi ketenagakerjaan yang sehat.
+      </p>
+      <p data-i18n="s1p2">
+        Keputusan The Fed menjadi perhatian global karena suku bunga AS memengaruhi
+        biaya pinjaman, imbal hasil aset, arus modal, nilai USD, dan kondisi keuangan internasional.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <h3 data-i18n="inflationTitle">Inflation</h3>
+          <p data-i18n="inflationText">The Fed memantau tekanan inflasi untuk menilai apakah kebijakan moneter perlu dibuat lebih ketat atau lebih longgar.</p>
         </div>
+        <div class="concept">
+          <h3 data-i18n="employmentTitle">Employment</h3>
+          <p data-i18n="employmentText">Kondisi pasar tenaga kerja membantu menunjukkan kekuatan ekonomi dan potensi tekanan terhadap upah serta harga.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="ratesTitle">Interest Rates</h3>
+          <p data-i18n="ratesText">Suku bunga memengaruhi biaya kredit, keputusan konsumsi, investasi, dan daya tarik relatif aset keuangan.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="conditionsTitle">Financial Conditions</h3>
+          <p data-i18n="conditionsText">Perubahan ekspektasi kebijakan dapat memengaruhi yield obligasi, nilai tukar, harga aset, dan likuiditas pasar.</p>
+        </div>
+      </div>
 
-        <div class="eyebrow">MACRO & NEWS IMPACT · MODULE 05</div>
-        <h1>FOMC & Federal Reserve</h1>
-        <p class="lead">
-            Memahami bagaimana kebijakan bank sentral Amerika Serikat membentuk
-            ekspektasi suku bunga, menggerakkan US Dollar, Treasury Yields, dan Gold.
+      <div class="insight">
+        <strong data-i18n="keyPrinciple">Prinsip Utama:</strong>
+        <span data-i18n="keyPrincipleText">Pasar tidak hanya memperhatikan keputusan The Fed. Pasar juga memperhatikan apakah keputusan tersebut sesuai atau berbeda dari ekspektasi yang sudah terbentuk.</span>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2 data-i18n="s2Title">02. Memahami FOMC</h2>
+      <p data-i18n="s2p1">
+        Federal Open Market Committee (FOMC) adalah komite dalam Federal Reserve System
+        yang menetapkan arah kebijakan moneter, termasuk target kisaran Federal Funds Rate.
+      </p>
+      <p data-i18n="s2p2">
+        Pertemuan FOMC yang dijadwalkan secara rutin menjadi salah satu agenda penting
+        dalam kalender ekonomi. Pada pertemuan tertentu, pasar juga menantikan proyeksi
+        ekonomi dan konferensi pers Ketua The Fed.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <h3>FOMC Statement</h3>
+          <p data-i18n="statementText">Pernyataan resmi yang menjelaskan keputusan kebijakan dan penilaian komite terhadap kondisi ekonomi.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="decisionTitle">Policy Rate Decision</h3>
+          <p data-i18n="decisionText">Keputusan mengenai target kisaran Federal Funds Rate, termasuk apakah suku bunga dipertahankan, dinaikkan, atau diturunkan.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="projectionsTitle">Economic Projections</h3>
+          <p data-i18n="projectionsText">Proyeksi ekonomi dan suku bunga yang diterbitkan pada pertemuan tertentu. Proyeksi merupakan perkiraan, bukan janji.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="pressTitle">Press Conference</h3>
+          <p data-i18n="pressText">Sesi tanya jawab yang dapat memberi konteks tambahan tentang penilaian ekonomi dan kemungkinan arah kebijakan.</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <h3 data-i18n="sequenceTitle">Urutan yang Perlu Diperhatikan</h3>
+        <ol class="checklist">
+          <li data-i18n="sequence1">Keputusan suku bunga.</li>
+          <li data-i18n="sequence2">Isi dan perubahan bahasa dalam statement.</li>
+          <li data-i18n="sequence3">Proyeksi ekonomi dan suku bunga, jika diterbitkan.</li>
+          <li data-i18n="sequence4">Jawaban Ketua The Fed dalam konferensi pers.</li>
+          <li data-i18n="sequence5">Reaksi USD, Treasury Yields, Gold, dan indeks saham.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2 data-i18n="s3Title">03. Hawkish vs Dovish</h2>
+      <p data-i18n="s3p1">
+        Istilah hawkish dan dovish menggambarkan kecenderungan kebijakan moneter.
+        Keduanya perlu dibaca dalam konteks kondisi ekonomi, inflasi, dan ekspektasi pasar.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <h3 class="bear">Hawkish</h3>
+          <p data-i18n="hawkishText">Menunjukkan kecenderungan lebih ketat, misalnya menekankan risiko inflasi atau perlunya mempertahankan suku bunga tinggi lebih lama.</p>
+        </div>
+        <div class="concept">
+          <h3 class="bull">Dovish</h3>
+          <p data-i18n="dovishText">Menunjukkan kecenderungan lebih longgar, misalnya menekankan pelemahan ekonomi atau membuka ruang untuk penurunan suku bunga.</p>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong data-i18n="important">Penting:</strong>
+        <span data-i18n="importantText">Hawkish tidak selalu berarti suku bunga langsung naik. Dovish juga tidak selalu berarti suku bunga langsung turun. Bahasa kebijakan, proyeksi, dan konteks ekonomi harus dibaca secara keseluruhan.</span>
+      </div>
+
+      <h3 data-i18n="interpretationTitle">Contoh Interpretasi</h3>
+      <div class="example-box">
+        <p data-i18n="conditionA"><strong>Kondisi A:</strong> Suku bunga dipertahankan, tetapi The Fed menegaskan inflasi masih tinggi dan penurunan suku bunga belum dekat.</p>
+        <p class="muted" data-i18n="conditionAInterpretation">Interpretasi: pesan dapat dinilai hawkish meskipun tidak ada kenaikan suku bunga pada pertemuan tersebut.</p>
+      </div>
+      <div class="example-box">
+        <p data-i18n="conditionB"><strong>Kondisi B:</strong> Suku bunga dipertahankan, tetapi The Fed mengakui risiko pelemahan tenaga kerja dan membuka ruang pelonggaran.</p>
+        <p class="muted" data-i18n="conditionBInterpretation">Interpretasi: pesan dapat dinilai dovish, bergantung pada konteks dan ekspektasi pasar sebelumnya.</p>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2 data-i18n="s4Title">04. Bagaimana FOMC Memengaruhi Pasar?</h2>
+      <p data-i18n="s4p1">
+        Perubahan ekspektasi suku bunga dapat memengaruhi instrumen yang sensitif terhadap
+        dolar dan yield. Namun, hubungan ini tidak selalu bergerak satu arah karena pasar
+        juga menilai pertumbuhan ekonomi, risiko, posisi trader, dan kondisi likuiditas.
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <h3>US Dollar (USD)</h3>
+          <p data-i18n="usdText">Ekspektasi suku bunga AS yang relatif lebih tinggi dapat mendukung USD. Reaksi aktual bergantung pada perbandingan dengan ekspektasi dan mata uang lainnya.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="yieldTitle">US Treasury Yields</h3>
+          <p data-i18n="yieldText">Ekspektasi jalur suku bunga, inflasi, pertumbuhan, dan premi risiko dapat mengubah yield obligasi pemerintah AS.</p>
+        </div>
+        <div class="concept">
+          <h3>Gold (XAUUSD)</h3>
+          <p data-i18n="goldText">Yield riil dan USD sering menjadi faktor penting bagi Gold. Kenaikan yield riil atau penguatan USD dapat menekan Gold, tetapi bukan aturan yang selalu berlaku.</p>
+        </div>
+        <div class="concept">
+          <h3 data-i18n="equityTitle">Equity Markets</h3>
+          <p data-i18n="equityText">Perubahan suku bunga memengaruhi biaya pendanaan dan valuasi. Dampaknya berbeda menurut sektor, prospek laba, dan alasan di balik perubahan kebijakan.</p>
+        </div>
+      </div>
+
+      <div class="direction">
+        <div>
+          <h3 data-i18n="goldPressureTitle">Potensi Tekanan pada Gold</h3>
+          <p class="muted" data-i18n="goldPressureText">Jika pesan The Fed lebih hawkish dari ekspektasi, USD dan yield dapat menguat sehingga berpotensi menekan XAUUSD.</p>
+        </div>
+        <div>
+          <h3 data-i18n="goldSupportTitle">Potensi Dukungan pada Gold</h3>
+          <p class="muted" data-i18n="goldSupportText">Jika pesan The Fed lebih dovish dari ekspektasi, USD dan yield dapat melemah sehingga berpotensi mendukung XAUUSD.</p>
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong data-i18n="marketReminder">Market Reminder:</strong>
+        <span data-i18n="marketReminderText">Ini adalah kerangka interpretasi, bukan sinyal trading otomatis. Reaksi Gold dapat berbeda ketika risiko geopolitik, permintaan safe haven, atau faktor lain mendominasi pasar.</span>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2 data-i18n="s5Title">05. Mengapa Ekspektasi Pasar Sangat Penting?</h2>
+      <p data-i18n="s5p1">
+        Harga bergerak berdasarkan perubahan informasi dan ekspektasi. Karena itu,
+        keputusan yang terlihat positif atau negatif belum tentu menghasilkan reaksi
+        harga yang sesuai dugaan.
+      </p>
+
+      <div class="example-box">
+        <h3 data-i18n="unchangedTitle">Contoh: Suku Bunga Tidak Berubah</h3>
+        <p data-i18n="unchangedText1">
+          Pasar sebelumnya memperkirakan suku bunga akan dipertahankan. Ketika keputusan
+          tersebut diumumkan, fokus pasar dapat beralih pada panduan kebijakan dan konferensi pers.
         </p>
+        <p data-i18n="unchangedText2">
+          Jika pesan ternyata lebih hawkish dari perkiraan, USD masih dapat menguat.
+          Sebaliknya, pesan yang lebih dovish dapat melemahkan USD.
+        </p>
+      </div>
 
-        <div class="meta">
-            <span class="tag gold">INTERMEDIATE</span>
-            <span class="tag">Estimasi 12–15 menit</span>
-            <span class="tag">5 Quiz Questions</span>
+      <h3 data-i18n="threeThingsTitle">Tiga Hal yang Harus Dibandingkan</h3>
+      <ol class="checklist">
+        <li data-i18n="three1"><strong>Ekspektasi sebelum rilis:</strong> apa yang sudah diperhitungkan pasar?</li>
+        <li data-i18n="three2"><strong>Informasi aktual:</strong> apa yang berubah dalam keputusan dan komunikasi The Fed?</li>
+        <li data-i18n="three3"><strong>Reaksi harga:</strong> bagaimana USD, yield, dan Gold merespons?</li>
+      </ol>
+
+      <div class="insight">
+        <strong data-i18n="coreLesson">Pelajaran Utama:</strong>
+        <span data-i18n="coreLessonText">Jangan hanya membaca apakah suku bunga naik, turun, atau tetap. Cari tahu apakah keseluruhan pesan The Fed lebih hawkish atau dovish dibandingkan ekspektasi pasar.</span>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2 data-i18n="s6Title">06. Framework Analisis FOMC</h2>
+      <p data-i18n="s6p1">
+        Gunakan kerangka berikut untuk menyusun analisis sebelum dan sesudah pengumuman
+        FOMC. Tujuannya adalah memahami perubahan ekspektasi, bukan menebak arah harga tanpa konfirmasi.
+      </p>
+
+      <div class="example-box">
+        <h3 data-i18n="preEventTitle">Pre-Event Checklist</h3>
+        <ul class="checklist">
+          <li data-i18n="pre1">Periksa konsensus suku bunga dan ekspektasi pasar.</li>
+          <li data-i18n="pre2">Tinjau data inflasi dan tenaga kerja terbaru.</li>
+          <li data-i18n="pre3">Catat level penting pada XAUUSD dan USD.</li>
+          <li data-i18n="pre4">Periksa jadwal statement dan konferensi pers.</li>
+          <li data-i18n="pre5">Tentukan batas risiko sebelum mempertimbangkan entry.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h3 data-i18n="postEventTitle">Post-Event Checklist</h3>
+        <ul class="checklist">
+          <li data-i18n="post1">Bandingkan keputusan dengan ekspektasi.</li>
+          <li data-i18n="post2">Identifikasi perubahan penting dalam statement.</li>
+          <li data-i18n="post3">Perhatikan perubahan yield dan USD.</li>
+          <li data-i18n="post4">Tunggu reaksi harga yang lebih jelas dan terkonfirmasi.</li>
+          <li data-i18n="post5">Hindari entry jika spread, slippage, atau volatilitas tidak sesuai toleransi risiko.</li>
+        </ul>
+      </div>
+
+      <p class="muted" data-i18n="slippageWarning">
+        Saat pengumuman berdampak tinggi, harga dapat bergerak cepat ke dua arah.
+        Stop loss tidak menjamin eksekusi tepat pada harga yang ditentukan ketika terjadi gap atau slippage.
+      </p>
+    </section>
+
+    <section class="article-section" id="quiz">
+      <div class="quiz-header">
+        <div>
+          <div class="eyebrow" data-i18n="knowledgeCheck">KNOWLEDGE CHECK</div>
+          <h2 style="margin:6px 0 0" data-i18n="quizTitle">Module 05 Quiz</h2>
         </div>
+        <span class="tag gold" data-i18n="passingScore">Passing Score: 80%</span>
+      </div>
 
-        <section class="article-section">
-            <h2>01. Apa Itu Federal Reserve?</h2>
-            <p>
-                <strong>Federal Reserve (The Fed)</strong> adalah bank sentral Amerika
-                Serikat. Salah satu peran utamanya adalah menjalankan kebijakan moneter
-                untuk mendukung stabilitas harga dan kondisi ketenagakerjaan yang sehat.
-            </p>
-            <p>
-                Keputusan The Fed menjadi perhatian global karena suku bunga AS
-                memengaruhi biaya pinjaman, imbal hasil aset, arus modal, nilai USD,
-                dan kondisi keuangan internasional.
-            </p>
+      <p class="muted" data-i18n="quizInstructions">
+        Jawab lima pertanyaan berikut. Kamu perlu mendapatkan minimal 4 jawaban benar untuk membuka modul berikutnya.
+      </p>
 
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>Inflation</h3>
-                    <p>
-                        The Fed memantau tekanan inflasi untuk menilai apakah kebijakan
-                        moneter perlu dibuat lebih ketat atau lebih longgar.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Employment</h3>
-                    <p>
-                        Kondisi pasar tenaga kerja membantu menunjukkan kekuatan ekonomi
-                        dan potensi tekanan terhadap upah serta harga.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Interest Rates</h3>
-                    <p>
-                        Suku bunga memengaruhi biaya kredit, keputusan konsumsi,
-                        investasi, dan daya tarik relatif aset keuangan.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Financial Conditions</h3>
-                    <p>
-                        Perubahan ekspektasi kebijakan dapat memengaruhi yield obligasi,
-                        nilai tukar, harga aset, dan likuiditas pasar.
-                    </p>
-                </div>
-            </div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
 
-            <div class="insight">
-                <strong>Key Principle:</strong>
-                Pasar tidak hanya memperhatikan keputusan The Fed. Pasar juga
-                memperhatikan apakah keputusan tersebut sesuai atau berbeda dari
-                ekspektasi yang sudah terbentuk.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>02. Memahami FOMC</h2>
-            <p>
-                <strong>Federal Open Market Committee (FOMC)</strong> adalah komite
-                dalam Federal Reserve System yang menetapkan arah kebijakan moneter,
-                termasuk target kisaran Federal Funds Rate.
-            </p>
-            <p>
-                Pertemuan FOMC yang dijadwalkan secara rutin menjadi salah satu agenda
-                penting dalam kalender ekonomi. Pada pertemuan tertentu, pasar juga
-                menantikan proyeksi ekonomi dan konferensi pers Ketua The Fed.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>FOMC Statement</h3>
-                    <p>
-                        Pernyataan resmi yang menjelaskan keputusan kebijakan dan
-                        penilaian komite terhadap kondisi ekonomi.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Policy Rate Decision</h3>
-                    <p>
-                        Keputusan mengenai target kisaran Federal Funds Rate, termasuk
-                        apakah suku bunga dipertahankan, dinaikkan, atau diturunkan.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Economic Projections</h3>
-                    <p>
-                        Proyeksi ekonomi dan suku bunga yang diterbitkan pada pertemuan
-                        tertentu. Proyeksi merupakan perkiraan, bukan janji.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Press Conference</h3>
-                    <p>
-                        Sesi tanya jawab yang dapat memberi konteks tambahan tentang
-                        penilaian ekonomi dan kemungkinan arah kebijakan.
-                    </p>
-                </div>
-            </div>
-
-            <div class="example-box">
-                <h3>Urutan yang Perlu Diperhatikan</h3>
-                <ol class="checklist">
-                    <li>Keputusan suku bunga.</li>
-                    <li>Isi dan perubahan bahasa dalam statement.</li>
-                    <li>Proyeksi ekonomi dan suku bunga, jika diterbitkan.</li>
-                    <li>Jawaban Ketua The Fed dalam konferensi pers.</li>
-                    <li>Reaksi USD, Treasury Yields, Gold, dan indeks saham.</li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>03. Hawkish vs Dovish</h2>
-            <p>
-                Istilah hawkish dan dovish menggambarkan kecenderungan kebijakan
-                moneter. Keduanya perlu dibaca dalam konteks kondisi ekonomi,
-                inflasi, dan ekspektasi pasar.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3 class="bear">Hawkish</h3>
-                    <p>
-                        Menunjukkan kecenderungan lebih ketat, misalnya menekankan risiko
-                        inflasi atau perlunya mempertahankan suku bunga tinggi lebih lama.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3 class="bull">Dovish</h3>
-                    <p>
-                        Menunjukkan kecenderungan lebih longgar, misalnya menekankan
-                        pelemahan ekonomi atau membuka ruang untuk penurunan suku bunga.
-                    </p>
-                </div>
-            </div>
-
-            <div class="insight">
-                <strong>Penting:</strong>
-                Hawkish tidak selalu berarti suku bunga langsung naik. Dovish juga
-                tidak selalu berarti suku bunga langsung turun. Bahasa kebijakan,
-                proyeksi, dan konteks ekonomi harus dibaca secara keseluruhan.
-            </div>
-
-            <h3>Contoh Interpretasi</h3>
-            <div class="example-box">
-                <p><strong>Kondisi A:</strong> Suku bunga dipertahankan, tetapi The Fed
-                    menegaskan inflasi masih tinggi dan penurunan suku bunga belum dekat.</p>
-                <p class="muted">
-                    Interpretasi: pesan dapat dinilai hawkish meskipun tidak ada kenaikan
-                    suku bunga pada pertemuan tersebut.
-                </p>
-            </div>
-
-            <div class="example-box">
-                <p><strong>Kondisi B:</strong> Suku bunga dipertahankan, tetapi The Fed
-                    mengakui risiko pelemahan tenaga kerja dan membuka ruang pelonggaran.</p>
-                <p class="muted">
-                    Interpretasi: pesan dapat dinilai dovish, bergantung pada konteks
-                    dan ekspektasi pasar sebelumnya.
-                </p>
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>04. Bagaimana FOMC Memengaruhi Pasar?</h2>
-            <p>
-                Perubahan ekspektasi suku bunga dapat memengaruhi instrumen yang
-                sensitif terhadap dolar dan yield. Namun, hubungan ini tidak selalu
-                bergerak satu arah karena pasar juga menilai pertumbuhan ekonomi,
-                risiko, posisi trader, dan kondisi likuiditas.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>US Dollar (USD)</h3>
-                    <p>
-                        Ekspektasi suku bunga AS yang relatif lebih tinggi dapat mendukung
-                        USD. Reaksi aktual bergantung pada perbandingan dengan ekspektasi
-                        dan mata uang lainnya.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>US Treasury Yields</h3>
-                    <p>
-                        Ekspektasi jalur suku bunga, inflasi, pertumbuhan, dan premi risiko
-                        dapat mengubah yield obligasi pemerintah AS.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Gold (XAUUSD)</h3>
-                    <p>
-                        Yield riil dan USD sering menjadi faktor penting bagi Gold.
-                        Kenaikan yield riil atau penguatan USD dapat menekan Gold,
-                        tetapi bukan aturan yang selalu berlaku.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Equity Markets</h3>
-                    <p>
-                        Perubahan suku bunga memengaruhi biaya pendanaan dan valuasi.
-                        Dampaknya berbeda menurut sektor, prospek laba, dan alasan
-                        di balik perubahan kebijakan.
-                    </p>
-                </div>
-            </div>
-
-            <div class="direction">
-                <div>
-                    <h3>Potensi Tekanan pada Gold</h3>
-                    <p class="muted">
-                        Jika pesan The Fed lebih hawkish dari ekspektasi, USD dan yield
-                        dapat menguat sehingga berpotensi menekan XAUUSD.
-                    </p>
-                </div>
-                <div>
-                    <h3>Potensi Dukungan pada Gold</h3>
-                    <p class="muted">
-                        Jika pesan The Fed lebih dovish dari ekspektasi, USD dan yield
-                        dapat melemah sehingga berpotensi mendukung XAUUSD.
-                    </p>
-                </div>
-            </div>
-
-            <div class="insight">
-                <strong>Market Reminder:</strong>
-                Ini adalah kerangka interpretasi, bukan sinyal trading otomatis.
-                Reaksi Gold dapat berbeda ketika risiko geopolitik, permintaan safe
-                haven, atau faktor lain mendominasi pasar.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>05. Mengapa Ekspektasi Pasar Sangat Penting?</h2>
-            <p>
-                Harga bergerak berdasarkan perubahan informasi dan ekspektasi.
-                Karena itu, keputusan yang terlihat positif atau negatif belum tentu
-                menghasilkan reaksi harga yang sesuai dugaan.
-            </p>
-
-            <div class="example-box">
-                <h3>Contoh: Suku Bunga Tidak Berubah</h3>
-                <p>
-                    Pasar sebelumnya memperkirakan suku bunga akan dipertahankan.
-                    Ketika keputusan tersebut diumumkan, fokus pasar dapat beralih
-                    pada panduan kebijakan dan konferensi pers.
-                </p>
-                <p>
-                    Jika pesan ternyata lebih hawkish dari perkiraan, USD masih dapat
-                    menguat. Sebaliknya, pesan yang lebih dovish dapat melemahkan USD.
-                </p>
-            </div>
-
-            <h3>Tiga Hal yang Harus Dibandingkan</h3>
-            <ol class="checklist">
-                <li><strong>Ekspektasi sebelum rilis:</strong> apa yang sudah diperhitungkan pasar?</li>
-                <li><strong>Informasi aktual:</strong> apa yang berubah dalam keputusan dan komunikasi The Fed?</li>
-                <li><strong>Reaksi harga:</strong> bagaimana USD, yield, dan Gold merespons?</li>
-            </ol>
-
-            <div class="insight">
-                <strong>Core Lesson:</strong>
-                Jangan hanya membaca apakah suku bunga naik, turun, atau tetap.
-                Cari tahu apakah keseluruhan pesan The Fed lebih hawkish atau dovish
-                dibandingkan ekspektasi pasar.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>06. Framework Analisis FOMC</h2>
-            <p>
-                Gunakan kerangka berikut untuk menyusun analisis sebelum dan sesudah
-                pengumuman FOMC. Tujuannya adalah memahami perubahan ekspektasi,
-                bukan menebak arah harga tanpa konfirmasi.
-            </p>
-
-            <div class="example-box">
-                <h3>Pre-Event Checklist</h3>
-                <ul class="checklist">
-                    <li>Periksa konsensus suku bunga dan ekspektasi pasar.</li>
-                    <li>Tinjau data inflasi dan tenaga kerja terbaru.</li>
-                    <li>Catat level penting pada XAUUSD dan USD.</li>
-                    <li>Periksa jadwal statement dan konferensi pers.</li>
-                    <li>Tentukan batas risiko sebelum mempertimbangkan entry.</li>
-                </ul>
-            </div>
-
-            <div class="example-box">
-                <h3>Post-Event Checklist</h3>
-                <ul class="checklist">
-                    <li>Bandingkan keputusan dengan ekspektasi.</li>
-                    <li>Identifikasi perubahan penting dalam statement.</li>
-                    <li>Perhatikan perubahan yield dan USD.</li>
-                    <li>Tunggu reaksi harga yang lebih jelas dan terkonfirmasi.</li>
-                    <li>Hindari entry jika spread, slippage, atau volatilitas tidak sesuai toleransi risiko.</li>
-                </ul>
-            </div>
-
-            <p class="muted">
-                Saat pengumuman berdampak tinggi, harga dapat bergerak cepat ke dua
-                arah. Stop loss tidak menjamin eksekusi tepat pada harga yang
-                ditentukan ketika terjadi gap atau slippage.
-            </p>
-        </section>
-
-        <section class="article-section" id="quiz">
-            <div class="quiz-header">
-                <div>
-                    <div class="eyebrow">KNOWLEDGE CHECK</div>
-                    <h2 style="margin: 6px 0 0;">Module 05 Quiz</h2>
-                </div>
-                <span class="tag gold">Passing Score: 80%</span>
-            </div>
-
-            <p class="muted">
-                Jawab lima pertanyaan berikut. Kamu perlu mendapatkan minimal
-                4 jawaban benar untuk membuka modul berikutnya.
-            </p>
-
-            <div class="progress">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-
-            <form id="quizForm">
-
-                <div class="question" data-question="0">
-                    <div class="question-title">
-                        1. Apa peran utama FOMC dalam kebijakan moneter AS?
-                    </div>
-                    <label class="option"><input type="radio" name="q0" value="0"> Menetapkan arah kebijakan moneter,
-                        termasuk target Federal Funds Rate.</label>
-                    <label class="option"><input type="radio" name="q0" value="1"> Menentukan harga emas dunia secara
-                        langsung.</label>
-                    <label class="option"><input type="radio" name="q0" value="2"> Mengatur seluruh kebijakan fiskal
-                        pemerintah AS.</label>
-                    <label class="option"><input type="radio" name="q0" value="3"> Menetapkan harga saham setiap
-                        perusahaan.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question" data-question="1">
-                    <div class="question-title">
-                        2. Apa arti pesan The Fed yang hawkish?
-                    </div>
-                    <label class="option"><input type="radio" name="q1" value="0"> The Fed pasti langsung menurunkan
-                        suku bunga.</label>
-                    <label class="option"><input type="radio" name="q1" value="1"> The Fed cenderung menekankan
-                        kebijakan lebih ketat atau risiko inflasi.</label>
-                    <label class="option"><input type="radio" name="q1" value="2"> USD pasti melemah pada semua
-                        kondisi.</label>
-                    <label class="option"><input type="radio" name="q1" value="3"> Pasar tidak lagi memperhatikan
-                        inflasi.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question" data-question="2">
-                    <div class="question-title">
-                        3. Mengapa ekspektasi pasar penting saat FOMC?
-                    </div>
-                    <label class="option"><input type="radio" name="q2" value="0"> Karena pasar selalu bergerak sesuai
-                        keputusan suku bunga saja.</label>
-                    <label class="option"><input type="radio" name="q2" value="1"> Karena ekspektasi tidak memengaruhi
-                        harga.</label>
-                    <label class="option"><input type="radio" name="q2" value="2"> Karena reaksi harga bergantung pada
-                        perbedaan informasi aktual dan ekspektasi.</label>
-                    <label class="option"><input type="radio" name="q2" value="3"> Karena konferensi pers tidak
-                        relevan.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question" data-question="3">
-                    <div class="question-title">
-                        4. Jika pesan The Fed lebih dovish dari ekspektasi, apa yang dapat terjadi?
-                    </div>
-                    <label class="option"><input type="radio" name="q3" value="0"> Gold pasti turun tanpa
-                        pengecualian.</label>
-                    <label class="option"><input type="radio" name="q3" value="1"> USD dan yield berpotensi melemah,
-                        sehingga dapat mendukung Gold.</label>
-                    <label class="option"><input type="radio" name="q3" value="2"> Seluruh aset pasti naik
-                        bersamaan.</label>
-                    <label class="option"><input type="radio" name="q3" value="3"> Pasar berhenti bereaksi terhadap
-                        berita.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question" data-question="4">
-                    <div class="question-title">
-                        5. Apa pendekatan yang lebih baik saat rilis FOMC?
-                    </div>
-                    <label class="option"><input type="radio" name="q4" value="0"> Langsung menggunakan lot besar
-                        sebelum berita.</label>
-                    <label class="option"><input type="radio" name="q4" value="1"> Mengabaikan spread dan
-                        slippage.</label>
-                    <label class="option"><input type="radio" name="q4" value="2"> Menganggap semua pesan hawkish pasti
-                        bearish untuk semua aset.</label>
-                    <label class="option"><input type="radio" name="q4" value="3"> Membandingkan ekspektasi, membaca
-                        pesan The Fed, lalu mengelola risiko.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <button type="submit" id="submitBtn">SUBMIT ANSWERS</button>
-                <button type="button" class="secondary" id="retryBtn" style="display:none;">TRY AGAIN</button>
-            </form>
-
-            <div id="result" aria-live="polite">
-                <h3 id="resultTitle"></h3>
-                <p id="resultText"></p>
-            </div>
-
-            <div class="next-panel" id="nextPanel">
-                <div class="eyebrow">MODULE COMPLETED</div>
-                <h2 style="margin-top:8px;">Excellent Work.</h2>
-                <p>
-                    Kamu telah menyelesaikan FOMC & Federal Reserve.
-                    Selanjutnya, pelajari hubungan DXY dan Treasury Yields untuk
-                    memperdalam analisis makro.
-                </p>
-                <div class="button-row">
-                    <a href="macro-06.html"><button type="button">NEXT MODULE →</button></a>
-                    <a href="macro.html"><button type="button" class="secondary">MACRO CATALOG</button></a>
-                </div>
-            </div>
-        </section>
-
-        <div class="premium">
-            <div class="label">THE DESK · PREMIUM RESEARCH</div>
-            <h3 style="margin-top:8px;">Advanced Macro Research</h3>
-            <p>
-                Pendalaman analisis kebijakan bank sentral, interpretasi yield,
-                perubahan ekspektasi suku bunga, dan hubungan antar-aset untuk
-                membangun market view yang lebih terstruktur.
-            </p>
-        </div>
+      <form id="quizForm">
+        <div id="questionsContainer"></div>
 
         <div class="button-row">
-            <a href="macro-04.html"><button type="button" class="secondary">← PREVIOUS MODULE</button></a>
-            <a href="macro.html"><button type="button" class="secondary">BACK TO MACRO</button></a>
-            <a href="academy.html"><button type="button" class="secondary">ACADEMY HOME</button></a>
+          <button class="button" type="submit" id="submitBtn" data-i18n="submitAnswers">SUBMIT ANSWERS</button>
+          <button class="button secondary" type="button" id="retryBtn" style="display:none" data-i18n="tryAgain">TRY AGAIN</button>
         </div>
+      </form>
 
-    </main>
+      <div id="result" aria-live="polite">
+        <h3 id="resultTitle"></h3>
+        <p id="resultText"></p>
+      </div>
 
-    <footer>
-        THE DESK Academy · Understand the Market, Before You Trade It.
-        <br>
-        Educational content only. Not financial advice.
-    </footer>
+      <div class="next-panel" id="nextPanel">
+        <div class="eyebrow" data-i18n="moduleCompleted">MODULE COMPLETED</div>
+        <h2 style="margin-top:8px" data-i18n="excellentWork">Excellent Work.</h2>
+        <p data-i18n="completedText">
+          Kamu telah menyelesaikan FOMC & Federal Reserve. Selanjutnya, pelajari hubungan DXY dan Treasury Yields untuk memperdalam analisis makro.
+        </p>
+        <div class="button-row">
+          <a class="button" href="macro-06.html" data-i18n="nextModule">NEXT MODULE →</a>
+          <a class="button secondary" href="macro.html" data-i18n="macroCatalog">MACRO CATALOG</a>
+        </div>
+      </div>
+    </section>
 
-    <script>
-        const correctAnswers = [0, 1, 2, 1, 3];
+    <div class="premium">
+      <div class="label">THE DESK · PREMIUM RESEARCH</div>
+      <h3 style="margin-top:8px" data-i18n="premiumTitle">Advanced Macro Research</h3>
+      <p data-i18n="premiumText">
+        Pendalaman analisis kebijakan bank sentral, interpretasi yield, perubahan
+        ekspektasi suku bunga, dan hubungan antar-aset untuk membangun market view yang lebih terstruktur.
+      </p>
+    </div>
 
-        const explanations = [
-            "FOMC menetapkan arah kebijakan moneter, termasuk target kisaran Federal Funds Rate.",
-            "Hawkish menggambarkan kecenderungan lebih ketat, misalnya fokus pada risiko inflasi atau suku bunga tinggi lebih lama.",
-            "Pasar merespons informasi baru dibandingkan dengan apa yang sebelumnya sudah diperkirakan.",
-            "Pesan dovish dapat menekan USD dan yield sehingga berpotensi mendukung Gold, tetapi reaksi tidak dijamin.",
-            "Analisis FOMC perlu membandingkan ekspektasi dengan informasi aktual dan tetap memperhatikan risiko eksekusi."
-        ];
+    <div class="button-row">
+      <a class="button secondary" href="macro-04.html" data-i18n="previousModule">← PREVIOUS MODULE</a>
+      <a class="button secondary" href="macro.html" data-i18n="backMacroButton">BACK TO MACRO</a>
+      <a class="button secondary" href="academy.html" data-i18n="academyHome">ACADEMY HOME</a>
+    </div>
+  </main>
 
-        const form = document.getElementById("quizForm");
-        const questions = [...document.querySelectorAll(".question")];
-        const progressBar = document.getElementById("progressBar");
-        const result = document.getElementById("result");
-        const resultTitle = document.getElementById("resultTitle");
-        const resultText = document.getElementById("resultText");
-        const submitBtn = document.getElementById("submitBtn");
-        const retryBtn = document.getElementById("retryBtn");
-        const nextPanel = document.getElementById("nextPanel");
+  <footer>
+    THE DESK Academy · Understand the Market, Before You Trade It.
+    <br>
+    <span data-i18n="disclaimer">Educational content only. Not financial advice.</span>
+  </footer>
 
-        function updateProgress() {
-            let answered = 0;
+  <script>
+    const translations = {
+      id: {
+        backMacro: "← Kembali ke Macro Learning",
+        academy: "Academy",
+        macroTitle: "Macro & News Impact",
+        moduleLabel: "Modul 05",
+        eyebrow: "MACRO & NEWS IMPACT · MODULE 05",
+        pageTitle: "FOMC & Federal Reserve",
+        lead: "Memahami bagaimana kebijakan bank sentral Amerika Serikat membentuk ekspektasi suku bunga, menggerakkan US Dollar, Treasury Yields, dan Gold.",
+        level: "INTERMEDIATE",
+        duration: "Estimasi 12–15 menit",
+        questionCount: "5 Pertanyaan Kuis",
+        s1Title: "01. Apa Itu Federal Reserve?",
+        s1p1: "Federal Reserve (The Fed) adalah bank sentral Amerika Serikat. Salah satu peran utamanya adalah menjalankan kebijakan moneter untuk mendukung stabilitas harga dan kondisi ketenagakerjaan yang sehat.",
+        s1p2: "Keputusan The Fed menjadi perhatian global karena suku bunga AS memengaruhi biaya pinjaman, imbal hasil aset, arus modal, nilai USD, dan kondisi keuangan internasional.",
+        inflationTitle: "Inflasi",
+        inflationText: "The Fed memantau tekanan inflasi untuk menilai apakah kebijakan moneter perlu dibuat lebih ketat atau lebih longgar.",
+        employmentTitle: "Ketenagakerjaan",
+        employmentText: "Kondisi pasar tenaga kerja membantu menunjukkan kekuatan ekonomi dan potensi tekanan terhadap upah serta harga.",
+        ratesTitle: "Suku Bunga",
+        ratesText: "Suku bunga memengaruhi biaya kredit, keputusan konsumsi, investasi, dan daya tarik relatif aset keuangan.",
+        conditionsTitle: "Kondisi Keuangan",
+        conditionsText: "Perubahan ekspektasi kebijakan dapat memengaruhi yield obligasi, nilai tukar, harga aset, dan likuiditas pasar.",
+        keyPrinciple: "Prinsip Utama:",
+        keyPrincipleText: "Pasar tidak hanya memperhatikan keputusan The Fed. Pasar juga memperhatikan apakah keputusan tersebut sesuai atau berbeda dari ekspektasi yang sudah terbentuk.",
+        s2Title: "02. Memahami FOMC",
+        s2p1: "Federal Open Market Committee (FOMC) adalah komite dalam Federal Reserve System yang menetapkan arah kebijakan moneter, termasuk target kisaran Federal Funds Rate.",
+        s2p2: "Pertemuan FOMC yang dijadwalkan secara rutin menjadi salah satu agenda penting dalam kalender ekonomi. Pada pertemuan tertentu, pasar juga menantikan proyeksi ekonomi dan konferensi pers Ketua The Fed.",
+        statementText: "Pernyataan resmi yang menjelaskan keputusan kebijakan dan penilaian komite terhadap kondisi ekonomi.",
+        decisionTitle: "Keputusan Suku Bunga",
+        decisionText: "Keputusan mengenai target kisaran Federal Funds Rate, termasuk apakah suku bunga dipertahankan, dinaikkan, atau diturunkan.",
+        projectionsTitle: "Proyeksi Ekonomi",
+        projectionsText: "Proyeksi ekonomi dan suku bunga yang diterbitkan pada pertemuan tertentu. Proyeksi merupakan perkiraan, bukan janji.",
+        pressTitle: "Konferensi Pers",
+        pressText: "Sesi tanya jawab yang dapat memberi konteks tambahan tentang penilaian ekonomi dan kemungkinan arah kebijakan.",
+        sequenceTitle: "Urutan yang Perlu Diperhatikan",
+        sequence1: "Keputusan suku bunga.",
+        sequence2: "Isi dan perubahan bahasa dalam statement.",
+        sequence3: "Proyeksi ekonomi dan suku bunga, jika diterbitkan.",
+        sequence4: "Jawaban Ketua The Fed dalam konferensi pers.",
+        sequence5: "Reaksi USD, Treasury Yields, Gold, dan indeks saham.",
+        s3Title: "03. Hawkish vs Dovish",
+        s3p1: "Istilah hawkish dan dovish menggambarkan kecenderungan kebijakan moneter. Keduanya perlu dibaca dalam konteks kondisi ekonomi, inflasi, dan ekspektasi pasar.",
+        hawkishText: "Menunjukkan kecenderungan lebih ketat, misalnya menekankan risiko inflasi atau perlunya mempertahankan suku bunga tinggi lebih lama.",
+        dovishText: "Menunjukkan kecenderungan lebih longgar, misalnya menekankan pelemahan ekonomi atau membuka ruang untuk penurunan suku bunga.",
+        important: "Penting:",
+        importantText: "Hawkish tidak selalu berarti suku bunga langsung naik. Dovish juga tidak selalu berarti suku bunga langsung turun. Bahasa kebijakan, proyeksi, dan konteks ekonomi harus dibaca secara keseluruhan.",
+        interpretationTitle: "Contoh Interpretasi",
+        conditionA: "Kondisi A: Suku bunga dipertahankan, tetapi The Fed menegaskan inflasi masih tinggi dan penurunan suku bunga belum dekat.",
+        conditionAInterpretation: "Interpretasi: pesan dapat dinilai hawkish meskipun tidak ada kenaikan suku bunga pada pertemuan tersebut.",
+        conditionB: "Kondisi B: Suku bunga dipertahankan, tetapi The Fed mengakui risiko pelemahan tenaga kerja dan membuka ruang pelonggaran.",
+        conditionBInterpretation: "Interpretasi: pesan dapat dinilai dovish, bergantung pada konteks dan ekspektasi pasar sebelumnya.",
+        s4Title: "04. Bagaimana FOMC Memengaruhi Pasar?",
+        s4p1: "Perubahan ekspektasi suku bunga dapat memengaruhi instrumen yang sensitif terhadap dolar dan yield. Namun, hubungan ini tidak selalu bergerak satu arah karena pasar juga menilai pertumbuhan ekonomi, risiko, posisi trader, dan kondisi likuiditas.",
+        usdText: "Ekspektasi suku bunga AS yang relatif lebih tinggi dapat mendukung USD. Reaksi aktual bergantung pada perbandingan dengan ekspektasi dan mata uang lainnya.",
+        yieldTitle: "US Treasury Yields",
+        yieldText: "Ekspektasi jalur suku bunga, inflasi, pertumbuhan, dan premi risiko dapat mengubah yield obligasi pemerintah AS.",
+        goldText: "Yield riil dan USD sering menjadi faktor penting bagi Gold. Kenaikan yield riil atau penguatan USD dapat menekan Gold, tetapi bukan aturan yang selalu berlaku.",
+        equityTitle: "Pasar Saham",
+        equityText: "Perubahan suku bunga memengaruhi biaya pendanaan dan valuasi. Dampaknya berbeda menurut sektor, prospek laba, dan alasan di balik perubahan kebijakan.",
+        goldPressureTitle: "Potensi Tekanan pada Gold",
+        goldPressureText: "Jika pesan The Fed lebih hawkish dari ekspektasi, USD dan yield dapat menguat sehingga berpotensi menekan XAUUSD.",
+        goldSupportTitle: "Potensi Dukungan pada Gold",
+        goldSupportText: "Jika pesan The Fed lebih dovish dari ekspektasi, USD dan yield dapat melemah sehingga berpotensi mendukung XAUUSD.",
+        marketReminder: "Pengingat Pasar:",
+        marketReminderText: "Ini adalah kerangka interpretasi, bukan sinyal trading otomatis. Reaksi Gold dapat berbeda ketika risiko geopolitik, permintaan safe haven, atau faktor lain mendominasi pasar.",
+        s5Title: "05. Mengapa Ekspektasi Pasar Sangat Penting?",
+        s5p1: "Harga bergerak berdasarkan perubahan informasi dan ekspektasi. Karena itu, keputusan yang terlihat positif atau negatif belum tentu menghasilkan reaksi harga yang sesuai dugaan.",
+        unchangedTitle: "Contoh: Suku Bunga Tidak Berubah",
+        unchangedText1: "Pasar sebelumnya memperkirakan suku bunga akan dipertahankan. Ketika keputusan tersebut diumumkan, fokus pasar dapat beralih pada panduan kebijakan dan konferensi pers.",
+        unchangedText2: "Jika pesan ternyata lebih hawkish dari perkiraan, USD masih dapat menguat. Sebaliknya, pesan yang lebih dovish dapat melemahkan USD.",
+        threeThingsTitle: "Tiga Hal yang Harus Dibandingkan",
+        three1: "Ekspektasi sebelum rilis: apa yang sudah diperhitungkan pasar?",
+        three2: "Informasi aktual: apa yang berubah dalam keputusan dan komunikasi The Fed?",
+        three3: "Reaksi harga: bagaimana USD, yield, dan Gold merespons?",
+        coreLesson: "Pelajaran Utama:",
+        coreLessonText: "Jangan hanya membaca apakah suku bunga naik, turun, atau tetap. Cari tahu apakah keseluruhan pesan The Fed lebih hawkish atau dovish dibandingkan ekspektasi pasar.",
+        s6Title: "06. Framework Analisis FOMC",
+        s6p1: "Gunakan kerangka berikut untuk menyusun analisis sebelum dan sesudah pengumuman FOMC. Tujuannya adalah memahami perubahan ekspektasi, bukan menebak arah harga tanpa konfirmasi.",
+        preEventTitle: "Checklist Sebelum Rilis",
+        pre1: "Periksa konsensus suku bunga dan ekspektasi pasar.",
+        pre2: "Tinjau data inflasi dan tenaga kerja terbaru.",
+        pre3: "Catat level penting pada XAUUSD dan USD.",
+        pre4: "Periksa jadwal statement dan konferensi pers.",
+        pre5: "Tentukan batas risiko sebelum mempertimbangkan entry.",
+        postEventTitle: "Checklist Setelah Rilis",
+        post1: "Bandingkan keputusan dengan ekspektasi.",
+        post2: "Identifikasi perubahan penting dalam statement.",
+        post3: "Perhatikan perubahan yield dan USD.",
+        post4: "Tunggu reaksi harga yang lebih jelas dan terkonfirmasi.",
+        post5: "Hindari entry jika spread, slippage, atau volatilitas tidak sesuai toleransi risiko.",
+        slippageWarning: "Saat pengumuman berdampak tinggi, harga dapat bergerak cepat ke dua arah. Stop loss tidak menjamin eksekusi tepat pada harga yang ditentukan ketika terjadi gap atau slippage.",
+        knowledgeCheck: "UJI PEMAHAMAN",
+        quizTitle: "Kuis Modul 05",
+        passingScore: "Nilai Lulus: 80%",
+        quizInstructions: "Jawab lima pertanyaan berikut. Kamu perlu mendapatkan minimal 4 jawaban benar untuk membuka modul berikutnya.",
+        submitAnswers: "KIRIM JAWABAN",
+        tryAgain: "COBA LAGI",
+        moduleCompleted: "MODUL SELESAI",
+        excellentWork: "Kerja Bagus.",
+        completedText: "Kamu telah menyelesaikan FOMC & Federal Reserve. Selanjutnya, pelajari hubungan DXY dan Treasury Yields untuk memperdalam analisis makro.",
+        nextModule: "MODUL BERIKUTNYA →",
+        macroCatalog: "KATALOG MAKRO",
+        premiumTitle: "Riset Makro Lanjutan",
+        premiumText: "Pendalaman analisis kebijakan bank sentral, interpretasi yield, perubahan ekspektasi suku bunga, dan hubungan antar-aset untuk membangun market view yang lebih terstruktur.",
+        previousModule: "← MODUL SEBELUMNYA",
+        backMacroButton: "KEMBALI KE MAKRO",
+        academyHome: "BERANDA ACADEMY",
+        disclaimer: "Konten edukasi saja. Bukan nasihat keuangan.",
+        incompleteTitle: "Kuis Belum Lengkap",
+        incompleteText: "Jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: ",
+        scoreLabel: "Nilai Kamu",
+        passedTitle: "Lulus!",
+        passedText: "Kamu memahami dasar FOMC dan pengaruhnya terhadap pasar. Modul berikutnya telah terbuka.",
+        failedTitle: "Belum Lulus",
+        failedText: "Nilai kelulusan adalah 80%. Pelajari penjelasan jawaban, lalu coba kembali.",
+        savedPass: "Status kelulusan sebelumnya tersimpan di browser ini.",
+        explanations: [
+          "FOMC menetapkan arah kebijakan moneter, termasuk target kisaran Federal Funds Rate.",
+          "Hawkish menggambarkan kecenderungan lebih ketat, misalnya fokus pada risiko inflasi atau suku bunga tinggi lebih lama.",
+          "Pasar merespons informasi baru dibandingkan dengan apa yang sebelumnya sudah diperkirakan.",
+          "Pesan dovish dapat menekan USD dan yield sehingga berpotensi mendukung Gold, tetapi reaksi tidak dijamin.",
+          "Analisis FOMC perlu membandingkan ekspektasi dengan informasi aktual dan tetap memperhatikan risiko eksekusi."
+        ],
+        questions: [
+          {
+            title: "Apa peran utama FOMC dalam kebijakan moneter AS?",
+            options: [
+              "Menetapkan arah kebijakan moneter, termasuk target Federal Funds Rate.",
+              "Menentukan harga emas dunia secara langsung.",
+              "Mengatur seluruh kebijakan fiskal pemerintah AS.",
+              "Menetapkan harga saham setiap perusahaan."
+            ]
+          },
+          {
+            title: "Apa arti pesan The Fed yang hawkish?",
+            options: [
+              "The Fed pasti langsung menurunkan suku bunga.",
+              "The Fed cenderung menekankan kebijakan lebih ketat atau risiko inflasi.",
+              "USD pasti melemah pada semua kondisi.",
+              "Pasar tidak lagi memperhatikan inflasi."
+            ]
+          },
+          {
+            title: "Mengapa ekspektasi pasar penting saat FOMC?",
+            options: [
+              "Karena pasar selalu bergerak sesuai keputusan suku bunga saja.",
+              "Karena ekspektasi tidak memengaruhi harga.",
+              "Karena reaksi harga bergantung pada perbedaan informasi aktual dan ekspektasi.",
+              "Karena konferensi pers tidak relevan."
+            ]
+          },
+          {
+            title: "Jika pesan The Fed lebih dovish dari ekspektasi, apa yang dapat terjadi?",
+            options: [
+              "Gold pasti turun tanpa pengecualian.",
+              "USD dan yield berpotensi melemah, sehingga dapat mendukung Gold.",
+              "Seluruh aset pasti naik bersamaan.",
+              "Pasar berhenti bereaksi terhadap berita."
+            ]
+          },
+          {
+            title: "Apa pendekatan yang lebih baik saat rilis FOMC?",
+            options: [
+              "Langsung menggunakan lot besar sebelum berita.",
+              "Mengabaikan spread dan slippage.",
+              "Menganggap semua pesan hawkish pasti bearish untuk semua aset.",
+              "Membandingkan ekspektasi, membaca pesan The Fed, lalu mengelola risiko."
+            ]
+          }
+        ]
+      },
 
-            questions.forEach((question, index) => {
-                if (form.querySelector(`input[name="q${index}"]:checked`)) {
-                    answered++;
-                }
-            });
+      en: {
+        backMacro: "← Back to Macro Learning",
+        academy: "Academy",
+        macroTitle: "Macro & News Impact",
+        moduleLabel: "Module 05",
+        eyebrow: "MACRO & NEWS IMPACT · MODULE 05",
+        pageTitle: "FOMC & Federal Reserve",
+        lead: "Understand how US central bank policy shapes interest-rate expectations and influences the US Dollar, Treasury Yields, and Gold.",
+        level: "INTERMEDIATE",
+        duration: "Estimated 12–15 minutes",
+        questionCount: "5 Quiz Questions",
+        s1Title: "01. What Is the Federal Reserve?",
+        s1p1: "The Federal Reserve (the Fed) is the central bank of the United States. One of its primary roles is conducting monetary policy to support price stability and healthy employment conditions.",
+        s1p2: "Fed decisions attract global attention because US interest rates influence borrowing costs, asset yields, capital flows, the USD, and international financial conditions.",
+        inflationTitle: "Inflation",
+        inflationText: "The Fed monitors inflationary pressure to assess whether monetary policy needs to become tighter or more accommodative.",
+        employmentTitle: "Employment",
+        employmentText: "Labor-market conditions help indicate economic strength and potential pressure on wages and prices.",
+        ratesTitle: "Interest Rates",
+        ratesText: "Interest rates affect borrowing costs, consumption decisions, investment, and the relative attractiveness of financial assets.",
+        conditionsTitle: "Financial Conditions",
+        conditionsText: "Changes in policy expectations can affect bond yields, exchange rates, asset prices, and market liquidity.",
+        keyPrinciple: "Key Principle:",
+        keyPrincipleText: "Markets do not focus only on the Fed's decision. They also assess whether it matches or differs from expectations already priced in.",
+        s2Title: "02. Understanding the FOMC",
+        s2p1: "The Federal Open Market Committee (FOMC) is a committee within the Federal Reserve System that sets the direction of monetary policy, including the target range for the Federal Funds Rate.",
+        s2p2: "Scheduled FOMC meetings are major events on the economic calendar. At certain meetings, markets also look for economic projections and the Fed Chair's press conference.",
+        statementText: "The official statement explaining the policy decision and the committee's assessment of economic conditions.",
+        decisionTitle: "Policy Rate Decision",
+        decisionText: "The decision on the Federal Funds Rate target range, including whether rates are held, raised, or lowered.",
+        projectionsTitle: "Economic Projections",
+        projectionsText: "Economic and interest-rate projections released at certain meetings. Projections are estimates, not promises.",
+        pressTitle: "Press Conference",
+        pressText: "A question-and-answer session that provides additional context on the economic outlook and potential policy direction.",
+        sequenceTitle: "What to Watch in Order",
+        sequence1: "The interest-rate decision.",
+        sequence2: "The statement's wording and any changes.",
+        sequence3: "Economic and rate projections, when released.",
+        sequence4: "The Fed Chair's answers during the press conference.",
+        sequence5: "The reaction in the USD, Treasury Yields, Gold, and equity indices.",
+        s3Title: "03. Hawkish vs Dovish",
+        s3p1: "Hawkish and dovish describe the direction of monetary-policy bias. Both must be interpreted in the context of economic conditions, inflation, and market expectations.",
+        hawkishText: "Indicates a tighter policy bias, such as emphasizing inflation risks or the need to keep interest rates higher for longer.",
+        dovishText: "Indicates a more accommodative bias, such as emphasizing economic weakness or leaving room for rate cuts.",
+        important: "Important:",
+        importantText: "Hawkish does not always mean rates will immediately rise. Dovish does not always mean rates will immediately fall. Policy language, projections, and the economic context must be assessed together.",
+        interpretationTitle: "Examples of Interpretation",
+        conditionA: "Scenario A: Rates are held, but the Fed stresses that inflation remains elevated and rate cuts are not near.",
+        conditionAInterpretation: "Interpretation: the message may be considered hawkish even though rates were not raised at that meeting.",
+        conditionB: "Scenario B: Rates are held, but the Fed acknowledges labor-market downside risks and leaves room for easing.",
+        conditionBInterpretation: "Interpretation: the message may be considered dovish, depending on context and prior market expectations.",
+        s4Title: "04. How Does the FOMC Affect Markets?",
+        s4p1: "Changes in rate expectations can affect instruments sensitive to the dollar and yields. However, these relationships are not one-directional because markets also assess growth, risk, trader positioning, and liquidity.",
+        usdText: "Relatively higher US rate expectations may support the USD. The actual reaction depends on how expectations compare with those for other currencies.",
+        yieldTitle: "US Treasury Yields",
+        yieldText: "Expected rate paths, inflation, growth, and risk premiums can change US government bond yields.",
+        goldText: "Real yields and the USD are often important drivers for Gold. Higher real yields or a stronger USD can pressure Gold, but this is not an absolute rule.",
+        equityTitle: "Equity Markets",
+        equityText: "Interest-rate changes affect funding costs and valuations. The impact varies by sector, earnings outlook, and the reason behind the policy change.",
+        goldPressureTitle: "Potential Pressure on Gold",
+        goldPressureText: "If the Fed's message is more hawkish than expected, the USD and yields may strengthen, potentially pressuring XAUUSD.",
+        goldSupportTitle: "Potential Support for Gold",
+        goldSupportText: "If the Fed's message is more dovish than expected, the USD and yields may weaken, potentially supporting XAUUSD.",
+        marketReminder: "Market Reminder:",
+        marketReminderText: "This is an interpretation framework, not an automatic trading signal. Gold may react differently when geopolitical risk, safe-haven demand, or other factors dominate.",
+        s5Title: "05. Why Do Market Expectations Matter?",
+        s5p1: "Prices move as information and expectations change. Therefore, a decision that appears positive or negative does not necessarily produce the price reaction one might expect.",
+        unchangedTitle: "Example: Interest Rates Remain Unchanged",
+        unchangedText1: "The market had already expected rates to remain unchanged. Once the decision is announced, attention may shift to policy guidance and the press conference.",
+        unchangedText2: "If the message is more hawkish than expected, the USD may still strengthen. Conversely, a more dovish message may weaken the USD.",
+        threeThingsTitle: "Three Things to Compare",
+        three1: "Pre-release expectations: what has the market already priced in?",
+        three2: "Actual information: what changed in the decision and the Fed's communication?",
+        three3: "Price reaction: how did the USD, yields, and Gold respond?",
+        coreLesson: "Core Lesson:",
+        coreLessonText: "Do not focus only on whether rates rise, fall, or remain unchanged. Assess whether the Fed's overall message is more hawkish or dovish than market expectations.",
+        s6Title: "06. FOMC Analysis Framework",
+        s6p1: "Use the following framework to structure analysis before and after an FOMC announcement. The goal is to understand changes in expectations, not to predict price direction without confirmation.",
+        preEventTitle: "Pre-Event Checklist",
+        pre1: "Check rate consensus and market expectations.",
+        pre2: "Review the latest inflation and employment data.",
+        pre3: "Mark key levels on XAUUSD and the USD.",
+        pre4: "Check the statement and press-conference schedule.",
+        pre5: "Define risk limits before considering an entry.",
+        postEventTitle: "Post-Event Checklist",
+        post1: "Compare the decision with expectations.",
+        post2: "Identify important changes in the statement.",
+        post3: "Watch changes in yields and the USD.",
+        post4: "Wait for a clearer, confirmed price reaction.",
+        post5: "Avoid entries if spreads, slippage, or volatility exceed your risk tolerance.",
+        slippageWarning: "During high-impact announcements, prices can move quickly in both directions. A stop loss does not guarantee execution at the specified price during gaps or slippage.",
+        knowledgeCheck: "KNOWLEDGE CHECK",
+        quizTitle: "Module 05 Quiz",
+        passingScore: "Passing Score: 80%",
+        quizInstructions: "Answer the five questions below. You need at least four correct answers to unlock the next module.",
+        submitAnswers: "SUBMIT ANSWERS",
+        tryAgain: "TRY AGAIN",
+        moduleCompleted: "MODULE COMPLETED",
+        excellentWork: "Excellent Work.",
+        completedText: "You have completed FOMC & Federal Reserve. Next, study the relationship between the DXY and Treasury Yields to deepen your macro analysis.",
+        nextModule: "NEXT MODULE →",
+        macroCatalog: "MACRO CATALOG",
+        premiumTitle: "Advanced Macro Research",
+        premiumText: "Explore central-bank policy, yield interpretation, changes in rate expectations, and cross-asset relationships to build a more structured market view.",
+        previousModule: "← PREVIOUS MODULE",
+        backMacroButton: "BACK TO MACRO",
+        academyHome: "ACADEMY HOME",
+        disclaimer: "Educational content only. Not financial advice.",
+        incompleteTitle: "Quiz Incomplete",
+        incompleteText: "Please answer every question first. Unanswered question numbers: ",
+        scoreLabel: "Your Score",
+        passedTitle: "Passed!",
+        passedText: "You understand the fundamentals of the FOMC and its market impact. The next module is now unlocked.",
+        failedTitle: "Not Passed Yet",
+        failedText: "The passing score is 80%. Review the explanations, then try again.",
+        savedPass: "Your previous completion status is saved in this browser.",
+        explanations: [
+          "The FOMC sets the direction of monetary policy, including the Federal Funds Rate target range.",
+          "Hawkish describes a tighter policy bias, such as a focus on inflation risks or higher rates for longer.",
+          "Markets react to new information relative to what was previously expected.",
+          "A dovish message may pressure the USD and yields, potentially supporting Gold, but the reaction is not guaranteed.",
+          "FOMC analysis requires comparing expectations with actual information while considering execution risks."
+        ],
+        questions: [
+          {
+            title: "What is the FOMC's primary role in US monetary policy?",
+            options: [
+              "To set the direction of monetary policy, including the Federal Funds Rate target.",
+              "To directly determine the global price of Gold.",
+              "To control all US government fiscal policy.",
+              "To set the share price of every company."
+            ]
+          },
+          {
+            title: "What does a hawkish Fed message mean?",
+            options: [
+              "The Fed will definitely cut rates immediately.",
+              "The Fed tends to emphasize tighter policy or inflation risks.",
+              "The USD must weaken in every situation.",
+              "Markets no longer pay attention to inflation."
+            ]
+          },
+          {
+            title: "Why do market expectations matter during the FOMC?",
+            options: [
+              "Markets always move according to the rate decision alone.",
+              "Expectations have no effect on prices.",
+              "Price reactions depend on the difference between actual information and expectations.",
+              "The press conference is irrelevant."
+            ]
+          },
+          {
+            title: "What may happen if the Fed's message is more dovish than expected?",
+            options: [
+              "Gold must fall without exception.",
+              "The USD and yields may weaken, potentially supporting Gold.",
+              "All assets must rise together.",
+              "Markets stop reacting to news."
+            ]
+          },
+          {
+            title: "What is a better approach during an FOMC release?",
+            options: [
+              "Immediately use a large lot before the announcement.",
+              "Ignore spreads and slippage.",
+              "Assume every hawkish message is bearish for every asset.",
+              "Compare expectations, read the Fed's message, and manage risk."
+            ]
+          }
+        ]
+      }
+    };
 
-            progressBar.style.width = `${(answered / questions.length) * 100}%`;
+    const correctAnswers = [0, 1, 2, 1, 3];
+    const PASS_KEY = "desk_macro_05_passed";
+    const LANGUAGE_KEY = "desk_language";
+
+    const form = document.getElementById("quizForm");
+    const questionsContainer = document.getElementById("questionsContainer");
+    const progressBar = document.getElementById("progressBar");
+    const result = document.getElementById("result");
+    const resultTitle = document.getElementById("resultTitle");
+    const resultText = document.getElementById("resultText");
+    const submitBtn = document.getElementById("submitBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextPanel = document.getElementById("nextPanel");
+
+    let currentLang = "id";
+    let submitted = false;
+    let lastScore = null;
+
+    function safeGet(key) {
+      try { return localStorage.getItem(key); }
+      catch (error) { return null; }
+    }
+
+    function safeSet(key, value) {
+      try { localStorage.setItem(key, value); }
+      catch (error) { /* Continue without persistence if storage is unavailable. */ }
+    }
+
+    function getLanguage() {
+      const saved = safeGet(LANGUAGE_KEY);
+      return saved === "en" ? "en" : "id";
+    }
+
+    function applyTranslations() {
+      const t = translations[currentLang];
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (Object.prototype.hasOwnProperty.call(t, key)) {
+          element.textContent = t[key];
         }
+      });
 
-        form.addEventListener("change", updateProgress);
+      document.getElementById("langID").classList.toggle("active", currentLang === "id");
+      document.getElementById("langEN").classList.toggle("active", currentLang === "en");
+      document.getElementById("langID").setAttribute("aria-pressed", String(currentLang === "id"));
+      document.getElementById("langEN").setAttribute("aria-pressed", String(currentLang === "en"));
+    }
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+    function renderQuestions() {
+      const t = translations[currentLang];
 
-            let score = 0;
-            let unanswered = [];
+      questionsContainer.innerHTML = t.questions.map((question, index) => {
+        const options = question.options.map((option, optionIndex) => `
+          <label class="option">
+            <input type="radio" name="q${index}" value="${optionIndex}">
+            ${option}
+          </label>
+        `).join("");
 
-            questions.forEach((question, index) => {
-                const selected = form.querySelector(`input[name="q${index}"]:checked`);
-                const options = [...question.querySelectorAll(".option")];
-                const explanation = question.querySelector(".explanation");
+        return `
+          <div class="question" data-question="${index}">
+            <div class="question-title">${index + 1}. ${question.title}</div>
+            ${options}
+            <div class="explanation" aria-live="polite"></div>
+          </div>
+        `;
+      }).join("");
 
-                options.forEach(option => {
-                    option.classList.remove("correct", "wrong");
-                });
+      updateProgress();
 
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    return;
-                }
+      if (submitted) {
+        restoreSubmittedState();
+      }
+    }
 
-                const selectedValue = Number(selected.value);
+    function updateProgress() {
+      const answered = correctAnswers.reduce((count, value, index) => {
+        return count + (form.querySelector(`input[name="q${index}"]:checked`) ? 1 : 0);
+      }, 0);
 
-                if (selectedValue === correctAnswers[index]) {
-                    score++;
-                }
+      progressBar.style.width = `${(answered / correctAnswers.length) * 100}%`;
+    }
 
-                options.forEach(option => {
-                    const input = option.querySelector("input");
-                    const value = Number(input.value);
+    function restoreSubmittedState() {
+      const t = translations[currentLang];
+      const questionElements = [...questionsContainer.querySelectorAll(".question")];
 
-                    if (value === correctAnswers[index]) {
-                        option.classList.add("correct");
-                    }
+      questionElements.forEach((question, index) => {
+        const selected = question.querySelector(`input[name="q${index}"]:checked`);
+        const explanation = question.querySelector(".explanation");
+        const options = [...question.querySelectorAll(".option")];
 
-                    if (input.checked && value !== correctAnswers[index]) {
-                        option.classList.add("wrong");
-                    }
-                });
+        options.forEach(option => {
+          const input = option.querySelector("input");
+          input.disabled = true;
+          option.classList.remove("correct", "wrong");
 
-                explanation.textContent = "Penjelasan: " + explanations[index];
-                explanation.style.display = "block";
-            });
+          if (Number(input.value) === correctAnswers[index]) {
+            option.classList.add("correct");
+          }
 
-            if (unanswered.length > 0) {
-                result.style.display = "block";
-                resultTitle.textContent = "Quiz Belum Lengkap";
-                resultText.textContent =
-                    "Silakan jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: " +
-                    unanswered.join(", ") + ".";
-                nextPanel.style.display = "none";
-                return;
-            }
-
-            const percentage = Math.round((score / correctAnswers.length) * 100);
-            result.style.display = "block";
-            resultTitle.textContent = `Your Score: ${score}/${correctAnswers.length} (${percentage}%)`;
-
-            if (percentage >= 80) {
-                resultTitle.style.color = "var(--green)";
-                resultText.textContent =
-                    "Lulus! Kamu memahami dasar FOMC dan pengaruhnya terhadap pasar. Modul berikutnya telah terbuka.";
-                nextPanel.style.display = "block";
-                retryBtn.style.display = "none";
-            } else {
-                resultTitle.style.color = "var(--red)";
-                resultText.textContent =
-                    "Belum mencapai standar kelulusan 80%. Pelajari penjelasan jawaban, lalu coba kembali.";
-                nextPanel.style.display = "none";
-                retryBtn.style.display = "inline-block";
-            }
-
-            submitBtn.disabled = true;
-            questions.forEach(question => {
-                question.querySelectorAll("input").forEach(input => input.disabled = true);
-            });
-
-            result.scrollIntoView({ behavior: "smooth", block: "center" });
+          if (input.checked && Number(input.value) !== correctAnswers[index]) {
+            option.classList.add("wrong");
+          }
         });
 
-        retryBtn.addEventListener("click", function () {
-            form.reset();
+        explanation.textContent = t.explanations[index];
+        explanation.style.display = "block";
 
-            questions.forEach(question => {
-                question.querySelectorAll("input").forEach(input => input.disabled = false);
-                question.querySelectorAll(".option").forEach(option => {
-                    option.classList.remove("correct", "wrong");
-                });
+        if (!selected) {
+          question.querySelectorAll("input").forEach(input => input.disabled = true);
+        }
+      });
 
-                const explanation = question.querySelector(".explanation");
-                explanation.textContent = "";
-                explanation.style.display = "none";
-            });
+      submitBtn.disabled = true;
+      retryBtn.style.display = lastScore !== null && lastScore < 80 ? "inline-block" : "none";
+      result.style.display = "block";
 
-            result.style.display = "none";
-            nextPanel.style.display = "none";
-            retryBtn.style.display = "none";
-            submitBtn.disabled = false;
-            progressBar.style.width = "0%";
+      if (lastScore >= 80) {
+        resultTitle.textContent = `${t.passedTitle} ${t.scoreLabel}: ${Math.round(lastScore)}%`;
+        resultTitle.style.color = "var(--green)";
+        resultText.textContent = t.passedText;
+        nextPanel.style.display = "block";
+      } else if (lastScore !== null) {
+        resultTitle.textContent = `${t.failedTitle} ${t.scoreLabel}: ${Math.round(lastScore)}%`;
+        resultTitle.style.color = "var(--red)";
+        resultText.textContent = t.failedText;
+        nextPanel.style.display = "none";
+      }
+    }
 
-            document.getElementById("quiz").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+    function setLanguage(language) {
+      currentLang = language === "en" ? "en" : "id";
+      safeSet(LANGUAGE_KEY, currentLang);
+      applyTranslations();
+      renderQuestions();
+    }
+
+    document.getElementById("langID").addEventListener("click", () => setLanguage("id"));
+    document.getElementById("langEN").addEventListener("click", () => setLanguage("en"));
+
+    form.addEventListener("change", updateProgress);
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      if (submitted) return;
+
+      const t = translations[currentLang];
+      const questionElements = [...questionsContainer.querySelectorAll(".question")];
+      const unanswered = [];
+
+      questionElements.forEach((question, index) => {
+        if (!question.querySelector(`input[name="q${index}"]:checked`)) {
+          unanswered.push(index + 1);
+        }
+      });
+
+      if (unanswered.length > 0) {
+        result.style.display = "block";
+        resultTitle.textContent = t.incompleteTitle;
+        resultTitle.style.color = "var(--gold)";
+        resultText.textContent = t.incompleteText + unanswered.join(", ") + ".";
+        nextPanel.style.display = "none";
+        result.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      let score = 0;
+
+      questionElements.forEach((question, index) => {
+        const selected = question.querySelector(`input[name="q${index}"]:checked`);
+        const options = [...question.querySelectorAll(".option")];
+        const explanation = question.querySelector(".explanation");
+        const selectedValue = Number(selected.value);
+
+        if (selectedValue === correctAnswers[index]) score++;
+
+        options.forEach(option => {
+          const input = option.querySelector("input");
+          const value = Number(input.value);
+          input.disabled = true;
+
+          if (value === correctAnswers[index]) {
+            option.classList.add("correct");
+          }
+
+          if (input.checked && value !== correctAnswers[index]) {
+            option.classList.add("wrong");
+          }
         });
-    </script>
 
+        explanation.textContent = t.explanations[index];
+        explanation.style.display = "block";
+      });
+
+      lastScore = (score / correctAnswers.length) * 100;
+      submitted = true;
+
+      result.style.display = "block";
+      submitBtn.disabled = true;
+      retryBtn.style.display = lastScore >= 80 ? "none" : "inline-block";
+
+      if (lastScore >= 80) {
+        safeSet(PASS_KEY, "true");
+        resultTitle.textContent = `${t.passedTitle} ${t.scoreLabel}: ${score}/${correctAnswers.length} (${Math.round(lastScore)}%)`;
+        resultTitle.style.color = "var(--green)";
+        resultText.textContent = t.passedText;
+        nextPanel.style.display = "block";
+      } else {
+        resultTitle.textContent = `${t.failedTitle} ${t.scoreLabel}: ${score}/${correctAnswers.length} (${Math.round(lastScore)}%)`;
+        resultTitle.style.color = "var(--red)";
+        resultText.textContent = t.failedText;
+        nextPanel.style.display = "none";
+      }
+
+      result.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    retryBtn.addEventListener("click", () => {
+      submitted = false;
+      lastScore = null;
+      form.reset();
+
+      renderQuestions();
+
+      result.style.display = "none";
+      nextPanel.style.display = "none";
+      retryBtn.style.display = "none";
+      submitBtn.disabled = false;
+      progressBar.style.width = "0%";
+
+      document.getElementById("quiz").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+    currentLang = getLanguage();
+    applyTranslations();
+    renderQuestions();
+
+    if (safeGet(PASS_KEY) === "true") {
+      nextPanel.style.display = "block";
+    }
+  </script>
 </body>
-
 </html>

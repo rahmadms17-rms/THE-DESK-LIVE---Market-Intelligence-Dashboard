@@ -1,1225 +1,945 @@
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b0e">
-  <meta name="description" content="Pelajari CPI, inflasi, suku bunga, dan hubungan ekspektasi kebijakan moneter dengan pasar keuangan bersama THE DESK Academy.">
-
-  <title>Module 03 - CPI, Inflation & Interest Rates | THE DESK</title>
+  <meta name="description" content="Understand CPI, inflation, interest rates, Federal Reserve expectations, and their potential impact on financial markets.">
+  <title>CPI, Inflation & Interest Rates | THE DESK Academy</title>
 
   <style>
     :root {
-      --bg: #090b0e;
-      --panel: #11151a;
-      --border: #292f37;
-      --gold: #c9a45c;
-      --gold-light: #e4c27d;
-      --text: #eef1f5;
-      --muted: #a3adba;
-      --muted-dark: #7f8996;
-      --green: #42c994;
-      --red: #f07878;
+      --bg:#090b0e;
+      --panel:#11151a;
+      --border:#292f37;
+      --gold:#c9a45c;
+      --gold-light:#e4c27d;
+      --text:#eef1f5;
+      --muted:#a3adba;
+      --muted-dark:#7f8996;
+      --green:#42c994;
+      --red:#f07878;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing:border-box; margin:0; padding:0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior:smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.8;
+      -webkit-font-smoothing:antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    a:focus-visible,button:focus-visible,input:focus-visible {
+      outline:2px solid var(--gold-light);
+      outline-offset:3px;
     }
 
     .page {
-      width: min(100% - 40px, 912px);
-      margin: 0 auto;
-      padding: 44px 0 70px;
+      width:min(100% - 40px,912px);
+      margin:0 auto;
+      padding:30px 0 65px;
     }
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 44px;
-      color: var(--gold);
-      font-size: 13px;
+    .topbar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:40px;
     }
 
-    .back-link:hover {
-      color: var(--gold-light);
+    .back-link { color:var(--gold); font-size:12px; }
+
+    .language-switch { display:flex; gap:7px; }
+
+    .lang-btn {
+      min-width:42px;
+      padding:5px 11px;
+      border:1px solid var(--gold);
+      border-radius:4px;
+      background:transparent;
+      color:var(--gold);
+      font-size:11px;
+      font-weight:700;
+      cursor:pointer;
     }
 
-    .eyebrow,
-    .section-number {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
+    .lang-btn.active { background:var(--gold); color:#090b0e; }
+
+    .eyebrow,.section-number,.premium-label {
+      color:var(--gold);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
     }
 
     .hero {
-      padding-bottom: 34px;
-      border-bottom: 1px solid var(--border);
+      padding-bottom:32px;
+      border-bottom:1px solid var(--border);
     }
 
-    .hero h1 {
-      margin-top: 16px;
-      font-size: clamp(38px, 6vw, 62px);
-      line-height: 1.08;
-      letter-spacing: -1.8px;
+    h1 {
+      margin-top:16px;
+      font-size:clamp(36px,6vw,60px);
+      line-height:1.1;
+      letter-spacing:-1.5px;
     }
 
     .hero-description {
-      max-width: 750px;
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
+      max-width:760px;
+      margin-top:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.9;
     }
 
     .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:22px;
     }
 
     .meta-item {
-      padding: 5px 10px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .5px;
+      padding:5px 10px;
+      border:1px solid var(--border);
+      border-radius:4px;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.5px;
     }
 
     .article-section {
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border);
+      padding:30px 0;
+      border-bottom:1px solid var(--border);
     }
 
-    h2 {
-      margin-top: 8px;
-      font-size: 23px;
-      line-height: 1.4;
+    h2 { margin-top:8px; font-size:23px; line-height:1.4; }
+    h3 { margin:10px 0 8px; font-size:16px; line-height:1.5; }
+
+    .article-section p,.premium-panel p {
+      margin-top:12px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.9;
     }
 
-    h3 {
-      margin-top: 22px;
-      margin-bottom: 8px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .article-section p {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.95;
-    }
-
-    .article-section strong {
-      color: var(--text);
-    }
+    strong { color:var(--text); }
 
     .concept-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 20px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:20px;
     }
 
     .concept-card {
-      padding: 17px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 5px;
+      padding:17px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:5px;
     }
 
     .concept-label {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      color:var(--gold);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
 
-    .concept-card h3 {
-      margin-top: 8px;
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-
-    .concept-card p {
-      margin-top: 0;
-      font-size: 12px;
-      line-height: 1.8;
-    }
+    .concept-card h3 { margin-top:8px; font-size:15px; }
+    .concept-card p { margin-top:0; font-size:12px; }
 
     .insight {
-      margin-top: 20px;
-      padding: 18px 20px;
-      background: var(--panel);
-      border: 1px solid #423723;
-      border-left: 3px solid var(--gold);
-      border-radius: 4px;
+      margin-top:20px;
+      padding:18px 20px;
+      background:var(--panel);
+      border:1px solid #423723;
+      border-left:3px solid var(--gold);
+      border-radius:4px;
     }
 
     .insight-label {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      color:var(--gold);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
     }
 
-    .insight p {
-      margin-top: 8px;
-      color: var(--text);
-      font-size: 13px;
-      line-height: 1.85;
-    }
+    .insight p { margin-top:8px; color:var(--text); font-size:13px; }
 
     .example-box {
-      margin-top: 18px;
-      padding: 20px;
-      background: #0e1115;
-      border: 1px solid var(--border);
-      border-radius: 5px;
+      margin-top:18px;
+      padding:20px;
+      background:#0e1115;
+      border:1px solid var(--border);
+      border-radius:5px;
     }
 
-    .example-box h3 {
-      margin-top: 0;
-      color: var(--gold);
-    }
+    .example-box h3 { margin-top:0; color:var(--gold); }
+    .example-box h3:not(:first-child) { margin-top:20px; }
+    .example-box p { margin-top:10px; }
 
-    .example-box p {
-      margin-top: 10px;
+    .data-table-wrap {
+      margin-top:18px;
+      overflow-x:auto;
+      border:1px solid var(--border);
+      border-radius:5px;
     }
 
     .data-table {
-      width: 100%;
-      margin-top: 18px;
-      border-collapse: collapse;
-      font-size: 12px;
+      width:100%;
+      min-width:520px;
+      border-collapse:collapse;
+      font-size:12px;
     }
 
-    .data-table th,
-    .data-table td {
-      padding: 12px 10px;
-      border: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
+    .data-table th,.data-table td {
+      padding:12px 10px;
+      border-bottom:1px solid var(--border);
+      text-align:left;
+      vertical-align:top;
     }
 
-    .data-table th {
-      background: var(--panel);
-      color: var(--gold);
-    }
+    .data-table th { background:var(--panel); color:var(--gold); }
+    .data-table td { color:var(--muted); }
+    .data-table tr:last-child td { border-bottom:none; }
 
-    .data-table td {
-      color: var(--muted);
-    }
-
-    .quiz-section {
-      padding-top: 38px;
-    }
-
-    .quiz-intro {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .quiz-section { padding-top:38px; }
+    .quiz-intro { margin-top:12px; color:var(--muted); font-size:13px; }
 
     .quiz-progress {
-      height: 4px;
-      margin-top: 22px;
-      overflow: hidden;
-      background: #242a32;
-      border-radius: 10px;
+      height:4px;
+      margin-top:22px;
+      overflow:hidden;
+      background:#242a32;
+      border-radius:10px;
     }
 
     .quiz-progress-bar {
-      width: 0;
-      height: 100%;
-      background: var(--gold);
-      transition: width .2s ease;
+      width:0;
+      height:100%;
+      background:var(--gold);
+      transition:width .2s ease;
     }
 
     .question-card {
-      margin-top: 18px;
-      padding: 22px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      margin-top:18px;
+      padding:22px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:6px;
     }
 
     .question-number {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
+      color:var(--gold);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
     }
 
-    .question-card h3 {
-      margin-top: 9px;
-      margin-bottom: 16px;
-      font-size: 16px;
-    }
-
-    .options {
-      display: grid;
-      gap: 9px;
-    }
+    .question-card h3 { margin:9px 0 16px; font-size:16px; }
+    .options { display:grid; gap:9px; }
 
     .option {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      padding: 12px 13px;
-      background: #0c0f13;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: border-color .15s ease;
+      display:flex;
+      align-items:flex-start;
+      gap:11px;
+      padding:12px 13px;
+      background:#0c0f13;
+      border:1px solid var(--border);
+      border-radius:4px;
+      cursor:pointer;
     }
 
-    .option:hover {
-      border-color: #655333;
-    }
-
-    .option input {
-      margin-top: 5px;
-      accent-color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .option span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .option:has(input:checked) {
-      border-color: var(--gold);
-    }
-
-    .option:has(input:checked) span {
-      color: var(--text);
-    }
-
-    .option.correct {
-      border-color: var(--green);
-    }
-
-    .option.incorrect {
-      border-color: var(--red);
-    }
+    .option:hover { border-color:#655333; }
+    .option input { margin-top:6px; accent-color:var(--gold); flex-shrink:0; }
+    .option span { color:var(--muted); font-size:13px; line-height:1.7; }
+    .option:has(input:checked) { border-color:var(--gold); }
+    .option:has(input:checked) span { color:var(--text); }
+    .option.correct { border-color:var(--green); }
+    .option.incorrect { border-color:var(--red); }
 
     .explanation {
-      display: none;
-      margin-top: 14px;
-      padding: 14px;
-      background: #0c0f13;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.85;
+      display:none;
+      margin-top:14px;
+      padding:14px;
+      background:#0c0f13;
+      border:1px solid var(--border);
+      border-radius:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.85;
     }
 
-    .explanation.show {
-      display: block;
-    }
-
-    .explanation strong {
-      color: var(--gold);
-    }
+    .explanation.show { display:block; }
+    .explanation strong { color:var(--gold); }
 
     .quiz-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
     }
 
     .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 42px;
-      padding: 10px 16px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: transparent;
-      color: var(--text);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      cursor: pointer;
-      transition: background .2s ease, border-color .2s ease;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      min-height:42px;
+      padding:10px 16px;
+      border:1px solid var(--border);
+      border-radius:4px;
+      background:transparent;
+      color:var(--text);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.4px;
+      cursor:pointer;
     }
 
-    .btn:hover {
-      border-color: var(--gold);
-    }
+    .btn:hover { border-color:var(--gold); }
 
     .btn-primary {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #090b0e;
+      background:var(--gold);
+      border-color:var(--gold);
+      color:#090b0e;
     }
 
     .btn-primary:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
+      background:var(--gold-light);
+      border-color:var(--gold-light);
     }
 
-    .btn:disabled {
-      opacity: .45;
-      cursor: not-allowed;
-    }
+    .btn:disabled { opacity:.45; cursor:not-allowed; }
 
     .result {
-      display: none;
-      margin-top: 22px;
-      padding: 22px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      display:none;
+      margin-top:22px;
+      padding:22px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:6px;
     }
 
-    .result.show {
-      display: block;
-    }
+    .result.show { display:block; }
 
     .result-status {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      color:var(--gold);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:1.5px;
     }
 
-    .result-score {
-      margin-top: 8px;
-      font-size: 42px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .result-message {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .result-score { margin-top:8px; font-size:42px; font-weight:700; line-height:1.3; }
+    .result-message { margin-top:8px; color:var(--muted); font-size:13px; }
 
     .next-panel {
-      display: none;
-      margin-top: 22px;
-      padding: 22px;
-      background: #111711;
-      border: 1px solid #294c3d;
-      border-radius: 6px;
+      display:none;
+      margin-top:22px;
+      padding:22px;
+      background:#111711;
+      border:1px solid #294c3d;
+      border-radius:6px;
     }
 
-    .next-panel.show {
-      display: block;
-    }
-
-    .next-panel h3 {
-      margin-top: 0;
-      color: var(--green);
-    }
-
-    .next-panel p {
-      margin: 8px 0 16px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .next-panel.show { display:block; }
+    .next-panel h3 { margin-top:0; color:var(--green); }
+    .next-panel p { margin:8px 0 16px; color:var(--muted); font-size:13px; }
 
     .premium-panel {
-      margin-top: 38px;
-      padding: 24px;
-      background: #11120f;
-      border: 1px solid #383126;
-      border-radius: 6px;
+      margin-top:38px;
+      padding:24px;
+      background:#11120f;
+      border:1px solid #383126;
+      border-radius:6px;
     }
 
-    .premium-label {
-      color: #b79a5e;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .premium-panel h2 {
-      font-size: 20px;
-    }
-
-    .premium-panel p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.9;
-    }
+    .premium-panel h2 { font-size:20px; }
 
     .bottom-navigation {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 28px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:28px;
     }
 
     footer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 48px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted-dark);
-      font-size: 11px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:42px;
+      padding-top:22px;
+      border-top:1px solid var(--border);
+      color:var(--muted-dark);
+      font-size:11px;
     }
 
-    footer strong {
-      color: var(--gold);
-      letter-spacing: 1px;
+    footer strong { color:var(--gold); letter-spacing:1px; }
+
+    @media(max-width:600px) {
+      .page { width:min(100% - 32px,912px); padding-top:24px; }
+      h1 { letter-spacing:-1px; }
+      .concept-grid { grid-template-columns:1fr; }
+      .question-card { padding:17px; }
+      .bottom-navigation { flex-direction:column; }
+      .bottom-navigation .btn { width:100%; }
+      footer { flex-direction:column; }
     }
 
-    @media (max-width: 600px) {
-      .page {
-        width: min(100% - 32px, 912px);
-        padding-top: 28px;
-      }
-
-      .back-link {
-        margin-bottom: 35px;
-      }
-
-      .hero h1 {
-        letter-spacing: -1px;
-      }
-
-      .concept-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .question-card {
-        padding: 17px;
-      }
-
-      .bottom-navigation {
-        flex-direction: column;
-      }
-
-      .bottom-navigation .btn {
-        width: 100%;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
+    @media(prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition:none !important; }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
+<main class="page">
+  <header class="topbar">
+    <a class="back-link" href="macro.html" data-i18n="back">← Back to Macro &amp; News Impact</a>
+    <div class="language-switch" aria-label="Language selector">
+      <button class="lang-btn" id="btn-id" type="button" data-lang="id">ID</button>
+      <button class="lang-btn active" id="btn-en" type="button" data-lang="en">EN</button>
+    </div>
+  </header>
 
-    <a class="back-link" href="macro.html">
-      ← Back to Macro &amp; News Impact
-    </a>
+  <header class="hero">
+    <div class="eyebrow" data-i18n="eyebrow">THE DESK ACADEMY · MODULE 03</div>
+    <h1 data-i18n="title">CPI, Inflation &amp; Interest Rates.</h1>
+    <p class="hero-description" data-i18n="subtitle">
+      Learn how inflation is measured, why CPI matters to markets, and how monetary policy expectations may affect the USD, Treasury yields, and Gold.
+    </p>
+    <div class="hero-meta">
+      <span class="meta-item" data-i18n="free">FREE · BASIC</span>
+      <span class="meta-item" data-i18n="level">BEGINNER</span>
+      <span class="meta-item" data-i18n="read">8 MIN READ</span>
+    </div>
+  </header>
 
-    <header class="hero">
-      <div class="eyebrow">THE DESK ACADEMY · MODULE 03</div>
+  <section class="article-section">
+    <div class="section-number" data-i18n="s1label">01 · UNDERSTANDING INFLATION</div>
+    <h2 data-i18n="s1title">What Is Inflation?</h2>
+    <p data-i18n="s1p1">Inflation is a general increase in the prices of goods and services across an economy over time. When prices rise, money may lose purchasing power if income does not increase at a comparable rate.</p>
+    <p data-i18n="s1p2">Inflation can be influenced by strong demand, higher production costs, supply disruptions, energy prices, and other factors. Because its causes vary, inflation data should be interpreted alongside the broader economic environment.</p>
+    <div class="insight">
+      <div class="insight-label" data-i18n="keyInsight">KEY INSIGHT</div>
+      <p data-i18n="s1insight">Inflation is not simply the price of one item increasing. It concerns broader price changes, purchasing power, and the potential implications for economic policy.</p>
+    </div>
+  </section>
 
-      <h1>CPI, Inflation<br>&amp; Interest Rates.</h1>
+  <section class="article-section">
+    <div class="section-number" data-i18n="s2label">02 · CONSUMER PRICE INDEX</div>
+    <h2 data-i18n="s2title">Understanding CPI</h2>
+    <p data-i18n="s2p1">The Consumer Price Index (CPI) measures changes in the prices of a basket of consumer goods and services. In the United States, CPI data is published by the U.S. Bureau of Labor Statistics.</p>
 
-      <p class="hero-description">
-        Pelajari bagaimana inflasi diukur, mengapa data CPI
-        diperhatikan pasar, dan bagaimana ekspektasi suku bunga
-        dapat memengaruhi USD, Treasury Yields, serta harga emas.
-      </p>
+    <div class="concept-grid">
+      <article class="concept-card">
+        <div class="concept-label">Headline CPI</div>
+        <h3 data-i18n="headlineTitle">Overall Inflation</h3>
+        <p data-i18n="headlineText">Includes the measured basket of consumer goods and services, including food and energy components.</p>
+      </article>
+      <article class="concept-card">
+        <div class="concept-label">Core CPI</div>
+        <h3 data-i18n="coreTitle">Underlying Inflation</h3>
+        <p data-i18n="coreText">Excludes food and energy to help assess underlying price pressures. It is not a perfect measure of every source of inflation.</p>
+      </article>
+      <article class="concept-card">
+        <div class="concept-label">Month-over-Month</div>
+        <h3>MoM</h3>
+        <p data-i18n="momText">Compares the index with the previous month and helps assess short-term price momentum.</p>
+      </article>
+      <article class="concept-card">
+        <div class="concept-label">Year-over-Year</div>
+        <h3>YoY</h3>
+        <p data-i18n="yoyText">Compares the index with the same period one year earlier.</p>
+      </article>
+    </div>
 
-      <div class="hero-meta">
-        <span class="meta-item">FREE · BASIC</span>
-        <span class="meta-item">BEGINNER</span>
-        <span class="meta-item">8 MIN READ</span>
+    <div class="example-box">
+      <h3 data-i18n="exampleTitle">A Simple Example</h3>
+      <p data-i18n="exampleP1">If CPI YoY is reported at 3%, the measured price index is approximately 3% higher than in the same period a year earlier.</p>
+      <p data-i18n="exampleP2">This does not mean every item increased by exactly 3%. Price changes can differ across goods and services.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="keyInsight">KEY INSIGHT</div>
+      <p data-i18n="s2insight">Check which CPI measure was released, its MoM and YoY changes, the components driving prices, and how the actual result compares with market expectations.</p>
+    </div>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s3label">03 · INTEREST RATES</div>
+    <h2 data-i18n="s3title">Why Is Inflation Connected to Interest Rates?</h2>
+    <p data-i18n="s3p1">Central banks consider a range of economic indicators when setting monetary policy. In the United States, the Federal Reserve has a mandate to promote price stability and maximum employment.</p>
+    <p data-i18n="s3p2">When inflation pressures are considered too high or persistent, the Fed may maintain restrictive policy or raise rates. A reduction in inflation pressures may create room for easier policy, depending on the overall economic outlook.</p>
+
+    <div class="concept-grid">
+      <article class="concept-card">
+        <div class="concept-label">Tighter Policy</div>
+        <h3 data-i18n="tightTitle">More Restrictive Policy</h3>
+        <p data-i18n="tightText">May involve keeping rates elevated for longer or raising them to help moderate demand and inflation pressures.</p>
+      </article>
+      <article class="concept-card">
+        <div class="concept-label">Easier Policy</div>
+        <h3 data-i18n="easyTitle">Less Restrictive Policy</h3>
+        <p data-i18n="easyText">May include rate cuts when economic conditions and the inflation outlook support such a move.</p>
+      </article>
+    </div>
+
+    <p data-i18n="s3p3">The central bank does not rely on one CPI release alone. Employment, economic growth, inflation expectations, and other risks can also affect policy decisions.</p>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s4label">04 · MARKET TRANSMISSION</div>
+    <h2 data-i18n="s4title">How Can Inflation Affect Markets?</h2>
+    <p data-i18n="s4p1">Inflation data may change expectations for interest rates. Those changes can then influence the USD, bond yields, Gold, and other financial instruments.</p>
+
+    <div class="example-box">
+      <h3 data-i18n="scenarioTitle">Example: CPI Above Forecast</h3>
+      <p><strong data-i18n="step1">Step 1 - Data:</strong> <span data-i18n="step1Text">Actual CPI comes in above market expectations.</span></p>
+      <p><strong data-i18n="step2">Step 2 - Expectations:</strong> <span data-i18n="step2Text">If the data suggests persistent inflation, markets may expect the Fed to maintain restrictive policy for longer.</span></p>
+      <p><strong data-i18n="step3">Step 3 - Markets:</strong> <span data-i18n="step3Text">Higher rate expectations may support the USD or Treasury yields in some conditions. Gold may face pressure if the USD and real yields strengthen, but the outcome is not guaranteed.</span></p>
+      <p><strong data-i18n="step4">Step 4 - Confirmation:</strong> <span data-i18n="step4Text">Observe the actual market response and the report's components before drawing conclusions.</span></p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="keyInsight">KEY INSIGHT</div>
+      <p data-i18n="s4insight">A high CPI reading does not automatically mean Gold must fall. The response depends on the surprise relative to expectations, policy implications, positioning, and market conditions at the time of release.</p>
+    </div>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s5label">05 · READING CPI RELEASES</div>
+    <h2 data-i18n="s5title">A Framework for Reading CPI</h2>
+    <p data-i18n="s5intro">Use the following sequence before forming a view on a CPI release.</p>
+
+    <div class="example-box">
+      <h3 data-i18n="read1Title">1. Check Actual, Forecast, and Previous</h3>
+      <p data-i18n="read1Text">Compare the actual figure with market expectations. Also check the previous reading and whether it was revised.</p>
+
+      <h3 data-i18n="read2Title">2. Separate Headline and Core CPI</h3>
+      <p data-i18n="read2Text">Identify whether price pressure is concentrated in food and energy or also appears in core inflation components.</p>
+
+      <h3 data-i18n="read3Title">3. Examine MoM and YoY</h3>
+      <p data-i18n="read3Text">Both provide different perspectives on price changes. Avoid drawing a trend conclusion from one number alone.</p>
+
+      <h3 data-i18n="read4Title">4. Assess the Implications for the Fed</h3>
+      <p data-i18n="read4Text">Consider whether the report changes market expectations about the timing or direction of monetary policy.</p>
+
+      <h3 data-i18n="read5Title">5. Observe Market Response and Risk</h3>
+      <p data-i18n="read5Text">Monitor the USD, Treasury yields, Gold, volatility, spreads, and price action. Avoid entering solely because CPI appears high or low.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="summaryLabel">MODULE SUMMARY</div>
+      <p data-i18n="summaryText">CPI helps measure changes in consumer prices. Inflation informs monetary policy decisions, while interest-rate expectations provide one channel through which economic data can affect financial markets. No relationship guarantees a particular price direction.</p>
+    </div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="section-number" data-i18n="quizLabel">KNOWLEDGE CHECK</div>
+    <h2 data-i18n="quizTitle">Test Your Understanding</h2>
+    <p class="quiz-intro" data-i18n="quizIntro">Answer all five questions. You need at least 80%, or four correct answers, to pass and continue to Module 04.</p>
+
+    <div class="quiz-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progressTrack">
+      <div class="quiz-progress-bar" id="progressBar"></div>
+    </div>
+
+    <form id="quizForm">
+      <div id="quizQuestions"></div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" type="submit" id="submitQuiz" data-i18n="submit">SUBMIT ANSWERS →</button>
+        <button class="btn" type="button" id="retryQuiz" hidden data-i18n="retry">TRY AGAIN</button>
       </div>
-    </header>
+    </form>
 
-    <!-- SECTION 01 -->
-    <section class="article-section">
-      <div class="section-number">01 · Understanding Inflation</div>
-      <h2>Apa Itu Inflasi?</h2>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-status" id="resultStatus"></div>
+      <div class="result-score" id="resultScore"></div>
+      <p class="result-message" id="resultMessage"></p>
+    </div>
 
-      <p>
-        Inflasi adalah kenaikan tingkat harga barang dan jasa
-        secara umum dalam suatu perekonomian selama periode tertentu.
-        Ketika tingkat harga meningkat, daya beli uang dapat menurun
-        jika pendapatan tidak bertambah sebanding.
-      </p>
+    <div class="next-panel" id="nextPanel">
+      <h3 data-i18n="passedTitle">Module 03 Completed</h3>
+      <p data-i18n="passedText">You have met the passing score. Continue to Module 04 to learn about NFP and the labor market.</p>
+      <a class="btn btn-primary" href="macro-04.html" data-i18n="nextButton">CONTINUE TO MODULE 04 →</a>
+    </div>
+  </section>
 
-      <p>
-        Inflasi dapat dipengaruhi oleh permintaan yang kuat,
-        kenaikan biaya produksi, gangguan pasokan, harga energi,
-        dan berbagai faktor lain. Karena penyebabnya beragam,
-        angka inflasi perlu dibaca bersama kondisi ekonomi yang
-        sedang berlangsung.
-      </p>
+  <section class="premium-panel">
+    <div class="premium-label" data-i18n="premiumLabel">BEYOND THE BASICS</div>
+    <h2 data-i18n="premiumTitle">Advanced Macro Research</h2>
+    <p data-i18n="premiumText">Explore inflation components, changing interest-rate expectations, real yields, and cross-asset relationships through deeper case studies in the THE DESK Academy Premium learning path.</p>
+  </section>
 
-      <div class="insight">
-        <div class="insight-label">Key Insight</div>
-        <p>
-          Inflasi bukan sekadar harga satu barang yang naik.
-          Fokus utamanya adalah perubahan tingkat harga secara
-          lebih luas dan bagaimana perubahan tersebut memengaruhi
-          daya beli serta kebijakan ekonomi.
-        </p>
-      </div>
-    </section>
+  <nav class="bottom-navigation" aria-label="Module navigation">
+    <a class="btn" href="macro.html" data-i18n="backModules">← BACK TO MACRO MODULES</a>
+    <a class="btn" href="macro-02.html" data-i18n="previous">← PREVIOUS MODULE</a>
+    <a class="btn" href="academy.html" data-i18n="academy">BACK TO ACADEMY</a>
+  </nav>
 
-    <!-- SECTION 02 -->
-    <section class="article-section">
-      <div class="section-number">02 · Consumer Price Index</div>
-      <h2>Memahami CPI</h2>
+  <footer>
+    <div><strong>THE DESK</strong> · <span data-i18n="footerBrand">Market Intelligence &amp; Education</span></div>
+    <div data-i18n="footerTagline">Understand the Market, Before You Trade It.</div>
+  </footer>
+</main>
 
-      <p>
-        Consumer Price Index atau CPI merupakan indikator yang
-        mengukur perubahan harga sekeranjang barang dan jasa
-        konsumen. Di Amerika Serikat, data ini diterbitkan oleh
-        U.S. Bureau of Labor Statistics.
-      </p>
+<script>
+"use strict";
 
-      <div class="concept-grid">
-        <div class="concept-card">
-          <div class="concept-label">Headline CPI</div>
-          <h3>Inflasi Keseluruhan</h3>
-          <p>
-            Mencakup kelompok barang dan jasa yang diukur dalam
-            indeks, termasuk komponen makanan dan energi.
-          </p>
+const PASS_KEY = "desk_macro_03_passed";
+
+const translations = {
+  en: {
+    back:"← Back to Macro & News Impact",
+    eyebrow:"THE DESK ACADEMY · MODULE 03",
+    title:"CPI, Inflation & Interest Rates.",
+    subtitle:"Learn how inflation is measured, why CPI matters to markets, and how monetary policy expectations may affect the USD, Treasury yields, and Gold.",
+    free:"FREE · BASIC", level:"BEGINNER", read:"8 MIN READ",
+    s1label:"01 · UNDERSTANDING INFLATION",s1title:"What Is Inflation?",
+    s1p1:"Inflation is a general increase in the prices of goods and services across an economy over time. When prices rise, money may lose purchasing power if income does not increase at a comparable rate.",
+    s1p2:"Inflation can be influenced by strong demand, higher production costs, supply disruptions, energy prices, and other factors. Because its causes vary, inflation data should be interpreted alongside the broader economic environment.",
+    keyInsight:"KEY INSIGHT",
+    s1insight:"Inflation is not simply the price of one item increasing. It concerns broader price changes, purchasing power, and the potential implications for economic policy.",
+    s2label:"02 · CONSUMER PRICE INDEX",s2title:"Understanding CPI",
+    s2p1:"The Consumer Price Index (CPI) measures changes in the prices of a basket of consumer goods and services. In the United States, CPI data is published by the U.S. Bureau of Labor Statistics.",
+    headlineTitle:"Overall Inflation",headlineText:"Includes the measured basket of consumer goods and services, including food and energy components.",
+    coreTitle:"Underlying Inflation",coreText:"Excludes food and energy to help assess underlying price pressures. It is not a perfect measure of every source of inflation.",
+    momText:"Compares the index with the previous month and helps assess short-term price momentum.",
+    yoyText:"Compares the index with the same period one year earlier.",
+    exampleTitle:"A Simple Example",
+    exampleP1:"If CPI YoY is reported at 3%, the measured price index is approximately 3% higher than in the same period a year earlier.",
+    exampleP2:"This does not mean every item increased by exactly 3%. Price changes can differ across goods and services.",
+    s2insight:"Check which CPI measure was released, its MoM and YoY changes, the components driving prices, and how the actual result compares with market expectations.",
+    s3label:"03 · INTEREST RATES",s3title:"Why Is Inflation Connected to Interest Rates?",
+    s3p1:"Central banks consider a range of economic indicators when setting monetary policy. In the United States, the Federal Reserve has a mandate to promote price stability and maximum employment.",
+    s3p2:"When inflation pressures are considered too high or persistent, the Fed may maintain restrictive policy or raise rates. A reduction in inflation pressures may create room for easier policy, depending on the overall economic outlook.",
+    tightTitle:"More Restrictive Policy",tightText:"May involve keeping rates elevated for longer or raising them to help moderate demand and inflation pressures.",
+    easyTitle:"Less Restrictive Policy",easyText:"May include rate cuts when economic conditions and the inflation outlook support such a move.",
+    s3p3:"The central bank does not rely on one CPI release alone. Employment, economic growth, inflation expectations, and other risks can also affect policy decisions.",
+    s4label:"04 · MARKET TRANSMISSION",s4title:"How Can Inflation Affect Markets?",
+    s4p1:"Inflation data may change expectations for interest rates. Those changes can then influence the USD, bond yields, Gold, and other financial instruments.",
+    scenarioTitle:"Example: CPI Above Forecast",step1:"Step 1 - Data:",step1Text:"Actual CPI comes in above market expectations.",
+    step2:"Step 2 - Expectations:",step2Text:"If the data suggests persistent inflation, markets may expect the Fed to maintain restrictive policy for longer.",
+    step3:"Step 3 - Markets:",step3Text:"Higher rate expectations may support the USD or Treasury yields in some conditions. Gold may face pressure if the USD and real yields strengthen, but the outcome is not guaranteed.",
+    step4:"Step 4 - Confirmation:",step4Text:"Observe the actual market response and the report's components before drawing conclusions.",
+    s4insight:"A high CPI reading does not automatically mean Gold must fall. The response depends on the surprise relative to expectations, policy implications, positioning, and market conditions at the time of release.",
+    s5label:"05 · READING CPI RELEASES",s5title:"A Framework for Reading CPI",
+    s5intro:"Use the following sequence before forming a view on a CPI release.",
+    read1Title:"1. Check Actual, Forecast, and Previous",read1Text:"Compare the actual figure with market expectations. Also check the previous reading and whether it was revised.",
+    read2Title:"2. Separate Headline and Core CPI",read2Text:"Identify whether price pressure is concentrated in food and energy or also appears in core inflation components.",
+    read3Title:"3. Examine MoM and YoY",read3Text:"Both provide different perspectives on price changes. Avoid drawing a trend conclusion from one number alone.",
+    read4Title:"4. Assess the Implications for the Fed",read4Text:"Consider whether the report changes market expectations about the timing or direction of monetary policy.",
+    read5Title:"5. Observe Market Response and Risk",read5Text:"Monitor the USD, Treasury yields, Gold, volatility, spreads, and price action. Avoid entering solely because CPI appears high or low.",
+    summaryLabel:"MODULE SUMMARY",summaryText:"CPI helps measure changes in consumer prices. Inflation informs monetary policy decisions, while interest-rate expectations provide one channel through which economic data can affect financial markets. No relationship guarantees a particular price direction.",
+    quizLabel:"KNOWLEDGE CHECK",quizTitle:"Test Your Understanding",
+    quizIntro:"Answer all five questions. You need at least 80%, or four correct answers, to pass and continue to Module 04.",
+    submit:"SUBMIT ANSWERS →",retry:"TRY AGAIN",
+    passedTitle:"Module 03 Completed",passedText:"You have met the passing score. Continue to Module 04 to learn about NFP and the labor market.",
+    nextButton:"CONTINUE TO MODULE 04 →",
+    premiumLabel:"BEYOND THE BASICS",premiumTitle:"Advanced Macro Research",
+    premiumText:"Explore inflation components, changing interest-rate expectations, real yields, and cross-asset relationships through deeper case studies in the THE DESK Academy Premium learning path.",
+    backModules:"← BACK TO MACRO MODULES",previous:"← PREVIOUS MODULE",academy:"BACK TO ACADEMY",
+    footerBrand:"Market Intelligence & Education",footerTagline:"Understand the Market, Before You Trade It.",
+    qLabel:"QUESTION",of:"OF",
+    questions:[
+      {q:"What does CPI measure?",o:["Changes in nonfarm employment only.","Changes in the prices of a basket of consumer goods and services.","Changes in one company's share price.","The number of forex transactions."],a:1,e:"CPI measures changes in a basket of consumer goods and services and is one indicator used to assess inflation."},
+      {q:"What is the main difference between US Headline CPI and Core CPI?",o:["Headline CPI measures only services, while Core CPI measures only goods.","They always produce the same figure.","Core CPI excludes food and energy, while Headline CPI includes them.","Headline CPI measures interest rates, while Core CPI measures GDP."],a:2,e:"Core CPI excludes food and energy. This provides a different perspective on price pressures."},
+      {q:"What may happen if CPI is higher than forecast?",o:["Gold must fall without exception.","The Fed must immediately raise rates.","All assets must move in the same direction.","Monetary policy expectations may change, depending on the data and market context."],a:3,e:"A CPI surprise can change inflation and rate expectations, but neither market reactions nor central-bank decisions are guaranteed by one figure."},
+      {q:"What does CPI YoY of 3% mean in simple terms?",o:["The measured price index is about 3% higher than in the same period a year earlier.","All prices rose exactly 3% in one month.","Interest rates must rise by 3%.","GDP fell by 3% in one year."],a:0,e:"CPI YoY compares the index with the same period a year earlier. Individual items do not all need to rise by the same amount."},
+      {q:"What is a sound approach when trading a CPI release?",o:["Enter immediately based on headline CPI alone.","Ignore spreads and volatility during the release.","Compare actual data with expectations, assess context and price response, and manage risk.","Assume every CPI release has the same impact."],a:2,e:"Structured analysis considers actual data, expectations, report components, policy implications, market response, and execution risks."}
+    ]
+  },
+
+  id: {
+    back:"← Kembali ke Macro & News Impact",
+    eyebrow:"THE DESK ACADEMY · MODUL 03",
+    title:"CPI, Inflasi & Suku Bunga.",
+    subtitle:"Pelajari cara mengukur inflasi, mengapa CPI diperhatikan pasar, serta bagaimana ekspektasi kebijakan moneter dapat memengaruhi USD, Treasury Yields, dan Gold.",
+    free:"GRATIS · DASAR",level:"PEMULA",read:"8 MENIT BACA",
+    s1label:"01 · MEMAHAMI INFLASI",s1title:"Apa Itu Inflasi?",
+    s1p1:"Inflasi adalah kenaikan harga barang dan jasa secara umum dalam suatu perekonomian selama periode tertentu. Ketika harga naik, daya beli uang dapat menurun jika pendapatan tidak meningkat secara sebanding.",
+    s1p2:"Inflasi dapat dipengaruhi oleh permintaan yang kuat, kenaikan biaya produksi, gangguan pasokan, harga energi, dan faktor lainnya. Karena penyebabnya beragam, data inflasi perlu dibaca bersama kondisi ekonomi yang lebih luas.",
+    keyInsight:"INSIGHT UTAMA",
+    s1insight:"Inflasi bukan sekadar kenaikan harga satu barang. Inflasi berkaitan dengan perubahan harga secara luas, daya beli, dan kemungkinan dampaknya terhadap kebijakan ekonomi.",
+    s2label:"02 · CONSUMER PRICE INDEX",s2title:"Memahami CPI",
+    s2p1:"Consumer Price Index (CPI) mengukur perubahan harga sekeranjang barang dan jasa konsumen. Di Amerika Serikat, data CPI diterbitkan oleh U.S. Bureau of Labor Statistics.",
+    headlineTitle:"Inflasi Keseluruhan",headlineText:"Mencakup barang dan jasa dalam keranjang pengukuran, termasuk komponen makanan dan energi.",
+    coreTitle:"Inflasi Inti",coreText:"Mengecualikan makanan dan energi untuk membantu menilai tekanan harga yang mendasari. Ukuran ini tidak sempurna dalam menangkap seluruh sumber inflasi.",
+    momText:"Membandingkan indeks dengan bulan sebelumnya dan membantu menilai momentum harga jangka pendek.",
+    yoyText:"Membandingkan indeks dengan periode yang sama setahun sebelumnya.",
+    exampleTitle:"Contoh Sederhana",
+    exampleP1:"Jika CPI YoY tercatat 3%, indeks harga yang diukur sekitar 3% lebih tinggi dibandingkan periode yang sama setahun sebelumnya.",
+    exampleP2:"Ini tidak berarti setiap barang naik tepat 3%. Perubahan harga dapat berbeda di setiap kelompok barang dan jasa.",
+    s2insight:"Periksa jenis CPI yang dirilis, perubahan MoM dan YoY, komponen yang mendorong harga, serta perbandingan hasil aktual dengan ekspektasi pasar.",
+    s3label:"03 · SUKU BUNGA",s3title:"Mengapa Inflasi Berkaitan dengan Suku Bunga?",
+    s3p1:"Bank sentral mempertimbangkan berbagai indikator ekonomi saat menentukan kebijakan moneter. Di Amerika Serikat, Federal Reserve memiliki mandat untuk mendukung stabilitas harga dan tingkat ketenagakerjaan maksimum.",
+    s3p2:"Ketika tekanan inflasi dinilai terlalu tinggi atau persisten, The Fed dapat mempertahankan kebijakan ketat atau menaikkan suku bunga. Penurunan tekanan inflasi dapat membuka ruang bagi kebijakan yang lebih longgar, bergantung pada prospek ekonomi secara keseluruhan.",
+    tightTitle:"Kebijakan Lebih Ketat",tightText:"Dapat berarti suku bunga dipertahankan tinggi lebih lama atau dinaikkan untuk membantu meredam permintaan dan tekanan inflasi.",
+    easyTitle:"Kebijakan Lebih Longgar",easyText:"Dapat mencakup pemangkasan suku bunga ketika kondisi ekonomi dan prospek inflasi mendukung langkah tersebut.",
+    s3p3:"Bank sentral tidak hanya mengandalkan satu rilis CPI. Ketenagakerjaan, pertumbuhan ekonomi, ekspektasi inflasi, dan risiko lain juga dapat memengaruhi keputusan kebijakan.",
+    s4label:"04 · TRANSMISI KE PASAR",s4title:"Bagaimana Inflasi Dapat Memengaruhi Pasar?",
+    s4p1:"Data inflasi dapat mengubah ekspektasi suku bunga. Perubahan tersebut kemudian dapat memengaruhi USD, imbal hasil obligasi, Gold, dan instrumen keuangan lainnya.",
+    scenarioTitle:"Contoh: CPI di Atas Forecast",step1:"Langkah 1 - Data:",step1Text:"CPI aktual berada di atas ekspektasi pasar.",
+    step2:"Langkah 2 - Ekspektasi:",step2Text:"Jika data menunjukkan inflasi yang persisten, pasar dapat memperkirakan The Fed akan mempertahankan kebijakan ketat lebih lama.",
+    step3:"Langkah 3 - Pasar:",step3Text:"Ekspektasi suku bunga yang lebih tinggi dapat mendukung USD atau Treasury Yields dalam kondisi tertentu. Gold dapat tertekan jika USD dan real yield menguat, tetapi hasilnya tidak dijamin.",
+    step4:"Langkah 4 - Konfirmasi:",step4Text:"Amati respons pasar yang sebenarnya dan komponen laporan sebelum menarik kesimpulan.",
+    s4insight:"CPI tinggi tidak otomatis berarti Gold pasti turun. Respons bergantung pada selisih data terhadap ekspektasi, implikasi kebijakan, posisi pasar, dan kondisi saat rilis berlangsung.",
+    s5label:"05 · MEMBACA RILIS CPI",s5title:"Kerangka Membaca CPI",
+    s5intro:"Gunakan urutan berikut sebelum membentuk pandangan terhadap rilis CPI.",
+    read1Title:"1. Periksa Actual, Forecast, dan Previous",read1Text:"Bandingkan angka aktual dengan ekspektasi pasar. Periksa juga angka sebelumnya dan apakah ada revisi.",
+    read2Title:"2. Bedakan Headline dan Core CPI",read2Text:"Identifikasi apakah tekanan harga terutama berasal dari makanan dan energi atau juga terlihat pada komponen inflasi inti.",
+    read3Title:"3. Perhatikan MoM dan YoY",read3Text:"Keduanya memberikan perspektif berbeda terhadap perubahan harga. Hindari menyimpulkan tren hanya dari satu angka.",
+    read4Title:"4. Evaluasi Implikasi terhadap The Fed",read4Text:"Pertimbangkan apakah laporan mengubah ekspektasi pasar mengenai waktu atau arah kebijakan moneter.",
+    read5Title:"5. Amati Respons Pasar dan Risiko",read5Text:"Pantau USD, Treasury Yields, Gold, volatilitas, spread, dan pergerakan harga. Hindari entry hanya karena CPI terlihat tinggi atau rendah.",
+    summaryLabel:"RINGKASAN MODUL",summaryText:"CPI membantu mengukur perubahan harga konsumen. Inflasi menjadi salah satu pertimbangan kebijakan moneter, sedangkan ekspektasi suku bunga merupakan salah satu jalur yang menghubungkan data ekonomi dengan pasar keuangan. Tidak ada hubungan yang menjamin arah harga tertentu.",
+    quizLabel:"UJI PEMAHAMAN",quizTitle:"Uji Pemahaman Kamu",
+    quizIntro:"Jawab kelima pertanyaan. Kamu membutuhkan nilai minimal 80% atau empat jawaban benar untuk lulus dan lanjut ke Modul 04.",
+    submit:"KIRIM JAWABAN →",retry:"COBA LAGI",
+    passedTitle:"Modul 03 Selesai",passedText:"Kamu sudah memenuhi nilai minimum. Lanjutkan ke Modul 04 untuk mempelajari NFP dan pasar tenaga kerja.",
+    nextButton:"LANJUT KE MODUL 04 →",
+    premiumLabel:"LEBIH DARI DASAR",premiumTitle:"Riset Makro Lanjutan",
+    premiumText:"Pelajari komponen inflasi, perubahan ekspektasi suku bunga, real yield, dan hubungan lintas aset melalui studi kasus lebih mendalam pada jalur Premium THE DESK Academy.",
+    backModules:"← KEMBALI KE MODUL MAKRO",previous:"← MODUL SEBELUMNYA",academy:"KEMBALI KE ACADEMY",
+    footerBrand:"Intelijen Pasar & Edukasi",footerTagline:"Pahami Pasar Sebelum Anda Trading.",
+    qLabel:"PERTANYAAN",of:"DARI",
+    questions:[
+      {q:"Apa yang diukur oleh CPI?",o:["Perubahan jumlah tenaga kerja nonpertanian saja.","Perubahan harga sekeranjang barang dan jasa konsumen.","Perubahan harga saham satu perusahaan.","Jumlah transaksi di pasar forex."],a:1,e:"CPI mengukur perubahan harga sekeranjang barang dan jasa konsumen dan merupakan salah satu indikator untuk menilai inflasi."},
+      {q:"Apa perbedaan utama Headline CPI dan Core CPI di AS?",o:["Headline CPI hanya mengukur jasa, sedangkan Core CPI hanya mengukur barang.","Keduanya selalu menghasilkan angka yang sama.","Core CPI mengecualikan makanan dan energi, sedangkan Headline CPI mencakup keduanya.","Headline CPI mengukur suku bunga, sedangkan Core CPI mengukur GDP."],a:2,e:"Core CPI mengecualikan makanan dan energi. Perbedaan ini memberikan perspektif berbeda terhadap tekanan harga."},
+      {q:"Apa yang mungkin terjadi jika CPI lebih tinggi dari forecast?",o:["Gold pasti turun tanpa pengecualian.","The Fed pasti langsung menaikkan suku bunga.","Semua aset pasti bergerak dalam arah yang sama.","Ekspektasi kebijakan moneter dapat berubah, bergantung pada konteks data dan pasar."],a:3,e:"Kejutan CPI dapat mengubah ekspektasi inflasi dan suku bunga, tetapi respons pasar dan keputusan bank sentral tidak dijamin oleh satu angka."},
+      {q:"Apa arti CPI YoY sebesar 3% secara sederhana?",o:["Indeks harga yang diukur sekitar 3% lebih tinggi daripada periode yang sama setahun sebelumnya.","Semua harga naik tepat 3% dalam satu bulan.","Suku bunga pasti naik 3%.","GDP turun 3% dalam satu tahun."],a:0,e:"CPI YoY membandingkan indeks dengan periode yang sama setahun sebelumnya. Tidak semua barang harus naik dalam jumlah yang sama."},
+      {q:"Apa pendekatan yang tepat saat membaca rilis CPI untuk trading?",o:["Langsung entry berdasarkan headline CPI saja.","Mengabaikan spread dan volatilitas saat rilis.","Membandingkan data aktual dengan ekspektasi, memahami konteks dan respons harga, serta mengelola risiko.","Menganggap semua rilis CPI memiliki dampak yang sama."],a:2,e:"Analisis terstruktur mempertimbangkan data aktual, ekspektasi, komponen laporan, implikasi kebijakan, respons pasar, dan risiko eksekusi."}
+    ]
+  }
+};
+
+const form = document.getElementById("quizForm");
+const questionContainer = document.getElementById("quizQuestions");
+const submitButton = document.getElementById("submitQuiz");
+const retryButton = document.getElementById("retryQuiz");
+const result = document.getElementById("result");
+const resultStatus = document.getElementById("resultStatus");
+const resultScore = document.getElementById("resultScore");
+const resultMessage = document.getElementById("resultMessage");
+const nextPanel = document.getElementById("nextPanel");
+const progressBar = document.getElementById("progressBar");
+const progressTrack = document.getElementById("progressTrack");
+
+let currentLang = "en";
+let submitted = false;
+let lastResult = null;
+
+function storageGet(key) {
+  try { return localStorage.getItem(key); }
+  catch (error) { return null; }
+}
+
+function storageSet(key, value) {
+  try { localStorage.setItem(key, value); }
+  catch (error) { /* The lesson remains usable without storage. */ }
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
+}
+
+function getSavedLanguage() {
+  const saved = storageGet("desk_language");
+  return saved === "id" || saved === "en" ? saved : "en";
+}
+
+function setLanguage(lang) {
+  if (!translations[lang]) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  storageSet("desk_language", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const value = translations[lang][element.dataset.i18n];
+    if (typeof value === "string") element.textContent = value;
+  });
+
+  document.getElementById("btn-id").classList.toggle("active", lang === "id");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  document.getElementById("btn-id").setAttribute("aria-pressed", String(lang === "id"));
+  document.getElementById("btn-en").setAttribute("aria-pressed", String(lang === "en"));
+
+  renderQuestions();
+
+  if (lastResult) {
+    renderResult(lastResult.score);
+  }
+
+  updateProgress();
+}
+
+function renderQuestions() {
+  const t = translations[currentLang];
+
+  questionContainer.innerHTML = t.questions.map((question, index) => {
+    const options = question.o.map((option, optionIndex) => `
+      <label class="option">
+        <input type="radio" name="q${index}" value="${optionIndex}" ${submitted ? "disabled" : ""}>
+        <span>${escapeHTML(option)}</span>
+      </label>
+    `).join("");
+
+    return `
+      <article class="question-card" data-question="${index}">
+        <div class="question-number">${t.qLabel} ${String(index + 1).padStart(2,"0")} ${t.of} 05</div>
+        <h3>${escapeHTML(question.q)}</h3>
+        <div class="options">${options}</div>
+        <div class="explanation ${submitted ? "show" : ""}">
+          <strong>${currentLang === "id" ? "Pembahasan:" : "Explanation:"}</strong>
+          ${escapeHTML(question.e)}
         </div>
+      </article>
+    `;
+  }).join("");
 
-        <div class="concept-card">
-          <div class="concept-label">Core CPI</div>
-          <h3>Inflasi Inti</h3>
-          <p>
-            Mengecualikan makanan dan energi untuk membantu
-            mengamati tekanan harga yang mendasari. Core CPI
-            tetap bukan ukuran sempurna dari seluruh tekanan inflasi.
-          </p>
-        </div>
-
-        <div class="concept-card">
-          <div class="concept-label">Month-over-Month</div>
-          <h3>MoM</h3>
-          <p>
-            Membandingkan perubahan indeks terhadap bulan
-            sebelumnya dan membantu melihat momentum jangka pendek.
-          </p>
-        </div>
-
-        <div class="concept-card">
-          <div class="concept-label">Year-over-Year</div>
-          <h3>YoY</h3>
-          <p>
-            Membandingkan tingkat indeks dengan periode yang
-            sama setahun sebelumnya.
-          </p>
-        </div>
-      </div>
-
-      <div class="example-box">
-        <h3>Contoh Sederhana</h3>
-        <p>
-          Jika inflasi CPI YoY tercatat 3%, artinya indeks harga
-          yang diukur berada sekitar 3% lebih tinggi dibandingkan
-          periode yang sama setahun sebelumnya.
-        </p>
-        <p>
-          Angka tersebut tidak berarti seluruh barang mengalami
-          kenaikan harga tepat 3%. Perubahan setiap kelompok
-          barang dan jasa bisa berbeda.
-        </p>
-      </div>
-
-      <div class="insight">
-        <div class="insight-label">Key Insight</div>
-        <p>
-          Perhatikan jenis CPI yang dirilis, perubahan MoM dan YoY,
-          komponen yang mendorong kenaikan harga, serta perbandingan
-          hasil aktual dengan ekspektasi pasar.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 03 -->
-    <section class="article-section">
-      <div class="section-number">03 · Interest Rates</div>
-      <h2>Mengapa Inflasi Berkaitan dengan Suku Bunga?</h2>
-
-      <p>
-        Bank sentral mempertimbangkan berbagai indikator ekonomi
-        ketika menentukan kebijakan moneter. Di Amerika Serikat,
-        Federal Reserve memiliki mandat untuk mendukung stabilitas
-        harga dan kondisi ketenagakerjaan yang maksimal.
-      </p>
-
-      <p>
-        Ketika tekanan inflasi dinilai terlalu tinggi atau persisten,
-        The Fed dapat mempertahankan kebijakan yang ketat atau
-        menaikkan suku bunga. Sebaliknya, penurunan tekanan inflasi
-        dapat membuka ruang bagi kebijakan yang lebih longgar,
-        bergantung pada keseluruhan kondisi ekonomi.
-      </p>
-
-      <div class="concept-grid">
-        <div class="concept-card">
-          <div class="concept-label">Tighter Policy</div>
-          <h3>Kebijakan Lebih Ketat</h3>
-          <p>
-            Dapat berarti suku bunga dipertahankan tinggi lebih lama
-            atau dinaikkan untuk membantu meredam tekanan permintaan
-            dan inflasi.
-          </p>
-        </div>
-
-        <div class="concept-card">
-          <div class="concept-label">Easier Policy</div>
-          <h3>Kebijakan Lebih Longgar</h3>
-          <p>
-            Dapat mencakup penurunan suku bunga ketika kondisi
-            ekonomi dan prospek inflasi mendukung langkah tersebut.
-          </p>
-        </div>
-      </div>
-
-      <p>
-        Perlu diingat bahwa bank sentral tidak hanya melihat satu
-        rilis CPI. Kondisi tenaga kerja, pertumbuhan ekonomi,
-        ekspektasi inflasi, dan risiko lainnya juga dapat
-        memengaruhi keputusan kebijakan.
-      </p>
-    </section>
-
-    <!-- SECTION 04 -->
-    <section class="article-section">
-      <div class="section-number">04 · Market Transmission</div>
-      <h2>Bagaimana Inflasi Memengaruhi Pasar?</h2>
-
-      <p>
-        Data inflasi dapat mengubah ekspektasi terhadap suku bunga.
-        Perubahan ekspektasi tersebut kemudian dapat memengaruhi
-        USD, imbal hasil obligasi, emas, dan instrumen keuangan lain.
-      </p>
-
-      <div class="example-box">
-        <h3>Contoh: CPI Lebih Tinggi dari Forecast</h3>
-
-        <p>
-          <strong>Langkah 1 - Data:</strong>
-          CPI aktual berada di atas perkiraan pasar.
-        </p>
-
-        <p>
-          <strong>Langkah 2 - Ekspektasi:</strong>
-          Jika data menunjukkan tekanan inflasi yang lebih persisten,
-          pasar dapat memperkirakan kebijakan The Fed akan tetap
-          ketat lebih lama.
-        </p>
-
-        <p>
-          <strong>Langkah 3 - Pasar:</strong>
-          Ekspektasi suku bunga yang lebih tinggi dapat mendukung
-          USD atau Treasury Yields dalam kondisi tertentu.
-          Emas dapat menghadapi tekanan apabila real yields dan USD
-          menguat, tetapi hasil akhirnya tidak selalu demikian.
-        </p>
-
-        <p>
-          <strong>Langkah 4 - Konfirmasi:</strong>
-          Amati respons aktual pasar dan komponen laporan sebelum
-          menarik kesimpulan.
-        </p>
-      </div>
-
-      <div class="insight">
-        <div class="insight-label">Key Insight</div>
-        <p>
-          CPI yang tinggi tidak otomatis berarti emas pasti turun.
-          Respons pasar bergantung pada seberapa jauh data berbeda
-          dari ekspektasi, implikasi kebijakan, dan kondisi pasar
-          saat pengumuman berlangsung.
-        </p>
-      </div>
-    </section>
-
-    <!-- SECTION 05 -->
-    <section class="article-section">
-      <div class="section-number">05 · Reading CPI Releases</div>
-      <h2>Kerangka Membaca Rilis CPI</h2>
-
-      <p>
-        Sebelum membuat penilaian terhadap rilis CPI, gunakan
-        urutan analisis berikut.
-      </p>
-
-      <div class="example-box">
-        <h3>1. Periksa Actual, Forecast, dan Previous</h3>
-        <p>
-          Bandingkan angka aktual dengan perkiraan pasar.
-          Periksa juga angka periode sebelumnya dan apakah ada revisi.
-        </p>
-
-        <h3>2. Bedakan Headline dan Core CPI</h3>
-        <p>
-          Identifikasi apakah tekanan harga terutama berasal
-          dari makanan dan energi atau juga terlihat pada
-          komponen inflasi inti.
-        </p>
-
-        <h3>3. Perhatikan MoM dan YoY</h3>
-        <p>
-          Keduanya memberikan perspektif berbeda tentang perubahan
-          harga. Jangan menyimpulkan tren hanya dari satu angka.
-        </p>
-
-        <h3>4. Evaluasi Implikasi terhadap The Fed</h3>
-        <p>
-          Pertimbangkan apakah data mengubah ekspektasi pasar
-          mengenai waktu dan arah kebijakan moneter.
-        </p>
-
-        <h3>5. Amati Respons Pasar dan Risiko</h3>
-        <p>
-          Pantau USD, Treasury Yields, emas, volatilitas, spread,
-          dan kualitas pergerakan harga. Hindari entry hanya
-          karena angka CPI terlihat tinggi atau rendah.
-        </p>
-      </div>
-
-      <div class="insight">
-        <div class="insight-label">Module Summary</div>
-        <p>
-          CPI membantu mengukur perubahan harga konsumen.
-          Inflasi memengaruhi pertimbangan kebijakan moneter,
-          sedangkan ekspektasi suku bunga menjadi salah satu jalur
-          yang menghubungkan data ekonomi dengan pasar keuangan.
-          Tidak ada hubungan yang menjamin arah harga secara pasti.
-        </p>
-      </div>
-    </section>
-
-    <!-- QUIZ -->
-    <section class="quiz-section" id="quiz">
-      <div class="section-number">Knowledge Check</div>
-      <h2>Uji Pemahaman Kamu</h2>
-
-      <p class="quiz-intro">
-        Jawab 5 pertanyaan berikut. Kamu perlu memperoleh nilai
-        minimal 80% atau 4 jawaban benar untuk membuka Module 04.
-      </p>
-
-      <div class="quiz-progress" aria-label="Progres kuis">
-        <div class="quiz-progress-bar" id="progressBar"></div>
-      </div>
-
-      <form id="quizForm">
-
-        <div class="question-card" data-question="0">
-          <div class="question-number">Question 01 of 05</div>
-          <h3>Apa yang diukur oleh CPI?</h3>
-
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q0" value="0">
-              <span>Perubahan jumlah tenaga kerja nonpertanian saja.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q0" value="1">
-              <span>Perubahan harga sekeranjang barang dan jasa konsumen.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q0" value="2">
-              <span>Perubahan harga saham satu perusahaan.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q0" value="3">
-              <span>Jumlah transaksi di pasar forex.</span>
-            </label>
-          </div>
-
-          <div class="explanation">
-            <strong>Pembahasan:</strong>
-            CPI mengukur perubahan harga sekeranjang barang dan
-            jasa konsumen dan merupakan salah satu indikator inflasi.
-          </div>
-        </div>
-
-        <div class="question-card" data-question="1">
-          <div class="question-number">Question 02 of 05</div>
-          <h3>Apa perbedaan utama Headline CPI dan Core CPI di AS?</h3>
-
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q1" value="0">
-              <span>Headline CPI hanya mengukur jasa, sedangkan Core CPI hanya mengukur barang.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="1">
-              <span>Keduanya selalu menghasilkan angka yang sama.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="2">
-              <span>Core CPI mengecualikan makanan dan energi, sedangkan Headline CPI mencakup keduanya.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="3">
-              <span>Headline CPI mengukur suku bunga, sedangkan Core CPI mengukur GDP.</span>
-            </label>
-          </div>
-
-          <div class="explanation">
-            <strong>Pembahasan:</strong>
-            Core CPI mengecualikan makanan dan energi. Perbedaan ini
-            membantu analis menilai tekanan harga dengan perspektif
-            yang berbeda.
-          </div>
-        </div>
-
-        <div class="question-card" data-question="2">
-          <div class="question-number">Question 03 of 05</div>
-          <h3>Jika CPI lebih tinggi dari perkiraan, apa yang mungkin terjadi?</h3>
-
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q2" value="0">
-              <span>Emas pasti turun tanpa pengecualian.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="1">
-              <span>The Fed pasti langsung menaikkan suku bunga.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="2">
-              <span>Semua aset pasti bergerak dalam arah yang sama.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="3">
-              <span>Ekspektasi kebijakan moneter dapat berubah, bergantung pada konteks data dan pasar.</span>
-            </label>
-          </div>
-
-          <div class="explanation">
-            <strong>Pembahasan:</strong>
-            CPI di atas forecast dapat mengubah ekspektasi inflasi
-            dan suku bunga. Namun, respons pasar dan keputusan
-            bank sentral tidak dapat dipastikan dari satu angka.
-          </div>
-        </div>
-
-        <div class="question-card" data-question="3">
-          <div class="question-number">Question 04 of 05</div>
-          <h3>Apa arti CPI YoY sebesar 3% secara sederhana?</h3>
-
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q3" value="0">
-              <span>Indeks harga yang diukur sekitar 3% lebih tinggi daripada periode yang sama setahun sebelumnya.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="1">
-              <span>Semua harga naik tepat 3% dalam satu bulan.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="2">
-              <span>Suku bunga pasti naik 3%.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="3">
-              <span>GDP turun 3% dalam satu tahun.</span>
-            </label>
-          </div>
-
-          <div class="explanation">
-            <strong>Pembahasan:</strong>
-            CPI YoY membandingkan indeks harga dengan periode
-            yang sama setahun sebelumnya. Tidak semua barang
-            harus mengalami kenaikan yang sama.
-          </div>
-        </div>
-
-        <div class="question-card" data-question="4">
-          <div class="question-number">Question 05 of 05</div>
-          <h3>Apa pendekatan yang lebih tepat saat membaca rilis CPI untuk trading?</h3>
-
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q4" value="0">
-              <span>Entry langsung berdasarkan angka headline saja.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="1">
-              <span>Mengabaikan spread dan volatilitas saat berita dirilis.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="2">
-              <span>Membandingkan data dengan ekspektasi, memahami konteks, mengamati respons harga, dan mengelola risiko.</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="3">
-              <span>Menganggap semua rilis CPI memiliki dampak yang sama.</span>
-            </label>
-          </div>
-
-          <div class="explanation">
-            <strong>Pembahasan:</strong>
-            Analisis yang terstruktur mempertimbangkan angka aktual,
-            ekspektasi, komponen data, implikasi kebijakan,
-            respons harga, dan risiko eksekusi.
-          </div>
-        </div>
-
-        <div class="quiz-actions">
-          <button class="btn btn-primary" type="submit" id="submitQuiz">
-            SUBMIT ANSWERS →
-          </button>
-          <button class="btn" type="button" id="retryQuiz" hidden>
-            TRY AGAIN
-          </button>
-        </div>
-      </form>
-
-      <div class="result" id="result" aria-live="polite">
-        <div class="result-status" id="resultStatus">QUIZ RESULT</div>
-        <div class="result-score" id="resultScore">0/100</div>
-        <p class="result-message" id="resultMessage"></p>
-      </div>
-
-      <div class="next-panel" id="nextPanel">
-        <h3>Module 03 Completed</h3>
-        <p>
-          Kamu sudah memenuhi nilai minimum. Lanjutkan ke Module 04
-          untuk mempelajari NFP dan pasar tenaga kerja.
-        </p>
-        <a class="btn btn-primary" href="macro-04.html">
-          NEXT MODULE 04 →
-        </a>
-      </div>
-    </section>
-
-    <!-- PREMIUM -->
-    <section class="premium-panel">
-      <div class="premium-label">Beyond the Basics</div>
-      <h2>Advanced Macro Research</h2>
-      <p>
-        Pelajari interpretasi komponen inflasi, perubahan ekspektasi
-        suku bunga, real yields, dan hubungan lintas aset melalui
-        studi kasus yang lebih mendalam. Materi lanjutan tersedia
-        pada jalur Premium THE DESK Academy.
-      </p>
-    </section>
-
-    <nav class="bottom-navigation" aria-label="Navigasi modul">
-      <a class="btn" href="macro.html">← BACK TO MACRO MODULES</a>
-      <a class="btn" href="macro-02.html">← PREVIOUS MODULE</a>
-      <a class="btn" href="academy.html">BACK TO ACADEMY</a>
-    </nav>
-
-    <footer>
-      <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
-      <div>Understand the Market, Before You Trade It.</div>
-    </footer>
-
-  </main>
-
-  <script>
-    (() => {
-      const form = document.getElementById("quizForm");
-      const submitButton = document.getElementById("submitQuiz");
-      const retryButton = document.getElementById("retryQuiz");
-      const result = document.getElementById("result");
-      const resultStatus = document.getElementById("resultStatus");
-      const resultScore = document.getElementById("resultScore");
-      const resultMessage = document.getElementById("resultMessage");
-      const nextPanel = document.getElementById("nextPanel");
-      const progressBar = document.getElementById("progressBar");
-
-      const correctAnswers = [1, 2, 3, 0, 2];
-      const totalQuestions = correctAnswers.length;
-      const passingScore = 80;
-
-      let submitted = false;
-
-      function updateProgress() {
-        const answered = correctAnswers.reduce((count, _, index) => {
-          const selected = form.querySelector(
-            `input[name="q${index}"]:checked`
-          );
-          return count + (selected ? 1 : 0);
-        }, 0);
-
-        progressBar.style.width =
-          `${(answered / totalQuestions) * 100}%`;
-      }
-
-      form.addEventListener("change", (event) => {
-        if (event.target.matches('input[type="radio"]')) {
-          updateProgress();
+  if (lastResult) {
+    lastResult.answers.forEach((answer, index) => {
+      const card = questionContainer.querySelector(`[data-question="${index}"]`);
+      if (!card) return;
+      const options = card.querySelectorAll(".option");
+      options.forEach((option, optionIndex) => {
+        if (optionIndex === translations[currentLang].questions[index].a) {
+          option.classList.add("correct");
+        }
+        if (answer === optionIndex && answer !== translations[currentLang].questions[index].a) {
+          option.classList.add("incorrect");
+        }
+        if (answer === optionIndex) {
+          const input = option.querySelector("input");
+          if (input) input.checked = true;
         }
       });
+    });
+  }
+}
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
+function updateProgress() {
+  const total = translations[currentLang].questions.length;
+  const answered = translations[currentLang].questions.reduce((count, _, index) => {
+    return count + (form.querySelector(`input[name="q${index}"]:checked`) ? 1 : 0);
+  }, 0);
 
-        if (submitted) return;
+  progressBar.style.width = `${answered / total * 100}%`;
+  progressTrack.setAttribute("aria-valuenow", String(answered));
+}
 
-        const unanswered = correctAnswers.filter((_, index) => {
-          return !form.querySelector(
-            `input[name="q${index}"]:checked`
-          );
-        }).length;
+function renderResult(score) {
+  const t = translations[currentLang];
+  const passed = score >= 4;
 
-        if (unanswered > 0) {
-          alert(
-            `Masih ada ${unanswered} pertanyaan yang belum dijawab. Lengkapi semua jawaban terlebih dahulu.`
-          );
-          return;
-        }
+  result.classList.add("show");
+  resultStatus.textContent = passed
+    ? (currentLang === "id" ? "LULUS · MODUL SELESAI" : "PASSED · MODULE COMPLETED")
+    : (currentLang === "id" ? "BELUM LULUS · PELAJARI LAGI" : "NOT PASSED · KEEP LEARNING");
 
-        let score = 0;
+  resultScore.textContent = `${score * 20}/100`;
+  resultMessage.textContent = passed
+    ? (currentLang === "id"
+        ? `Jawaban benar ${score} dari 5. Kamu memenuhi nilai minimum 80%.`
+        : `You answered ${score} out of 5 correctly and met the 80% passing score.`)
+    : (currentLang === "id"
+        ? `Jawaban benar ${score} dari 5. Nilai minimum 80%. Pelajari pembahasan dan coba lagi.`
+        : `You answered ${score} out of 5 correctly. The passing score is 80%. Review the explanations and try again.`);
 
-        correctAnswers.forEach((answer, index) => {
-          const selected = form.querySelector(
-            `input[name="q${index}"]:checked`
-          );
+  nextPanel.classList.toggle("show", passed);
 
-          const card = form.querySelector(
-            `[data-question="${index}"]`
-          );
+  if (passed) {
+    storageSet(PASS_KEY, "true");
+  }
+}
 
-          const options = card.querySelectorAll(".option");
-          const explanation = card.querySelector(".explanation");
+function submitQuiz(event) {
+  event.preventDefault();
+  if (submitted) return;
 
-          options.forEach((option) => {
-            const input = option.querySelector("input");
-            input.disabled = true;
+  const t = translations[currentLang];
+  const answers = [];
+  let unanswered = false;
 
-            if (Number(input.value) === answer) {
-              option.classList.add("correct");
-            }
+  t.questions.forEach((question, index) => {
+    const selected = form.querySelector(`input[name="q${index}"]:checked`);
+    if (!selected) {
+      unanswered = true;
+      return;
+    }
+    answers.push(Number(selected.value));
+  });
 
-            if (
-              input.checked &&
-              Number(input.value) !== answer
-            ) {
-              option.classList.add("incorrect");
-            }
-          });
+  if (unanswered) {
+    alert(currentLang === "id"
+      ? "Jawab semua 5 pertanyaan terlebih dahulu."
+      : "Please answer all five questions before submitting.");
+    return;
+  }
 
-          if (Number(selected.value) === answer) {
-            score++;
-          }
+  const score = answers.reduce((total, answer, index) => {
+    return total + (answer === t.questions[index].a ? 1 : 0);
+  }, 0);
 
-          explanation.classList.add("show");
-        });
+  submitted = true;
+  lastResult = { score, answers };
 
-        const percentage = Math.round(
-          (score / totalQuestions) * 100
-        );
+  renderQuestions();
+  renderResult(score);
+  submitButton.disabled = true;
+  retryButton.hidden = false;
+  updateProgress();
 
-        submitted = true;
-        result.classList.add("show");
-        resultScore.textContent = `${percentage}/100`;
+  result.scrollIntoView({ behavior:"smooth", block:"center" });
+}
 
-        if (percentage >= passingScore) {
-          resultStatus.textContent = "PASSED · MODULE COMPLETED";
-          resultMessage.textContent =
-            `Jawaban benar ${score} dari ${totalQuestions}. ` +
-            "Bagus! Kamu sudah memenuhi nilai minimum 80%.";
+form.addEventListener("submit", submitQuiz);
+form.addEventListener("change", updateProgress);
 
-          nextPanel.classList.add("show");
-        } else {
-          resultStatus.textContent = "NOT PASSED · KEEP LEARNING";
-          resultMessage.textContent =
-            `Jawaban benar ${score} dari ${totalQuestions}. ` +
-            "Nilai minimum adalah 80%. Pelajari pembahasan, lalu coba lagi.";
+retryButton.addEventListener("click", () => {
+  submitted = false;
+  lastResult = null;
+  form.reset();
 
-          retryButton.hidden = false;
-        }
+  result.classList.remove("show");
+  nextPanel.classList.toggle("show", storageGet(PASS_KEY) === "true");
+  retryButton.hidden = true;
+  submitButton.disabled = false;
 
-        submitButton.disabled = true;
+  renderQuestions();
+  updateProgress();
 
-        result.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-      });
+  document.getElementById("quiz").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+});
 
-      retryButton.addEventListener("click", () => {
-        form.reset();
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+});
 
-        form.querySelectorAll("input").forEach((input) => {
-          input.disabled = false;
-        });
+if (storageGet(PASS_KEY) === "true") {
+  nextPanel.classList.add("show");
+}
 
-        form.querySelectorAll(".option").forEach((option) => {
-          option.classList.remove("correct", "incorrect");
-        });
-
-        form.querySelectorAll(".explanation").forEach((box) => {
-          box.classList.remove("show");
-        });
-
-        result.classList.remove("show");
-        nextPanel.classList.remove("show");
-        retryButton.hidden = true;
-        submitButton.disabled = false;
-        submitted = false;
-
-        updateProgress();
-
-        document.getElementById("quiz").scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      });
-
-      updateProgress();
-    })();
-  </script>
+setLanguage(getSavedLanguage());
+</script>
 </body>
 </html>

@@ -1,1222 +1,1268 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090b0e">
-
-    <title>Module 01 - Introduction to Macroeconomics | THE DESK</title>
-
-    <meta name="description"
-        content="Pelajari dasar ekonomi makro dan hubungannya dengan pasar keuangan melalui THE DESK Academy.">
-
-    <style>
-        :root {
-            --bg: #090b0e;
-            --panel: #11151a;
-            --border: #292f37;
-            --gold: #c9a45c;
-            --gold-light: #e4c27d;
-            --text: #eef1f5;
-            --muted: #a3adba;
-            --muted-dark: #7f8996;
-            --green: #42c994;
-            --red: #f07878;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        .page {
-            width: min(100% - 40px, 912px);
-            margin: 0 auto;
-            padding: 44px 0 70px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 44px;
-            color: var(--gold);
-            font-size: 13px;
-        }
-
-        .back-link:hover {
-            color: var(--gold-light);
-        }
-
-        .eyebrow {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero {
-            padding-bottom: 34px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero h1 {
-            max-width: 760px;
-            margin-top: 16px;
-            font-size: clamp(38px, 6vw, 62px);
-            line-height: 1.08;
-            letter-spacing: -1.8px;
-        }
-
-        .hero-description {
-            max-width: 750px;
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.9;
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 24px;
-        }
-
-        .meta-item {
-            padding: 5px 10px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--text);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .article-section {
-            padding: 30px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-number {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            margin-top: 8px;
-            font-size: 23px;
-            line-height: 1.4;
-            letter-spacing: -0.3px;
-        }
-
-        h3 {
-            margin-top: 22px;
-            margin-bottom: 8px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .article-section p {
-            margin-top: 12px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.95;
-        }
-
-        .article-section strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .insight {
-            margin-top: 20px;
-            padding: 18px 20px;
-            background: #11151a;
-            border: 1px solid #423723;
-            border-left: 3px solid var(--gold);
-            border-radius: 4px;
-        }
-
-        .insight-label {
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .insight p {
-            margin-top: 8px;
-            color: var(--text);
-            font-size: 13px;
-            line-height: 1.85;
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .concept-card {
-            padding: 17px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 5px;
-        }
-
-        .concept-card .concept-label {
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .concept-card h3 {
-            margin-top: 8px;
-            margin-bottom: 5px;
-            font-size: 15px;
-        }
-
-        .concept-card p {
-            margin-top: 0;
-            font-size: 12px;
-            line-height: 1.8;
-        }
-
-        .example-box {
-            margin-top: 18px;
-            padding: 20px;
-            background: #0e1115;
-            border: 1px solid var(--border);
-            border-radius: 5px;
-        }
-
-        .example-box h3 {
-            margin-top: 0;
-            color: var(--gold);
-        }
-
-        .example-box p {
-            margin-top: 10px;
-        }
-
-        .quiz-section {
-            padding-top: 38px;
-        }
-
-        .quiz-intro {
-            margin-top: 12px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .quiz-progress {
-            height: 4px;
-            margin-top: 22px;
-            overflow: hidden;
-            background: #242a32;
-            border-radius: 10px;
-        }
-
-        .quiz-progress-bar {
-            width: 0%;
-            height: 100%;
-            background: var(--gold);
-            transition: width 0.2s ease;
-        }
-
-        .question-card {
-            margin-top: 18px;
-            padding: 22px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-        }
-
-        .question-number {
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-        }
-
-        .question-card h3 {
-            margin-top: 9px;
-            margin-bottom: 16px;
-            font-size: 16px;
-        }
-
-        .options {
-            display: grid;
-            gap: 9px;
-        }
-
-        .option {
-            display: flex;
-            align-items: flex-start;
-            gap: 11px;
-            padding: 12px 13px;
-            background: #0c0f13;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: border-color 0.15s ease;
-        }
-
-        .option:hover {
-            border-color: #655333;
-        }
-
-        .option input {
-            margin-top: 5px;
-            accent-color: var(--gold);
-            flex-shrink: 0;
-        }
-
-        .option span {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .option:has(input:checked) {
-            border-color: var(--gold);
-        }
-
-        .option:has(input:checked) span {
-            color: var(--text);
-        }
-
-        .option.correct {
-            border-color: var(--green);
-        }
-
-        .option.incorrect {
-            border-color: var(--red);
-        }
-
-        .explanation {
-            display: none;
-            margin-top: 14px;
-            padding: 14px;
-            background: #0c0f13;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 1.85;
-        }
-
-        .explanation.show {
-            display: block;
-        }
-
-        .explanation strong {
-            color: var(--gold);
-        }
-
-        .quiz-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 42px;
-            padding: 10px 16px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: transparent;
-            color: var(--text);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .btn:hover {
-            border-color: var(--gold);
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: #090b0e;
-        }
-
-        .btn-primary:hover {
-            background: var(--gold-light);
-            border-color: var(--gold-light);
-        }
-
-        .btn:disabled {
-            opacity: 0.45;
-            cursor: not-allowed;
-        }
-
-        .result {
-            display: none;
-            margin-top: 22px;
-            padding: 22px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-        }
-
-        .result.show {
-            display: block;
-        }
-
-        .result-status {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .result-score {
-            margin-top: 8px;
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .result-message {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .next-panel {
-            display: none;
-            margin-top: 22px;
-            padding: 22px;
-            background: #111711;
-            border: 1px solid #294c3d;
-            border-radius: 6px;
-        }
-
-        .next-panel.show {
-            display: block;
-        }
-
-        .next-panel h3 {
-            margin-top: 0;
-            color: var(--green);
-        }
-
-        .next-panel p {
-            margin: 8px 0 16px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .premium-panel {
-            margin-top: 38px;
-            padding: 24px;
-            background: #11120f;
-            border: 1px solid #383126;
-            border-radius: 6px;
-        }
-
-        .premium-label {
-            color: #b79a5e;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .premium-panel h2 {
-            font-size: 20px;
-        }
-
-        .premium-panel p {
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.9;
-        }
-
-        .bottom-navigation {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 48px;
-            padding-top: 22px;
-            border-top: 1px solid var(--border);
-            color: var(--muted-dark);
-            font-size: 11px;
-        }
-
-        footer strong {
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 600px) {
-            .page {
-                width: min(100% - 32px, 912px);
-                padding-top: 28px;
-            }
-
-            .back-link {
-                margin-bottom: 35px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .concept-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .question-card {
-                padding: 17px;
-            }
-
-            .bottom-navigation {
-                flex-direction: column;
-            }
-
-            .bottom-navigation .btn {
-                width: 100%;
-            }
-
-            footer {
-                flex-direction: column;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition: none !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <title>Module 01 - Introduction to Macroeconomics | THE DESK</title>
+  <meta name="description" content="Pelajari dasar ekonomi makro dan hubungannya dengan pasar keuangan melalui THE DESK Academy.">
+
+  <style>
+    :root {
+      --bg: #090b0e;
+      --panel: #11151a;
+      --border: #292f37;
+      --gold: #c9a45c;
+      --gold-light: #e4c27d;
+      --text: #eef1f5;
+      --muted: #a3adba;
+      --muted-dark: #7f8996;
+      --green: #42c994;
+      --red: #f07878;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100% - 40px, 912px);
+      margin: 0 auto;
+      padding: 32px 0 70px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 38px;
+    }
+
+    .back-link {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .back-link:hover {
+      color: var(--gold-light);
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 5px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--panel);
+    }
+
+    .language-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .language-switch button.active {
+      background: var(--gold);
+      color: #090b0e;
+    }
+
+    .eyebrow,
+    .section-number,
+    .concept-label,
+    .insight-label,
+    .premium-label,
+    .question-number,
+    .result-status {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow,
+    .section-number,
+    .concept-label,
+    .insight-label,
+    .premium-label,
+    .question-number {
+      color: var(--gold);
+    }
+
+    .hero {
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-top: 16px;
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .meta-item {
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .article-section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      margin-top: 8px;
+      font-size: 23px;
+      line-height: 1.4;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .article-section p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .article-section strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .insight {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: var(--panel);
+      border: 1px solid #423723;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+    }
+
+    .insight p {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .concept-card {
+      padding: 17px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
+
+    .concept-card h3 {
+      margin-top: 8px;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    .concept-card p {
+      margin-top: 0;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .example-box {
+      margin-top: 18px;
+      padding: 20px;
+      background: #0e1115;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+    }
+
+    .example-box h3 {
+      margin-top: 0;
+      color: var(--gold);
+    }
+
+    .example-box p {
+      margin-top: 10px;
+    }
+
+    .quiz-section {
+      padding-top: 38px;
+    }
+
+    .quiz-intro {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quiz-progress {
+      height: 4px;
+      margin-top: 22px;
+      overflow: hidden;
+      background: #242a32;
+      border-radius: 10px;
+    }
+
+    .quiz-progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      transition: width 0.2s ease;
+    }
+
+    .question-card {
+      margin-top: 18px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .question-card h3 {
+      margin-top: 9px;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px 13px;
+      background: #0c0f13;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+
+    .option:hover {
+      border-color: #655333;
+    }
+
+    .option input {
+      margin-top: 5px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .option span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .option:has(input:checked) {
+      border-color: var(--gold);
+    }
+
+    .option:has(input:checked) span {
+      color: var(--text);
+    }
+
+    .option.correct {
+      border-color: var(--green);
+    }
+
+    .option.incorrect {
+      border-color: var(--red);
+    }
+
+    .explanation {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      background: #0c0f13;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.85;
+    }
+
+    .explanation.show {
+      display: block;
+    }
+
+    .explanation strong {
+      color: var(--gold);
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--gold);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #090b0e;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .result,
+    .next-panel {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .result.show,
+    .next-panel.show {
+      display: block;
+    }
+
+    .result-status {
+      color: var(--gold);
+    }
+
+    .result-score {
+      margin-top: 8px;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .result-message {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .next-panel {
+      background: #111711;
+      border-color: #294c3d;
+    }
+
+    .next-panel h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .next-panel p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .premium-panel {
+      margin-top: 38px;
+      padding: 24px;
+      background: #11120f;
+      border: 1px solid #383126;
+      border-radius: 6px;
+    }
+
+    .premium-label {
+      color: #b79a5e;
+    }
+
+    .premium-panel h2 {
+      font-size: 20px;
+    }
+
+    .premium-panel p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .bottom-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 48px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-dark);
+      font-size: 11px;
+    }
+
+    footer strong {
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: min(100% - 32px, 912px);
+        padding-top: 22px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        margin-bottom: 30px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .question-card {
+        padding: 17px;
+      }
+
+      .bottom-navigation {
+        flex-direction: column;
+      }
+
+      .bottom-navigation .btn {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main class="page">
-
-        <a class="back-link" href="macro.html">
-            ← Back to Macro &amp; News Impact
-        </a>
-
-        <header class="hero">
-            <div class="eyebrow">THE DESK ACADEMY · MODULE 01</div>
-
-            <h1>Introduction to<br>Macroeconomics.</h1>
-
-            <p class="hero-description">
-                Memahami gambaran besar ekonomi, mengenali faktor yang
-                memengaruhi pasar keuangan, dan mempelajari bagaimana data
-                ekonomi dapat membentuk ekspektasi pelaku pasar.
-            </p>
-
-            <div class="hero-meta">
-                <span class="meta-item">FREE · BASIC</span>
-                <span class="meta-item">BEGINNER</span>
-                <span class="meta-item">8 MIN READ</span>
-            </div>
-        </header>
-
-        <!-- SECTION 01 -->
-        <section class="article-section">
-            <div class="section-number">01 · Macroeconomics</div>
-            <h2>Apa Itu Ekonomi Makro?</h2>
-
-            <p>
-                Ekonomi makro adalah cabang ilmu ekonomi yang mempelajari
-                kondisi perekonomian secara keseluruhan. Fokusnya mencakup
-                pertumbuhan ekonomi, inflasi, tenaga kerja, konsumsi,
-                investasi, serta kebijakan pemerintah dan bank sentral.
-            </p>
-
-            <p>
-                Dalam pasar keuangan, informasi makro membantu pelaku pasar
-                memahami kondisi ekonomi dan memperkirakan kemungkinan arah
-                kebijakan moneter. Informasi tersebut dapat memengaruhi
-                ekspektasi terhadap suku bunga, mata uang, obligasi, saham,
-                dan komoditas seperti emas.
-            </p>
-
-            <div class="insight">
-                <div class="insight-label">Key Insight</div>
-                <p>
-                    Ekonomi makro membantu menjelaskan konteks di balik
-                    pergerakan pasar. Namun, data ekonomi bukan alat untuk
-                    memastikan arah harga berikutnya.
-                </p>
-            </div>
-        </section>
-
-        <!-- SECTION 02 -->
-        <section class="article-section">
-            <div class="section-number">02 · Key Economic Factors</div>
-            <h2>Empat Faktor Ekonomi yang Perlu Dipahami</h2>
-
-            <div class="concept-grid">
-                <div class="concept-card">
-                    <div class="concept-label">Factor 01</div>
-                    <h3>Pertumbuhan Ekonomi</h3>
-                    <p>
-                        Menggambarkan perkembangan aktivitas ekonomi. Produk
-                        Domestik Bruto atau GDP merupakan salah satu indikator
-                        yang digunakan untuk mengukurnya.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Factor 02</div>
-                    <h3>Inflasi</h3>
-                    <p>
-                        Mengukur kenaikan tingkat harga barang dan jasa secara
-                        umum. Inflasi dapat memengaruhi daya beli dan keputusan
-                        kebijakan moneter.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Factor 03</div>
-                    <h3>Pasar Tenaga Kerja</h3>
-                    <p>
-                        Data pekerjaan, tingkat pengangguran, dan pertumbuhan
-                        upah membantu menunjukkan kondisi pasar tenaga kerja.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Factor 04</div>
-                    <h3>Suku Bunga</h3>
-                    <p>
-                        Suku bunga memengaruhi biaya pinjaman, keputusan
-                        investasi, dan daya tarik relatif berbagai aset keuangan.
-                    </p>
-                </div>
-            </div>
-
-            <p>
-                Faktor-faktor tersebut saling berhubungan. Sebagai contoh,
-                pertumbuhan ekonomi yang kuat dapat meningkatkan permintaan.
-                Jika tekanan permintaan mendorong inflasi, bank sentral dapat
-                mempertimbangkan kebijakan moneter yang lebih ketat.
-                Namun, keputusan kebijakan tetap bergantung pada keseluruhan
-                kondisi ekonomi.
-            </p>
-        </section>
-
-        <!-- SECTION 03 -->
-        <section class="article-section">
-            <div class="section-number">03 · Central Banks</div>
-            <h2>Mengapa Bank Sentral Penting?</h2>
-
-            <p>
-                Bank sentral memiliki peran penting dalam kebijakan moneter.
-                Di Amerika Serikat, Federal Reserve atau The Fed menetapkan
-                target suku bunga kebijakan dan menggunakan berbagai
-                instrumen untuk mendukung mandatnya.
-            </p>
-
-            <p>
-                Pelaku pasar memperhatikan keputusan suku bunga, pernyataan
-                pejabat bank sentral, proyeksi ekonomi, dan konferensi pers.
-                Informasi tersebut dapat mengubah perkiraan pasar mengenai
-                arah kebijakan moneter berikutnya.
-            </p>
-
-            <div class="example-box">
-                <h3>Contoh dalam Konteks Pasar</h3>
-
-                <p>
-                    Misalnya, data inflasi Amerika Serikat lebih tinggi
-                    daripada perkiraan pasar. Pelaku pasar dapat menilai bahwa
-                    The Fed memiliki alasan lebih kuat untuk mempertahankan
-                    suku bunga pada tingkat tinggi.
-                </p>
-
-                <p>
-                    Ekspektasi tersebut berpotensi memengaruhi USD, Treasury
-                    Yields, dan emas. Namun, reaksi aktual tidak selalu sama
-                    karena pasar juga mempertimbangkan ekspektasi sebelumnya,
-                    rincian data, posisi pelaku pasar, dan perkembangan lain.
-                </p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">Key Insight</div>
-                <p>
-                    Pasar tidak hanya bereaksi terhadap keputusan bank sentral,
-                    tetapi juga terhadap perbedaan antara keputusan tersebut
-                    dan apa yang sebelumnya sudah diperkirakan.
-                </p>
-            </div>
-        </section>
-
-        <!-- SECTION 04 -->
-        <section class="article-section">
-            <div class="section-number">04 · Market Relationships</div>
-            <h2>Hubungan Ekonomi Makro dengan Aset Keuangan</h2>
-
-            <p>
-                Informasi ekonomi dapat memengaruhi beberapa kelompok aset
-                melalui jalur yang berbeda. Memahami hubungan ini membantu
-                trader menyusun konteks sebelum membaca pergerakan harga.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept-card">
-                    <div class="concept-label">Currencies</div>
-                    <h3>Mata Uang</h3>
-                    <p>
-                        Perubahan ekspektasi suku bunga relatif antarnegara dapat
-                        memengaruhi daya tarik suatu mata uang.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Bonds</div>
-                    <h3>Obligasi &amp; Yields</h3>
-                    <p>
-                        Ekspektasi suku bunga dan inflasi merupakan sebagian
-                        faktor yang memengaruhi imbal hasil obligasi.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Commodities</div>
-                    <h3>Emas</h3>
-                    <p>
-                        Emas dapat dipengaruhi oleh real yields, USD, permintaan
-                        aset aman, serta kondisi geopolitik dan likuiditas.
-                    </p>
-                </div>
-
-                <div class="concept-card">
-                    <div class="concept-label">Equities</div>
-                    <h3>Saham</h3>
-                    <p>
-                        Pertumbuhan ekonomi, laba perusahaan, biaya pendanaan,
-                        dan tingkat diskonto dapat memengaruhi valuasi saham.
-                    </p>
-                </div>
-            </div>
-
-            <p>
-                Hubungan tersebut tidak bersifat tetap. Sebuah berita yang
-                sama dapat menghasilkan respons berbeda tergantung pada
-                kondisi pasar, ekspektasi, dan faktor lain yang sedang
-                dominan.
-            </p>
-        </section>
-
-        <!-- SECTION 05 -->
-        <section class="article-section">
-            <div class="section-number">05 · Practical Framework</div>
-            <h2>Cara Membaca Informasi Makro</h2>
-
-            <p>
-                Sebelum menarik kesimpulan dari sebuah berita ekonomi,
-                gunakan kerangka sederhana berikut.
-            </p>
-
-            <div class="example-box">
-                <h3>1. Identifikasi data atau peristiwa</h3>
-                <p>
-                    Kenali apakah informasi berkaitan dengan inflasi, tenaga
-                    kerja, pertumbuhan ekonomi, atau kebijakan bank sentral.
-                </p>
-
-                <h3>2. Periksa ekspektasi pasar</h3>
-                <p>
-                    Bandingkan hasil aktual dengan perkiraan yang tersedia.
-                    Jangan menilai angka secara terpisah dari konteksnya.
-                </p>
-
-                <h3>3. Pahami jalur pengaruhnya</h3>
-                <p>
-                    Pertimbangkan bagaimana informasi dapat mengubah
-                    ekspektasi suku bunga, USD, Treasury Yields, atau
-                    prospek pertumbuhan ekonomi.
-                </p>
-
-                <h3>4. Amati konfirmasi harga</h3>
-                <p>
-                    Perhatikan respons harga, volatilitas, dan struktur pasar.
-                    Jangan menganggap satu berita sebagai sinyal entry
-                    yang pasti.
-                </p>
-            </div>
-
-            <div class="insight">
-                <div class="insight-label">Module Summary</div>
-                <p>
-                    Ekonomi makro memberi kerangka untuk memahami alasan
-                    pasar bergerak. Gunakan data untuk membangun konteks,
-                    lalu evaluasi respons harga dan tetap prioritaskan
-                    manajemen risiko.
-                </p>
-            </div>
-        </section>
-
-        <!-- QUIZ -->
-        <section class="quiz-section" id="quiz">
-            <div class="section-number">Knowledge Check</div>
-            <h2>Uji Pemahaman Kamu</h2>
-
-            <p class="quiz-intro">
-                Jawab 5 pertanyaan berikut. Kamu perlu memperoleh nilai
-                minimal 80% atau 4 jawaban benar untuk membuka Module 02.
-            </p>
-
-            <div class="quiz-progress" aria-label="Progres kuis">
-                <div class="quiz-progress-bar" id="progressBar"></div>
-            </div>
-
-            <form id="quizForm">
-
-                <div class="question-card" data-question="0">
-                    <div class="question-number">Question 01 of 05</div>
-                    <h3>Apa fokus utama ekonomi makro?</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0" value="0">
-                            <span>Mempelajari satu perusahaan secara terpisah.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q0" value="1">
-                            <span>Mempelajari kondisi ekonomi secara keseluruhan.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q0" value="2">
-                            <span>Menentukan entry trading tanpa analisis lain.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q0" value="3">
-                            <span>Memprediksi seluruh pergerakan harga dengan pasti.</span>
-                        </label>
-                    </div>
-
-                    <div class="explanation">
-                        <strong>Pembahasan:</strong>
-                        Ekonomi makro mempelajari variabel agregat seperti
-                        inflasi, pertumbuhan ekonomi, tenaga kerja, dan kebijakan
-                        moneter.
-                    </div>
-                </div>
-
-                <div class="question-card" data-question="1">
-                    <div class="question-number">Question 02 of 05</div>
-                    <h3>Manakah yang merupakan indikator inflasi?</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q1" value="0">
-                            <span>Jumlah saham yang diperdagangkan.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q1" value="1">
-                            <span>Harga pembukaan suatu instrumen.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q1" value="2">
-                            <span>Consumer Price Index (CPI).</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q1" value="3">
-                            <span>Jumlah pending order trader.</span>
-                        </label>
-                    </div>
-
-                    <div class="explanation">
-                        <strong>Pembahasan:</strong>
-                        CPI mengukur perubahan harga sekeranjang barang dan
-                        jasa konsumen dan merupakan salah satu indikator
-                        yang digunakan untuk memantau inflasi.
-                    </div>
-                </div>
-
-                <div class="question-card" data-question="2">
-                    <div class="question-number">Question 03 of 05</div>
-                    <h3>Mengapa keputusan The Fed dapat memengaruhi pasar?</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q2" value="0">
-                            <span>Karena keputusan tersebut selalu membuat USD naik.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q2" value="1">
-                            <span>Karena keputusan tersebut menghilangkan semua risiko pasar.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q2" value="2">
-                            <span>Karena semua aset selalu bergerak dalam arah yang sama.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q2" value="3">
-                            <span>Karena keputusan tersebut dapat mengubah ekspektasi kebijakan moneter.</span>
-                        </label>
-                    </div>
-
-                    <div class="explanation">
-                        <strong>Pembahasan:</strong>
-                        Kebijakan The Fed dapat mengubah ekspektasi suku bunga,
-                        biaya pendanaan, dan valuasi aset. Arah reaksi pasar
-                        tetap bergantung pada konteks dan ekspektasi sebelumnya.
-                    </div>
-                </div>
-
-                <div class="question-card" data-question="3">
-                    <div class="question-number">Question 04 of 05</div>
-                    <h3>Jika CPI lebih tinggi dari perkiraan, apa yang sebaiknya dilakukan trader?</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3" value="0">
-                            <span>Langsung membeli USD tanpa melihat kondisi lain.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q3" value="1">
-                            <span>Menganggap emas pasti turun.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q3" value="2">
-                            <span>Mengevaluasi ekspektasi suku bunga, konteks pasar, dan respons harga.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q3" value="3">
-                            <span>Mengabaikan manajemen risiko karena berita sudah jelas.</span>
-                        </label>
-                    </div>
-
-                    <div class="explanation">
-                        <strong>Pembahasan:</strong>
-                        Data CPI perlu dinilai bersama ekspektasi pasar,
-                        rincian laporan, respons yields dan USD, serta kondisi
-                        harga. Angka yang tinggi tidak menjamin satu arah pasar.
-                    </div>
-                </div>
-
-                <div class="question-card" data-question="4">
-                    <div class="question-number">Question 05 of 05</div>
-                    <h3>Apakah berita ekonomi selalu menentukan arah harga?</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q4" value="0">
-                            <span>Ya, harga selalu mengikuti berita secara langsung.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q4" value="1">
-                            <span>Tidak. Ekspektasi, posisi pasar, likuiditas, dan faktor lain juga berpengaruh.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q4" value="2">
-                            <span>Ya, terutama pada semua rilis berita berdampak tinggi.</span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="q4" value="3">
-                            <span>Tidak, karena data ekonomi tidak pernah berpengaruh.</span>
-                        </label>
-                    </div>
-
-                    <div class="explanation">
-                        <strong>Pembahasan:</strong>
-                        Berita merupakan salah satu faktor penggerak pasar.
-                        Reaksi aktual dipengaruhi ekspektasi, kondisi likuiditas,
-                        positioning, dan perkembangan lain.
-                    </div>
-                </div>
-
-                <div class="quiz-actions">
-                    <button class="btn btn-primary" type="submit" id="submitQuiz">
-                        SUBMIT ANSWERS →
-                    </button>
-
-                    <button class="btn" type="button" id="retryQuiz" hidden>
-                        TRY AGAIN
-                    </button>
-                </div>
-
-            </form>
-
-            <div class="result" id="result" aria-live="polite">
-                <div class="result-status" id="resultStatus">QUIZ RESULT</div>
-                <div class="result-score" id="resultScore">0/100</div>
-                <p class="result-message" id="resultMessage"></p>
-            </div>
-
-            <div class="next-panel" id="nextPanel">
-                <h3>Module 01 Completed</h3>
-                <p>
-                    Kamu telah memenuhi nilai minimum. Lanjutkan ke Module 02
-                    untuk mempelajari indikator ekonomi yang penting bagi pasar.
-                </p>
-                <a class="btn btn-primary" href="macro-02.html">
-                    NEXT MODULE 02 →
-                </a>
-            </div>
-        </section>
-
-        <!-- PREMIUM -->
-        <section class="premium-panel">
-            <div class="premium-label">Beyond the Basics</div>
-
-            <h2>Advanced Macro Research</h2>
-
-            <p>
-                Kembangkan pemahaman tentang hubungan antarindikator,
-                ekspektasi kebijakan bank sentral, Treasury Yields, USD,
-                emas, dan respons lintas aset melalui studi kasus yang lebih
-                mendalam. Materi lanjutan akan tersedia pada pembelajaran
-                Premium THE DESK Academy.
-            </p>
-        </section>
-
-        <nav class="bottom-navigation" aria-label="Navigasi modul">
-            <a class="btn" href="macro.html">
-                ← BACK TO MACRO MODULES
-            </a>
-
-            <a class="btn" href="academy.html">
-                BACK TO ACADEMY
-            </a>
-        </nav>
-
-        <footer>
-            <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
-            <div>Understand the Market, Before You Trade It.</div>
-        </footer>
-
-    </main>
-
-    <script>
-        (() => {
-            const form = document.getElementById("quizForm");
-            const submitButton = document.getElementById("submitQuiz");
-            const retryButton = document.getElementById("retryQuiz");
-            const result = document.getElementById("result");
-            const resultStatus = document.getElementById("resultStatus");
-            const resultScore = document.getElementById("resultScore");
-            const resultMessage = document.getElementById("resultMessage");
-            const nextPanel = document.getElementById("nextPanel");
-            const progressBar = document.getElementById("progressBar");
-
-            const correctAnswers = [1, 2, 3, 2, 1];
-            const totalQuestions = correctAnswers.length;
-            const passingScore = 80;
-
-            let submitted = false;
-
-            function updateProgress() {
-                const answered = correctAnswers.reduce((count, answer, index) => {
-                    const selected = form.querySelector(
-                        `input[name="q${index}"]:checked`
-                    );
-
-                    return count + (selected ? 1 : 0);
-                }, 0);
-
-                progressBar.style.width =
-                    `${(answered / totalQuestions) * 100}%`;
-            }
-
-            form.addEventListener("change", (event) => {
-                if (event.target.matches('input[type="radio"]')) {
-                    updateProgress();
-                }
-            });
-
-            form.addEventListener("submit", (event) => {
-                event.preventDefault();
-
-                if (submitted) return;
-
-                const unanswered = correctAnswers.filter((_, index) => {
-                    return !form.querySelector(
-                        `input[name="q${index}"]:checked`
-                    );
-                }).length;
-
-                if (unanswered > 0) {
-                    alert(
-                        `Masih ada ${unanswered} pertanyaan yang belum dijawab. Lengkapi semua jawaban terlebih dahulu.`
-                    );
-                    return;
-                }
-
-                let score = 0;
-
-                correctAnswers.forEach((answer, index) => {
-                    const selected = form.querySelector(
-                        `input[name="q${index}"]:checked`
-                    );
-
-                    const card = form.querySelector(
-                        `[data-question="${index}"]`
-                    );
-
-                    const options = card.querySelectorAll(".option");
-                    const explanation = card.querySelector(".explanation");
-
-                    options.forEach((option) => {
-                        const input = option.querySelector("input");
-                        input.disabled = true;
-
-                        if (Number(input.value) === answer) {
-                            option.classList.add("correct");
-                        }
-
-                        if (
-                            input.checked &&
-                            Number(input.value) !== answer
-                        ) {
-                            option.classList.add("incorrect");
-                        }
-                    });
-
-                    if (Number(selected.value) === answer) {
-                        score++;
-                    }
-
-                    explanation.classList.add("show");
-                });
-
-                const percentage = Math.round(
-                    (score / totalQuestions) * 100
-                );
-
-                submitted = true;
-
-                result.classList.add("show");
-                resultScore.textContent = `${percentage}/100`;
-
-                if (percentage >= passingScore) {
-                    resultStatus.textContent = "PASSED · MODULE COMPLETED";
-
-                    resultMessage.textContent =
-                        `Jawaban benar ${score} dari ${totalQuestions}. ` +
-                        "Bagus! Kamu sudah memenuhi nilai minimum 80%.";
-
-                    nextPanel.classList.add("show");
-                } else {
-                    resultStatus.textContent = "NOT PASSED · KEEP LEARNING";
-
-                    resultMessage.textContent =
-                        `Jawaban benar ${score} dari ${totalQuestions}. ` +
-                        "Nilai minimum adalah 80%. Pelajari pembahasan di atas, lalu coba lagi.";
-
-                    retryButton.hidden = false;
-                }
-
-                submitButton.disabled = true;
-
-                result.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-            });
-
-            retryButton.addEventListener("click", () => {
-                form.reset();
-
-                form.querySelectorAll("input").forEach((input) => {
-                    input.disabled = false;
-                });
-
-                form.querySelectorAll(".option").forEach((option) => {
-                    option.classList.remove("correct", "incorrect");
-                });
-
-                form.querySelectorAll(".explanation").forEach((box) => {
-                    box.classList.remove("show");
-                });
-
-                result.classList.remove("show");
-                nextPanel.classList.remove("show");
-
-                retryButton.hidden = true;
-                submitButton.disabled = false;
-                submitted = false;
-
-                updateProgress();
-
-                document.getElementById("quiz").scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            });
-
-            updateProgress();
-        })();
-    </script>
+<main class="page">
+
+  <div class="topbar">
+    <a class="back-link" href="macro.html" data-i18n="back">← Kembali ke Macro &amp; News Impact</a>
+
+    <div class="language-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="id" class="active" aria-pressed="true">ID</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow" data-i18n="eyebrow">THE DESK ACADEMY · MODULE 01</div>
+
+    <h1 data-i18n="title">Introduction to<br>Macroeconomics.</h1>
+
+    <p class="hero-description" data-i18n="description">
+      Memahami gambaran besar ekonomi, mengenali faktor yang memengaruhi pasar keuangan,
+      dan mempelajari bagaimana data ekonomi dapat membentuk ekspektasi pelaku pasar.
+    </p>
+
+    <div class="hero-meta">
+      <span class="meta-item" data-i18n="free">FREE · BASIC</span>
+      <span class="meta-item" data-i18n="level">BEGINNER</span>
+      <span class="meta-item" data-i18n="read">8 MIN READ</span>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s1num">01 · Macroeconomics</div>
+    <h2 data-i18n="s1title">Apa Itu Ekonomi Makro?</h2>
+
+    <p data-i18n="s1p1">
+      Ekonomi makro adalah cabang ilmu ekonomi yang mempelajari kondisi perekonomian
+      secara keseluruhan. Fokusnya mencakup pertumbuhan ekonomi, inflasi, tenaga kerja,
+      konsumsi, investasi, serta kebijakan pemerintah dan bank sentral.
+    </p>
+
+    <p data-i18n="s1p2">
+      Dalam pasar keuangan, informasi makro membantu pelaku pasar memahami kondisi ekonomi
+      dan memperkirakan kemungkinan arah kebijakan moneter. Informasi tersebut dapat
+      memengaruhi ekspektasi terhadap suku bunga, mata uang, obligasi, saham, dan komoditas
+      seperti emas.
+    </p>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="key">Key Insight</div>
+      <p data-i18n="s1insight">
+        Ekonomi makro membantu menjelaskan konteks di balik pergerakan pasar.
+        Namun, data ekonomi bukan alat untuk memastikan arah harga berikutnya.
+      </p>
+    </div>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s2num">02 · Key Economic Factors</div>
+    <h2 data-i18n="s2title">Empat Faktor Ekonomi yang Perlu Dipahami</h2>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="factor1">Factor 01</div>
+        <h3 data-i18n="growth">Pertumbuhan Ekonomi</h3>
+        <p data-i18n="growthp">
+          Menggambarkan perkembangan aktivitas ekonomi. Produk Domestik Bruto atau GDP
+          merupakan salah satu indikator yang digunakan untuk mengukurnya.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="factor2">Factor 02</div>
+        <h3 data-i18n="inflation">Inflasi</h3>
+        <p data-i18n="inflationp">
+          Mengukur kenaikan tingkat harga barang dan jasa secara umum. Inflasi dapat
+          memengaruhi daya beli dan keputusan kebijakan moneter.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="factor3">Factor 03</div>
+        <h3 data-i18n="labor">Pasar Tenaga Kerja</h3>
+        <p data-i18n="laborp">
+          Data pekerjaan, tingkat pengangguran, dan pertumbuhan upah membantu menunjukkan
+          kondisi pasar tenaga kerja.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="factor4">Factor 04</div>
+        <h3 data-i18n="rates">Suku Bunga</h3>
+        <p data-i18n="ratesp">
+          Suku bunga memengaruhi biaya pinjaman, keputusan investasi, dan daya tarik relatif
+          berbagai aset keuangan.
+        </p>
+      </div>
+    </div>
+
+    <p data-i18n="s2p">
+      Faktor-faktor tersebut saling berhubungan. Sebagai contoh, pertumbuhan ekonomi yang
+      kuat dapat meningkatkan permintaan. Jika tekanan permintaan mendorong inflasi, bank
+      sentral dapat mempertimbangkan kebijakan moneter yang lebih ketat. Namun, keputusan
+      kebijakan tetap bergantung pada keseluruhan kondisi ekonomi.
+    </p>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s3num">03 · Central Banks</div>
+    <h2 data-i18n="s3title">Mengapa Bank Sentral Penting?</h2>
+
+    <p data-i18n="s3p1">
+      Bank sentral memiliki peran penting dalam kebijakan moneter. Di Amerika Serikat,
+      Federal Reserve atau The Fed menetapkan target suku bunga kebijakan dan menggunakan
+      berbagai instrumen untuk mendukung mandatnya.
+    </p>
+
+    <p data-i18n="s3p2">
+      Pelaku pasar memperhatikan keputusan suku bunga, pernyataan pejabat bank sentral,
+      proyeksi ekonomi, dan konferensi pers. Informasi tersebut dapat mengubah perkiraan
+      pasar mengenai arah kebijakan moneter berikutnya.
+    </p>
+
+    <div class="example-box">
+      <h3 data-i18n="example">Contoh dalam Konteks Pasar</h3>
+
+      <p data-i18n="s3example1">
+        Misalnya, data inflasi Amerika Serikat lebih tinggi daripada perkiraan pasar.
+        Pelaku pasar dapat menilai bahwa The Fed memiliki alasan lebih kuat untuk
+        mempertahankan suku bunga pada tingkat tinggi.
+      </p>
+
+      <p data-i18n="s3example2">
+        Ekspektasi tersebut berpotensi memengaruhi USD, Treasury Yields, dan emas. Namun,
+        reaksi aktual tidak selalu sama karena pasar juga mempertimbangkan ekspektasi
+        sebelumnya, rincian data, posisi pelaku pasar, dan perkembangan lain.
+      </p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="key">Key Insight</div>
+      <p data-i18n="s3insight">
+        Pasar tidak hanya bereaksi terhadap keputusan bank sentral, tetapi juga terhadap
+        perbedaan antara keputusan tersebut dan apa yang sebelumnya sudah diperkirakan.
+      </p>
+    </div>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s4num">04 · Market Relationships</div>
+    <h2 data-i18n="s4title">Hubungan Ekonomi Makro dengan Aset Keuangan</h2>
+
+    <p data-i18n="s4p">
+      Informasi ekonomi dapat memengaruhi beberapa kelompok aset melalui jalur yang berbeda.
+      Memahami hubungan ini membantu trader menyusun konteks sebelum membaca pergerakan harga.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="currencies">Currencies</div>
+        <h3 data-i18n="currencytitle">Mata Uang</h3>
+        <p data-i18n="currencyp">
+          Perubahan ekspektasi suku bunga relatif antarnegara dapat memengaruhi daya tarik
+          suatu mata uang.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="bonds">Bonds</div>
+        <h3 data-i18n="bondstitle">Obligasi &amp; Yields</h3>
+        <p data-i18n="bondsp">
+          Ekspektasi suku bunga dan inflasi merupakan sebagian faktor yang memengaruhi
+          imbal hasil obligasi.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="commodities">Commodities</div>
+        <h3 data-i18n="goldtitle">Emas</h3>
+        <p data-i18n="goldp">
+          Emas dapat dipengaruhi oleh real yields, USD, permintaan aset aman, serta kondisi
+          geopolitik dan likuiditas.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-label" data-i18n="equities">Equities</div>
+        <h3 data-i18n="equitiestitle">Saham</h3>
+        <p data-i18n="equitiesp">
+          Pertumbuhan ekonomi, laba perusahaan, biaya pendanaan, dan tingkat diskonto
+          dapat memengaruhi valuasi saham.
+        </p>
+      </div>
+    </div>
+
+    <p data-i18n="s4p2">
+      Hubungan tersebut tidak bersifat tetap. Sebuah berita yang sama dapat menghasilkan
+      respons berbeda tergantung pada kondisi pasar, ekspektasi, dan faktor lain yang
+      sedang dominan.
+    </p>
+  </section>
+
+  <section class="article-section">
+    <div class="section-number" data-i18n="s5num">05 · Practical Framework</div>
+    <h2 data-i18n="s5title">Cara Membaca Informasi Makro</h2>
+
+    <p data-i18n="s5p">
+      Sebelum menarik kesimpulan dari sebuah berita ekonomi, gunakan kerangka sederhana berikut.
+    </p>
+
+    <div class="example-box">
+      <h3 data-i18n="step1">1. Identifikasi data atau peristiwa</h3>
+      <p data-i18n="step1p">
+        Kenali apakah informasi berkaitan dengan inflasi, tenaga kerja, pertumbuhan ekonomi,
+        atau kebijakan bank sentral.
+      </p>
+
+      <h3 data-i18n="step2">2. Periksa ekspektasi pasar</h3>
+      <p data-i18n="step2p">
+        Bandingkan hasil aktual dengan perkiraan yang tersedia. Jangan menilai angka secara
+        terpisah dari konteksnya.
+      </p>
+
+      <h3 data-i18n="step3">3. Pahami jalur pengaruhnya</h3>
+      <p data-i18n="step3p">
+        Pertimbangkan bagaimana informasi dapat mengubah ekspektasi suku bunga, USD,
+        Treasury Yields, atau prospek pertumbuhan ekonomi.
+      </p>
+
+      <h3 data-i18n="step4">4. Amati konfirmasi harga</h3>
+      <p data-i18n="step4p">
+        Perhatikan respons harga, volatilitas, dan struktur pasar. Jangan menganggap satu
+        berita sebagai sinyal entry yang pasti.
+      </p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label" data-i18n="summary">Module Summary</div>
+      <p data-i18n="summaryp">
+        Ekonomi makro memberi kerangka untuk memahami alasan pasar bergerak. Gunakan data
+        untuk membangun konteks, lalu evaluasi respons harga dan tetap prioritaskan
+        manajemen risiko.
+      </p>
+    </div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="section-number" data-i18n="knowledge">Knowledge Check</div>
+    <h2 data-i18n="quiztitle">Uji Pemahaman Kamu</h2>
+
+    <p class="quiz-intro" data-i18n="quizintro">
+      Jawab 5 pertanyaan berikut. Kamu perlu memperoleh nilai minimal 80% atau 4 jawaban
+      benar untuk membuka Module 02.
+    </p>
+
+    <div class="quiz-progress" role="progressbar" aria-label="Quiz progress"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="quiz-progress-bar" id="progressBar"></div>
+    </div>
+
+    <form id="quizForm">
+      <div class="question-card" data-question="0">
+        <div class="question-number" data-i18n="qnum1">Question 01 of 05</div>
+        <h3 data-i18n="q1">Apa fokus utama ekonomi makro?</h3>
+
+        <div class="options">
+          <label class="option"><input type="radio" name="q0" value="0"><span data-i18n="q1a0">Mempelajari satu perusahaan secara terpisah.</span></label>
+          <label class="option"><input type="radio" name="q0" value="1"><span data-i18n="q1a1">Mempelajari kondisi ekonomi secara keseluruhan.</span></label>
+          <label class="option"><input type="radio" name="q0" value="2"><span data-i18n="q1a2">Menentukan entry trading tanpa analisis lain.</span></label>
+          <label class="option"><input type="radio" name="q0" value="3"><span data-i18n="q1a3">Memprediksi seluruh pergerakan harga dengan pasti.</span></label>
+        </div>
+
+        <div class="explanation" data-i18n="e1">
+          <strong>Pembahasan:</strong> Ekonomi makro mempelajari variabel agregat seperti
+          inflasi, pertumbuhan ekonomi, tenaga kerja, dan kebijakan moneter.
+        </div>
+      </div>
+
+      <div class="question-card" data-question="1">
+        <div class="question-number" data-i18n="qnum2">Question 02 of 05</div>
+        <h3 data-i18n="q2">Manakah yang merupakan indikator inflasi?</h3>
+
+        <div class="options">
+          <label class="option"><input type="radio" name="q1" value="0"><span data-i18n="q2a0">Jumlah saham yang diperdagangkan.</span></label>
+          <label class="option"><input type="radio" name="q1" value="1"><span data-i18n="q2a1">Harga pembukaan suatu instrumen.</span></label>
+          <label class="option"><input type="radio" name="q1" value="2"><span data-i18n="q2a2">Consumer Price Index (CPI).</span></label>
+          <label class="option"><input type="radio" name="q1" value="3"><span data-i18n="q2a3">Jumlah pending order trader.</span></label>
+        </div>
+
+        <div class="explanation" data-i18n="e2">
+          <strong>Pembahasan:</strong> CPI mengukur perubahan harga sekeranjang barang dan jasa
+          konsumen dan merupakan salah satu indikator yang digunakan untuk memantau inflasi.
+        </div>
+      </div>
+
+      <div class="question-card" data-question="2">
+        <div class="question-number" data-i18n="qnum3">Question 03 of 05</div>
+        <h3 data-i18n="q3">Mengapa keputusan The Fed dapat memengaruhi pasar?</h3>
+
+        <div class="options">
+          <label class="option"><input type="radio" name="q2" value="0"><span data-i18n="q3a0">Karena keputusan tersebut selalu membuat USD naik.</span></label>
+          <label class="option"><input type="radio" name="q2" value="1"><span data-i18n="q3a1">Karena keputusan tersebut menghilangkan semua risiko pasar.</span></label>
+          <label class="option"><input type="radio" name="q2" value="2"><span data-i18n="q3a2">Karena semua aset selalu bergerak dalam arah yang sama.</span></label>
+          <label class="option"><input type="radio" name="q2" value="3"><span data-i18n="q3a3">Karena keputusan tersebut dapat mengubah ekspektasi kebijakan moneter.</span></label>
+        </div>
+
+        <div class="explanation" data-i18n="e3">
+          <strong>Pembahasan:</strong> Kebijakan The Fed dapat mengubah ekspektasi suku bunga,
+          biaya pendanaan, dan valuasi aset. Arah reaksi pasar tetap bergantung pada konteks
+          dan ekspektasi sebelumnya.
+        </div>
+      </div>
+
+      <div class="question-card" data-question="3">
+        <div class="question-number" data-i18n="qnum4">Question 04 of 05</div>
+        <h3 data-i18n="q4">Jika CPI lebih tinggi dari perkiraan, apa yang sebaiknya dilakukan trader?</h3>
+
+        <div class="options">
+          <label class="option"><input type="radio" name="q3" value="0"><span data-i18n="q4a0">Langsung membeli USD tanpa melihat kondisi lain.</span></label>
+          <label class="option"><input type="radio" name="q3" value="1"><span data-i18n="q4a1">Menganggap emas pasti turun.</span></label>
+          <label class="option"><input type="radio" name="q3" value="2"><span data-i18n="q4a2">Mengevaluasi ekspektasi suku bunga, konteks pasar, dan respons harga.</span></label>
+          <label class="option"><input type="radio" name="q3" value="3"><span data-i18n="q4a3">Mengabaikan manajemen risiko karena berita sudah jelas.</span></label>
+        </div>
+
+        <div class="explanation" data-i18n="e4">
+          <strong>Pembahasan:</strong> Data CPI perlu dinilai bersama ekspektasi pasar, rincian
+          laporan, respons yields dan USD, serta kondisi harga. Angka yang tinggi tidak
+          menjamin satu arah pasar.
+        </div>
+      </div>
+
+      <div class="question-card" data-question="4">
+        <div class="question-number" data-i18n="qnum5">Question 05 of 05</div>
+        <h3 data-i18n="q5">Apakah berita ekonomi selalu menentukan arah harga?</h3>
+
+        <div class="options">
+          <label class="option"><input type="radio" name="q4" value="0"><span data-i18n="q5a0">Ya, harga selalu mengikuti berita secara langsung.</span></label>
+          <label class="option"><input type="radio" name="q4" value="1"><span data-i18n="q5a1">Tidak. Ekspektasi, posisi pasar, likuiditas, dan faktor lain juga berpengaruh.</span></label>
+          <label class="option"><input type="radio" name="q4" value="2"><span data-i18n="q5a2">Ya, terutama pada semua rilis berita berdampak tinggi.</span></label>
+          <label class="option"><input type="radio" name="q4" value="3"><span data-i18n="q5a3">Tidak, karena data ekonomi tidak pernah berpengaruh.</span></label>
+        </div>
+
+        <div class="explanation" data-i18n="e5">
+          <strong>Pembahasan:</strong> Berita merupakan salah satu faktor penggerak pasar.
+          Reaksi aktual dipengaruhi ekspektasi, kondisi likuiditas, positioning, dan
+          perkembangan lain.
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" type="submit" id="submitQuiz" data-i18n="submit">KIRIM JAWABAN →</button>
+        <button class="btn" type="button" id="retryQuiz" hidden data-i18n="retry">COBA LAGI</button>
+      </div>
+    </form>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-status" id="resultStatus" data-i18n="quizresult">HASIL KUIS</div>
+      <div class="result-score" id="resultScore">0/100</div>
+      <p class="result-message" id="resultMessage"></p>
+    </div>
+
+    <div class="next-panel" id="nextPanel">
+      <h3 data-i18n="completed">Module 01 Selesai</h3>
+      <p data-i18n="nextdesc">
+        Kamu telah memenuhi nilai minimum. Lanjutkan ke Module 02 untuk mempelajari
+        indikator ekonomi yang penting bagi pasar.
+      </p>
+      <a class="btn btn-primary" href="macro-02.html" id="nextModule" data-i18n="nextbutton">MODUL 02 BERIKUTNYA →</a>
+    </div>
+  </section>
+
+  <section class="premium-panel">
+    <div class="premium-label" data-i18n="beyond">Beyond the Basics</div>
+    <h2 data-i18n="premiumtitle">Advanced Macro Research</h2>
+    <p data-i18n="premiump">
+      Kembangkan pemahaman tentang hubungan antarindikator, ekspektasi kebijakan bank sentral,
+      Treasury Yields, USD, emas, dan respons lintas aset melalui studi kasus yang lebih
+      mendalam. Materi lanjutan akan tersedia pada pembelajaran Premium THE DESK Academy.
+    </p>
+  </section>
+
+  <nav class="bottom-navigation" aria-label="Navigasi modul">
+    <a class="btn" href="macro.html" data-i18n="backmodules">← KEMBALI KE MODUL MAKRO</a>
+    <a class="btn" href="academy.html" data-i18n="backacademy">KEMBALI KE ACADEMY</a>
+  </nav>
+
+  <footer>
+    <div><strong>THE DESK</strong> · Market Intelligence &amp; Education</div>
+    <div data-i18n="tagline">Understand the Market, Before You Trade It.</div>
+  </footer>
+</main>
+
+<script>
+(() => {
+  "use strict";
+
+  const LANGUAGE_KEY = "desk_language";
+  const PASS_KEY = "desk_macro_01_passed";
+
+  const form = document.getElementById("quizForm");
+  const submitButton = document.getElementById("submitQuiz");
+  const retryButton = document.getElementById("retryQuiz");
+  const result = document.getElementById("result");
+  const resultStatus = document.getElementById("resultStatus");
+  const resultScore = document.getElementById("resultScore");
+  const resultMessage = document.getElementById("resultMessage");
+  const nextPanel = document.getElementById("nextPanel");
+  const progressBar = document.getElementById("progressBar");
+  const progress = document.querySelector(".quiz-progress");
+
+  const correctAnswers = [1, 2, 3, 2, 1];
+  const passingScore = 80;
+
+  let submitted = false;
+  let lastScore = 0;
+
+  const translations = {
+    id: {
+      back:"← Kembali ke Macro &amp; News Impact",
+      eyebrow:"THE DESK ACADEMY · MODULE 01",
+      title:"Introduction to<br>Macroeconomics.",
+      description:"Memahami gambaran besar ekonomi, mengenali faktor yang memengaruhi pasar keuangan, dan mempelajari bagaimana data ekonomi dapat membentuk ekspektasi pelaku pasar.",
+      free:"FREE · BASIC",level:"BEGINNER",read:"8 MIN READ",
+      s1num:"01 · Macroeconomics",s1title:"Apa Itu Ekonomi Makro?",
+      s1p1:"Ekonomi makro adalah cabang ilmu ekonomi yang mempelajari kondisi perekonomian secara keseluruhan. Fokusnya mencakup pertumbuhan ekonomi, inflasi, tenaga kerja, konsumsi, investasi, serta kebijakan pemerintah dan bank sentral.",
+      s1p2:"Dalam pasar keuangan, informasi makro membantu pelaku pasar memahami kondisi ekonomi dan memperkirakan kemungkinan arah kebijakan moneter. Informasi tersebut dapat memengaruhi ekspektasi terhadap suku bunga, mata uang, obligasi, saham, dan komoditas seperti emas.",
+      key:"Key Insight",
+      s1insight:"Ekonomi makro membantu menjelaskan konteks di balik pergerakan pasar. Namun, data ekonomi bukan alat untuk memastikan arah harga berikutnya.",
+      s2num:"02 · Key Economic Factors",s2title:"Empat Faktor Ekonomi yang Perlu Dipahami",
+      factor1:"Factor 01",growth:"Pertumbuhan Ekonomi",growthp:"Menggambarkan perkembangan aktivitas ekonomi. Produk Domestik Bruto atau GDP merupakan salah satu indikator yang digunakan untuk mengukurnya.",
+      factor2:"Factor 02",inflation:"Inflasi",inflationp:"Mengukur kenaikan tingkat harga barang dan jasa secara umum. Inflasi dapat memengaruhi daya beli dan keputusan kebijakan moneter.",
+      factor3:"Factor 03",labor:"Pasar Tenaga Kerja",laborp:"Data pekerjaan, tingkat pengangguran, dan pertumbuhan upah membantu menunjukkan kondisi pasar tenaga kerja.",
+      factor4:"Factor 04",rates:"Suku Bunga",ratesp:"Suku bunga memengaruhi biaya pinjaman, keputusan investasi, dan daya tarik relatif berbagai aset keuangan.",
+      s2p:"Faktor-faktor tersebut saling berhubungan. Sebagai contoh, pertumbuhan ekonomi yang kuat dapat meningkatkan permintaan. Jika tekanan permintaan mendorong inflasi, bank sentral dapat mempertimbangkan kebijakan moneter yang lebih ketat. Namun, keputusan kebijakan tetap bergantung pada keseluruhan kondisi ekonomi.",
+      s3num:"03 · Central Banks",s3title:"Mengapa Bank Sentral Penting?",
+      s3p1:"Bank sentral memiliki peran penting dalam kebijakan moneter. Di Amerika Serikat, Federal Reserve atau The Fed menetapkan target suku bunga kebijakan dan menggunakan berbagai instrumen untuk mendukung mandatnya.",
+      s3p2:"Pelaku pasar memperhatikan keputusan suku bunga, pernyataan pejabat bank sentral, proyeksi ekonomi, dan konferensi pers. Informasi tersebut dapat mengubah perkiraan pasar mengenai arah kebijakan moneter berikutnya.",
+      example:"Contoh dalam Konteks Pasar",
+      s3example1:"Misalnya, data inflasi Amerika Serikat lebih tinggi daripada perkiraan pasar. Pelaku pasar dapat menilai bahwa The Fed memiliki alasan lebih kuat untuk mempertahankan suku bunga pada tingkat tinggi.",
+      s3example2:"Ekspektasi tersebut berpotensi memengaruhi USD, Treasury Yields, dan emas. Namun, reaksi aktual tidak selalu sama karena pasar juga mempertimbangkan ekspektasi sebelumnya, rincian data, posisi pelaku pasar, dan perkembangan lain.",
+      s3insight:"Pasar tidak hanya bereaksi terhadap keputusan bank sentral, tetapi juga terhadap perbedaan antara keputusan tersebut dan apa yang sebelumnya sudah diperkirakan.",
+      s4num:"04 · Market Relationships",s4title:"Hubungan Ekonomi Makro dengan Aset Keuangan",
+      s4p:"Informasi ekonomi dapat memengaruhi beberapa kelompok aset melalui jalur yang berbeda. Memahami hubungan ini membantu trader menyusun konteks sebelum membaca pergerakan harga.",
+      currencies:"Currencies",currencytitle:"Mata Uang",currencyp:"Perubahan ekspektasi suku bunga relatif antarnegara dapat memengaruhi daya tarik suatu mata uang.",
+      bonds:"Bonds",bondstitle:"Obligasi &amp; Yields",bondsp:"Ekspektasi suku bunga dan inflasi merupakan sebagian faktor yang memengaruhi imbal hasil obligasi.",
+      commodities:"Commodities",goldtitle:"Emas",goldp:"Emas dapat dipengaruhi oleh real yields, USD, permintaan aset aman, serta kondisi geopolitik dan likuiditas.",
+      equities:"Equities",equitiestitle:"Saham",equitiesp:"Pertumbuhan ekonomi, laba perusahaan, biaya pendanaan, dan tingkat diskonto dapat memengaruhi valuasi saham.",
+      s4p2:"Hubungan tersebut tidak bersifat tetap. Sebuah berita yang sama dapat menghasilkan respons berbeda tergantung pada kondisi pasar, ekspektasi, dan faktor lain yang sedang dominan.",
+      s5num:"05 · Practical Framework",s5title:"Cara Membaca Informasi Makro",
+      s5p:"Sebelum menarik kesimpulan dari sebuah berita ekonomi, gunakan kerangka sederhana berikut.",
+      step1:"1. Identifikasi data atau peristiwa",step1p:"Kenali apakah informasi berkaitan dengan inflasi, tenaga kerja, pertumbuhan ekonomi, atau kebijakan bank sentral.",
+      step2:"2. Periksa ekspektasi pasar",step2p:"Bandingkan hasil aktual dengan perkiraan yang tersedia. Jangan menilai angka secara terpisah dari konteksnya.",
+      step3:"3. Pahami jalur pengaruhnya",step3p:"Pertimbangkan bagaimana informasi dapat mengubah ekspektasi suku bunga, USD, Treasury Yields, atau prospek pertumbuhan ekonomi.",
+      step4:"4. Amati konfirmasi harga",step4p:"Perhatikan respons harga, volatilitas, dan struktur pasar. Jangan menganggap satu berita sebagai sinyal entry yang pasti.",
+      summary:"Module Summary",summaryp:"Ekonomi makro memberi kerangka untuk memahami alasan pasar bergerak. Gunakan data untuk membangun konteks, lalu evaluasi respons harga dan tetap prioritaskan manajemen risiko.",
+      knowledge:"Knowledge Check",quiztitle:"Uji Pemahaman Kamu",
+      quizintro:"Jawab 5 pertanyaan berikut. Kamu perlu memperoleh nilai minimal 80% atau 4 jawaban benar untuk membuka Module 02.",
+      qnum1:"Question 01 of 05",q1:"Apa fokus utama ekonomi makro?",
+      q1a0:"Mempelajari satu perusahaan secara terpisah.",q1a1:"Mempelajari kondisi ekonomi secara keseluruhan.",q1a2:"Menentukan entry trading tanpa analisis lain.",q1a3:"Memprediksi seluruh pergerakan harga dengan pasti.",
+      e1:"<strong>Pembahasan:</strong> Ekonomi makro mempelajari variabel agregat seperti inflasi, pertumbuhan ekonomi, tenaga kerja, dan kebijakan moneter.",
+      qnum2:"Question 02 of 05",q2:"Manakah yang merupakan indikator inflasi?",
+      q2a0:"Jumlah saham yang diperdagangkan.",q2a1:"Harga pembukaan suatu instrumen.",q2a2:"Consumer Price Index (CPI).",q2a3:"Jumlah pending order trader.",
+      e2:"<strong>Pembahasan:</strong> CPI mengukur perubahan harga sekeranjang barang dan jasa konsumen dan merupakan salah satu indikator yang digunakan untuk memantau inflasi.",
+      qnum3:"Question 03 of 05",q3:"Mengapa keputusan The Fed dapat memengaruhi pasar?",
+      q3a0:"Karena keputusan tersebut selalu membuat USD naik.",q3a1:"Karena keputusan tersebut menghilangkan semua risiko pasar.",q3a2:"Karena semua aset selalu bergerak dalam arah yang sama.",q3a3:"Karena keputusan tersebut dapat mengubah ekspektasi kebijakan moneter.",
+      e3:"<strong>Pembahasan:</strong> Kebijakan The Fed dapat mengubah ekspektasi suku bunga, biaya pendanaan, dan valuasi aset. Arah reaksi pasar tetap bergantung pada konteks dan ekspektasi sebelumnya.",
+      qnum4:"Question 04 of 05",q4:"Jika CPI lebih tinggi dari perkiraan, apa yang sebaiknya dilakukan trader?",
+      q4a0:"Langsung membeli USD tanpa melihat kondisi lain.",q4a1:"Menganggap emas pasti turun.",q4a2:"Mengevaluasi ekspektasi suku bunga, konteks pasar, dan respons harga.",q4a3:"Mengabaikan manajemen risiko karena berita sudah jelas.",
+      e4:"<strong>Pembahasan:</strong> Data CPI perlu dinilai bersama ekspektasi pasar, rincian laporan, respons yields dan USD, serta kondisi harga. Angka yang tinggi tidak menjamin satu arah pasar.",
+      qnum5:"Question 05 of 05",q5:"Apakah berita ekonomi selalu menentukan arah harga?",
+      q5a0:"Ya, harga selalu mengikuti berita secara langsung.",q5a1:"Tidak. Ekspektasi, posisi pasar, likuiditas, dan faktor lain juga berpengaruh.",q5a2:"Ya, terutama pada semua rilis berita berdampak tinggi.",q5a3:"Tidak, karena data ekonomi tidak pernah berpengaruh.",
+      e5:"<strong>Pembahasan:</strong> Berita merupakan salah satu faktor penggerak pasar. Reaksi aktual dipengaruhi ekspektasi, kondisi likuiditas, positioning, dan perkembangan lain.",
+      submit:"KIRIM JAWABAN →",retry:"COBA LAGI",quizresult:"HASIL KUIS",
+      completed:"Module 01 Selesai",nextdesc:"Kamu telah memenuhi nilai minimum. Lanjutkan ke Module 02 untuk mempelajari indikator ekonomi yang penting bagi pasar.",
+      nextbutton:"MODUL 02 BERIKUTNYA →",beyond:"Beyond the Basics",premiumtitle:"Advanced Macro Research",
+      premiump:"Kembangkan pemahaman tentang hubungan antarindikator, ekspektasi kebijakan bank sentral, Treasury Yields, USD, emas, dan respons lintas aset melalui studi kasus yang lebih mendalam. Materi lanjutan akan tersedia pada pembelajaran Premium THE DESK Academy.",
+      backmodules:"← KEMBALI KE MODUL MAKRO",backacademy:"KEMBALI KE ACADEMY",tagline:"Understand the Market, Before You Trade It.",
+      missing:"Masih ada {n} pertanyaan yang belum dijawab. Lengkapi semua jawaban terlebih dahulu.",
+      passed:"Jawaban benar {score} dari {total}. Bagus! Kamu sudah memenuhi nilai minimum 80%.",
+      failed:"Jawaban benar {score} dari {total}. Nilai minimum adalah 80%. Pelajari pembahasan di atas, lalu coba lagi.",
+      passstatus:"LULUS · MODUL SELESAI",failstatus:"BELUM LULUS · COBA LAGI"
+    },
+    en: {
+      back:"← Back to Macro &amp; News Impact",eyebrow:"THE DESK ACADEMY · MODULE 01",
+      title:"Introduction to<br>Macroeconomics.",
+      description:"Understand the bigger economic picture, identify factors that influence financial markets, and learn how economic data can shape market expectations.",
+      free:"FREE · BASIC",level:"BEGINNER",read:"8 MIN READ",
+      s1num:"01 · Macroeconomics",s1title:"What Is Macroeconomics?",
+      s1p1:"Macroeconomics is the branch of economics that studies the economy as a whole. Its focus includes economic growth, inflation, employment, consumption, investment, and government and central-bank policies.",
+      s1p2:"In financial markets, macroeconomic information helps participants understand economic conditions and assess the possible direction of monetary policy. It can influence expectations for interest rates, currencies, bonds, equities, and commodities such as gold.",
+      key:"Key Insight",
+      s1insight:"Macroeconomics helps explain the context behind market movements. Economic data, however, cannot determine the next price direction with certainty.",
+      s2num:"02 · Key Economic Factors",s2title:"Four Economic Factors to Understand",
+      factor1:"Factor 01",growth:"Economic Growth",growthp:"Describes changes in economic activity. Gross Domestic Product (GDP) is one indicator used to measure it.",
+      factor2:"Factor 02",inflation:"Inflation",inflationp:"Measures the general increase in prices of goods and services. Inflation can affect purchasing power and monetary-policy decisions.",
+      factor3:"Factor 03",labor:"Labor Market",laborp:"Employment, unemployment, and wage-growth data help indicate labor-market conditions.",
+      factor4:"Factor 04",rates:"Interest Rates",ratesp:"Interest rates influence borrowing costs, investment decisions, and the relative attractiveness of financial assets.",
+      s2p:"These factors are interconnected. Strong economic growth, for example, can increase demand. If demand pressures push inflation higher, a central bank may consider tighter monetary policy. Policy decisions still depend on the overall economic picture.",
+      s3num:"03 · Central Banks",s3title:"Why Do Central Banks Matter?",
+      s3p1:"Central banks play an important role in monetary policy. In the United States, the Federal Reserve, or the Fed, sets a target policy rate and uses various tools to pursue its mandate.",
+      s3p2:"Market participants watch rate decisions, central-bank officials’ statements, economic projections, and press conferences. This information can change expectations about the future path of monetary policy.",
+      example:"A Market Example",
+      s3example1:"Suppose US inflation data comes in above market expectations. Participants may judge that the Fed has stronger reasons to keep interest rates elevated.",
+      s3example2:"Those expectations may affect the USD, Treasury yields, and gold. Actual reactions can differ because markets also consider prior expectations, report details, positioning, and other developments.",
+      s3insight:"Markets react not only to central-bank decisions, but also to the difference between those decisions and what had already been expected.",
+      s4num:"04 · Market Relationships",s4title:"How Macroeconomics Connects to Financial Assets",
+      s4p:"Economic information can affect asset classes through different channels. Understanding these relationships helps traders build context before interpreting price movements.",
+      currencies:"Currencies",currencytitle:"Currencies",currencyp:"Changes in relative interest-rate expectations between countries can influence a currency’s attractiveness.",
+      bonds:"Bonds",bondstitle:"Bonds &amp; Yields",bondsp:"Interest-rate and inflation expectations are among the factors that influence bond yields.",
+      commodities:"Commodities",goldtitle:"Gold",goldp:"Gold can be influenced by real yields, the USD, safe-haven demand, geopolitical conditions, and liquidity.",
+      equities:"Equities",equitiestitle:"Equities",equitiesp:"Economic growth, corporate earnings, funding costs, and discount rates can affect equity valuations.",
+      s4p2:"These relationships are not fixed. The same news can produce different responses depending on market conditions, expectations, and whichever factors are dominant.",
+      s5num:"05 · Practical Framework",s5title:"How to Read Macroeconomic Information",
+      s5p:"Before drawing conclusions from economic news, use this simple framework.",
+      step1:"1. Identify the data or event",step1p:"Determine whether the information relates to inflation, employment, economic growth, or central-bank policy.",
+      step2:"2. Check market expectations",step2p:"Compare the actual result with available forecasts. Do not assess a number in isolation from its context.",
+      step3:"3. Understand the transmission channel",step3p:"Consider how the information could change interest-rate expectations, the USD, Treasury yields, or the economic-growth outlook.",
+      step4:"4. Observe price confirmation",step4p:"Watch the price response, volatility, and market structure. Do not treat a single news release as a guaranteed entry signal.",
+      summary:"Module Summary",summaryp:"Macroeconomics provides a framework for understanding why markets move. Use data to build context, evaluate the price response, and keep risk management a priority.",
+      knowledge:"Knowledge Check",quiztitle:"Test Your Understanding",
+      quizintro:"Answer the five questions below. You need at least 80%, or four correct answers, to unlock Module 02.",
+      qnum1:"Question 01 of 05",q1:"What is the main focus of macroeconomics?",
+      q1a0:"Studying one company in isolation.",q1a1:"Studying the economy as a whole.",q1a2:"Choosing a trade entry without other analysis.",q1a3:"Predicting every price movement with certainty.",
+      e1:"<strong>Explanation:</strong> Macroeconomics studies aggregate variables such as inflation, economic growth, employment, and monetary policy.",
+      qnum2:"Question 02 of 05",q2:"Which of the following is an inflation indicator?",
+      q2a0:"The number of shares traded.",q2a1:"An instrument’s opening price.",q2a2:"Consumer Price Index (CPI).",q2a3:"The number of a trader’s pending orders.",
+      e2:"<strong>Explanation:</strong> CPI measures changes in the prices of a basket of consumer goods and services and is one indicator used to monitor inflation.",
+      qnum3:"Question 03 of 05",q3:"Why can a Fed decision affect markets?",
+      q3a0:"Because it always makes the USD rise.",q3a1:"Because it removes all market risk.",q3a2:"Because all assets always move in the same direction.",q3a3:"Because it can change monetary-policy expectations.",
+      e3:"<strong>Explanation:</strong> Fed policy can change rate expectations, funding costs, and asset valuations. The market response still depends on context and prior expectations.",
+      qnum4:"Question 04 of 05",q4:"If CPI is higher than expected, what should a trader do?",
+      q4a0:"Buy USD immediately without considering other conditions.",q4a1:"Assume gold must fall.",q4a2:"Evaluate rate expectations, market context, and the price response.",q4a3:"Ignore risk management because the news is clear.",
+      e4:"<strong>Explanation:</strong> CPI should be assessed alongside market expectations, report details, yields and USD responses, and price conditions. A high reading does not guarantee one market direction.",
+      qnum5:"Question 05 of 05",q5:"Does economic news always determine price direction?",
+      q5a0:"Yes, prices always follow news directly.",q5a1:"No. Expectations, positioning, liquidity, and other factors also matter.",q5a2:"Yes, especially for every high-impact release.",q5a3:"No, because economic data never matters.",
+      e5:"<strong>Explanation:</strong> News is one market driver. Actual reactions are influenced by expectations, liquidity conditions, positioning, and other developments.",
+      submit:"SUBMIT ANSWERS →",retry:"TRY AGAIN",quizresult:"QUIZ RESULT",
+      completed:"Module 01 Completed",nextdesc:"You have met the minimum score. Continue to Module 02 to learn about economic indicators that matter to markets.",
+      nextbutton:"NEXT MODULE 02 →",beyond:"Beyond the Basics",premiumtitle:"Advanced Macro Research",
+      premiump:"Develop a deeper understanding of relationships between indicators, central-bank policy expectations, Treasury yields, the USD, gold, and cross-asset reactions through more detailed case studies. Further material will be available in THE DESK Academy Premium learning path.",
+      backmodules:"← BACK TO MACRO MODULES",backacademy:"BACK TO ACADEMY",tagline:"Understand the Market, Before You Trade It.",
+      missing:"You still have {n} unanswered question(s). Please answer all questions first.",
+      passed:"You answered {score} out of {total} correctly. Great work! You reached the 80% pass mark.",
+      failed:"You answered {score} out of {total} correctly. The pass mark is 80%. Review the explanations and try again.",
+      passstatus:"PASSED · MODULE COMPLETED",failstatus:"NOT PASSED · TRY AGAIN"
+    }
+  };
+
+  function currentLanguage() {
+    try {
+      return localStorage.getItem(LANGUAGE_KEY) === "en" ? "en" : "id";
+    } catch (_) {
+      return "id";
+    }
+  }
+
+  function updateProgress() {
+    const answered = correctAnswers.reduce((count, _, index) => {
+      return count + (form.querySelector(`input[name="q${index}"]:checked`) ? 1 : 0);
+    }, 0);
+
+    const percentage = answered / correctAnswers.length * 100;
+    progressBar.style.width = `${percentage}%`;
+    progress.setAttribute("aria-valuenow", String(Math.round(percentage)));
+  }
+
+  function renderResult(score) {
+    const t = translations[currentLanguage()];
+    const percentage = Math.round(score / correctAnswers.length * 100);
+
+    resultStatus.textContent = percentage >= passingScore ? t.passstatus : t.failstatus;
+    resultScore.textContent = `${percentage}/100`;
+
+    resultMessage.textContent = (percentage >= passingScore ? t.passed : t.failed)
+      .replace("{score}", String(score))
+      .replace("{total}", String(correctAnswers.length));
+  }
+
+  function applyLanguage(language) {
+    const lang = language === "en" ? "en" : "id";
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      const key = node.dataset.i18n;
+
+      if (typeof t[key] === "string") {
+        node.innerHTML = t[key];
+      }
+    });
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+
+    try {
+      localStorage.setItem(LANGUAGE_KEY, lang);
+    } catch (_) {
+      // Language switching still works if browser storage is unavailable.
+    }
+
+    updateProgress();
+
+    if (submitted) {
+      renderResult(lastScore);
+    }
+  }
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => {
+      applyLanguage(button.dataset.lang);
+    });
+  });
+
+  form.addEventListener("change", (event) => {
+    if (event.target.matches('input[type="radio"]') && !submitted) {
+      updateProgress();
+    }
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (submitted) return;
+
+    const unanswered = correctAnswers.filter((_, index) => {
+      return !form.querySelector(`input[name="q${index}"]:checked`);
+    }).length;
+
+    if (unanswered > 0) {
+      alert(translations[currentLanguage()].missing.replace("{n}", String(unanswered)));
+      return;
+    }
+
+    let score = 0;
+
+    correctAnswers.forEach((answer, index) => {
+      const card = form.querySelector(`[data-question="${index}"]`);
+      const selected = form.querySelector(`input[name="q${index}"]:checked`);
+      const options = card.querySelectorAll(".option");
+
+      options.forEach((option) => {
+        const input = option.querySelector("input");
+        input.disabled = true;
+
+        if (Number(input.value) === answer) {
+          option.classList.add("correct");
+        }
+
+        if (input.checked && Number(input.value) !== answer) {
+          option.classList.add("incorrect");
+        }
+      });
+
+      if (Number(selected.value) === answer) {
+        score++;
+      }
+
+      card.querySelector(".explanation").classList.add("show");
+    });
+
+    submitted = true;
+    lastScore = score;
+
+    renderResult(score);
+    result.classList.add("show");
+
+    const passed = score / correctAnswers.length * 100 >= passingScore;
+
+    if (passed) {
+      nextPanel.classList.add("show");
+
+      try {
+        localStorage.setItem(PASS_KEY, "true");
+      } catch (_) {
+        // The quiz still works when storage is unavailable.
+      }
+    } else {
+      nextPanel.classList.remove("show");
+      retryButton.hidden = false;
+    }
+
+    submitButton.disabled = true;
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+
+  retryButton.addEventListener("click", () => {
+    form.reset();
+
+    form.querySelectorAll("input").forEach((input) => {
+      input.disabled = false;
+    });
+
+    form.querySelectorAll(".option").forEach((option) => {
+      option.classList.remove("correct", "incorrect");
+    });
+
+    form.querySelectorAll(".explanation").forEach((box) => {
+      box.classList.remove("show");
+    });
+
+    result.classList.remove("show");
+    nextPanel.classList.remove("show");
+    retryButton.hidden = true;
+    submitButton.disabled = false;
+    submitted = false;
+    lastScore = 0;
+
+    updateProgress();
+
+    document.getElementById("quiz").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+
+  applyLanguage(currentLanguage());
+})();
+</script>
 </body>
-
 </html>

@@ -1,985 +1,393 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 06 - DXY & Treasury Yields | THE DESK Academy</title>
-    <style>
-        :root {
-            --bg: #090b0e;
-            --panel: #11151a;
-            --panel2: #151a20;
-            --gold: #c9a45c;
-            --text: #edf0f4;
-            --muted: #a3adba;
-            --border: #292f37;
-            --green: #42c994;
-            --red: #f07878;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.75;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .topbar {
-            border-bottom: 1px solid var(--border);
-            background: #0d1014;
-            padding: 18px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .brand {
-            color: var(--gold);
-            font-size: 17px;
-            font-weight: 800;
-            letter-spacing: 3px;
-        }
-
-        .brand small {
-            display: block;
-            color: var(--muted);
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .top-link {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .top-link:hover {
-            color: var(--gold);
-        }
-
-        .container {
-            width: min(1000px, 90%);
-            margin: 0 auto;
-            padding: 42px 0 70px;
-        }
-
-        .breadcrumb {
-            font-size: 12px;
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--gold);
-        }
-
-        .eyebrow {
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: clamp(30px, 5vw, 46px);
-            line-height: 1.2;
-            margin: 12px 0 16px;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            color: var(--gold);
-            font-size: 23px;
-            line-height: 1.4;
-            margin: 0 0 16px;
-        }
-
-        h3 {
-            font-size: 16px;
-            margin: 0 0 8px;
-        }
-
-        p {
-            margin: 0 0 14px;
-        }
-
-        .lead {
-            max-width: 780px;
-            color: var(--muted);
-            font-size: 16px;
-        }
-
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 24px 0 34px;
-        }
-
-        .tag {
-            border: 1px solid var(--border);
-            color: var(--muted);
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 11px;
-        }
-
-        .tag.gold {
-            color: var(--gold);
-            border-color: #5d4b2e;
-        }
-
-        .article-section {
-            border: 1px solid var(--border);
-            background: var(--panel);
-            border-radius: 10px;
-            padding: 27px;
-            margin: 20px 0;
-        }
-
-        .muted {
-            color: var(--muted);
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin: 20px 0;
-        }
-
-        .concept {
-            background: var(--panel2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 18px;
-        }
-
-        .concept p {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 0;
-        }
-
-        .insight {
-            border-left: 3px solid var(--gold);
-            background: #19170f;
-            padding: 17px 20px;
-            margin: 18px 0;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .insight strong {
-            color: var(--gold);
-        }
-
-        .example-box {
-            background: #0d1115;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 18px;
-            margin: 16px 0;
-        }
-
-        .example-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .direction {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .direction>div {
-            padding: 16px;
-            background: var(--panel2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .bull {
-            color: var(--green);
-        }
-
-        .bear {
-            color: var(--red);
-        }
-
-        .checklist {
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        .checklist li {
-            margin: 8px 0;
-        }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .progress {
-            height: 5px;
-            background: #252b32;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 24px;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: var(--gold);
-            transition: width .2s ease;
-        }
-
-        .question {
-            border: 1px solid var(--border);
-            background: var(--panel2);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 14px 0;
-        }
-
-        .question-title {
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .option {
-            display: block;
-            padding: 11px 13px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            margin: 8px 0;
-            cursor: pointer;
-            color: var(--muted);
-            font-size: 14px;
-            transition: .15s ease;
-        }
-
-        .option:hover {
-            border-color: var(--gold);
-            color: var(--text);
-        }
-
-        .option input {
-            margin-right: 9px;
-            accent-color: var(--gold);
-        }
-
-        .option:has(input:checked) {
-            border-color: var(--gold);
-            color: var(--text);
-            background: #201b12;
-        }
-
-        .option.correct {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .option.wrong {
-            border-color: var(--red);
-            color: var(--red);
-        }
-
-        button {
-            border: 0;
-            background: var(--gold);
-            color: #101010;
-            font-weight: 800;
-            padding: 13px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        button:hover {
-            filter: brightness(1.08);
-        }
-
-        button.secondary {
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-        }
-
-        button:disabled {
-            opacity: .45;
-            cursor: not-allowed;
-        }
-
-        #result {
-            display: none;
-            margin-top: 22px;
-            padding: 22px;
-            border: 1px solid var(--border);
-            background: #0d1115;
-            border-radius: 8px;
-        }
-
-        #result h3 {
-            font-size: 20px;
-        }
-
-        .explanation {
-            display: none;
-            padding: 12px 14px;
-            margin-top: 10px;
-            background: #0c1014;
-            border-radius: 6px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .next-panel {
-            display: none;
-            border: 1px solid #5d4b2e;
-            background: linear-gradient(135deg, #19170f, #11151a);
-            border-radius: 10px;
-            padding: 24px;
-            margin-top: 24px;
-        }
-
-        .next-panel p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .button-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .premium {
-            border: 1px solid #5d4b2e;
-            background: #15130e;
-            padding: 22px;
-            border-radius: 8px;
-            margin-top: 28px;
-        }
-
-        .premium .label {
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .premium p {
-            color: var(--muted);
-            font-size: 13px;
-            margin: 8px 0 0;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            padding: 24px 5%;
-            text-align: center;
-            font-size: 11px;
-        }
-
-        @media (max-width: 650px) {
-            .container {
-                width: 92%;
-                padding-top: 28px;
-            }
-
-            .article-section {
-                padding: 20px;
-            }
-
-            .concept-grid,
-            .direction {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 06 - DXY & Treasury Yields | THE DESK Academy</title>
+<style>
+:root{--bg:#090b0e;--panel:#11151a;--panel2:#151a20;--gold:#c9a45c;--text:#edf0f4;--muted:#a3adba;--border:#292f37;--green:#42c994;--red:#f07878}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.75}
+a{color:inherit;text-decoration:none}
+.topbar{border-bottom:1px solid var(--border);background:#0d1014;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{color:var(--gold);font-size:17px;font-weight:800;letter-spacing:3px}
+.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;font-weight:500}
+.top-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top-link{color:var(--muted);font-size:13px}
+.top-link:hover,.breadcrumb a:hover{color:var(--gold)}
+
+/* Language switcher: compact sizing */
+.lang-switch{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--border);border-radius:5px;flex-shrink:0}
+.lang-switch button{min-width:32px;padding:5px 8px;border:0;border-radius:3px;background:transparent;color:var(--muted);font-size:11px;font-weight:700;line-height:1.3;cursor:pointer}
+.lang-switch button.active{background:var(--gold);color:#101010}
+.lang-switch button:hover{filter:brightness(1.08)}
+
+.container{width:min(1000px,90%);margin:0 auto;padding:42px 0 70px}
+.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:22px}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:12px 0 16px;letter-spacing:-1px}
+h2{color:var(--gold);font-size:23px;line-height:1.4;margin:0 0 16px}
+h3{font-size:16px;margin:0 0 8px}
+p{margin:0 0 14px}
+.lead{max-width:780px;color:var(--muted);font-size:16px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 34px}
+.tag{border:1px solid var(--border);color:var(--muted);border-radius:4px;padding:5px 10px;font-size:11px}
+.tag.gold{color:var(--gold);border-color:#5d4b2e}
+.article-section{border:1px solid var(--border);background:var(--panel);border-radius:10px;padding:27px;margin:20px 0}
+.muted{color:var(--muted)}
+.concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+.concept{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:18px}
+.concept p{color:var(--muted);font-size:13px;margin-bottom:0}
+.insight{border-left:3px solid var(--gold);background:#19170f;padding:17px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+.insight strong{color:var(--gold)}
+.example-box{background:#0d1115;border:1px solid var(--border);border-radius:8px;padding:18px;margin:16px 0}
+.example-box p:last-child{margin-bottom:0}
+.direction{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.direction>div{padding:16px;background:var(--panel2);border:1px solid var(--border);border-radius:8px}
+.bull{color:var(--green)}
+.bear{color:var(--red)}
+.checklist{padding-left:20px;color:var(--muted)}
+.checklist li{margin:8px 0}
+.quiz-header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.progress{height:5px;background:#252b32;border-radius:10px;overflow:hidden;margin-bottom:24px}
+.progress-bar{width:0%;height:100%;background:var(--gold);transition:width .2s ease}
+.question{border:1px solid var(--border);background:var(--panel2);padding:20px;border-radius:8px;margin:14px 0}
+.question-title{font-weight:700;margin-bottom:12px}
+.option{display:block;padding:11px 13px;border:1px solid var(--border);border-radius:6px;margin:8px 0;cursor:pointer;color:var(--muted);font-size:14px;transition:.15s ease}
+.option:hover{border-color:var(--gold);color:var(--text)}
+.option input{margin-right:9px;accent-color:var(--gold)}
+.option:has(input:checked){border-color:var(--gold);color:var(--text);background:#201b12}
+.option.correct{border-color:var(--green);color:var(--green)}
+.option.wrong{border-color:var(--red);color:var(--red)}
+button{border:0;background:var(--gold);color:#101010;font-weight:800;padding:13px 20px;border-radius:5px;cursor:pointer;font-size:13px}
+button:hover{filter:brightness(1.08)}
+button.secondary{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+button:disabled{opacity:.45;cursor:not-allowed}
+#result{display:none;margin-top:22px;padding:22px;border:1px solid var(--border);background:#0d1115;border-radius:8px}
+#result h3{font-size:20px}
+.explanation{display:none;padding:12px 14px;margin-top:10px;background:#0c1014;border-radius:6px;color:var(--muted);font-size:13px}
+.next-panel{display:none;border:1px solid #5d4b2e;background:linear-gradient(135deg,#19170f,#11151a);border-radius:10px;padding:24px;margin-top:24px}
+.next-panel p{color:var(--muted);font-size:14px}
+.button-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.premium{border:1px solid #5d4b2e;background:#15130e;padding:22px;border-radius:8px;margin-top:28px}
+.premium .label{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:2px}
+.premium p{color:var(--muted);font-size:13px;margin:8px 0 0}
+footer{border-top:1px solid var(--border);color:var(--muted);padding:24px 5%;text-align:center;font-size:11px}
+
+@media(max-width:650px){
+ .container{width:92%;padding-top:28px}
+ .article-section{padding:20px}
+ .concept-grid,.direction{grid-template-columns:1fr}
+ h1{font-size:32px}
+ .topbar{align-items:center}
+ .top-actions{width:100%;justify-content:space-between;gap:10px}
+ .top-link{font-size:12px}
+ .lang-switch{gap:2px;padding:3px}
+ .lang-switch button{min-width:30px;padding:5px 7px;font-size:10px}
+}
+</style>
 </head>
-
 <body>
-
-    <header class="topbar">
-        <a class="brand" href="academy.html">
-            THE DESK
-            <small>MARKET INTELLIGENCE ACADEMY</small>
-        </a>
-        <a class="top-link" href="macro.html">← Kembali ke Macro Learning</a>
-    </header>
-
-    <main class="container">
-
-        <div class="breadcrumb">
-            <a href="academy.html">Academy</a> /
-            <a href="macro.html">Macro & News Impact</a> /
-            Module 06
-        </div>
-
-        <div class="eyebrow">MACRO & NEWS IMPACT · MODULE 06</div>
-        <h1>DXY & Treasury Yields</h1>
-        <p class="lead">
-            Memahami hubungan US Dollar Index, imbal hasil obligasi pemerintah AS,
-            dan Gold untuk membaca kondisi pasar dengan perspektif makro yang lebih luas.
-        </p>
-
-        <div class="meta">
-            <span class="tag gold">INTERMEDIATE</span>
-            <span class="tag">Estimasi 12–15 menit</span>
-            <span class="tag">5 Quiz Questions</span>
-        </div>
-
-        <section class="article-section">
-            <h2>01. Apa Itu DXY?</h2>
-            <p>
-                <strong>US Dollar Index (DXY)</strong> mengukur nilai dolar AS terhadap
-                sekeranjang mata uang utama. Indeks ini sering digunakan sebagai salah
-                satu referensi untuk menilai kekuatan atau kelemahan USD secara relatif.
-            </p>
-            <p>
-                DXY bukan ukuran dolar terhadap seluruh mata uang di dunia. Komposisi
-                indeksnya memiliki bobot tertentu, sehingga pergerakan DXY dapat
-                dipengaruhi oleh dinamika mata uang yang menjadi komponennya.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>USD Strength</h3>
-                    <p>
-                        DXY yang naik menunjukkan dolar menguat terhadap keranjang mata
-                        uang yang digunakan dalam indeks.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>USD Weakness</h3>
-                    <p>
-                        DXY yang turun menunjukkan dolar melemah secara relatif terhadap
-                        keranjang mata uang tersebut.
-                    </p>
-                </div>
-            </div>
-
-            <div class="insight">
-                <strong>Key Principle:</strong>
-                DXY membantu membaca kekuatan USD, tetapi tidak menjelaskan seluruh
-                alasan pergerakan harga. Perhatikan konteks suku bunga, pertumbuhan,
-                risiko global, dan posisi pasar.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>02. Apa Itu US Treasury Yields?</h2>
-            <p>
-                US Treasury adalah surat utang yang diterbitkan pemerintah Amerika
-                Serikat. <strong>Treasury yield</strong> adalah imbal hasil yang
-                terkait dengan obligasi tersebut.
-            </p>
-            <p>
-                Yield dapat berubah mengikuti harga obligasi, ekspektasi suku bunga,
-                prospek inflasi dan pertumbuhan, serta premi risiko. Untuk analisis
-                makro, trader sering memperhatikan yield tenor 2 tahun dan 10 tahun.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>2-Year Treasury Yield</h3>
-                    <p>
-                        Cenderung sensitif terhadap ekspektasi kebijakan suku bunga
-                        jangka pendek dan arah kebijakan The Fed.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>10-Year Treasury Yield</h3>
-                    <p>
-                        Mencerminkan kombinasi ekspektasi suku bunga jangka panjang,
-                        inflasi, pertumbuhan, dan premi risiko.
-                    </p>
-                </div>
-            </div>
-
-            <div class="insight">
-                <strong>Important:</strong>
-                Yield yang naik tidak otomatis berarti harga obligasi naik.
-                Secara umum, harga obligasi dan yield bergerak berlawanan arah.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>03. Nominal Yield vs Real Yield</h2>
-            <p>
-                Untuk memahami Gold, membedakan nominal yield dan real yield
-                merupakan langkah penting.
-            </p>
-
-            <div class="concept-grid">
-                <div class="concept">
-                    <h3>Nominal Yield</h3>
-                    <p>
-                        Imbal hasil obligasi sebelum memperhitungkan inflasi.
-                        Angka ini dipengaruhi ekspektasi suku bunga, inflasi, dan faktor lain.
-                    </p>
-                </div>
-                <div class="concept">
-                    <h3>Real Yield</h3>
-                    <p>
-                        Imbal hasil setelah memperhitungkan inflasi. Dalam praktik,
-                        real yield sering diukur menggunakan yield obligasi yang
-                        disesuaikan terhadap inflasi.
-                    </p>
-                </div>
-            </div>
-
-            <div class="example-box">
-                <h3>Contoh Sederhana</h3>
-                <p>
-                    Jika nominal yield naik tetapi ekspektasi inflasi juga naik,
-                    perubahan real yield bisa berbeda dari perubahan nominal yield.
-                </p>
-                <p class="muted">
-                    Karena itu, hanya melihat Treasury yield nominal belum tentu cukup
-                    untuk menjelaskan reaksi Gold.
-                </p>
-            </div>
-
-            <div class="insight">
-                <strong>Market Insight:</strong>
-                Gold tidak memberikan bunga atau kupon. Ketika real yield meningkat,
-                aset berbunga dapat menjadi relatif lebih menarik. Namun, permintaan
-                safe haven dan faktor lain dapat mengubah hubungan tersebut.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>04. Hubungan DXY, Yield, dan XAUUSD</h2>
-            <p>
-                DXY dan Treasury Yields sering digunakan bersama untuk menganalisis
-                Gold. Keduanya memberi informasi berbeda: DXY mencerminkan kekuatan
-                USD secara relatif, sedangkan yield mencerminkan kondisi pasar obligasi
-                dan ekspektasi makro.
-            </p>
-
-            <div class="direction">
-                <div>
-                    <h3 class="bear">DXY Menguat</h3>
-                    <p class="muted">
-                        Dolar yang lebih kuat dapat memberi tekanan pada Gold yang
-                        dihargai dalam USD, jika faktor lain relatif tetap.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="bear">Real Yield Meningkat</h3>
-                    <p class="muted">
-                        Kenaikan real yield dapat meningkatkan biaya peluang memegang
-                        Gold yang tidak memberikan bunga.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="bull">DXY Melemah</h3>
-                    <p class="muted">
-                        Dolar yang lebih lemah dapat mendukung Gold, tetapi reaksi
-                        tetap bergantung pada konteks pasar.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="bull">Real Yield Menurun</h3>
-                    <p class="muted">
-                        Penurunan real yield dapat mengurangi biaya peluang memegang
-                        Gold dan berpotensi memberi dukungan pada harga.
-                    </p>
-                </div>
-            </div>
-
-            <div class="insight">
-                <strong>Jangan Menganggap Korelasi sebagai Hukum:</strong>
-                DXY, yield, dan Gold tidak selalu bergerak sesuai hubungan yang umum
-                terlihat. Ketika ketidakpastian meningkat, Gold dapat menguat bersamaan
-                dengan USD atau yield karena faktor lain mendominasi.
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>05. Membaca Kombinasi Pergerakan Pasar</h2>
-            <p>
-                Kombinasi DXY dan yield dapat membantu menyusun hipotesis. Gunakan
-                kombinasi tersebut sebagai konteks, bukan sinyal entry otomatis.
-            </p>
-
-            <div class="example-box">
-                <h3>Skenario A: DXY Naik, Yield Naik</h3>
-                <p>
-                    USD menguat dan yield meningkat. Jika kenaikan yield juga disertai
-                    peningkatan real yield, kondisi ini dapat menjadi tekanan tambahan
-                    bagi Gold.
-                </p>
-                <p class="muted">
-                    Yang perlu diperiksa: apakah penguatan USD dan yield berasal dari
-                    ekspektasi kebijakan yang lebih ketat atau faktor lain?
-                </p>
-            </div>
-
-            <div class="example-box">
-                <h3>Skenario B: DXY Turun, Yield Turun</h3>
-                <p>
-                    USD melemah dan yield menurun. Kombinasi ini dapat mendukung Gold,
-                    khususnya jika penurunan yield berkaitan dengan turunnya ekspektasi
-                    real yield.
-                </p>
-                <p class="muted">
-                    Yang perlu diperiksa: apakah pasar sedang merespons inflasi yang
-                    melandai, prospek pelonggaran kebijakan, atau kekhawatiran pertumbuhan?
-                </p>
-            </div>
-
-            <div class="example-box">
-                <h3>Skenario C: DXY Naik, Gold Juga Naik</h3>
-                <p>
-                    Kondisi ini bukan sesuatu yang mustahil. Permintaan safe haven,
-                    risiko geopolitik, pembelian bank sentral, atau faktor lain dapat
-                    mendukung Gold meskipun USD menguat.
-                </p>
-                <p class="muted">
-                    Yang perlu diperiksa: faktor mana yang sedang paling dominan
-                    memengaruhi permintaan Gold?
-                </p>
-            </div>
-        </section>
-
-        <section class="article-section">
-            <h2>06. Framework Analisis untuk XAUUSD</h2>
-            <p>
-                Sebelum menyusun market view Gold, gunakan urutan pemeriksaan berikut.
-            </p>
-
-            <div class="example-box">
-                <h3>Macro Checklist</h3>
-                <ol class="checklist">
-                    <li>Periksa arah DXY dan struktur pergerakannya.</li>
-                    <li>Periksa Treasury yield, terutama tenor 2 tahun dan 10 tahun.</li>
-                    <li>Jika tersedia, periksa arah real yield.</li>
-                    <li>Identifikasi data ekonomi atau komunikasi The Fed yang memicu pergerakan.</li>
-                    <li>Periksa apakah hubungan antar-aset saling mengonfirmasi atau justru berbeda.</li>
-                    <li>Gunakan struktur harga XAUUSD untuk menentukan level dan validasi entry.</li>
-                    <li>Tetapkan risiko sebelum masuk pasar.</li>
-                </ol>
-            </div>
-
-            <div class="insight">
-                <strong>Practical Rule:</strong>
-                Macro membantu menjawab mengapa pasar mungkin bergerak. Price action
-                membantu menentukan di mana dan kapan sebuah setup layak dipertimbangkan.
-            </div>
-
-            <p class="muted">
-                Data DXY dan yield dapat berbeda sumber, waktu pembaruan, serta
-                metodologinya. Pastikan membandingkan data dengan timestamp yang sesuai.
-            </p>
-        </section>
-
-        <section class="article-section" id="quiz">
-            <div class="quiz-header">
-                <div>
-                    <div class="eyebrow">KNOWLEDGE CHECK</div>
-                    <h2 style="margin: 6px 0 0;">Module 06 Quiz</h2>
-                </div>
-                <span class="tag gold">Passing Score: 80%</span>
-            </div>
-
-            <p class="muted">
-                Jawab lima pertanyaan berikut. Minimal empat jawaban benar diperlukan
-                untuk membuka modul berikutnya.
-            </p>
-
-            <div class="progress">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-
-            <form id="quizForm">
-
-                <div class="question">
-                    <div class="question-title">1. Apa yang diukur oleh DXY?</div>
-                    <label class="option"><input type="radio" name="q0" value="0"> Nilai USD terhadap keranjang mata
-                        uang utama.</label>
-                    <label class="option"><input type="radio" name="q0" value="1"> Harga emas terhadap perak
-                        saja.</label>
-                    <label class="option"><input type="radio" name="q0" value="2"> Tingkat inflasi global secara
-                        langsung.</label>
-                    <label class="option"><input type="radio" name="q0" value="3"> Imbal hasil seluruh obligasi
-                        dunia.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">2. Apa hubungan umum harga obligasi dan yield?</div>
-                    <label class="option"><input type="radio" name="q1" value="0"> Selalu naik bersamaan.</label>
-                    <label class="option"><input type="radio" name="q1" value="1"> Secara umum bergerak berlawanan
-                        arah.</label>
-                    <label class="option"><input type="radio" name="q1" value="2"> Tidak pernah berubah.</label>
-                    <label class="option"><input type="radio" name="q1" value="3"> Tidak memiliki hubungan sama
-                        sekali.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">3. Mengapa real yield relevan untuk analisis Gold?</div>
-                    <label class="option"><input type="radio" name="q2" value="0"> Karena Gold selalu memberikan
-                        bunga.</label>
-                    <label class="option"><input type="radio" name="q2" value="1"> Karena real yield menentukan harga
-                        Gold secara pasti.</label>
-                    <label class="option"><input type="radio" name="q2" value="2"> Karena real yield membantu menilai
-                        biaya peluang memegang Gold.</label>
-                    <label class="option"><input type="radio" name="q2" value="3"> Karena real yield sama persis dengan
-                        DXY.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">4. Jika DXY dan real yield meningkat, apa yang dapat terjadi pada Gold?
-                    </div>
-                    <label class="option"><input type="radio" name="q3" value="0"> Gold pasti naik tanpa
-                        pengecualian.</label>
-                    <label class="option"><input type="radio" name="q3" value="1"> Gold tidak mungkin bergerak.</label>
-                    <label class="option"><input type="radio" name="q3" value="2"> Tidak ada pengaruh apa pun terhadap
-                        pasar.</label>
-                    <label class="option"><input type="radio" name="q3" value="3"> Gold dapat menghadapi tekanan, tetapi
-                        hasil akhirnya bergantung pada konteks.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">5. Bagaimana cara terbaik menggunakan DXY dan yield?</div>
-                    <label class="option"><input type="radio" name="q4" value="0"> Menggunakannya sebagai satu-satunya
-                        sinyal entry.</label>
-                    <label class="option"><input type="radio" name="q4" value="1"> Mengabaikan struktur harga
-                        Gold.</label>
-                    <label class="option"><input type="radio" name="q4" value="2"> Menggunakannya sebagai konteks makro
-                        bersama price action dan manajemen risiko.</label>
-                    <label class="option"><input type="radio" name="q4" value="3"> Menganggap korelasi selalu
-                        tetap.</label>
-                    <div class="explanation"></div>
-                </div>
-
-                <button type="submit" id="submitBtn">SUBMIT ANSWERS</button>
-                <button type="button" class="secondary" id="retryBtn" style="display:none;">TRY AGAIN</button>
-            </form>
-
-            <div id="result" aria-live="polite">
-                <h3 id="resultTitle"></h3>
-                <p id="resultText"></p>
-            </div>
-
-            <div class="next-panel" id="nextPanel">
-                <div class="eyebrow">MODULE COMPLETED</div>
-                <h2 style="margin-top:8px;">Excellent Work.</h2>
-                <p>
-                    Kamu telah menyelesaikan DXY & Treasury Yields.
-                    Selanjutnya, pelajari bagaimana membaca dampak berita terhadap pasar.
-                </p>
-                <div class="button-row">
-                    <a href="macro-07.html"><button type="button">NEXT MODULE →</button></a>
-                    <a href="macro.html"><button type="button" class="secondary">MACRO CATALOG</button></a>
-                </div>
-            </div>
-        </section>
-
-        <div class="premium">
-            <div class="label">THE DESK · PREMIUM RESEARCH</div>
-            <h3 style="margin-top:8px;">Advanced Macro Research</h3>
-            <p>
-                Pendalaman hubungan antar-aset, real yield, kebijakan bank sentral,
-                dan perubahan ekspektasi pasar untuk menyusun market view yang lebih
-                terstruktur.
-            </p>
-        </div>
-
-        <div class="button-row">
-            <a href="macro-05.html"><button type="button" class="secondary">← PREVIOUS MODULE</button></a>
-            <a href="macro.html"><button type="button" class="secondary">BACK TO MACRO</button></a>
-            <a href="academy.html"><button type="button" class="secondary">ACADEMY HOME</button></a>
-        </div>
-
-    </main>
-
-    <footer>
-        THE DESK Academy · Understand the Market, Before You Trade It.
-        <br>
-        Educational content only. Not financial advice.
-    </footer>
-
-    <script>
-        const correctAnswers = [0, 1, 2, 3, 2];
-
-        const explanations = [
-            "DXY mengukur nilai USD terhadap sekeranjang mata uang utama, bukan terhadap seluruh mata uang dunia.",
-            "Secara umum, ketika harga obligasi naik, yield turun; ketika harga obligasi turun, yield naik.",
-            "Gold tidak memberikan bunga. Real yield membantu menilai daya tarik relatif aset berbunga dibandingkan Gold.",
-            "DXY dan real yield yang meningkat dapat menekan Gold, tetapi permintaan safe haven dan faktor lain dapat mengubah hasilnya.",
-            "DXY dan yield memberi konteks makro. Struktur harga dan manajemen risiko tetap penting untuk keputusan trading."
-        ];
-
-        const form = document.getElementById("quizForm");
-        const questions = [...document.querySelectorAll(".question")];
-        const progressBar = document.getElementById("progressBar");
-        const result = document.getElementById("result");
-        const resultTitle = document.getElementById("resultTitle");
-        const resultText = document.getElementById("resultText");
-        const submitBtn = document.getElementById("submitBtn");
-        const retryBtn = document.getElementById("retryBtn");
-        const nextPanel = document.getElementById("nextPanel");
-
-        function updateProgress() {
-            let answered = 0;
-
-            questions.forEach((question, index) => {
-                if (form.querySelector(`input[name="q${index}"]:checked`)) {
-                    answered++;
-                }
-            });
-
-            progressBar.style.width = `${(answered / questions.length) * 100}%`;
-        }
-
-        form.addEventListener("change", updateProgress);
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let score = 0;
-            let unanswered = [];
-
-            questions.forEach((question, index) => {
-                const selected = form.querySelector(`input[name="q${index}"]:checked`);
-                const options = [...question.querySelectorAll(".option")];
-                const explanation = question.querySelector(".explanation");
-
-                options.forEach(option => {
-                    option.classList.remove("correct", "wrong");
-                });
-
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    explanation.textContent = "";
-                    explanation.style.display = "none";
-                    return;
-                }
-
-                const selectedValue = Number(selected.value);
-
-                if (selectedValue === correctAnswers[index]) {
-                    score++;
-                }
-
-                options.forEach(option => {
-                    const input = option.querySelector("input");
-                    const value = Number(input.value);
-
-                    if (value === correctAnswers[index]) {
-                        option.classList.add("correct");
-                    }
-
-                    if (input.checked && value !== correctAnswers[index]) {
-                        option.classList.add("wrong");
-                    }
-                });
-
-                explanation.textContent = "Penjelasan: " + explanations[index];
-                explanation.style.display = "block";
-            });
-
-            if (unanswered.length > 0) {
-                result.style.display = "block";
-                resultTitle.textContent = "Quiz Belum Lengkap";
-                resultTitle.style.color = "var(--gold)";
-                resultText.textContent =
-                    "Jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: " +
-                    unanswered.join(", ") + ".";
-                nextPanel.style.display = "none";
-                return;
-            }
-
-            const percentage = Math.round((score / correctAnswers.length) * 100);
-
-            result.style.display = "block";
-            resultTitle.textContent =
-                `Your Score: ${score}/${correctAnswers.length} (${percentage}%)`;
-
-            if (percentage >= 80) {
-                resultTitle.style.color = "var(--green)";
-                resultText.textContent =
-                    "Lulus! Kamu memahami dasar DXY dan Treasury Yields. Modul berikutnya telah terbuka.";
-                nextPanel.style.display = "block";
-                retryBtn.style.display = "none";
-            } else {
-                resultTitle.style.color = "var(--red)";
-                resultText.textContent =
-                    "Belum mencapai standar kelulusan 80%. Pelajari penjelasan jawaban, lalu coba kembali.";
-                nextPanel.style.display = "none";
-                retryBtn.style.display = "inline-block";
-            }
-
-            submitBtn.disabled = true;
-
-            questions.forEach(question => {
-                question.querySelectorAll("input").forEach(input => {
-                    input.disabled = true;
-                });
-            });
-
-            result.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
-
-        retryBtn.addEventListener("click", function () {
-            form.reset();
-
-            questions.forEach(question => {
-                question.querySelectorAll("input").forEach(input => {
-                    input.disabled = false;
-                });
-
-                question.querySelectorAll(".option").forEach(option => {
-                    option.classList.remove("correct", "wrong");
-                });
-
-                const explanation = question.querySelector(".explanation");
-                explanation.textContent = "";
-                explanation.style.display = "none";
-            });
-
-            result.style.display = "none";
-            nextPanel.style.display = "none";
-            retryBtn.style.display = "none";
-            submitBtn.disabled = false;
-            progressBar.style.width = "0%";
-        });
-    </script>
-
+<header class="topbar">
+<a class="brand" href="academy.html">THE DESK<small>MARKET INTELLIGENCE ACADEMY</small></a>
+<div class="top-actions">
+<a class="top-link" href="macro.html" data-id="← Kembali ke Macro Learning" data-en="← Back to Macro Learning">← Kembali ke Macro Learning</a>
+<div class="lang-switch" aria-label="Language">
+<button type="button" id="langID" class="active">ID</button>
+<button type="button" id="langEN">EN</button>
+</div>
+</div>
+</header>
+
+<main class="container">
+<div class="breadcrumb"><a href="academy.html">Academy</a> / <a href="macro.html">Macro & News Impact</a> / <span data-id="Modul 06" data-en="Module 06">Modul 06</span></div>
+<div class="eyebrow">MACRO & NEWS IMPACT · MODULE 06</div>
+<h1>DXY & Treasury Yields</h1>
+<p class="lead" data-id="Memahami hubungan US Dollar Index, imbal hasil obligasi pemerintah AS, dan Gold untuk membaca kondisi pasar dengan perspektif makro yang lebih luas." data-en="Understand the relationship between the US Dollar Index, US Treasury yields, and Gold to read market conditions through a broader macro perspective.">Memahami hubungan US Dollar Index, imbal hasil obligasi pemerintah AS, dan Gold untuk membaca kondisi pasar dengan perspektif makro yang lebih luas.</p>
+<div class="meta">
+<span class="tag gold">INTERMEDIATE</span>
+<span class="tag" data-id="Estimasi 12–15 menit" data-en="Estimated 12–15 minutes">Estimasi 12–15 menit</span>
+<span class="tag" data-id="5 Pertanyaan Kuis" data-en="5 Quiz Questions">5 Pertanyaan Kuis</span>
+</div>
+
+<section class="article-section">
+<h2 data-id="01. Apa Itu DXY?" data-en="01. What Is DXY?">01. Apa Itu DXY?</h2>
+<p data-id="US Dollar Index (DXY) mengukur nilai dolar AS terhadap sekeranjang mata uang utama. Indeks ini sering digunakan sebagai salah satu referensi untuk menilai kekuatan atau kelemahan USD secara relatif." data-en="The US Dollar Index (DXY) measures the US dollar against a basket of major currencies. It is often used as one reference for assessing the dollar's relative strength or weakness.">US Dollar Index (DXY) mengukur nilai dolar AS terhadap sekeranjang mata uang utama. Indeks ini sering digunakan sebagai salah satu referensi untuk menilai kekuatan atau kelemahan USD secara relatif.</p>
+<p data-id="DXY bukan ukuran dolar terhadap seluruh mata uang di dunia. Komposisi indeksnya memiliki bobot tertentu, sehingga pergerakan DXY dapat dipengaruhi oleh dinamika mata uang yang menjadi komponennya." data-en="DXY does not measure the dollar against every currency in the world. Its components have specific weights, so its movement can be influenced by the currencies included in the index.">DXY bukan ukuran dolar terhadap seluruh mata uang di dunia. Komposisi indeksnya memiliki bobot tertentu, sehingga pergerakan DXY dapat dipengaruhi oleh dinamika mata uang yang menjadi komponennya.</p>
+<div class="concept-grid">
+<div class="concept"><h3>USD Strength</h3><p data-id="DXY yang naik menunjukkan dolar menguat terhadap keranjang mata uang yang digunakan dalam indeks." data-en="A rising DXY indicates that the dollar is strengthening against the basket of currencies used in the index.">DXY yang naik menunjukkan dolar menguat terhadap keranjang mata uang yang digunakan dalam indeks.</p></div>
+<div class="concept"><h3>USD Weakness</h3><p data-id="DXY yang turun menunjukkan dolar melemah secara relatif terhadap keranjang mata uang tersebut." data-en="A falling DXY indicates that the dollar is weakening relative to that currency basket.">DXY yang turun menunjukkan dolar melemah secara relatif terhadap keranjang mata uang tersebut.</p></div>
+</div>
+<div class="insight"><strong data-id="Prinsip Utama:" data-en="Key Principle:">Prinsip Utama:</strong> <span data-id="DXY membantu membaca kekuatan USD, tetapi tidak menjelaskan seluruh alasan pergerakan harga. Perhatikan konteks suku bunga, pertumbuhan, risiko global, dan posisi pasar." data-en="DXY helps assess USD strength, but it does not explain every price move. Consider interest rates, growth, global risk, and market positioning.">DXY membantu membaca kekuatan USD, tetapi tidak menjelaskan seluruh alasan pergerakan harga. Perhatikan konteks suku bunga, pertumbuhan, risiko global, dan posisi pasar.</span></div>
+</section>
+
+<section class="article-section">
+<h2 data-id="02. Apa Itu US Treasury Yields?" data-en="02. What Are US Treasury Yields?">02. Apa Itu US Treasury Yields?</h2>
+<p data-id="US Treasury adalah surat utang yang diterbitkan pemerintah Amerika Serikat. Treasury yield adalah imbal hasil yang terkait dengan obligasi tersebut." data-en="US Treasuries are debt securities issued by the United States government. Treasury yield is the return associated with those bonds.">US Treasury adalah surat utang yang diterbitkan pemerintah Amerika Serikat. Treasury yield adalah imbal hasil yang terkait dengan obligasi tersebut.</p>
+<p data-id="Yield dapat berubah mengikuti harga obligasi, ekspektasi suku bunga, prospek inflasi dan pertumbuhan, serta premi risiko. Untuk analisis makro, trader sering memperhatikan yield tenor 2 tahun dan 10 tahun." data-en="Yields can change with bond prices, interest-rate expectations, inflation and growth outlooks, and risk premiums. Macro traders often watch the 2-year and 10-year yields.">Yield dapat berubah mengikuti harga obligasi, ekspektasi suku bunga, prospek inflasi dan pertumbuhan, serta premi risiko. Untuk analisis makro, trader sering memperhatikan yield tenor 2 tahun dan 10 tahun.</p>
+<div class="concept-grid">
+<div class="concept"><h3>2-Year Treasury Yield</h3><p data-id="Cenderung sensitif terhadap ekspektasi kebijakan suku bunga jangka pendek dan arah kebijakan The Fed." data-en="It tends to be sensitive to short-term interest-rate expectations and the Federal Reserve's policy direction.">Cenderung sensitif terhadap ekspektasi kebijakan suku bunga jangka pendek dan arah kebijakan The Fed.</p></div>
+<div class="concept"><h3>10-Year Treasury Yield</h3><p data-id="Mencerminkan kombinasi ekspektasi suku bunga jangka panjang, inflasi, pertumbuhan, dan premi risiko." data-en="It reflects a combination of long-term interest-rate expectations, inflation, growth, and risk premiums.">Mencerminkan kombinasi ekspektasi suku bunga jangka panjang, inflasi, pertumbuhan, dan premi risiko.</p></div>
+</div>
+<div class="insight"><strong data-id="Penting:" data-en="Important:">Penting:</strong> <span data-id="Yield yang naik tidak otomatis berarti harga obligasi naik. Secara umum, harga obligasi dan yield bergerak berlawanan arah." data-en="Rising yields do not mean bond prices are rising. In general, bond prices and yields move in opposite directions.">Yield yang naik tidak otomatis berarti harga obligasi naik. Secara umum, harga obligasi dan yield bergerak berlawanan arah.</span></div>
+</section>
+
+<section class="article-section">
+<h2 data-id="03. Nominal Yield vs Real Yield" data-en="03. Nominal Yield vs. Real Yield">03. Nominal Yield vs Real Yield</h2>
+<p data-id="Untuk memahami Gold, membedakan nominal yield dan real yield merupakan langkah penting." data-en="Distinguishing nominal yields from real yields is an important step in understanding Gold.">Untuk memahami Gold, membedakan nominal yield dan real yield merupakan langkah penting.</p>
+<div class="concept-grid">
+<div class="concept"><h3>Nominal Yield</h3><p data-id="Imbal hasil obligasi sebelum memperhitungkan inflasi. Angka ini dipengaruhi ekspektasi suku bunga, inflasi, dan faktor lain." data-en="The bond yield before adjusting for inflation. It is influenced by interest-rate expectations, inflation, and other factors.">Imbal hasil obligasi sebelum memperhitungkan inflasi. Angka ini dipengaruhi ekspektasi suku bunga, inflasi, dan faktor lain.</p></div>
+<div class="concept"><h3>Real Yield</h3><p data-id="Imbal hasil setelah memperhitungkan inflasi. Dalam praktik, real yield sering diukur menggunakan yield obligasi yang disesuaikan terhadap inflasi." data-en="The yield after accounting for inflation. In practice, real yields are often measured using inflation-adjusted Treasury securities.">Imbal hasil setelah memperhitungkan inflasi. Dalam praktik, real yield sering diukur menggunakan yield obligasi yang disesuaikan terhadap inflasi.</p></div>
+</div>
+<div class="example-box"><h3 data-id="Contoh Sederhana" data-en="Simple Example">Contoh Sederhana</h3><p data-id="Jika nominal yield naik tetapi ekspektasi inflasi juga naik, perubahan real yield bisa berbeda dari perubahan nominal yield." data-en="If nominal yields rise while inflation expectations also rise, the change in real yields may differ from the change in nominal yields.">Jika nominal yield naik tetapi ekspektasi inflasi juga naik, perubahan real yield bisa berbeda dari perubahan nominal yield.</p><p class="muted" data-id="Karena itu, hanya melihat Treasury yield nominal belum tentu cukup untuk menjelaskan reaksi Gold." data-en="Therefore, nominal Treasury yields alone may not fully explain Gold's reaction.">Karena itu, hanya melihat Treasury yield nominal belum tentu cukup untuk menjelaskan reaksi Gold.</p></div>
+<div class="insight"><strong data-id="Market Insight:" data-en="Market Insight:">Market Insight:</strong> <span data-id="Gold tidak memberikan bunga atau kupon. Ketika real yield meningkat, aset berbunga dapat menjadi relatif lebih menarik. Namun, permintaan safe haven dan faktor lain dapat mengubah hubungan tersebut." data-en="Gold pays no interest or coupon. When real yields rise, interest-bearing assets may become relatively more attractive. However, safe-haven demand and other factors can change this relationship.">Gold tidak memberikan bunga atau kupon. Ketika real yield meningkat, aset berbunga dapat menjadi relatif lebih menarik. Namun, permintaan safe haven dan faktor lain dapat mengubah hubungan tersebut.</span></div>
+</section>
+
+<section class="article-section">
+<h2 data-id="04. Hubungan DXY, Yield, dan XAUUSD" data-en="04. The Relationship Between DXY, Yields, and XAUUSD">04. Hubungan DXY, Yield, dan XAUUSD</h2>
+<p data-id="DXY dan Treasury Yields sering digunakan bersama untuk menganalisis Gold. Keduanya memberi informasi berbeda: DXY mencerminkan kekuatan USD secara relatif, sedangkan yield mencerminkan kondisi pasar obligasi dan ekspektasi makro." data-en="DXY and Treasury yields are often used together to analyze Gold. They provide different information: DXY reflects the dollar's relative strength, while yields reflect bond-market conditions and macroeconomic expectations.">DXY dan Treasury Yields sering digunakan bersama untuk menganalisis Gold. Keduanya memberi informasi berbeda: DXY mencerminkan kekuatan USD secara relatif, sedangkan yield mencerminkan kondisi pasar obligasi dan ekspektasi makro.</p>
+<div class="direction">
+<div><h3 class="bear" data-id="DXY Menguat" data-en="DXY Strengthens">DXY Menguat</h3><p class="muted" data-id="Dolar yang lebih kuat dapat memberi tekanan pada Gold yang dihargai dalam USD, jika faktor lain relatif tetap." data-en="A stronger dollar can pressure Gold, which is priced in USD, if other factors remain relatively unchanged.">Dolar yang lebih kuat dapat memberi tekanan pada Gold yang dihargai dalam USD, jika faktor lain relatif tetap.</p></div>
+<div><h3 class="bear" data-id="Real Yield Meningkat" data-en="Real Yields Rise">Real Yield Meningkat</h3><p class="muted" data-id="Kenaikan real yield dapat meningkatkan biaya peluang memegang Gold yang tidak memberikan bunga." data-en="Higher real yields can increase the opportunity cost of holding non-interest-bearing Gold.">Kenaikan real yield dapat meningkatkan biaya peluang memegang Gold yang tidak memberikan bunga.</p></div>
+<div><h3 class="bull" data-id="DXY Melemah" data-en="DXY Weakens">DXY Melemah</h3><p class="muted" data-id="Dolar yang lebih lemah dapat mendukung Gold, tetapi reaksi tetap bergantung pada konteks pasar." data-en="A weaker dollar can support Gold, but the reaction still depends on market context.">Dolar yang lebih lemah dapat mendukung Gold, tetapi reaksi tetap bergantung pada konteks pasar.</p></div>
+<div><h3 class="bull" data-id="Real Yield Menurun" data-en="Real Yields Fall">Real Yield Menurun</h3><p class="muted" data-id="Penurunan real yield dapat mengurangi biaya peluang memegang Gold dan berpotensi memberi dukungan pada harga." data-en="Lower real yields can reduce the opportunity cost of holding Gold and potentially support its price.">Penurunan real yield dapat mengurangi biaya peluang memegang Gold dan berpotensi memberi dukungan pada harga.</p></div>
+</div>
+<div class="insight"><strong data-id="Jangan Menganggap Korelasi sebagai Hukum:" data-en="Correlation Is Not a Rule:">Jangan Menganggap Korelasi sebagai Hukum:</strong> <span data-id="DXY, yield, dan Gold tidak selalu bergerak sesuai hubungan yang umum terlihat. Ketika ketidakpastian meningkat, Gold dapat menguat bersamaan dengan USD atau yield karena faktor lain mendominasi." data-en="DXY, yields, and Gold do not always follow their typical relationships. During periods of uncertainty, Gold may rise alongside the USD or yields when other factors dominate.">DXY, yield, dan Gold tidak selalu bergerak sesuai hubungan yang umum terlihat. Ketika ketidakpastian meningkat, Gold dapat menguat bersamaan dengan USD atau yield karena faktor lain mendominasi.</span></div>
+</section>
+
+<section class="article-section">
+<h2 data-id="05. Membaca Kombinasi Pergerakan Pasar" data-en="05. Reading Market Combinations">05. Membaca Kombinasi Pergerakan Pasar</h2>
+<p data-id="Kombinasi DXY dan yield dapat membantu menyusun hipotesis. Gunakan kombinasi tersebut sebagai konteks, bukan sinyal entry otomatis." data-en="DXY and yield combinations can help build a hypothesis. Use them as context, not as automatic entry signals.">Kombinasi DXY dan yield dapat membantu menyusun hipotesis. Gunakan kombinasi tersebut sebagai konteks, bukan sinyal entry otomatis.</p>
+<div class="example-box"><h3 data-id="Skenario A: DXY Naik, Yield Naik" data-en="Scenario A: DXY Rises, Yields Rise">Skenario A: DXY Naik, Yield Naik</h3><p data-id="USD menguat dan yield meningkat. Jika kenaikan yield juga disertai peningkatan real yield, kondisi ini dapat menjadi tekanan tambahan bagi Gold." data-en="The USD strengthens and yields rise. If real yields also increase, this may add further pressure on Gold.">USD menguat dan yield meningkat. Jika kenaikan yield juga disertai peningkatan real yield, kondisi ini dapat menjadi tekanan tambahan bagi Gold.</p><p class="muted" data-id="Yang perlu diperiksa: apakah penguatan USD dan yield berasal dari ekspektasi kebijakan yang lebih ketat atau faktor lain?" data-en="Check whether USD strength and rising yields stem from tighter policy expectations or other factors.">Yang perlu diperiksa: apakah penguatan USD dan yield berasal dari ekspektasi kebijakan yang lebih ketat atau faktor lain?</p></div>
+<div class="example-box"><h3 data-id="Skenario B: DXY Turun, Yield Turun" data-en="Scenario B: DXY Falls, Yields Fall">Skenario B: DXY Turun, Yield Turun</h3><p data-id="USD melemah dan yield menurun. Kombinasi ini dapat mendukung Gold, khususnya jika penurunan yield berkaitan dengan turunnya ekspektasi real yield." data-en="The USD weakens and yields fall. This combination may support Gold, especially if falling yields reflect lower real-yield expectations.">USD melemah dan yield menurun. Kombinasi ini dapat mendukung Gold, khususnya jika penurunan yield berkaitan dengan turunnya ekspektasi real yield.</p><p class="muted" data-id="Yang perlu diperiksa: apakah pasar sedang merespons inflasi yang melandai, prospek pelonggaran kebijakan, atau kekhawatiran pertumbuhan?" data-en="Check whether markets are reacting to easing inflation, expected policy easing, or growth concerns.">Yang perlu diperiksa: apakah pasar sedang merespons inflasi yang melandai, prospek pelonggaran kebijakan, atau kekhawatiran pertumbuhan?</p></div>
+<div class="example-box"><h3 data-id="Skenario C: DXY Naik, Gold Juga Naik" data-en="Scenario C: DXY Rises, Gold Also Rises">Skenario C: DXY Naik, Gold Juga Naik</h3><p data-id="Kondisi ini bukan sesuatu yang mustahil. Permintaan safe haven, risiko geopolitik, pembelian bank sentral, atau faktor lain dapat mendukung Gold meskipun USD menguat." data-en="This is entirely possible. Safe-haven demand, geopolitical risks, central-bank purchases, or other factors can support Gold even when the USD strengthens.">Kondisi ini bukan sesuatu yang mustahil. Permintaan safe haven, risiko geopolitik, pembelian bank sentral, atau faktor lain dapat mendukung Gold meskipun USD menguat.</p><p class="muted" data-id="Yang perlu diperiksa: faktor mana yang sedang paling dominan memengaruhi permintaan Gold?" data-en="Check which factor is currently dominating Gold demand.">Yang perlu diperiksa: faktor mana yang sedang paling dominan memengaruhi permintaan Gold?</p></div>
+</section>
+
+<section class="article-section">
+<h2 data-id="06. Framework Analisis untuk XAUUSD" data-en="06. An XAUUSD Analysis Framework">06. Framework Analisis untuk XAUUSD</h2>
+<p data-id="Sebelum menyusun market view Gold, gunakan urutan pemeriksaan berikut." data-en="Before forming a market view on Gold, use the following checklist.">Sebelum menyusun market view Gold, gunakan urutan pemeriksaan berikut.</p>
+<div class="example-box">
+<h3>Macro Checklist</h3>
+<ol class="checklist">
+<li data-id="Periksa arah DXY dan struktur pergerakannya." data-en="Check DXY's direction and price structure.">Periksa arah DXY dan struktur pergerakannya.</li>
+<li data-id="Periksa Treasury yield, terutama tenor 2 tahun dan 10 tahun." data-en="Check Treasury yields, especially the 2-year and 10-year tenors.">Periksa Treasury yield, terutama tenor 2 tahun dan 10 tahun.</li>
+<li data-id="Jika tersedia, periksa arah real yield." data-en="If available, check the direction of real yields.">Jika tersedia, periksa arah real yield.</li>
+<li data-id="Identifikasi data ekonomi atau komunikasi The Fed yang memicu pergerakan." data-en="Identify the economic data or Fed communication driving the move.">Identifikasi data ekonomi atau komunikasi The Fed yang memicu pergerakan.</li>
+<li data-id="Periksa apakah hubungan antar-aset saling mengonfirmasi atau justru berbeda." data-en="Check whether cross-asset relationships confirm one another or diverge.">Periksa apakah hubungan antar-aset saling mengonfirmasi atau justru berbeda.</li>
+<li data-id="Gunakan struktur harga XAUUSD untuk menentukan level dan validasi entry." data-en="Use XAUUSD price structure to define levels and validate entries.">Gunakan struktur harga XAUUSD untuk menentukan level dan validasi entry.</li>
+<li data-id="Tetapkan risiko sebelum masuk pasar." data-en="Define risk before entering the market.">Tetapkan risiko sebelum masuk pasar.</li>
+</ol>
+</div>
+<div class="insight"><strong data-id="Aturan Praktis:" data-en="Practical Rule:">Aturan Praktis:</strong> <span data-id="Macro membantu menjawab mengapa pasar mungkin bergerak. Price action membantu menentukan di mana dan kapan sebuah setup layak dipertimbangkan." data-en="Macro helps explain why the market may move. Price action helps determine where and when a setup may be worth considering.">Macro membantu menjawab mengapa pasar mungkin bergerak. Price action membantu menentukan di mana dan kapan sebuah setup layak dipertimbangkan.</span></div>
+<p class="muted" data-id="Data DXY dan yield dapat berbeda sumber, waktu pembaruan, serta metodologinya. Pastikan membandingkan data dengan timestamp yang sesuai." data-en="DXY and yield data may differ by source, update time, and methodology. Compare data using aligned timestamps.">Data DXY dan yield dapat berbeda sumber, waktu pembaruan, serta metodologinya. Pastikan membandingkan data dengan timestamp yang sesuai.</p>
+</section>
+
+<section class="article-section" id="quiz">
+<div class="quiz-header">
+<div><div class="eyebrow">KNOWLEDGE CHECK</div><h2 style="margin:6px 0 0">Module 06 Quiz</h2></div>
+<span class="tag gold" data-id="Nilai Kelulusan: 80%" data-en="Passing Score: 80%">Nilai Kelulusan: 80%</span>
+</div>
+<p class="muted" data-id="Jawab lima pertanyaan berikut. Minimal empat jawaban benar diperlukan untuk membuka modul berikutnya." data-en="Answer the five questions below. At least four correct answers are required to unlock the next module.">Jawab lima pertanyaan berikut. Minimal empat jawaban benar diperlukan untuk membuka modul berikutnya.</p>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<form id="quizForm">
+<div id="questionsContainer"></div>
+<button type="submit" id="submitBtn" data-id="KIRIM JAWABAN" data-en="SUBMIT ANSWERS">KIRIM JAWABAN</button>
+<button type="button" class="secondary" id="retryBtn" style="display:none" data-id="COBA LAGI" data-en="TRY AGAIN">COBA LAGI</button>
+</form>
+<div id="result" aria-live="polite"><h3 id="resultTitle"></h3><p id="resultText"></p></div>
+<div class="next-panel" id="nextPanel">
+<div class="eyebrow" data-id="MODUL SELESAI" data-en="MODULE COMPLETED">MODUL SELESAI</div>
+<h2 style="margin-top:8px" data-id="Kerja Bagus." data-en="Excellent Work.">Kerja Bagus.</h2>
+<p data-id="Kamu telah menyelesaikan DXY & Treasury Yields. Selanjutnya, pelajari bagaimana membaca dampak berita terhadap pasar." data-en="You have completed DXY & Treasury Yields. Next, learn how to interpret the impact of news on markets.">Kamu telah menyelesaikan DXY & Treasury Yields. Selanjutnya, pelajari bagaimana membaca dampak berita terhadap pasar.</p>
+<div class="button-row">
+<a href="macro-07.html"><button type="button" data-id="MODUL BERIKUTNYA →" data-en="NEXT MODULE →">MODUL BERIKUTNYA →</button></a>
+<a href="macro.html"><button type="button" class="secondary" data-id="KATALOG MACRO" data-en="MACRO CATALOG">KATALOG MACRO</button></a>
+</div>
+</div>
+</section>
+
+<div class="premium">
+<div class="label">THE DESK · PREMIUM RESEARCH</div>
+<h3 style="margin-top:8px" data-id="Riset Macro Lanjutan" data-en="Advanced Macro Research">Riset Macro Lanjutan</h3>
+<p data-id="Pendalaman hubungan antar-aset, real yield, kebijakan bank sentral, dan perubahan ekspektasi pasar untuk menyusun market view yang lebih terstruktur." data-en="Explore cross-asset relationships, real yields, central-bank policy, and shifting market expectations to build a more structured market view.">Pendalaman hubungan antar-aset, real yield, kebijakan bank sentral, dan perubahan ekspektasi pasar untuk menyusun market view yang lebih terstruktur.</p>
+</div>
+
+<div class="button-row">
+<a href="macro-05.html"><button type="button" class="secondary" data-id="← MODUL SEBELUMNYA" data-en="← PREVIOUS MODULE">← MODUL SEBELUMNYA</button></a>
+<a href="macro.html"><button type="button" class="secondary" data-id="KEMBALI KE MACRO" data-en="BACK TO MACRO">KEMBALI KE MACRO</button></a>
+<a href="academy.html"><button type="button" class="secondary" data-id="BERANDA ACADEMY" data-en="ACADEMY HOME">BERANDA ACADEMY</button></a>
+</div>
+</main>
+
+<footer>THE DESK Academy · Understand the Market, Before You Trade It.<br>Educational content only. Not financial advice.</footer>
+
+<script>
+const quizData = [
+ {q:{id:"1. Apa yang diukur oleh DXY?",en:"1. What does DXY measure?"},o:[
+  {id:"Nilai USD terhadap keranjang mata uang utama.",en:"The USD against a basket of major currencies."},
+  {id:"Harga emas terhadap perak saja.",en:"The price of Gold against Silver only."},
+  {id:"Tingkat inflasi global secara langsung.",en:"The global inflation rate directly."},
+  {id:"Imbal hasil seluruh obligasi dunia.",en:"Yields on all bonds worldwide."}],a:0,e:{id:"DXY mengukur nilai USD terhadap sekeranjang mata uang utama, bukan terhadap seluruh mata uang dunia.",en:"DXY measures the USD against a basket of major currencies, not every currency in the world."}},
+ {q:{id:"2. Apa hubungan umum harga obligasi dan yield?",en:"2. What is the general relationship between bond prices and yields?"},o:[
+  {id:"Selalu naik bersamaan.",en:"They always rise together."},
+  {id:"Secara umum bergerak berlawanan arah.",en:"They generally move in opposite directions."},
+  {id:"Tidak pernah berubah.",en:"They never change."},
+  {id:"Tidak memiliki hubungan sama sekali.",en:"They have no relationship at all."}],a:1,e:{id:"Secara umum, ketika harga obligasi naik, yield turun; ketika harga obligasi turun, yield naik.",en:"Generally, when bond prices rise, yields fall; when bond prices fall, yields rise."}},
+ {q:{id:"3. Mengapa real yield relevan untuk analisis Gold?",en:"3. Why is real yield relevant to Gold analysis?"},o:[
+  {id:"Karena Gold selalu memberikan bunga.",en:"Because Gold always pays interest."},
+  {id:"Karena real yield menentukan harga Gold secara pasti.",en:"Because real yield determines Gold's price with certainty."},
+  {id:"Karena real yield membantu menilai biaya peluang memegang Gold.",en:"Because real yield helps assess the opportunity cost of holding Gold."},
+  {id:"Karena real yield sama persis dengan DXY.",en:"Because real yield is exactly the same as DXY."}],a:2,e:{id:"Gold tidak memberikan bunga. Real yield membantu menilai daya tarik relatif aset berbunga dibandingkan Gold.",en:"Gold pays no interest. Real yield helps assess the relative appeal of interest-bearing assets versus Gold."}},
+ {q:{id:"4. Jika DXY dan real yield meningkat, apa yang dapat terjadi pada Gold?",en:"4. If DXY and real yields rise, what may happen to Gold?"},o:[
+  {id:"Gold pasti naik tanpa pengecualian.",en:"Gold must rise without exception."},
+  {id:"Gold tidak mungkin bergerak.",en:"Gold cannot move."},
+  {id:"Tidak ada pengaruh apa pun terhadap pasar.",en:"There is no effect on the market."},
+  {id:"Gold dapat menghadapi tekanan, tetapi hasil akhirnya bergantung pada konteks.",en:"Gold may face pressure, but the outcome depends on context."}],a:3,e:{id:"DXY dan real yield yang meningkat dapat menekan Gold, tetapi permintaan safe haven dan faktor lain dapat mengubah hasilnya.",en:"A stronger DXY and higher real yields can pressure Gold, but safe-haven demand and other factors can change the outcome."}},
+ {q:{id:"5. Bagaimana cara terbaik menggunakan DXY dan yield?",en:"5. What is the best way to use DXY and yields?"},o:[
+  {id:"Menggunakannya sebagai satu-satunya sinyal entry.",en:"Use them as the only entry signal."},
+  {id:"Mengabaikan struktur harga Gold.",en:"Ignore Gold's price structure."},
+  {id:"Menggunakannya sebagai konteks makro bersama price action dan manajemen risiko.",en:"Use them as macro context alongside price action and risk management."},
+  {id:"Menganggap korelasi selalu tetap.",en:"Assume correlations never change."}],a:2,e:{id:"DXY dan yield memberi konteks makro. Struktur harga dan manajemen risiko tetap penting untuk keputusan trading.",en:"DXY and yields provide macro context. Price structure and risk management remain important for trading decisions."}}
+];
+
+const form=document.getElementById("quizForm");
+const questionsContainer=document.getElementById("questionsContainer");
+const progressBar=document.getElementById("progressBar");
+const result=document.getElementById("result");
+const resultTitle=document.getElementById("resultTitle");
+const resultText=document.getElementById("resultText");
+const submitBtn=document.getElementById("submitBtn");
+const retryBtn=document.getElementById("retryBtn");
+const nextPanel=document.getElementById("nextPanel");
+const PASS_KEY="desk_macro_06_passed";
+const LANG_KEY="desk_language";
+
+let language=localStorage.getItem(LANG_KEY)==="en"?"en":"id";
+let submitted=false;
+let lastScore=null;
+let answers={};
+
+const tr=obj=>obj[language];
+
+function renderQuestions(){
+ questionsContainer.innerHTML=quizData.map((q,i)=>`
+  <div class="question">
+   <div class="question-title">${tr(q.q)}</div>
+   ${q.o.map((o,j)=>`
+    <label class="option">
+     <input type="radio" name="q${i}" value="${j}" ${answers[i]===j?"checked":""} ${submitted?"disabled":""}>
+     ${tr(o)}
+    </label>`).join("")}
+   <div class="explanation" style="${submitted?"display:block":"display:none"}">${submitted?`${language==="id"?"Penjelasan: ":"Explanation: "}${tr(q.e)}`:""}</div>
+  </div>`).join("");
+ if(submitted)paintResults();
+ updateProgress();
+}
+
+function updateProgress(){
+ const answered=Object.keys(answers).length;
+ progressBar.style.width=`${answered/quizData.length*100}%`;
+}
+
+function paintResults(){
+ [...questionsContainer.querySelectorAll(".question")].forEach((question,i)=>{
+  question.querySelectorAll(".option").forEach((option,j)=>{
+   option.classList.remove("correct","wrong");
+   if(j===quizData[i].a)option.classList.add("correct");
+   if(answers[i]===j&&j!==quizData[i].a)option.classList.add("wrong");
+  });
+ });
+}
+
+function setLanguage(next){
+ language=next;
+ localStorage.setItem(LANG_KEY,language);
+ document.documentElement.lang=language;
+ document.querySelectorAll("[data-id][data-en]").forEach(el=>{
+  el.textContent=el.dataset[language];
+ });
+ document.getElementById("langID").classList.toggle("active",language==="id");
+ document.getElementById("langEN").classList.toggle("active",language==="en");
+ renderQuestions();
+ if(submitted&&lastScore!==null)showResult(lastScore);
+}
+
+document.getElementById("langID").addEventListener("click",()=>setLanguage("id"));
+document.getElementById("langEN").addEventListener("click",()=>setLanguage("en"));
+
+form.addEventListener("change",e=>{
+ if(e.target.matches('input[type="radio"]')){
+  const i=Number(e.target.name.slice(1));
+  answers[i]=Number(e.target.value);
+  updateProgress();
+ }
+});
+
+function showResult(score){
+ const pct=Math.round(score/quizData.length*100);
+ result.style.display="block";
+ resultTitle.textContent=language==="id"
+  ?`Nilai Kamu: ${score}/${quizData.length} (${pct}%)`
+  :`Your Score: ${score}/${quizData.length} (${pct}%)`;
+
+ if(pct>=80){
+  resultTitle.style.color="var(--green)";
+  resultText.textContent=language==="id"
+   ?"Lulus! Kamu memahami dasar DXY dan Treasury Yields. Modul berikutnya telah terbuka."
+   :"Passed! You understand the basics of DXY and Treasury yields. The next module is unlocked.";
+  nextPanel.style.display="block";
+  retryBtn.style.display="none";
+  localStorage.setItem(PASS_KEY,"true");
+ }else{
+  resultTitle.style.color="var(--red)";
+  resultText.textContent=language==="id"
+   ?"Belum mencapai standar kelulusan 80%. Pelajari penjelasan jawaban, lalu coba kembali."
+   :"You have not reached the 80% passing score. Review the explanations and try again.";
+  nextPanel.style.display="none";
+  retryBtn.style.display="inline-block";
+ }
+}
+
+form.addEventListener("submit",e=>{
+ e.preventDefault();
+ const missing=quizData.map((_,i)=>i).filter(i=>answers[i]===undefined);
+
+ if(missing.length){
+  result.style.display="block";
+  resultTitle.style.color="var(--gold)";
+  resultTitle.textContent=language==="id"?"Kuis Belum Lengkap":"Quiz Incomplete";
+  resultText.textContent=language==="id"
+   ?`Jawab semua pertanyaan terlebih dahulu. Nomor yang belum dijawab: ${missing.map(i=>i+1).join(", ")}.`
+   :`Please answer every question first. Unanswered: ${missing.map(i=>i+1).join(", ")}.`;
+  return;
+ }
+
+ lastScore=quizData.reduce((sum,q,i)=>sum+(answers[i]===q.a?1:0),0);
+ submitted=true;
+ renderQuestions();
+ submitBtn.disabled=true;
+ showResult(lastScore);
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+retryBtn.addEventListener("click",()=>{
+ answers={};
+ submitted=false;
+ lastScore=null;
+ form.reset();
+ submitBtn.disabled=false;
+ result.style.display="none";
+ nextPanel.style.display="none";
+ retryBtn.style.display="none";
+ renderQuestions();
+});
+
+if(localStorage.getItem(PASS_KEY)==="true"){
+ nextPanel.style.display="block";
+}
+
+setLanguage(language);
+</script>
 </body>
-
 </html>
